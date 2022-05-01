@@ -1,0 +1,16 @@
+# temporary files
+*.o
+*.d
+*.bc
+*.i
+*.s
+*.a
+*.exe
+.vscode/*.log
+tmp
+
+# push_swap specific
+src/*
+!src/Makefile
+!src/*.h
+!src/*.c
