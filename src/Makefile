@@ -41,7 +41,7 @@ CC := cc
 CCLD := cc
 else
 
-CFLAGS += -std=c99 -pedantic
+CFLAGS += -std=c99 -pedantic -MMD
 
 PROFILE ?= release
 ifeq ($(PROFILE),release)
@@ -72,10 +72,10 @@ $(TMP_DIR)/%.a:
 	$Q$(AR) rcs $@ $^
 $(TMP_DIR)/%.exe:
 	$Qmkdir -p $(@D)
-	$Q$(CCLD) -o $@ $(LDFLAGS) $^
+	$Q$(CCLD) $(LDFLAGS) -o $@ $^
 $(TMP_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) -c $< -o $@ -MMD
+	$Q$(CC) $(CFLAGS) -o $@ -c $<
 
 $(TMP_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(TMP_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(TMP_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(TMP_DIR)/libft$(SUFFIX).a
@@ -84,4 +84,7 @@ $(EXECUTABLE_TARGETS): %: $(TMP_DIR)/%$(SUFFIX).exe
 	$Qcp $< $@
 .PHONY: $(EXECUTABLE_TARGETS)
 
+# dependencies
+ifneq ($(MOULINETTE_MODE),1)
 -include $(TMP_DIR)/$(SRCS:.c=$(SUFFIX).d)
+endif
