@@ -9,6 +9,8 @@ SRCS_LIBFT := $(filter-out $(SRCS_PUSH_SWAP) $(SRCS_CHECKER), $(SRCS))
 
 NAME := push_swap
 NAME_CHECKER := checker
+EXECUTABLE_TARGETS := $(NAME) $(NAME_CHECKER)
+
 OTHER_USEFUL_FILES := .editorconfig .gitignore
 
 CC := clang
@@ -23,7 +25,7 @@ bonus: $(NAME_CHECKER)
 clean:
 	$Qrm -rf $(TMPS)
 fclean: clean
-	$Qrm -f $(NAME)
+	$Qrm -f $(EXECUTABLE_TARGETS)
 re:
 	$Q$(MAKE) fclean
 	$Q$(MAKE) all
@@ -78,10 +80,8 @@ $(TMP_DIR)/%$(SUFFIX).o: %.c
 $(TMP_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(TMP_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(TMP_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(TMP_DIR)/libft$(SUFFIX).a
 $(TMP_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(SRCS_CHECKER) $(TMP_DIR)/libft$(SUFFIX).a
-$(NAME): $(TMP_DIR)/$(NAME)$(SUFFIX).exe
+$(EXECUTABLE_TARGETS): %: $(TMP_DIR)/%$(SUFFIX).exe
 	$Qcp $< $@
-$(NAME_CHECKER): $(TMP_DIR)/$(NAME_CHECKER)$(SUFFIX).exe
-	$Qcp $< $@
-.PHONY: $(NAME) $(NAME_CHECKER)
+.PHONY: $(EXECUTABLE_TARGETS)
 
 -include $(TMP_DIR)/$(SRCS:.c=$(SUFFIX).d)
