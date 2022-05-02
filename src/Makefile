@@ -17,8 +17,8 @@ CC := clang
 CCLD := clang
 AR := ar
 CFLAGS := -Wall -Wextra -Werror
-TMP_DIR := tmp
-TMPS := $(OTHER_USEFUL_FILES) $(TMP_DIR)
+OBJ_DIR := .cache
+TMPS := $(OTHER_USEFUL_FILES) $(OBJ_DIR)
 
 all: $(NAME) $(OTHER_USEFUL_FILES)
 bonus: $(NAME_CHECKER)
@@ -34,7 +34,7 @@ re:
 .editorconfig:
 	$Qprintf "root = true\n\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = tab\ninsert_final_newline = true\ntrim_trailing_whitespace = true\n" > .editorconfig
 .gitignore:
-	$Qprintf ".*\ntmp\n\n$$(echo "$(EXECUTABLE_TARGETS)" | xargs -n 1 echo)\n" > $@
+	$Qprintf ".*\n$(OBJ_DIR)\n\n$$(echo "$(EXECUTABLE_TARGETS)" | xargs -n 1 echo)\n" > $@
 
 ifeq ($(MOULINETTE_MODE),1)
 CC := cc
@@ -67,24 +67,24 @@ LDFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 
 endif
 
-$(TMP_DIR)/%.a:
+$(OBJ_DIR)/%.a:
 	$Qmkdir -p $(@D)
 	$Q$(AR) rcs $@ $^
-$(TMP_DIR)/%.exe:
+$(OBJ_DIR)/%.exe:
 	$Qmkdir -p $(@D)
 	$Q$(CCLD) $(LDFLAGS) -o $@ $^
-$(TMP_DIR)/%$(SUFFIX).o: %.c
+$(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
 	$Q$(CC) $(CFLAGS) -o $@ -c $<
 
-$(TMP_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(TMP_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
-$(TMP_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(TMP_DIR)/libft$(SUFFIX).a
-$(TMP_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(SRCS_CHECKER) $(TMP_DIR)/libft$(SUFFIX).a
-$(EXECUTABLE_TARGETS): %: $(TMP_DIR)/%$(SUFFIX).exe
+$(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
+$(OBJ_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(OBJ_DIR)/libft$(SUFFIX).a
+$(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(SRCS_CHECKER) $(OBJ_DIR)/libft$(SUFFIX).a
+$(EXECUTABLE_TARGETS): %: $(OBJ_DIR)/%$(SUFFIX).exe
 	$Qcp $< $@
 .PHONY: $(EXECUTABLE_TARGETS)
 
 # dependencies
 ifneq ($(MOULINETTE_MODE),1)
--include $(TMP_DIR)/$(SRCS:.c=$(SUFFIX).d)
+-include $(OBJ_DIR)/$(SRCS:.c=$(SUFFIX).d)
 endif
