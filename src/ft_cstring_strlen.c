@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cstring_length.c                                :+:      :+:    :+:   */
+/*   ft_cstring_strlen.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:00:11 by jmaing            #+#    #+#             */
-/*   Updated: 2022/04/22 12:59:46 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 15:02:01 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,7 @@
 
 #include <limits.h>
 
-static void	bake(const char *set, bool include_null, char *out)
-{
-	size_t				i;
-	const unsigned char	*tmp;
-
-	i = 0;
-	while (i < 2 << CHAR_BIT)
-		out[i++] = 0;
-	if (include_null || !set)
-		out[0] = 1;
-	if (!set)
-		return ;
-	tmp = (const unsigned char *) set;
-	while (*tmp)
-		out[*tmp++] = 1;
-}
+#include "ft_byte_map.h"
 
 size_t	ft_strlen(const char *str)
 {
@@ -44,51 +29,27 @@ size_t	ft_strlen(const char *str)
 	return (result);
 }
 
-size_t	ft_strlen_until(
+size_t	ft_strlen_until_set(
 	const char *str,
 	const char *set,
 	bool include_null
 )
 {
-	size_t	result;
-	char	baked[2 << CHAR_BIT];
+	t_byte	map[1 << CHAR_BIT];
 
-	bake(set, include_null, baked);
-	result = 0;
-	while (!baked[*((const unsigned char *) str)])
-	{
-		str++;
-		result++;
-	}
-	return (result);
+	ft_byte_map((t_byte *) set, map, include_null);
+	return (ft_strlen_until_map(str, map));
 }
 
-size_t	ft_strnlen(const char *str, size_t max_len)
-{
-	size_t	result;
-
-	result = 0;
-	while (*str && max_len > result)
-	{
-		str++;
-		result++;
-	}
-	return (result);
-}
-
-size_t	ft_strnlen_until(
+size_t	ft_strlen_until_map(
 	const char *str,
-	const char *set,
-	size_t max_len,
-	bool include_null
+	const t_byte *map
 )
 {
 	size_t	result;
-	char	baked[2 << CHAR_BIT];
 
-	bake(set, include_null, baked);
 	result = 0;
-	while (max_len > result && !baked[*((const unsigned char *) str)])
+	while (!map[*((t_byte *) str)])
 	{
 		str++;
 		result++;

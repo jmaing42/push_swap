@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_byte_map.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 05:01:05 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 13:24:11 by jmaing           ###   ########.fr       */
+/*   Created: 2022/05/02 14:52:10 by jmaing            #+#    #+#             */
+/*   Updated: 2022/05/02 14:54:44 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#ifndef FT_BYTE_MAP_H
+# define FT_BYTE_MAP_H
 
-# include <stdbool.h>
+# include "ft_types.h"
 
-typedef bool			t_err;
-typedef unsigned char	t_byte;
+void	ft_byte_map(const t_byte *set, t_byte *map, bool include_null);
 
 #endif

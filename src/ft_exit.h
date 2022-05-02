@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_types.h                                         :+:      :+:    :+:   */
+/*   ft_exit.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/22 05:01:05 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 13:24:11 by jmaing           ###   ########.fr       */
+/*   Created: 2022/05/02 14:10:15 by jmaing            #+#    #+#             */
+/*   Updated: 2022/05/02 14:21:13 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TYPES_H
-# define FT_TYPES_H
+#ifndef FT_EXIT_H
+# define FT_EXIT_H
 
-# include <stdbool.h>
+# include <stdlib.h>
 
-typedef bool			t_err;
-typedef unsigned char	t_byte;
+int		ft_exit(signed char status);
+void	*ft_atexit(void (*cleanup)());
+void	ft_atexit_cancel(void *handle);
 
 #endif

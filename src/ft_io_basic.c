@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 16:50:32 by jmaing            #+#    #+#             */
-/*   Updated: 2022/04/25 14:15:47 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 15:08:31 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ t_err	ft_puts_prefix(
 
 	while (true)
 	{
-		length = ft_strlen_until(str, "\n", true);
+		length = ft_strlen_until_set(str, "\n", true);
 		if (ft_write(fd, str, length, out_exception))
 			return (true);
 		str += length;
