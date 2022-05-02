@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_cstring_strchp.c                                :+:      :+:    :+:   */
+/*   ft_cstring_strnchp.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:25:46 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 15:40:17 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 15:40:05 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,36 +20,36 @@
 # include "ft_io.h"
 # include "ft_exit.h"
 
-size_t	ft_strchp(const char *str, char ch)
+size_t	ft_strnchp(const char *str, size_t max_len, char ch)
 {
 	size_t	result;
 
 	if (!str)
 	{
-		ft_puts(STDERR_FILENO, "ft_strchp(): wrong parameter given\n", NULL);
+		ft_puts(STDERR_FILENO, "ft_strnchp(): wrong parameter given\n", NULL);
 		ft_exit(EXIT_FAILURE);
 		return (0);
 	}
 	result = -1;
-	while (str[++result])
+	while (++result < max_len && str[result])
 		if (str[result] == ch)
 			break ;
 	return (result);
 }
 
-size_t	ft_strrchp(const char *str, char ch)
+size_t	ft_strnrchp(const char *str, size_t max_len, char ch)
 {
 	size_t	result;
 	size_t	i;
 
 	if (!str)
 	{
-		ft_puts(STDERR_FILENO, "ft_strrchp(): wrong parameter given\n", NULL);
+		ft_puts(STDERR_FILENO, "ft_strnrchp(): wrong parameter given\n", NULL);
 		ft_exit(EXIT_FAILURE);
 		return (0);
 	}
 	i = -1;
-	while (str[++i])
+	while (++i < max_len && str[i])
 		if (str[i] == ch)
 			result = i;
 	return (result);
@@ -57,24 +57,24 @@ size_t	ft_strrchp(const char *str, char ch)
 
 #else
 
-size_t	ft_strchp(const char *str, char ch)
+size_t	ft_strnchp(const char *str, size_t max_len, char ch)
 {
 	size_t	result;
 
 	result = -1;
-	while (str[++result])
+	while (++result < max_len && str[result])
 		if (str[result] == ch)
 			break ;
 	return (result);
 }
 
-size_t	ft_strrchp(const char *str, char ch)
+size_t	ft_strnrchp(const char *str, size_t max_len, char ch)
 {
 	size_t	result;
 	size_t	i;
 
 	i = -1;
-	while (str[++i])
+	while (++i < max_len && str[i])
 		if (str[i] == ch)
 			result = i;
 	return (result);
