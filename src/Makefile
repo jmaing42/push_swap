@@ -1,8 +1,11 @@
 Q := $(if $(filter 1,$(V) $(VERBOSE)),,@)
 MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
 
-# This variable will be used only if source files are not hardcoded
-SRCS ?= $(shell find . -maxdepth 1 -name "*.c" | xargs)
+SRC_DIR := .
+OBJ_DIR := .cache
+
+# This variable is used only if the list of source file is not hardcoded.
+SRCS ?= $(shell cd $(SRC_DIR) && find . -maxdepth 1 -name "*.c" | xargs)
 SRCS_PUSH_SWAP := $(filter push_swap_%.c,$(SRCS))
 SRCS_CHECKER := $(filter checker_%.c,$(SRCS))
 SRCS_LIBFT := $(filter-out $(SRCS_PUSH_SWAP) $(SRCS_CHECKER), $(SRCS))
@@ -17,14 +20,14 @@ CC := clang
 CCLD := clang
 AR := ar
 CFLAGS := -Wall -Wextra -Werror
-OBJ_DIR := .cache
-TMPS := $(OTHER_USEFUL_FILES) $(OBJ_DIR)
 
 all: $(NAME) $(OTHER_USEFUL_FILES)
-bonus: $(NAME_CHECKER)
+bonus: $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
 clean:
-	$Qrm -rf $(TMPS)
-fclean: clean
+	$Qrm -rf $(OBJ_DIR)
+	$Qrm -f $(OTHER_USEFUL_FILES)
+fclean:
+	$Q$(MAKE) clean
 	$Qrm -f $(EXECUTABLE_TARGETS)
 re:
 	$Q$(MAKE) fclean
