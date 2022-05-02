@@ -34,7 +34,7 @@ re:
 .editorconfig:
 	$Qprintf "root = true\n\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = tab\ninsert_final_newline = true\ntrim_trailing_whitespace = true\n" > .editorconfig
 .gitignore:
-	$Qprintf ".*\ntmp\n\npush_swap\nchecker\n" > .gitignore
+	$Qprintf ".*\ntmp\n\n$$(echo "$(EXECUTABLE_TARGETS)" | xargs -n 1 echo)\n" > $@
 
 ifeq ($(MOULINETTE_MODE),1)
 CC := cc
