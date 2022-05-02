@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 21:00:11 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 15:02:01 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 15:25:46 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ size_t	ft_strlen_until_set(
 {
 	t_byte	map[1 << CHAR_BIT];
 
-	ft_byte_map((t_byte *) set, map, include_null);
+	ft_byte_map(map, include_null, (t_byte *) set);
 	return (ft_strlen_until_map(str, map));
 }
 
