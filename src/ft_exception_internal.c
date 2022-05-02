@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:05:45 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/01 22:01:35 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 00:09:06 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@
 #include "ft_types.h"
 
 static const t_exception_vtable	g_v = {
-(t_exception_v_free)(&ft_exception_v_free),
-(t_exception_v_print)(&ft_exception_v_print),
-(t_exception_v_getfile)(&ft_exception_v_getfile),
-(t_exception_v_getline)(&ft_exception_v_getline),
-(t_exception_v_add_stacktrace)(&ft_exception_v_add_stacktrace)
+	(t_exception_v_free)(&ft_exception_v_free),
+	(t_exception_v_print)(&ft_exception_v_print),
+	(t_exception_v_getfile)(&ft_exception_v_getfile),
+	(t_exception_v_getline)(&ft_exception_v_getline),
+	(t_exception_v_add_stacktrace)(&ft_exception_v_add_stacktrace)
 };
 
 t_exception	*new_exception(
