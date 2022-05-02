@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:54:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 15:37:48 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/02 15:43:51 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	ft_byte_map(t_byte *out, bool include_null, const t_byte *set)
 	{
 		ft_puts(STDERR_FILENO, "ft_byte_map(): wrong parameter given\n", NULL);
 		ft_exit(EXIT_FAILURE);
-		return (0);
 	}
 	i = 0;
 	while (i < 1 << CHAR_BIT)
@@ -58,7 +57,6 @@ void	ft_byte_map_v(t_byte *out, bool include_null, va_list arguments)
 	{
 		ft_puts(STDERR_FILENO, "ft_byte_map_v(): wrong parameter given\n", NULL);
 		ft_exit(EXIT_FAILURE);
-		return (0);
 	}
 	i = 0;
 	while (i < 1 << CHAR_BIT)
