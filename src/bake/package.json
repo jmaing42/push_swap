@@ -2,7 +2,9 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "ts-node main.ts"
+    "dev": "ts-node main.ts",
+    "build": "tsc -p .",
+    "start": "node dist/main.js"
   },
   "dependencies": {
     "ts-node": "^10.7.0",
