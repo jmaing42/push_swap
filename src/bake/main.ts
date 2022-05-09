@@ -1,15 +1,15 @@
 const operations = [
-  "ss", // sa와 sb를 동시에 수행함
   "sa", // left의 top 두 개를 교환함
   "sb", // right의 top 두 개를 교환함
-  "pa", // left의 top을 right의 top으로 옮김
-  "pb", // right의 top을 left의 top으로 옮김
-  "rr", // ra와 rb를 동시에 수행함
+  "ss", // sa와 sb를 동시에 수행함
   "ra", // left의 top을 left의 bottom으로 옮김
   "rb", // right의 top을 right의 bottom으로 옮김
-  "rrr", // rra와 rrb를 동시에 수행함
+  "rr", // ra와 rb를 동시에 수행함
   "rra", // left의 bottom을 left의 top으로 옮김
   "rrb", // right의 bottom을 right의 top으로 옮김
+  "rrr", // rra와 rrb를 동시에 수행함
+  "pa", // left의 top을 right의 top으로 옮김
+  "pb", // right의 top을 left의 top으로 옮김
 ] as const;
 
 type Operation = typeof operations[number];
@@ -19,14 +19,14 @@ const reverse: { readonly [K in Operation]: Operation } = {
   sa: "sa",
   sb: "sb",
   ss: "ss",
-  pa: "pb",
-  pb: "pa",
   ra: "rra",
   rb: "rrb",
   rr: "rrr",
   rra: "ra",
   rrb: "rb",
   rrr: "rr",
+  pa: "pb",
+  pb: "pa",
 };
 
 interface State {
@@ -35,19 +35,19 @@ interface State {
   operations: Operation[]; // 현재까지 거친 연산 수
 }
 
-// 현 상태에서 그 연산이 의미 있는지
+// 현 상태에서 그 연산이 가능한지
 const meaningful: { readonly [K in Operation]: (state: State) => boolean } = {
   sa: ({ left }) => !!(left.length >= 2 && left[0] && left[1]),
   sb: ({ right }) => !!(right.length >= 2 && right[0] && right[1]),
   ss: (state) => meaningful["sa"](state) && meaningful["sb"](state),
-  pa: ({ right }) => !!(right.length >= 1 && right[0]),
-  pb: ({ left }) => !!(left.length >= 1 && left[0]),
   ra: ({ left }) => !!(left.length >= 2 && left[0]),
   rb: ({ right }) => !!(right.length >= 2 && right[0]),
   rr: (state) => meaningful["ra"](state) && meaningful["rb"](state),
-  rra: ({ left }) => !(left.length >= 2 && left[left.length - 1]),
-  rrb: ({ right }) => !(right.length >= 2 && right[right.length - 1]),
+  rra: ({ left }) => !!(left.length >= 2 && left[left.length - 1]),
+  rrb: ({ right }) => !!(right.length >= 2 && right[right.length - 1]),
   rrr: (state) => meaningful["rra"](state) && meaningful["rrb"](state),
+  pa: ({ right }) => !!(right.length >= 1 && right[0]),
+  pb: ({ left }) => !!(left.length >= 1 && left[0]),
 };
 
 // 현 상태에서 그 연산을 수행한 이후의 상태
@@ -67,16 +67,6 @@ const after: { [K in Operation]: (state: State) => State } = {
     right: [d, c, ...right],
     operations: [...operations, "ss"],
   }),
-  pa: ({ left: [a, ...left], right, operations }) => ({
-    left,
-    right: [a, ...right],
-    operations: [...operations, "pa"],
-  }),
-  pb: ({ left, right: [a, ...right], operations }) => ({
-    left: [a, ...left],
-    right,
-    operations: [...operations, "pb"],
-  }),
   ra: ({ left: [a, ...left], right, operations }) => ({
     left: [...left, a],
     right,
@@ -93,19 +83,29 @@ const after: { [K in Operation]: (state: State) => State } = {
     operations: [...operations, "rr"],
   }),
   rra: ({ left, right, operations }) => ({
-    left: [...left.slice(0, left.length - 1), left[left.length - 1]],
+    left: [left[left.length - 1], ...left.slice(0, left.length - 1)],
     right,
     operations: [...operations, "rra"],
   }),
   rrb: ({ left, right, operations }) => ({
     left,
-    right: [...right.slice(0, right.length - 1), right[right.length - 1]],
+    right: [right[right.length - 1], ...right.slice(0, right.length - 1)],
     operations: [...operations, "rra"],
   }),
   rrr: ({ left, right, operations }) => ({
-    left: [...left.slice(0, left.length - 1), left[left.length - 1]],
-    right: [...right.slice(0, right.length - 1), right[right.length - 1]],
+    left: [left[left.length - 1], ...left.slice(0, left.length - 1)],
+    right: [right[right.length - 1], ...right.slice(0, right.length - 1)],
     operations: [...operations, "rrr"],
+  }),
+  pa: ({ left, right: [a, ...right], operations }) => ({
+    left: [a, ...left],
+    right,
+    operations: [...operations, "pa"],
+  }),
+  pb: ({ left: [a, ...left], right, operations }) => ({
+    left,
+    right: [a, ...right],
+    operations: [...operations, "pb"],
   }),
 };
 
@@ -147,21 +147,110 @@ function get_solution(count: number): [number[], Operation[]][] {
     .filter((state) => state.left.length == count)
     .map((state) => [state.left, state.operations.map((op) => reverse[op])]);
   solution.sort((a, b) => {
-    for (let i = 0; i < a.length; i++)
+    for (let i = 0; i < a[0].length; i++)
       if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
     return 0;
   });
   return solution;
 }
 
-function c_style_print(count: number): void {
-  const solution = get_solution(count);
-  console.log(`static const t_tuple_str_str\tg_solutions_${count}[] = {`);
+function get_sort_left_front(count: number): [number[], Operation[]][] {
+  const [, list] = get_all_cases({
+    left: [...Array.from(new Array(count)).map((_, i) => i + 1), 0],
+    right: [0],
+    operations: [],
+  });
+  const solution: [number[], Operation[]][] = list
+    .flat(1)
+    .filter((state) => state.left.length == count + 1 && !state.left[count])
+    .map((state) => [
+      state.left.slice(0, count),
+      state.operations.map((op) => reverse[op]),
+    ]);
+  solution.sort((a, b) => {
+    for (let i = 0; i < a[0].length; i++)
+      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
+    return 0;
+  });
+  return solution;
+}
+
+function get_sort_left_back(count: number): [number[], Operation[]][] {
+  const [, list] = get_all_cases({
+    left: [0, ...Array.from(new Array(count)).map((_, i) => i + 1)],
+    right: [0],
+    operations: [],
+  });
+  const solution: [number[], Operation[]][] = list
+    .flat(1)
+    .filter((state) => state.left.length == count + 1 && !state.left[0])
+    .map((state) => [
+      state.left.slice(1),
+      state.operations.map((op) => reverse[op]),
+    ]);
+  solution.sort((a, b) => {
+    for (let i = 0; i < a[0].length; i++)
+      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
+    return 0;
+  });
+  return solution;
+}
+
+function get_sort_right_front(count: number): [number[], Operation[]][] {
+  const [, list] = get_all_cases({
+    left: [0],
+    right: [...Array.from(new Array(count)).map((_, i) => i + 1), 0],
+    operations: [],
+  });
+  const solution: [number[], Operation[]][] = list
+    .flat(1)
+    .filter((state) => state.right.length == count + 1 && !state.right[count])
+    .map((state) => [
+      state.right.slice(0, count),
+      state.operations.map((op) => reverse[op]),
+    ]);
+  solution.sort((a, b) => {
+    for (let i = 0; i < a[0].length; i++)
+      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
+    return 0;
+  });
+  return solution;
+}
+
+function get_sort_right_back(count: number): [number[], Operation[]][] {
+  const [, list] = get_all_cases({
+    left: [0],
+    right: [0, ...Array.from(new Array(count)).map((_, i) => i + 1)],
+    operations: [],
+  });
+  const solution: [number[], Operation[]][] = list
+    .flat(1)
+    .filter((state) => state.right.length == count + 1 && !state.right[0])
+    .map((state) => [
+      state.right.slice(1),
+      state.operations.map((op) => reverse[op]),
+    ]);
+  solution.sort((a, b) => {
+    for (let i = 0; i < a[0].length; i++)
+      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
+    return 0;
+  });
+  return solution;
+}
+
+function c_style_print(
+  name: string,
+  count: number,
+  alg: (count: number) => [number[], Operation[]][]
+): void {
+  const solution = alg(count);
+  console.log(`static const t_tuple_str_str\tg_${name}_${count}[] = {`);
   solution.forEach((s) => {
     console.log(
-      `\t{"${s[0].map((n) => `\\${n.toString(8)}`)}", "${s[1]
-        .map((op) => `\\${operations.indexOf(op).toString(8)}`)
-        .join("")}"},`
+      `\t{"${s[0].map((n) => `\\${n.toString(8)}`).join('')}", "${s[1]
+        // .map((op) => `\\${operations.indexOf(op).toString(8)}`)
+        // .join("")}"},`
+        .join(" ")}"},`
     );
   });
   console.log('\t{"", ""}');
@@ -169,5 +258,9 @@ function c_style_print(count: number): void {
 }
 
 (function main() {
-  c_style_print(9);
+  c_style_print("solution_right_back", 1, get_sort_right_back);
+  c_style_print("solution_right_back", 2, get_sort_right_back);
+  c_style_print("solution_right_back", 3, get_sort_right_back);
+  c_style_print("solution_right_back", 4, get_sort_right_back);
+  c_style_print("solution_right_back", 5, get_sort_right_back);
 })();
