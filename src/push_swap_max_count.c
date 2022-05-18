@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:39:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/18 13:27:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/18 17:14:51 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static void	bake_solution(t_push_swap_max_count *map, size_t count)
 		{
 			k = count - (i + j);
 			current = 2 * i + 2 * j + 4 * k
-				+ map[i + j].part_top + map[k].part_bottom;
+				+ map[i].part_top + map[j].part_top + map[k].part_bottom;
 			if (current < map[count].solution)
 			{
 				map[count].solution = current;
@@ -59,7 +59,7 @@ static void	bake_part_top(t_push_swap_max_count *map, size_t count)
 			if (j == count || k == count)
 				continue ;
 			current = 2 * i + 2 * j + 4 * k
-				+ map[j].part_top + map[i + k].part_bottom;
+				+ map[i].part_bottom + map[j].part_top + map[k].part_bottom;
 			if (current < map[count].part_top)
 			{
 				map[count].part_top = current;
@@ -88,7 +88,7 @@ static void	bake_part_bottom(t_push_swap_max_count *map, size_t count)
 			if (j == count || k == count)
 				continue ;
 			current = 2 * i + 4 * j + 6 * k
-				+ map[i + j].part_top + map[k].part_bottom;
+				+ map[i].part_top + map[j].part_top + map[k].part_bottom;
 			if (current < map[count].part_bottom)
 			{
 				map[count].part_bottom = current;
