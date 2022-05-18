@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/19 01:53:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/19 02:43:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "ft_malloc.h"
 
-t_push_swap_dijkstra_state	*push_swap_dijkstra_state_top(
+t_push_swap_dijkstra_state	*push_swap_dijkstra_state_bottom(
 	uint8_t l
 )
 {

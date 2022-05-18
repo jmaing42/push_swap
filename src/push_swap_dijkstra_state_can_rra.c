@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/19 02:05:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/19 02:42:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ bool	push_swap_dijkstra_state_can_rra(
 	uint8_t length
 )
 {
+	(void)length;
 	return (
 		self->size_left >= 2
 		&& self->values[self->size_left - 1]
