@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/18 12:40:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/18 13:20:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 #include "push_swap_max_count.h"
 
-#define TEST_SIZE 1
+#define TEST_SIZE 1000
 
 int	main(void)
 {
@@ -32,7 +32,9 @@ int	main(void)
 	i = 0;
 	while (i < TEST_SIZE)
 	{
-		printf("%zu: %" PRIuPTR "\n", i, map[i].solution);
+		printf("%zu - solution: %" PRIuMAX "; top: %" PRIuMAX
+			"; bottom: %" PRIuMAX "\n", i, map[i].solution,
+			map[i].part_top, map[i].part_bottom);
 		i++;
 	}
 	return (EXIT_SUCCESS);
