@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/18 13:20:04 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/18 13:59:48 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,10 @@ int	main(void)
 	i = 0;
 	while (i < TEST_SIZE)
 	{
-		printf("%zu - solution: %" PRIuMAX "; top: %" PRIuMAX
-			"; bottom: %" PRIuMAX "\n", i, map[i].solution,
-			map[i].part_top, map[i].part_bottom);
+		printf("%zu\n", i);
+		printf("\tsolution: %" PRIuMAX "(%" PRIuMAX ", %" PRIuMAX ", %" PRIuMAX ")\n", map[i].solution, map[i].solution_a_top, map[i].solution_b_top, map[i].solution_b_bottom);
+		printf("\ttop: %" PRIuMAX "(%" PRIuMAX ", %" PRIuMAX ", %" PRIuMAX ")\n", map[i].part_top, map[i].part_top_self_bottom, map[i].part_top_other_top, map[i].part_top_other_bottom);
+		printf("\tbottom: %" PRIuMAX "(%" PRIuMAX ", %" PRIuMAX ", %" PRIuMAX ")\n", map[i].part_bottom, map[i].part_bottom_self_top, map[i].part_bottom_other_top, map[i].part_bottom_other_bottom);
 		i++;
 	}
 	return (EXIT_SUCCESS);

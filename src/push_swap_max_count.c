@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 11:39:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/18 13:20:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/18 13:27:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,8 @@ static void	bake_solution(t_push_swap_max_count *map, size_t count)
 	uintmax_t	i;
 	uintmax_t	j;
 	uintmax_t	k;
-	uintmax_t	result;
 	uintmax_t	current;
 
-	result = UINTMAX_MAX;
 	i = -1;
 	while (++i <= count)
 	{
@@ -33,11 +31,15 @@ static void	bake_solution(t_push_swap_max_count *map, size_t count)
 			k = count - (i + j);
 			current = 2 * i + 2 * j + 4 * k
 				+ map[i + j].part_top + map[k].part_bottom;
-			if (current < result)
-				result = current;
+			if (current < map[count].solution)
+			{
+				map[count].solution = current;
+				map[count].solution_a_top = i;
+				map[count].solution_b_top = j;
+				map[count].solution_b_bottom = k;
+			}
 		}
 	}
-	map[count].solution = result;
 }
 
 static void	bake_part_top(t_push_swap_max_count *map, size_t count)
@@ -45,10 +47,8 @@ static void	bake_part_top(t_push_swap_max_count *map, size_t count)
 	uintmax_t	i;
 	uintmax_t	j;
 	uintmax_t	k;
-	uintmax_t	result;
 	uintmax_t	current;
 
-	result = UINTMAX_MAX;
 	i = -1;
 	while (++i < count)
 	{
@@ -60,11 +60,15 @@ static void	bake_part_top(t_push_swap_max_count *map, size_t count)
 				continue ;
 			current = 2 * i + 2 * j + 4 * k
 				+ map[j].part_top + map[i + k].part_bottom;
-			if (current < result)
-				result = current;
+			if (current < map[count].part_top)
+			{
+				map[count].part_top = current;
+				map[count].part_top_self_bottom = i;
+				map[count].part_top_other_top = j;
+				map[count].part_top_other_bottom = k;
+			}
 		}
 	}
-	map[count].part_top = result;
 }
 
 static void	bake_part_bottom(t_push_swap_max_count *map, size_t count)
@@ -72,10 +76,8 @@ static void	bake_part_bottom(t_push_swap_max_count *map, size_t count)
 	uintmax_t	i;
 	uintmax_t	j;
 	uintmax_t	k;
-	uintmax_t	result;
 	uintmax_t	current;
 
-	result = UINTMAX_MAX;
 	i = -1;
 	while (++i < count)
 	{
@@ -87,11 +89,15 @@ static void	bake_part_bottom(t_push_swap_max_count *map, size_t count)
 				continue ;
 			current = 2 * i + 4 * j + 6 * k
 				+ map[i + j].part_top + map[k].part_bottom;
-			if (current < result)
-				result = current;
+			if (current < map[count].part_bottom)
+			{
+				map[count].part_bottom = current;
+				map[count].part_bottom_self_top = i;
+				map[count].part_bottom_other_top = j;
+				map[count].part_bottom_other_bottom = k;
+			}
 		}
 	}
-	map[count].part_bottom = result;
 }
 
 static void	defaults(
@@ -139,7 +145,9 @@ void	push_swap_max_count(
 		index = 3;
 	while (index < out_length)
 	{
+		inout[index].part_top = UINTMAX_MAX;
 		bake_part_top(inout, index);
+		inout[index].part_bottom = UINTMAX_MAX;
 		bake_part_bottom(inout, index);
 		index++;
 	}
@@ -148,6 +156,7 @@ void	push_swap_max_count(
 		index = 3;
 	while (index < out_length)
 	{
+		inout[index].solution = UINTMAX_MAX;
 		bake_solution(inout, index);
 		index++;
 	}
