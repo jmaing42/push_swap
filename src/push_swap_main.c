@@ -3,16 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/01 22:02:43 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/18 12:40:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_io.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <inttypes.h>
+
+#include "ft_malloc.h"
+
+#include "push_swap_max_count.h"
+
+#define TEST_SIZE 1
 
 int	main(void)
 {
-	return (0);
+	t_push_swap_max_count *const	map = ft_malloc(
+			sizeof(t_push_swap_max_count) * TEST_SIZE);
+	size_t							i;
+
+	printf("TEST_SIZE: %zu\n", (size_t)TEST_SIZE);
+	push_swap_max_count(map, TEST_SIZE, 0, 0);
+	i = 0;
+	while (i < TEST_SIZE)
+	{
+		printf("%zu: %" PRIuPTR "\n", i, map[i].solution);
+		i++;
+	}
+	return (EXIT_SUCCESS);
 }

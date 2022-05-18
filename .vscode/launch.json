@@ -13,5 +13,14 @@
       "externalConsole": false,
       "MIMode": "gdb",
     },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug push_swap",
+      "program": "${workspaceFolder}/src/push_swap",
+      "args": [],
+      "cwd": "${workspaceFolder}/src",
+      "preLaunchTask": "Build push_swap",
+    },
   ],
 }

@@ -6,8 +6,8 @@ OBJ_DIR := .cache
 
 # This variable is used only if the list of source file is not hardcoded.
 SRCS ?= $(shell cd $(SRC_DIR) && find . -maxdepth 1 -name "*.c" | xargs)
-SRCS_PUSH_SWAP := $(filter push_swap_%.c,$(SRCS))
-SRCS_CHECKER := $(filter checker_%.c,$(SRCS))
+SRCS_PUSH_SWAP := $(filter $(SRC_DIR)/push_swap_%.c,$(SRCS))
+SRCS_CHECKER := $(filter $(SRC_DIR)/checker_%.c,$(SRCS))
 SRCS_LIBFT := $(filter-out $(SRCS_PUSH_SWAP) $(SRCS_CHECKER), $(SRCS))
 
 NAME := push_swap
@@ -22,7 +22,7 @@ AR := ar
 CFLAGS := -Wall -Wextra -Werror
 
 all: $(NAME) $(OTHER_USEFUL_FILES)
-bonus: $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
+bonus: all $(NAME_CHECKER)
 clean:
 	$Qrm -rf $(OBJ_DIR)
 	$Qrm -f $(OTHER_USEFUL_FILES)
