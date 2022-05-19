@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/19 01:56:18 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/20 01:21:35 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,11 @@ bool							push_swap_dijkstra_state_can(
 									t_push_swap_dijkstra_state *self,
 									uint8_t length,
 									uint8_t operation);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do(
+void							push_swap_dijkstra_state_do(
 									t_push_swap_dijkstra_state *self,
 									uint8_t length,
-									uint8_t operation);
+									uint8_t operation,
+									t_push_swap_dijkstra_state *out);
 
 bool							push_swap_dijkstra_state_can_sa(
 									t_push_swap_dijkstra_state *self,
@@ -71,39 +72,50 @@ bool							push_swap_dijkstra_state_can_rrr(
 									t_push_swap_dijkstra_state *self,
 									uint8_t length);
 
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_sa(
+void							push_swap_dijkstra_state_do_sa(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_sb(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_sb(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_ss(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_ss(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_pa(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_pa(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_pb(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_pb(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_ra(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_ra(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_rb(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_rb(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_rr(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_rr(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_rra(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_rra(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_rrb(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_rrb(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_do_rrr(
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
+void							push_swap_dijkstra_state_do_rrr(
 									t_push_swap_dijkstra_state *self,
-									uint8_t length);
+									uint8_t length,
+									t_push_swap_dijkstra_state *out);
 
 # define PUSH_SWAP_OPERATION_NOP 0
 # define PUSH_SWAP_OPERATION_SA 1
