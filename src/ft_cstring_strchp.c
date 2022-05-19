@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cstring_strchp.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 13:25:46 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/02 15:40:17 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/20 02:19:29 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ size_t	ft_strrchp(const char *str, char ch)
 		return (0);
 	}
 	i = -1;
+	result = -1;
 	while (str[++i])
 		if (str[i] == ch)
 			result = i;
@@ -74,6 +75,7 @@ size_t	ft_strrchp(const char *str, char ch)
 	size_t	i;
 
 	i = -1;
+	result = -1;
 	while (str[++i])
 		if (str[i] == ch)
 			result = i;
