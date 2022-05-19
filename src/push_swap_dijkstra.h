@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/20 01:21:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/20 01:53:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,18 +133,19 @@ void							push_swap_dijkstra_state_do_rrr(
 typedef struct s_push_swap_dijkstra_operations
 {
 	uint8_t	length;
-	uint8_t	values[];
+	uint8_t	operation[];
 }	t_push_swap_dijkstra_operations;
 
 t_push_swap_dijkstra_operations	*push_swap_operations_new(
 									uint8_t value);
-
 t_push_swap_dijkstra_operations	*push_swap_operations_append(
 									t_push_swap_dijkstra_operations *self,
 									uint8_t value);
 t_push_swap_dijkstra_operations	*push_swap_operations_reverse_order(
 									t_push_swap_dijkstra_operations *self);
 t_push_swap_dijkstra_operations	*push_swap_operations_reverse_rtl(
+									t_push_swap_dijkstra_operations *self);
+t_push_swap_dijkstra_operations	*push_swap_operations_reverse_order_rtl(
 									t_push_swap_dijkstra_operations *self);
 
 #endif

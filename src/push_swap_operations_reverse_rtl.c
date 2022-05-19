@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_dijkstra_state_do.c                      :+:      :+:    :+:   */
+/*   push_swap_operations_reverse_rtl.c                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/20 01:46:49 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/05/20 01:34:05 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/05/20 01:49:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,52 @@
 #include <stdlib.h>
 
 #include "ft_malloc.h"
+#include "ft_memory.h"
 #include "ft_exit.h"
 
-void	push_swap_dijkstra_state_do(
-	t_push_swap_dijkstra_state *self,
-	uint8_t length,
-	uint8_t operation,
-	t_push_swap_dijkstra_state *out
-)
+static uint8_t	reverse(uint8_t operation)
 {
 	if (operation == PUSH_SWAP_OPERATION_SA)
-		return (push_swap_dijkstra_state_do_sa(self, length, out));
+		return (PUSH_SWAP_OPERATION_SB);
 	if (operation == PUSH_SWAP_OPERATION_SB)
-		return (push_swap_dijkstra_state_do_sb(self, length, out));
+		return (PUSH_SWAP_OPERATION_SA);
 	if (operation == PUSH_SWAP_OPERATION_SS)
-		return (push_swap_dijkstra_state_do_ss(self, length, out));
+		return (PUSH_SWAP_OPERATION_SS);
 	if (operation == PUSH_SWAP_OPERATION_PA)
-		return (push_swap_dijkstra_state_do_pa(self, length, out));
+		return (PUSH_SWAP_OPERATION_PB);
 	if (operation == PUSH_SWAP_OPERATION_PB)
-		return (push_swap_dijkstra_state_do_pb(self, length, out));
+		return (PUSH_SWAP_OPERATION_PA);
 	if (operation == PUSH_SWAP_OPERATION_RA)
-		return (push_swap_dijkstra_state_do_ra(self, length, out));
+		return (PUSH_SWAP_OPERATION_RB);
 	if (operation == PUSH_SWAP_OPERATION_RB)
-		return (push_swap_dijkstra_state_do_rb(self, length, out));
+		return (PUSH_SWAP_OPERATION_RA);
 	if (operation == PUSH_SWAP_OPERATION_RR)
-		return (push_swap_dijkstra_state_do_rr(self, length, out));
+		return (PUSH_SWAP_OPERATION_RR);
 	if (operation == PUSH_SWAP_OPERATION_RRA)
-		return (push_swap_dijkstra_state_do_rra(self, length, out));
+		return (PUSH_SWAP_OPERATION_RRB);
 	if (operation == PUSH_SWAP_OPERATION_RRB)
-		return (push_swap_dijkstra_state_do_rrb(self, length, out));
+		return (PUSH_SWAP_OPERATION_RRA);
 	if (operation == PUSH_SWAP_OPERATION_RRR)
-		return (push_swap_dijkstra_state_do_rrr(self, length, out));
+		return (PUSH_SWAP_OPERATION_RRR);
 	ft_exit(EXIT_FAILURE);
+}
+
+t_push_swap_dijkstra_operations	*push_swap_operations_reverse_rtl(
+	t_push_swap_dijkstra_operations *self
+)
+{
+	t_push_swap_dijkstra_operations *const	result
+		= (t_push_swap_dijkstra_operations *)ft_malloc(
+			sizeof(t_push_swap_dijkstra_operations)
+			+ sizeof(uint8_t) * (self->length + 1));
+	size_t									i;
+
+	i = 0;
+	while (i < self->length)
+	{
+		result->operation[i] = reverse(self->operation[i]);
+		i++;
+	}
+	result->length = self->length;
+	return (result);
 }
