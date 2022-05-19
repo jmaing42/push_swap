@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/20 01:53:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/20 02:53:59 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,15 @@
 # include <stdbool.h>
 # include <stdint.h>
 
+# include "ft_simple_map.h"
+
 typedef struct s_push_swap_dijkstra_state
 {
 	uint8_t	size_left;
 	uint8_t	values[];
 }	t_push_swap_dijkstra_state;
 
-t_push_swap_dijkstra_state		*push_swap_dijkstra_state_empty(
+t_push_swap_dijkstra_state		*push_swap_dijkstra_state_new(
 									uint8_t length);
 t_push_swap_dijkstra_state		*push_swap_dijkstra_state_top(
 									uint8_t length);
@@ -136,8 +138,7 @@ typedef struct s_push_swap_dijkstra_operations
 	uint8_t	operation[];
 }	t_push_swap_dijkstra_operations;
 
-t_push_swap_dijkstra_operations	*push_swap_operations_new(
-									uint8_t value);
+t_push_swap_dijkstra_operations	*push_swap_operations_new(void);
 t_push_swap_dijkstra_operations	*push_swap_operations_append(
 									t_push_swap_dijkstra_operations *self,
 									uint8_t value);
@@ -147,5 +148,12 @@ t_push_swap_dijkstra_operations	*push_swap_operations_reverse_rtl(
 									t_push_swap_dijkstra_operations *self);
 t_push_swap_dijkstra_operations	*push_swap_operations_reverse_order_rtl(
 									t_push_swap_dijkstra_operations *self);
+
+t_ft_simple_map_static			*push_swap_dijkstra_solution(
+									uint8_t length);
+t_ft_simple_map_static			*push_swap_dijkstra_solution_top(
+									uint8_t length);
+t_ft_simple_map_static			*push_swap_dijkstra_solution_bottom(
+									uint8_t length);
 
 #endif
