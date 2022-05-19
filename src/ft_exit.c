@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_exit.h                                          :+:      :+:    :+:   */
+/*   ft_exit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/02 14:10:15 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/19 16:02:03 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/19 16:05:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_EXIT_H
-# define FT_EXIT_H
+#include "ft_exit.h"
 
-# include <stdlib.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
-int		ft_exit(signed char status);
-void	ft_set_exit_handler(void (*cleanup)());
+static void	x(bool execute, void (*cleanup)())
+{
+	static void	(*cleanup_func)() = NULL;
 
-#endif
+	if (!execute)
+		cleanup_func = cleanup;
+	else if (cleanup_func)
+		cleanup_func();
+}
+
+int	ft_exit(signed char status)
+{
+	x(true, NULL);
+	exit((int) status);
+}
+
+void	ft_set_exit_handler(void (*cleanup)())
+{
+	x(false, cleanup);
+}
