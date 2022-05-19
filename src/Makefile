@@ -20,6 +20,7 @@ CC := clang
 CCLD := clang
 AR := ar
 CFLAGS := -Wall -Wextra -Werror
+CPPFLAGS := -DEXIT_ALLOWED
 
 all: $(NAME) $(OTHER_USEFUL_FILES)
 bonus: all $(NAME_CHECKER)
@@ -78,7 +79,7 @@ $(OBJ_DIR)/%.exe:
 	$Q$(CCLD) $(LDFLAGS) -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) -o $@ -c $<
+	$Q$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(OBJ_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(OBJ_DIR)/libft$(SUFFIX).a
