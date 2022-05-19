@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_main.c                                   :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/19 15:57:38 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/05/19 02:57:07 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/05/19 15:56:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <inttypes.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include "ft_malloc.h"
+# include <stddef.h>
 
-#include "push_swap.h"
-#include "push_swap_max_count.h"
+# include "ft_types.h"
 
-#define TEST_SIZE 1000
+# define OPTION_BAKE_LEVEL "PUSH_SWAP_BAKE_LEVEL="
 
-int	main(int argc, char **argv, char **envp)
+typedef struct s_push_swap
 {
-	t_push_swap	context;
+	int		bake_level;
+	size_t	args_length;
+	int		*args;
+}	t_push_swap;
 
-	if (push_swap_init(&context, argc, argv, envp))
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
-}
+t_err	push_swap_init(t_push_swap *self, int argc, char **argv, char **envp);
+
+#endif
