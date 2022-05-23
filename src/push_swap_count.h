@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:44:12 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 20:54:34 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:21:51 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,15 @@ t_push_swap_count_item	push_swap_count_bake_part_move_last(
 							t_push_swap_count_part *map,
 							size_t count);
 size_t					push_swap_count_bake_part_move_last_internal(
+							t_push_swap_count_part *map,
+							size_t x,
+							size_t y,
+							size_t z);
+
+t_push_swap_count_item	push_swap_count_solution(
+							t_push_swap_count_part *map,
+							size_t count);
+size_t					push_swap_count_solution_internal(
 							t_push_swap_count_part *map,
 							size_t x,
 							size_t y,
