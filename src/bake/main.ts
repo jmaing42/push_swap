@@ -154,7 +154,7 @@ function get_solution(count: number): [number[], Operation[]][] {
   return solution;
 }
 
-function get_sort_left_front(count: number): [number[], Operation[]][] {
+function get_sort_only(count: number): [number[], Operation[]][] {
   const [, list] = get_all_cases({
     left: [...Array.from(new Array(count)).map((_, i) => i + 1), 0],
     right: [0],
@@ -175,28 +175,7 @@ function get_sort_left_front(count: number): [number[], Operation[]][] {
   return solution;
 }
 
-function get_sort_left_back(count: number): [number[], Operation[]][] {
-  const [, list] = get_all_cases({
-    left: [0, ...Array.from(new Array(count)).map((_, i) => i + 1)],
-    right: [0],
-    operations: [],
-  });
-  const solution: [number[], Operation[]][] = list
-    .flat(1)
-    .filter((state) => state.left.length == count + 1 && !state.left[0])
-    .map((state) => [
-      state.left.slice(1),
-      state.operations.reverse().map((op) => reverse[op]),
-    ]);
-  solution.sort((a, b) => {
-    for (let i = 0; i < a[0].length; i++)
-      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
-    return 0;
-  });
-  return solution;
-}
-
-function get_sort_right_front(count: number): [number[], Operation[]][] {
+function get_sort_and_move(count: number): [number[], Operation[]][] {
   const [, list] = get_all_cases({
     left: [0],
     right: [...Array.from(new Array(count)).map((_, i) => i + 1), 0],
@@ -204,30 +183,9 @@ function get_sort_right_front(count: number): [number[], Operation[]][] {
   });
   const solution: [number[], Operation[]][] = list
     .flat(1)
-    .filter((state) => state.right.length == count + 1 && !state.right[count])
+    .filter((state) => state.left.length == count + 1 && !state.left[count])
     .map((state) => [
-      state.right.slice(0, count),
-      state.operations.reverse().map((op) => reverse[op]),
-    ]);
-  solution.sort((a, b) => {
-    for (let i = 0; i < a[0].length; i++)
-      if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
-    return 0;
-  });
-  return solution;
-}
-
-function get_sort_right_back(count: number): [number[], Operation[]][] {
-  const [, list] = get_all_cases({
-    left: [0],
-    right: [0, ...Array.from(new Array(count)).map((_, i) => i + 1)],
-    operations: [],
-  });
-  const solution: [number[], Operation[]][] = list
-    .flat(1)
-    .filter((state) => state.right.length == count + 1 && !state.right[0])
-    .map((state) => [
-      state.right.slice(1),
+      state.left.slice(0, count),
       state.operations.reverse().map((op) => reverse[op]),
     ]);
   solution.sort((a, b) => {
@@ -258,9 +216,11 @@ function c_style_print(
 }
 
 (function main() {
-  c_style_print("solution_right_back", 1, get_sort_right_back);
-  c_style_print("solution_right_back", 2, get_sort_right_back);
-  c_style_print("solution_right_back", 3, get_sort_right_back);
-  c_style_print("solution_right_back", 4, get_sort_right_back);
-  c_style_print("solution_right_back", 5, get_sort_right_back);
+  c_style_print("sort_and_move", 1, get_sort_and_move);
+  c_style_print("sort_and_move", 2, get_sort_and_move);
+  c_style_print("sort_and_move", 3, get_sort_and_move);
+  c_style_print("sort_and_move", 4, get_sort_and_move);
+  c_style_print("sort_and_move", 5, get_sort_and_move);
+  c_style_print("sort_and_move", 6, get_sort_and_move);
+  c_style_print("sort_and_move", 7, get_sort_and_move);
 })();
