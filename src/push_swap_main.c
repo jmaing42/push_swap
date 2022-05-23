@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 22:26:13 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:42:57 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,28 @@ static void	count_internal(t_push_swap_count_part *map)
 	map[1].sort_only_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
 	map[2].sort_and_move_divide_first = (t_push_swap_count_item){2, 0, 0, 0};
 	map[2].sort_and_move_collect_last = (t_push_swap_count_item){2, 0, 0, 0};
-	map[2].sort_only_divide_first = (t_push_swap_count_item){4, 0, 0, 0};
-	map[2].sort_only_collect_last = (t_push_swap_count_item){4, 0, 0, 0};
+	map[2].sort_only_divide_first = (t_push_swap_count_item){3, 0, 0, 0};
+	map[2].sort_only_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
 }
 
 static void	count(size_t index)
 {
 	t_push_swap_count_part *const	map = (t_push_swap_count_part *)
-		ft_malloc(sizeof(t_push_swap_count_part) * index);
+		ft_malloc(sizeof(t_push_swap_count_part) * index + 1);
 	size_t							i;
 
 	count_internal(map);
 	i = 2;
-	while (++i < index)
-		push_swap_count_bake_part(map, i);
-	ft_putn(STDOUT_FILENO, push_swap_count_solution(map, i).total_moves, NULL);
+	while (++i <= index)
+	{
+		map[i] = push_swap_count_bake_part(map, i);
+		printf("%zu: %zu %zu %zu %zu\n", i,
+			map[i].sort_only_divide_first.total_moves,
+			map[i].sort_only_collect_last.total_moves,
+			map[i].sort_and_move_divide_first.total_moves,
+			map[i].sort_and_move_collect_last.total_moves);
+	}
+	printf("%zu - solution = %zu\n", index, push_swap_count_solution(map, index).total_moves);
 	free(map);
 }
 
@@ -96,7 +103,7 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_push_swap	context;
 
-	count(500);
+	count(50);
 	// if (push_swap_init(&context, argc, argv, envp))
 	// 	return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);

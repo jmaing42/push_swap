@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 21:56:54 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:40:28 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,13 @@ t_push_swap_count_item	push_swap_count_bake_part_only_first(
 
 	result.total_moves = SIZE_MAX;
 	x = -1;
-	while (++x <= count)
+	while (++x < count)
 	{
 		y = -1;
 		while (x + ++y <= count)
 		{
 			z = count - (x + y);
-			if (z == count)
+			if (y == count || z == count)
 				continue ;
 			now = push_swap_count_bake_part_only_first_internal(map, x, y, z);
 			if (now < result.total_moves)
@@ -71,13 +71,13 @@ t_push_swap_count_item	push_swap_count_bake_part_only_last(
 
 	result.total_moves = SIZE_MAX;
 	x = -1;
-	while (++x <= count)
+	while (++x < count)
 	{
 		y = -1;
 		while (x + ++y <= count)
 		{
 			z = count - (x + y);
-			if (z == count)
+			if (y == count || z == count)
 				continue ;
 			now = push_swap_count_bake_part_only_last_internal(map, x, y, z);
 			if (now < result.total_moves)
@@ -100,13 +100,13 @@ t_push_swap_count_item	push_swap_count_bake_part_move_first(
 
 	result.total_moves = SIZE_MAX;
 	x = -1;
-	while (++x <= count)
+	while (++x < count)
 	{
 		y = -1;
 		while (x + ++y <= count)
 		{
 			z = count - (x + y);
-			if (z == count)
+			if (y == count || z == count)
 				continue ;
 			now = push_swap_count_bake_part_move_first_internal(map, x, y, z);
 			if (now < result.total_moves)
@@ -129,13 +129,13 @@ t_push_swap_count_item	push_swap_count_bake_part_move_last(
 
 	result.total_moves = SIZE_MAX;
 	x = -1;
-	while (++x <= count)
+	while (++x < count)
 	{
 		y = -1;
 		while (x + ++y <= count)
 		{
 			z = count - (x + y);
-			if (z == count)
+			if (y == count || z == count)
 				continue ;
 			now = push_swap_count_bake_part_move_last_internal(map, x, y, z);
 			if (now < result.total_moves)

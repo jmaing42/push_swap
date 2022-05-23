@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:11:42 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 22:25:07 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:42:25 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ t_push_swap_count_item	push_swap_count_solution(
 
 	result.total_moves = SIZE_MAX;
 	x = -1;
-	while (++x <= count)
+	while (++x < count)
 	{
 		y = -1;
 		while (x + ++y <= count)
 		{
 			z = count - (x + y);
-			if (z == count)
+			if (y == count || z == count)
 				continue ;
 			now = push_swap_count_solution_internal(map, x, y, z);
 			if (now < result.total_moves)
