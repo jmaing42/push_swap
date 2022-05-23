@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_count.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:11:42 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 22:42:25 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/24 00:03:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ size_t	push_swap_count_solution_internal(
 			map[x].sort_and_move_collect_last.total_moves,
 			map[x].sort_and_move_divide_first.total_moves
 		)
-		+ ft_size_t_max(y, z)
 		+ ft_size_t_min(
 			map[y].sort_and_move_collect_last.total_moves,
 			map[y].sort_and_move_divide_first.total_moves

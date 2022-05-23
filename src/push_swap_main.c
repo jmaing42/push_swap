@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 22:45:23 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/24 00:11:51 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,18 @@ t_ft_simple_map_static	*push_swap_dijkstra_finalize_bottom(
 
 static void	count_internal(t_push_swap_count_part *map)
 {
-	map[0].sort_and_move_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
-	map[0].sort_and_move_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
 	map[0].sort_only_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
 	map[0].sort_only_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
-	map[1].sort_and_move_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
-	map[1].sort_and_move_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
-	map[1].sort_only_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
-	map[1].sort_only_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
-	map[2].sort_and_move_divide_first = (t_push_swap_count_item){2, 0, 0, 0};
-	map[2].sort_and_move_collect_last = (t_push_swap_count_item){2, 0, 0, 0};
-	map[2].sort_only_divide_first = (t_push_swap_count_item){3, 0, 0, 0};
-	map[2].sort_only_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
+	map[0].sort_and_move_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
+	map[0].sort_and_move_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_only_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_only_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_and_move_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
+	map[1].sort_and_move_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_only_divide_first = (t_push_swap_count_item){2, 0, 0, 0};
+	map[2].sort_only_collect_last = (t_push_swap_count_item){2, 0, 0, 0};
+	map[2].sort_and_move_divide_first = (t_push_swap_count_item){3, 0, 0, 0};
+	map[2].sort_and_move_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
 }
 
 static void	count(size_t index)
@@ -90,7 +90,7 @@ static void	count(size_t index)
 		map[i] = push_swap_count_bake_part(map, i);
 	i = -1;
 	while (++i <= index)
-		printf("%zu: %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu)\n", i,
+		printf("%zu: %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) - %s %s\n", i,
 			map[i].sort_only_divide_first.total_moves,
 			map[i].sort_only_divide_first.x,
 			map[i].sort_only_divide_first.y,
@@ -106,8 +106,12 @@ static void	count(size_t index)
 			map[i].sort_and_move_collect_last.total_moves,
 			map[i].sort_and_move_collect_last.x,
 			map[i].sort_and_move_collect_last.y,
-			map[i].sort_and_move_collect_last.z);
-	printf("%zu - solution = %zu\n", index, push_swap_count_solution(map, index).total_moves);
+			map[i].sort_and_move_collect_last.z,
+			map[i].sort_only_divide_first.total_moves > map[i].sort_only_collect_last.total_moves ? "true" : "false",
+			map[i].sort_and_move_divide_first.total_moves > map[i].sort_and_move_collect_last.total_moves ? "true" : "false");
+	i = -1;
+	while (++i <= index)
+		printf("%zu - solution = %zu\n", i, push_swap_count_solution(map, i).total_moves);
 	free(map);
 }
 
@@ -115,7 +119,7 @@ int	main(int argc, char **argv, char **envp)
 {
 	t_push_swap	context;
 
-	count(50);
+	count(1000);
 	// if (push_swap_init(&context, argc, argv, envp))
 	// 	return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
