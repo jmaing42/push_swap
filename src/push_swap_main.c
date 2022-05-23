@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/23 22:42:57 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/23 22:45:23 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,14 +87,26 @@ static void	count(size_t index)
 	count_internal(map);
 	i = 2;
 	while (++i <= index)
-	{
 		map[i] = push_swap_count_bake_part(map, i);
-		printf("%zu: %zu %zu %zu %zu\n", i,
+	i = -1;
+	while (++i <= index)
+		printf("%zu: %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu) %zu(%zu, %zu, %zu)\n", i,
 			map[i].sort_only_divide_first.total_moves,
+			map[i].sort_only_divide_first.x,
+			map[i].sort_only_divide_first.y,
+			map[i].sort_only_divide_first.z,
 			map[i].sort_only_collect_last.total_moves,
+			map[i].sort_only_collect_last.x,
+			map[i].sort_only_collect_last.y,
+			map[i].sort_only_collect_last.z,
 			map[i].sort_and_move_divide_first.total_moves,
-			map[i].sort_and_move_collect_last.total_moves);
-	}
+			map[i].sort_and_move_divide_first.x,
+			map[i].sort_and_move_divide_first.y,
+			map[i].sort_and_move_divide_first.z,
+			map[i].sort_and_move_collect_last.total_moves,
+			map[i].sort_and_move_collect_last.x,
+			map[i].sort_and_move_collect_last.y,
+			map[i].sort_and_move_collect_last.z);
 	printf("%zu - solution = %zu\n", index, push_swap_count_solution(map, index).total_moves);
 	free(map);
 }
