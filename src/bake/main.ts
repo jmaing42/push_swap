@@ -145,7 +145,7 @@ function get_solution(count: number): [number[], Operation[]][] {
   const solution: [number[], Operation[]][] = list
     .flat(1)
     .filter((state) => state.left.length == count)
-    .map((state) => [state.left, state.operations.map((op) => reverse[op])]);
+    .map((state) => [state.left, state.operations.reverse().map((op) => reverse[op])]);
   solution.sort((a, b) => {
     for (let i = 0; i < a[0].length; i++)
       if (a[0][i] != b[0][i]) return a[0][i] - b[0][i];
@@ -165,7 +165,7 @@ function get_sort_left_front(count: number): [number[], Operation[]][] {
     .filter((state) => state.left.length == count + 1 && !state.left[count])
     .map((state) => [
       state.left.slice(0, count),
-      state.operations.map((op) => reverse[op]),
+      state.operations.reverse().map((op) => reverse[op]),
     ]);
   solution.sort((a, b) => {
     for (let i = 0; i < a[0].length; i++)
@@ -186,7 +186,7 @@ function get_sort_left_back(count: number): [number[], Operation[]][] {
     .filter((state) => state.left.length == count + 1 && !state.left[0])
     .map((state) => [
       state.left.slice(1),
-      state.operations.map((op) => reverse[op]),
+      state.operations.reverse().map((op) => reverse[op]),
     ]);
   solution.sort((a, b) => {
     for (let i = 0; i < a[0].length; i++)
@@ -207,7 +207,7 @@ function get_sort_right_front(count: number): [number[], Operation[]][] {
     .filter((state) => state.right.length == count + 1 && !state.right[count])
     .map((state) => [
       state.right.slice(0, count),
-      state.operations.map((op) => reverse[op]),
+      state.operations.reverse().map((op) => reverse[op]),
     ]);
   solution.sort((a, b) => {
     for (let i = 0; i < a[0].length; i++)
@@ -228,7 +228,7 @@ function get_sort_right_back(count: number): [number[], Operation[]][] {
     .filter((state) => state.right.length == count + 1 && !state.right[0])
     .map((state) => [
       state.right.slice(1),
-      state.operations.map((op) => reverse[op]),
+      state.operations.reverse().map((op) => reverse[op]),
     ]);
   solution.sort((a, b) => {
     for (let i = 0; i < a[0].length; i++)
