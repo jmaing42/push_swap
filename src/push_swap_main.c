@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/24 00:11:51 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 02:35:56 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ static void	count_internal(t_push_swap_count_part *map)
 	map[1].sort_only_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
 	map[1].sort_and_move_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
 	map[1].sort_and_move_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
-	map[2].sort_only_divide_first = (t_push_swap_count_item){2, 0, 0, 0};
-	map[2].sort_only_collect_last = (t_push_swap_count_item){2, 0, 0, 0};
+	map[2].sort_only_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_only_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
 	map[2].sort_and_move_divide_first = (t_push_swap_count_item){3, 0, 0, 0};
 	map[2].sort_and_move_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
 }
