@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/25 02:59:16 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 03:03:22 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ t_err	push_swap_init(t_push_swap *self, unsigned int count, const char **args)
 
 	self->map = map;
 	push_swap_init_internal(self, count);
-	i = 0;
-	while (i < count)
+	i = -1;
+	while (++i < count)
 	{
 		if (ft_strict_atoi(args[i], &numbers[i]))
 			return (ft_exit(EXIT_FAILURE));

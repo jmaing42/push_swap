@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 12:07:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/18 12:08:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 03:02:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 #include <stdlib.h>
 
+#include "ft_exit.h"
+
 void	*ft_malloc(size_t size)
 {
 	void *const	result = malloc(size);
 
 	if (!result)
-		exit(EXIT_FAILURE);
+		ft_exit(EXIT_FAILURE);
 	return (result);
 }
