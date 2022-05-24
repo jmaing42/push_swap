@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/24 00:11:51 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/24 00:44:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,30 @@ static void	count_internal(t_push_swap_count_part *map)
 	map[1].sort_only_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
 	map[1].sort_and_move_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
 	map[1].sort_and_move_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
-	map[2].sort_only_divide_first = (t_push_swap_count_item){2, 0, 0, 0};
-	map[2].sort_only_collect_last = (t_push_swap_count_item){2, 0, 0, 0};
+	map[2].sort_only_divide_first = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_only_collect_last = (t_push_swap_count_item){1, 0, 0, 0};
 	map[2].sort_and_move_divide_first = (t_push_swap_count_item){3, 0, 0, 0};
 	map[2].sort_and_move_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
+	map[3].sort_only_divide_first = (t_push_swap_count_item){5, 0, 0, 0};
+	map[3].sort_only_collect_last = (t_push_swap_count_item){5, 0, 0, 0};
+	map[3].sort_and_move_divide_first = (t_push_swap_count_item){6, 0, 0, 0};
+	map[3].sort_and_move_collect_last = (t_push_swap_count_item){6, 0, 0, 0};
+	map[4].sort_only_divide_first = (t_push_swap_count_item){9, 0, 0, 0};
+	map[4].sort_only_collect_last = (t_push_swap_count_item){9, 0, 0, 0};
+	map[4].sort_and_move_divide_first = (t_push_swap_count_item){8, 0, 0, 0};
+	map[4].sort_and_move_collect_last = (t_push_swap_count_item){8, 0, 0, 0};
+	map[5].sort_only_divide_first = (t_push_swap_count_item){12, 0, 0, 0};
+	map[5].sort_only_collect_last = (t_push_swap_count_item){12, 0, 0, 0};
+	map[5].sort_and_move_divide_first = (t_push_swap_count_item){10, 0, 0, 0};
+	map[5].sort_and_move_collect_last = (t_push_swap_count_item){10, 0, 0, 0};
+	map[6].sort_only_divide_first = (t_push_swap_count_item){15, 0, 0, 0};
+	map[6].sort_only_collect_last = (t_push_swap_count_item){15, 0, 0, 0};
+	map[6].sort_and_move_divide_first = (t_push_swap_count_item){13, 0, 0, 0};
+	map[6].sort_and_move_collect_last = (t_push_swap_count_item){13, 0, 0, 0};
+	map[7].sort_only_divide_first = (t_push_swap_count_item){18, 0, 0, 0};
+	map[7].sort_only_collect_last = (t_push_swap_count_item){18, 0, 0, 0};
+	map[7].sort_and_move_divide_first = (t_push_swap_count_item){16, 0, 0, 0};
+	map[7].sort_and_move_collect_last = (t_push_swap_count_item){16, 0, 0, 0};
 }
 
 static void	count(size_t index)
@@ -85,7 +105,7 @@ static void	count(size_t index)
 	size_t							i;
 
 	count_internal(map);
-	i = 2;
+	i = 7;
 	while (++i <= index)
 		map[i] = push_swap_count_bake_part(map, i);
 	i = -1;
