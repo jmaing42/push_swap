@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 21:40:20 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:47:41 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,7 @@ void	rx(size_t a, size_t b);
 void	rrx(size_t a, size_t b);
 void	sa(void);
 void	sb(void);
-void	pa(size_t count);
-void	pb(size_t count);
+void	px(size_t a, size_t b);
 
 void	push_swap_solve_internal_ltl(
 			t_push_swap *self,

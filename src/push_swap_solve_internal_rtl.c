@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 21:46:17 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:48:09 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void	push_swap_solve_internal_rtl(
 	if (!count)
 		return ;
 	else if (count == 1)
-		pa(1);
+		px(1, 0);
 	else if (count == 2)
 	{
 		if (self->numbers[offset] < self->numbers[offset + 1] == reverse_order)
@@ -99,7 +99,7 @@ void	push_swap_solve_internal_rtl(
 			sb();
 			push_swap_internal_sort(&self->numbers[offset], 2, reverse_order);
 		}
-		pa(2);
+		px(2, 0);
 		return ;
 	}
 	else if (c->sort_and_move_collect_last.total_moves
