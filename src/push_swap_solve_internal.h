@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 20:45:41 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:00:06 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,11 @@ typedef struct s_push_swap_internal_collect
 {
 	int		*arr;
 	size_t	self_bottom;
+	size_t	self_bottom_offset;
 	size_t	other_top;
+	size_t	other_top_offset;
 	size_t	other_bottom;
+	size_t	other_bottom_offset;
 	bool	is_right;
 	bool	is_desc;
 }	t_push_swap_internal_collect;
