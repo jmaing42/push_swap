@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/25 13:50:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 16:05:23 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 
 #define TEST_SIZE 1000
 
-static void	init_internal(t_push_swap *self, int count)
+static void	init_internal(t_push_swap *self, unsigned int count)
 {
 	t_push_swap_count_part *const	map = self->map;
 	size_t							i;

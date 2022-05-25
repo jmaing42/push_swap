@@ -82,8 +82,8 @@ $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Q$(CC) $(CFLAGS) $(CPPFLAGS) -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
-$(OBJ_DIR)/$(NAME)$(SUFFIX).exe: $(SRCS_PUSH_SWAP) $(OBJ_DIR)/libft$(SUFFIX).a
-$(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(SRCS_CHECKER) $(OBJ_DIR)/libft$(SUFFIX).a
+$(OBJ_DIR)/$(NAME)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_PUSH_SWAP)) $(OBJ_DIR)/libft$(SUFFIX).a
+$(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_CHECKER)) $(OBJ_DIR)/libft$(SUFFIX).a
 $(EXECUTABLE_TARGETS): %: $(OBJ_DIR)/%$(SUFFIX).exe
 	$Qcp $< $@
 .PHONY: $(EXECUTABLE_TARGETS)

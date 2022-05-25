@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_solve.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 13:51:05 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 20:20:23 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,12 @@ void	push_swap_solve(
 	push_swap_solve_internal_ltr(self, 0, self->solution.x, false);
 	push_swap_solve_internal_ltr(self, y_offset, self->solution.y, true);
 	push_swap_solve_internal_ltl(self, z_offset, self->solution.z, false);
-	push_swap_internal_merge((t_push_swap_internal){
+	push_swap_internal_collect((t_push_swap_internal_collect){
 		self->numbers,
-		self->solution.x,
-		self->solution.y,
 		self->solution.z,
+		self->solution.y,
+		self->solution.x,
+		false,
 		false,
 	});
 }

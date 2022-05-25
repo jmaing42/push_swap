@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_solve_internal.h                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 13:49:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 20:45:41 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,40 +15,62 @@
 
 # include "push_swap_solve.h"
 
-typedef struct s_push_swap_internal
+typedef struct s_push_swap_internal_collect
 {
 	int		*arr;
-	size_t	x_count;
-	size_t	y_count;
-	size_t	z_count;
+	size_t	self_bottom;
+	size_t	other_top;
+	size_t	other_bottom;
 	bool	is_right;
-}	t_push_swap_internal;
+	bool	is_desc;
+}	t_push_swap_internal_collect;
 
-void					push_swap_internal_sort(int *ptr, size_t length);
-void					push_swap_internal_merge(t_push_swap_internal merge);
-void					push_swap_internal_divide(t_push_swap_internal divide);
-void					rx(size_t a, size_t b);
-void					rrx(size_t a, size_t b);
+typedef struct s_push_swap_internal_part
+{
+	size_t	count;
+	int		start;
+	int		end;
+}	t_push_swap_internal_part;
 
-void					push_swap_solve_internal_ltl(
-							t_push_swap *self,
-							size_t offset,
-							size_t count,
-							bool reverse_order);
-void					push_swap_solve_internal_ltr(
-							t_push_swap *self,
-							size_t offset,
-							size_t count,
-							bool reverse_order);
-void					push_swap_solve_internal_rtl(
-							t_push_swap *self,
-							size_t offset,
-							size_t count,
-							bool reverse_order);
-void					push_swap_solve_internal_rtr(
-							t_push_swap *self,
-							size_t offset,
-							size_t count,
-							bool reverse_order);
+typedef struct s_push_swap_internal_divide
+{
+	int							*arr;
+	t_push_swap_internal_part	self_bottom;
+	t_push_swap_internal_part	other_top;
+	t_push_swap_internal_part	other_bottom;
+	bool						is_right;
+	bool						is_desc;
+}	t_push_swap_internal_divide;
+
+void	push_swap_internal_sort(
+			int *ptr,
+			size_t length,
+			bool reverse_order);
+void	push_swap_internal_collect(
+			t_push_swap_internal_collect collect);
+void	push_swap_internal_divide(
+			t_push_swap_internal_divide divide);
+void	rx(size_t a, size_t b);
+void	rrx(size_t a, size_t b);
+void	push_swap_solve_internal_ltl(
+			t_push_swap *self,
+			size_t offset,
+			size_t count,
+			bool reverse_order);
+void	push_swap_solve_internal_ltr(
+			t_push_swap *self,
+			size_t offset,
+			size_t count,
+			bool reverse_order);
+void	push_swap_solve_internal_rtl(
+			t_push_swap *self,
+			size_t offset,
+			size_t count,
+			bool reverse_order);
+void	push_swap_solve_internal_rtr(
+			t_push_swap *self,
+			size_t offset,
+			size_t count,
+			bool reverse_order);
 
 #endif
