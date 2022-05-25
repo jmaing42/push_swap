@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 20:20:23 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:43:18 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,11 @@ void	push_swap_solve(
 	push_swap_internal_collect((t_push_swap_internal_collect){
 		self->numbers,
 		self->solution.z,
+		z_offset,
 		self->solution.y,
+		y_offset,
 		self->solution.x,
+		0,
 		false,
 		false,
 	});

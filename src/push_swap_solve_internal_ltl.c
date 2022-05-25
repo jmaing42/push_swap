@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 21:38:46 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:46:33 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,9 @@ void	push_swap_solve_internal_ltl(
 
 	if (!count)
 		return ;
-	if (count == 1)
+	else if (count == 1)
 		return ;
-	if (count == 2)
+	else if (count == 2)
 	{
 		if (self->numbers[offset] < self->numbers[offset + 1] == reverse_order)
 		{
@@ -100,12 +100,11 @@ void	push_swap_solve_internal_ltl(
 		}
 		return ;
 	}
-	if (c->sort_only_collect_last.total_moves
+	else if (c->sort_only_collect_last.total_moves
 		< c->sort_only_divide_first.total_moves)
-		return (push_swap_solve_internal_ltl_collect_last(
-				self, offset, count, reverse_order));
+		push_swap_solve_internal_ltl_collect_last(
+			self, offset, count, reverse_order);
 	else
-		return (
-			push_swap_solve_internal_ltl_divide_first(
-				self, offset, count, reverse_order));
+		push_swap_solve_internal_ltl_divide_first(
+			self, offset, count, reverse_order);
 }
