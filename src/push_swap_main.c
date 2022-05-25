@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/25 03:03:22 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/25 13:50:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,11 @@
 #include "ft_strict_atoi.h"
 
 #include "push_swap_count.h"
+#include "push_swap_solve.h"
 
 #define TEST_SIZE 1000
 
-static void	push_swap_init_internal(t_push_swap *self, int count)
+static void	init_internal(t_push_swap *self, int count)
 {
 	t_push_swap_count_part *const	map = self->map;
 	size_t							i;
@@ -49,7 +50,7 @@ static void	push_swap_init_internal(t_push_swap *self, int count)
 	self->solution = push_swap_count_solution(map, count);
 }
 
-t_err	push_swap_init(t_push_swap *self, unsigned int count, const char **args)
+static t_err	init(t_push_swap *self, unsigned int count, const char **args)
 {
 	int *const						numbers = (int *)
 		ft_malloc(sizeof(int) * count);
@@ -59,7 +60,7 @@ t_err	push_swap_init(t_push_swap *self, unsigned int count, const char **args)
 	size_t							j;
 
 	self->map = map;
-	push_swap_init_internal(self, count);
+	init_internal(self, count);
 	i = -1;
 	while (++i < count)
 	{
@@ -83,7 +84,8 @@ int	main(int argc, const char **argv)
 	t_push_swap	context;
 
 	ft_set_exit_handler(print_error_message);
-	if (push_swap_init(&context, argc - 1, &argv[1]))
+	if (init(&context, argc - 1, &argv[1]))
 		return (EXIT_FAILURE);
+	push_swap_solve(&context);
 	return (EXIT_SUCCESS);
 }
