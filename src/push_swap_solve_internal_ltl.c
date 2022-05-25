@@ -6,7 +6,7 @@
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 21:07:18 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/25 21:38:46 by jmaing           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 #include <stdlib.h>
 
+#include "ft_io.h"
 #include "ft_memory.h"
 #include "ft_malloc.h"
 
@@ -86,23 +87,25 @@ void	push_swap_solve_internal_ltl(
 {
 	const t_push_swap_count_part	*c = &self->map[count];
 
+	if (!count)
+		return ;
+	if (count == 1)
+		return ;
+	if (count == 2)
+	{
+		if (self->numbers[offset] < self->numbers[offset + 1] == reverse_order)
+		{
+			sa();
+			push_swap_internal_sort(&self->numbers[offset], 2, reverse_order);
+		}
+		return ;
+	}
 	if (c->sort_only_collect_last.total_moves
 		< c->sort_only_divide_first.total_moves)
-		return (
-			push_swap_solve_internal_ltl_collect_last(
-				self,
-				offset,
-				count,
-				reverse_order
-			)
-		);
+		return (push_swap_solve_internal_ltl_collect_last(
+				self, offset, count, reverse_order));
 	else
 		return (
 			push_swap_solve_internal_ltl_divide_first(
-				self,
-				offset,
-				count,
-				reverse_order
-			)
-		);
+				self, offset, count, reverse_order));
 }
