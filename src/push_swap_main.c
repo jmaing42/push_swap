@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_main.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/25 16:05:23 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/27 02:03:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ static void	init_internal(t_push_swap *self, unsigned int count)
 	self->solution = push_swap_count_solution(map, count);
 }
 
-static t_err	init(t_push_swap *self, unsigned int count, const char **args)
+static void	init(
+	t_push_swap *self,
+	int **out_numbers,
+	unsigned int count,
+	const char **args
+)
 {
 	int *const						numbers = (int *)
 		ft_malloc(sizeof(int) * count);
@@ -65,13 +70,13 @@ static t_err	init(t_push_swap *self, unsigned int count, const char **args)
 	while (++i < count)
 	{
 		if (ft_strict_atoi(args[i], &numbers[i]))
-			return (ft_exit(EXIT_FAILURE));
+			ft_exit(EXIT_FAILURE);
 		j = 0;
 		while (j < i)
 			if (numbers[i] == numbers[j++])
-				return (ft_exit(EXIT_FAILURE));
+				ft_exit(EXIT_FAILURE);
 	}
-	return (false);
+	*out_numbers = numbers;
 }
 
 static void	print_error_message(void)
@@ -81,11 +86,13 @@ static void	print_error_message(void)
 
 int	main(int argc, const char **argv)
 {
-	t_push_swap	context;
+	t_push_swap		context;
+	int				*numbers;
+	unsigned int	count;
 
 	ft_set_exit_handler(print_error_message);
-	if (init(&context, argc - 1, &argv[1]))
-		return (EXIT_FAILURE);
+	count = argc - 1;
+	init(&context, &numbers, count, &argv[1]);
 	push_swap_solve(&context);
 	return (EXIT_SUCCESS);
 }

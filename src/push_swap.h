@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 02:57:07 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 13:20:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/27 01:58:22 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,8 @@
 typedef struct s_push_swap
 {
 	int						bake_level;
-	size_t					args_length;
-	int						*args;
 	t_push_swap_count_part	*map;
 	t_push_swap_count_item	solution;
-	int						*numbers;
 }	t_push_swap;
 
 #endif

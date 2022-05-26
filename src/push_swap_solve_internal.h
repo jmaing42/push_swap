@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/27 01:06:31 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/27 01:58:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,24 @@ void	push_swap_solve_internal_rtr(
 			size_t offset,
 			size_t count,
 			bool reverse_order);
+
+typedef enum e_push_swap_solve_internal_direction
+{
+	SORT_ONLY_LEFT_TO_RIGHT,
+	SORT_ONLY_RIGHT_TO_LEFT,
+	SORT_AND_MOVE_LEFT_TO_RIGHT,
+	SORT_AND_MOVE_RIGHT_TO_LEFT,
+}	t_push_swap_solve_internal_direction;
+
+void	push_swap_solve_internal_sort_only(
+			t_push_swap *context,
+			int *a,
+			size_t count,
+			t_push_swap_solve_internal_direction direction);
+void	push_swap_solve_internal_sort_and_move(
+			t_push_swap *context,
+			int *a,
+			size_t count,
+			t_push_swap_solve_internal_direction direction);
 
 #endif
