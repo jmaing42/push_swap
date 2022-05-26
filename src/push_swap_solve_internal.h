@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_solve_internal.h                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/25 21:47:41 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/27 01:06:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "push_swap_solve.h"
 
-typedef struct s_push_swap_internal_collect
+typedef struct s_push_swap_solve_internal_collect
 {
 	int		*arr;
 	size_t	self_bottom;
@@ -26,7 +26,7 @@ typedef struct s_push_swap_internal_collect
 	size_t	other_bottom_offset;
 	bool	is_right;
 	bool	is_desc;
-}	t_push_swap_internal_collect;
+}	t_push_swap_solve_internal_collect;
 
 typedef struct s_push_swap_internal_part
 {
@@ -35,7 +35,7 @@ typedef struct s_push_swap_internal_part
 	int		end;
 }	t_push_swap_internal_part;
 
-typedef struct s_push_swap_internal_divide
+typedef struct s_push_swap_sort_internal_divide
 {
 	int							*arr;
 	t_push_swap_internal_part	self_bottom;
@@ -43,16 +43,16 @@ typedef struct s_push_swap_internal_divide
 	t_push_swap_internal_part	other_bottom;
 	bool						is_right;
 	bool						is_desc;
-}	t_push_swap_internal_divide;
+}	t_push_swap_sort_internal_divide;
 
-void	push_swap_internal_sort(
+void	push_swap_sort_internal_sort(
 			int *ptr,
 			size_t length,
 			bool reverse_order);
-void	push_swap_internal_collect(
-			t_push_swap_internal_collect collect);
-void	push_swap_internal_divide(
-			t_push_swap_internal_divide divide);
+void	push_swap_solve_internal_collect(
+			t_push_swap_solve_internal_collect collect);
+void	push_swap_sort_internal_divide(
+			t_push_swap_sort_internal_divide divide);
 
 void	rx(size_t a, size_t b);
 void	rrx(size_t a, size_t b);

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap_solve_internal_sort.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/25 22:13:15 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/05/27 01:08:06 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_solve_internal.h"
 
-void	push_swap_internal_sort(
+void	push_swap_sort_internal_sort(
 	int *ptr,
 	size_t length,
 	bool reverse_order
