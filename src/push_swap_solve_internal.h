@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/27 01:58:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/29 16:33:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,23 +81,48 @@ void	push_swap_solve_internal_rtr(
 			size_t count,
 			bool reverse_order);
 
-typedef enum e_push_swap_solve_internal_direction
-{
-	SORT_ONLY_LEFT_TO_RIGHT,
-	SORT_ONLY_RIGHT_TO_LEFT,
-	SORT_AND_MOVE_LEFT_TO_RIGHT,
-	SORT_AND_MOVE_RIGHT_TO_LEFT,
-}	t_push_swap_solve_internal_direction;
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_LEFT_ASC 0
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_RIGHT_ASC 1
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_LEFT_TO_RIGHT_ASC 2
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_RIGHT_TO_LEFT_ASC 3
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_LEFT_DESC 4
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_RIGHT_DESC 5
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_LEFT_TO_RIGHT_DESC 6
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_RIGHT_TO_LEFT_DESC 7
+
+bool	push_swap_solve_internal_direction_is_reverse_order(
+			int type);
+bool	push_swap_solve_internal_direction_is_reverse_direction(
+			int type);
+int		push_swap_solve_internal_direction_inverse_order(
+			int type);
+int		push_swap_solve_internal_direction_inverse_direction(
+			int type);
+
+void	push_swap_solve_internal_operation_px(
+			size_t a,
+			size_t b,
+			bool reverse_direction);
+void	push_swap_solve_internal_operation_sx(
+			bool right);
+void	push_swap_solve_internal_operation_rx(
+			size_t a,
+			size_t b,
+			bool reverse_direction);
+void	push_swap_solve_internal_operation_rrx(
+			size_t a,
+			size_t b,
+			bool reverse_direction);
 
 void	push_swap_solve_internal_sort_only(
 			t_push_swap *context,
 			int *a,
 			size_t count,
-			t_push_swap_solve_internal_direction direction);
+			int type);
 void	push_swap_solve_internal_sort_and_move(
 			t_push_swap *context,
 			int *a,
 			size_t count,
-			t_push_swap_solve_internal_direction direction);
+			int type);
 
 #endif
