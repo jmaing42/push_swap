@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_dijkstra_state_do_pa.c                   :+:      :+:    :+:   */
+/*   push_swap_dijkstra_state_operation_sa.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/20 01:22:44 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/05/30 13:21:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,27 @@
 #include "ft_malloc.h"
 #include "ft_memory.h"
 
-void	push_swap_dijkstra_state_do_pa(
-	t_push_swap_dijkstra_state *s,
+bool	push_swap_dijkstra_state_can_sa(
+	t_push_swap_dijkstra_state *self,
+	uint8_t length
+)
+{
+	(void)length;
+	return (
+		self->size_left >= 2
+		&& self->values[0]
+		&& self->values[1]
+	);
+}
+
+void	push_swap_dijkstra_state_do_sa(
+	t_push_swap_dijkstra_state *self,
 	uint8_t len,
 	t_push_swap_dijkstra_state *out
 )
 {
-	out->size_left = s->size_left + 1;
-	out->values[0] = s->values[s->size_left];
-	ft_memcpy(
-		out->values + 1,
-		s->values,
-		sizeof(uint8_t) * s->size_left);
-	ft_memcpy(
-		out->values + out->size_left,
-		s->values + out->size_left,
-		sizeof(uint8_t) * (len - out->size_left));
+	out->size_left = self->size_left;
+	ft_memcpy(out->values, self->values, sizeof(uint8_t) * len);
+	out->values[0] = self->values[1];
+	out->values[1] = self->values[0];
 }
