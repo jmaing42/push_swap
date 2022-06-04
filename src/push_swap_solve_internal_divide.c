@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 15:22:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:15:56 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ static void	internal(const char *str, size_t len, size_t *increment)
 }
 
 void	push_swap_solve_internal_divide_print(
-	t_push_swap_solve_internal_print_divide *param
+	t_push_swap_solve_internal_print_divide *p
 )
 {
 	size_t		a;
@@ -68,19 +68,19 @@ void	push_swap_solve_internal_divide_print(
 	b = 0;
 	c = 0;
 	offset = 0;
-	if (param->reverse)
-		offset = param->s.count_a + param->s.count_b + param->s.count_c;
+	if (p->reverse)
+		offset = p->s.count_a + p->s.count_b + p->s.count_c;
 	direction = 1;
-	if (param->reverse)
+	if (p->reverse)
 		direction = -1;
-	while (a + b + c != param->s.count_a + param->s.count_b + param->s.count_c)
+	while (a + b + c != p->s.count_a + p->s.count_b + p->s.count_c)
 	{
-		if (param->s.all[offset] == param->s.part_a[a])
-			internal(param->to_a, param->to_a_length, &a);
-		else if (param->s.all[offset] == param->s.part_b[b])
-			internal(param->to_b, param->to_b_length, &b);
+		if (p->s.all[offset] == p->s.part_a[a] && a != p->s.count_a)
+			internal(p->to_a, p->to_a_length, &a);
+		else if (p->s.all[offset] == p->s.part_b[b] && b != p->s.count_b)
+			internal(p->to_b, p->to_b_length, &b);
 		else
-			internal(param->to_c, param->to_c_length, &c);
+			internal(p->to_c, p->to_c_length, &c);
 		offset += direction;
 	}
 }
