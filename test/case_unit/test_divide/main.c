@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:08:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:58:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	main(void)
 
 	init_s((int *[3]){arr, arr_sorted, arr_result}, &t.s, &i);
 	init_t(&t);
-	push_swap_solve_internal_divide(&t.s);
 	push_swap_solve_internal_divide_print(&t);
 	puts("=====\n  a\n=====");
 	i = -1;

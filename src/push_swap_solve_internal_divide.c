@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:34:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:58:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	internal(const char *str, size_t len, size_t *increment)
 	(*increment)++;
 }
 
-void	push_swap_solve_internal_divide_print(
+static void	push_swap_solve_internal_divide_print_internal(
 	t_push_swap_solve_internal_print_divide *p
 )
 {
@@ -83,4 +83,12 @@ void	push_swap_solve_internal_divide_print(
 			internal(p->to_c, p->to_c_length, &c);
 		offset += direction;
 	}
+}
+
+void	push_swap_solve_internal_divide_print(
+	t_push_swap_solve_internal_print_divide *p
+)
+{
+	push_swap_solve_internal_divide(&p->s);
+	push_swap_solve_internal_divide_print_internal(p);
 }
