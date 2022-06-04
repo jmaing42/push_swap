@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:31:45 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ void	push_swap_solve_internal_sort(
 	size_t	j;
 	int		tmp;
 
+	if (!length)
+		return ;
 	i = -1;
 	while (++i < length - 1)
 	{

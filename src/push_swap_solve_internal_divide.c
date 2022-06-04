@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:15:56 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:34:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #include "ft_io.h"
 #include "ft_exit.h"
 
-void	push_swap_solve_internal_divide(t_push_swap_solve_internal *param)
+void	push_swap_solve_internal_divide(t_push_swap_solve_internal *p)
 {
-	const size_t	offset_c = param->count_a + param->count_b;
+	const size_t	offset_c = p->count_a + p->count_b;
 	size_t			a;
 	size_t			b;
 	size_t			c;
@@ -28,20 +28,20 @@ void	push_swap_solve_internal_divide(t_push_swap_solve_internal *param)
 	a = 0;
 	b = 0;
 	c = 0;
-	while (a + b + c != param->count_a + param->count_b + param->count_c)
+	while (a + b + c != p->count_a + p->count_b + p->count_c)
 	{
-		if (param->all[a + b + c] < param->all_sorted[param->count_a])
-			param->part_a[a] = param->all[a + b + c];
-		if (param->all[a + b + c] < param->all_sorted[param->count_a])
+		if (p->count_a && p->all[a + b + c] < p->all_sorted[p->count_a])
+			p->part_a[a] = p->all[a + b + c];
+		if (p->count_a && p->all[a + b + c] < p->all_sorted[p->count_a])
 			a++;
-		else if (param->all[a + b + c] < param->all_sorted[offset_c])
+		else if (p->count_b && p->all[a + b + c] < p->all_sorted[offset_c])
 		{
-			param->part_b[b] = param->all[a + b + c];
+			p->part_b[b] = p->all[a + b + c];
 			b++;
 		}
 		else
 		{
-			param->part_c[c] = param->all[a + b + c];
+			p->part_c[c] = p->all[a + b + c];
 			c++;
 		}
 	}
