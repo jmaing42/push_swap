@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 15:01:31 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	push_swap_solve_internal_operation_rrx(
 			size_t b,
 			bool reverse_direction);
 
-void	push_swap_sort_internal_sort(
+void	push_swap_solve_internal_sort(
 			int *ptr,
 			size_t length,
 			bool reverse_order);

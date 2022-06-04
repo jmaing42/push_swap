@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/05/27 01:12:02 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	push_swap_solve_internal_rtl_divide_first(
 		= (int *)ft_malloc(sizeof(int) * count);
 
 	ft_memcpy(s, &self->numbers[offset], sizeof(int) * count);
-	push_swap_sort_internal_sort(s, count, reverse_order);
+	push_swap_solve_internal_sort(s, count, reverse_order);
 	push_swap_sort_internal_divide((t_push_swap_sort_internal_divide){
 		&self->numbers[offset],
 		(t_push_swap_internal_part){c.z, s[0], s[c.z - 1]},
