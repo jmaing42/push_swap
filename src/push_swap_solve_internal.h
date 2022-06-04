@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 20:01:52 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,10 @@ void	push_swap_solve_internal_rtr(
 			size_t count,
 			bool reverse_order);
 
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_LEFT_ASC 0
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_RIGHT_ASC 1
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_LEFT_TO_RIGHT_ASC 2
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_RIGHT_TO_LEFT_ASC 3
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_LEFT_DESC 4
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_RIGHT_DESC 5
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_LEFT_TO_RIGHT_DESC 6
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_AND_MOVE_RIGHT_TO_LEFT_DESC 7
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_LEFT_ASC 0
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_RIGHT_ASC 1
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_LEFT_DESC 2
+# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_RIGHT_DESC 3
 
 bool	push_swap_solve_internal_type_is_reverse_order(
 			int type);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memory.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 08:09:51 by jmaing            #+#    #+#             */
-/*   Updated: 2022/04/25 22:35:52 by jmaing           ###   ########.fr       */
+/*   Updated: 2022/06/04 22:23:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,14 @@ void	ft_memcpy(void *dest, const void *source, size_t size)
 		i++;
 		*d++ = *s++;
 	}
+}
+
+void	*ft_memdup(const void *source, size_t size)
+{
+	void *const	result = malloc(size);
+
+	if (!result)
+		return (NULL);
+	ft_memcpy(result, source, size);
+	return (result);
 }
