@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:56:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ typedef struct s_push_swap_solve_internal
 	int		*part_a;
 	int		*part_b;
 	int		*part_c;
-	size_t	count_a;
-	size_t	count_b;
-	size_t	count_c;
+	size_t	c_a;
+	size_t	c_b;
+	size_t	c_c;
 }	t_push_swap_solve_internal;
 
 typedef struct s_push_swap_solve_internal_print_divide

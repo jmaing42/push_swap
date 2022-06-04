@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_count_bake_part_internal.c               :+:      :+:    :+:   */
+/*   push_swap_c_bake_part_internal.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,7 +16,7 @@
 
 #include "ft_size_t.h"
 
-size_t	push_swap_count_bake_part_only_first_internal(
+size_t	push_swap_c_bake_part_only_first_internal(
 	t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
@@ -43,7 +43,7 @@ size_t	push_swap_count_bake_part_only_first_internal(
 	);
 }
 
-size_t	push_swap_count_bake_part_only_last_internal(
+size_t	push_swap_c_bake_part_only_last_internal(
 	t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
@@ -70,7 +70,7 @@ size_t	push_swap_count_bake_part_only_last_internal(
 	);
 }
 
-size_t	push_swap_count_bake_part_move_first_internal(
+size_t	push_swap_c_bake_part_move_first_internal(
 	t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
@@ -97,7 +97,7 @@ size_t	push_swap_count_bake_part_move_first_internal(
 	);
 }
 
-size_t	push_swap_count_bake_part_move_last_internal(
+size_t	push_swap_c_bake_part_move_last_internal(
 	t_push_swap_count_part *map,
 	size_t x,
 	size_t y,

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_count_bake_part.c                        :+:      :+:    :+:   */
+/*   push_swap_c_bake_part.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmaing <jmaing@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,22 +14,22 @@
 
 #include <stdint.h>
 
-t_push_swap_count_part	push_swap_count_bake_part(
+t_push_swap_count_part	push_swap_c_bake_part(
 	t_push_swap_count_part *map,
 	size_t count
 )
 {
 	const t_push_swap_count_part	result = {
-		push_swap_count_bake_part_only_first(map, count),
-		push_swap_count_bake_part_only_last(map, count),
-		push_swap_count_bake_part_move_first(map, count),
-		push_swap_count_bake_part_move_last(map, count)
+		push_swap_c_bake_part_only_first(map, count),
+		push_swap_c_bake_part_only_last(map, count),
+		push_swap_c_bake_part_move_first(map, count),
+		push_swap_c_bake_part_move_last(map, count)
 	};
 
 	return (result);
 }
 
-t_push_swap_count_item	push_swap_count_bake_part_only_first(
+t_push_swap_count_item	push_swap_c_bake_part_only_first(
 	t_push_swap_count_part *map,
 	size_t count
 )
@@ -50,7 +50,7 @@ t_push_swap_count_item	push_swap_count_bake_part_only_first(
 			z = count - (x + y);
 			if (y == count || z == count)
 				continue ;
-			now = push_swap_count_bake_part_only_first_internal(map, x, y, z);
+			now = push_swap_c_bake_part_only_first_internal(map, x, y, z);
 			if (now < result.total_moves)
 				result = (t_push_swap_count_item){now, x, y, z};
 		}
@@ -58,7 +58,7 @@ t_push_swap_count_item	push_swap_count_bake_part_only_first(
 	return (result);
 }
 
-t_push_swap_count_item	push_swap_count_bake_part_only_last(
+t_push_swap_count_item	push_swap_c_bake_part_only_last(
 	t_push_swap_count_part *map,
 	size_t count
 )
@@ -79,7 +79,7 @@ t_push_swap_count_item	push_swap_count_bake_part_only_last(
 			z = count - (x + y);
 			if (y == count || z == count)
 				continue ;
-			now = push_swap_count_bake_part_only_last_internal(map, x, y, z);
+			now = push_swap_c_bake_part_only_last_internal(map, x, y, z);
 			if (now < result.total_moves)
 				result = (t_push_swap_count_item){now, x, y, z};
 		}
@@ -87,7 +87,7 @@ t_push_swap_count_item	push_swap_count_bake_part_only_last(
 	return (result);
 }
 
-t_push_swap_count_item	push_swap_count_bake_part_move_first(
+t_push_swap_count_item	push_swap_c_bake_part_move_first(
 	t_push_swap_count_part *map,
 	size_t count
 )
@@ -108,7 +108,7 @@ t_push_swap_count_item	push_swap_count_bake_part_move_first(
 			z = count - (x + y);
 			if (y == count || z == count)
 				continue ;
-			now = push_swap_count_bake_part_move_first_internal(map, x, y, z);
+			now = push_swap_c_bake_part_move_first_internal(map, x, y, z);
 			if (now < result.total_moves)
 				result = (t_push_swap_count_item){now, x, y, z};
 		}
@@ -116,7 +116,7 @@ t_push_swap_count_item	push_swap_count_bake_part_move_first(
 	return (result);
 }
 
-t_push_swap_count_item	push_swap_count_bake_part_move_last(
+t_push_swap_count_item	push_swap_c_bake_part_move_last(
 	t_push_swap_count_part *map,
 	size_t count
 )
@@ -137,7 +137,7 @@ t_push_swap_count_item	push_swap_count_bake_part_move_last(
 			z = count - (x + y);
 			if (y == count || z == count)
 				continue ;
-			now = push_swap_count_bake_part_move_last_internal(map, x, y, z);
+			now = push_swap_c_bake_part_move_last_internal(map, x, y, z);
 			if (now < result.total_moves)
 				result = (t_push_swap_count_item){now, x, y, z};
 		}

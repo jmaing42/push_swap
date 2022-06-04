@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:08:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 17:42:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ static void	init_s(
 		i++;
 	t->all = arr;
 	t->all_sorted = arr_sorted;
-	t->count_a = i / 3;
-	t->count_b = (i - t->count_a) / 2;
-	t->count_c = i - t->count_a - t->count_b;
+	t->c_a = i / 3;
+	t->c_b = (i - t->c_a) / 2;
+	t->c_c = i - t->c_a - t->c_b;
 	t->part_a = arr_result;
-	t->part_b = &arr_result[t->count_a];
-	t->part_c = &arr_result[t->count_a + t->count_b];
+	t->part_b = &arr_result[t->c_a];
+	t->part_c = &arr_result[t->c_a + t->c_b];
 	memcpy(arr_sorted, arr, sizeof(int) * i);
 	push_swap_solve_internal_sort(arr_sorted, i, false);
 	*out_length = i;
@@ -71,14 +71,14 @@ int	main(int argc, char **argv)
 	push_swap_solve_internal_divide_print(&t);
 	puts("=====\n  a\n=====");
 	i = -1;
-	while (++i < t.s.count_a)
+	while (++i < t.s.c_a)
 		printf("%d\n", arr_result[i]);
 	puts("=====\n  b\n=====");
 	i = -1;
-	while (++i < t.s.count_b)
-		printf("%d\n", arr_result[t.s.count_a + i]);
+	while (++i < t.s.c_b)
+		printf("%d\n", arr_result[t.s.c_a + i]);
 	puts("=====\n  c\n=====");
 	i = -1;
-	while (++i < t.s.count_c)
-		printf("%d\n", arr_result[t.s.count_a + t.s.count_b + i]);
+	while (++i < t.s.c_c)
+		printf("%d\n", arr_result[t.s.c_a + t.s.c_b + i]);
 }

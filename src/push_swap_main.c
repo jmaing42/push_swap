@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/27 02:03:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 18:37:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static void	init_internal(t_push_swap *self, unsigned int count)
 	map[2].sort_and_move_collect_last = (t_push_swap_count_item){3, 0, 0, 0};
 	i = 2;
 	while (++i <= count)
-		map[i] = push_swap_count_bake_part(map, i);
+		map[i] = push_swap_c_bake_part(map, i);
 	self->solution = push_swap_count_solution(map, count);
 }
 

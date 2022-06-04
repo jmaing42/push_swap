@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 17:10:42 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 17:43:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,15 @@ static void	init_s(
 		i++;
 	t->all = arr;
 	t->all_sorted = arr_sorted;
-	t->count_a = i / 3;
-	t->count_b = (i - t->count_a) / 2;
-	t->count_c = i - t->count_a - t->count_b;
+	t->c_a = i / 3;
+	t->c_b = (i - t->c_a) / 2;
+	t->c_c = i - t->c_a - t->c_b;
 	t->part_a = arr_result;
-	t->part_b = &arr_result[t->count_a];
-	t->part_c = &arr_result[t->count_a + t->count_b];
-	push_swap_solve_internal_sort(t->part_a, t->count_a, false);
-	push_swap_solve_internal_sort(t->part_b, t->count_b, false);
-	push_swap_solve_internal_sort(t->part_c, t->count_c, true);
+	t->part_b = &arr_result[t->c_a];
+	t->part_c = &arr_result[t->c_a + t->c_b];
+	push_swap_solve_internal_sort(t->part_a, t->c_a, false);
+	push_swap_solve_internal_sort(t->part_b, t->c_b, false);
+	push_swap_solve_internal_sort(t->part_c, t->c_c, true);
 	*out_length = i;
 }
 
@@ -74,6 +74,6 @@ int	main(int argc, char **argv)
 	init_t(&t);
 	push_swap_solve_internal_collect_print(&t);
 	i = -1;
-	while (++i < t.s.count_a + t.s.count_b + t.s.count_c)
+	while (++i < t.s.c_a + t.s.c_b + t.s.c_c)
 		printf("%d\n", arr[i]);
 }
