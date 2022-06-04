@@ -8,6 +8,7 @@
 *.exe
 .vscode/*.log
 tmp
+*.dSYM
 
 # push_swap specific
 src/*

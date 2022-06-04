@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/04 16:56:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,12 +115,12 @@ typedef struct s_push_swap_solve_internal_print_divide
 typedef struct s_push_swap_solve_internal_print_collect
 {
 	t_push_swap_solve_internal	s;
-	const char					*to_a;
-	const char					*to_b;
-	const char					*to_c;
-	size_t						to_a_length;
-	size_t						to_b_length;
-	size_t						to_c_length;
+	const char					*from_a;
+	const char					*from_b;
+	const char					*from_c;
+	size_t						from_a_length;
+	size_t						from_b_length;
+	size_t						from_c_length;
 	bool						reverse_a;
 	bool						reverse_b;
 	bool						reverse_c;

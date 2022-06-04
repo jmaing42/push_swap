@@ -2,23 +2,13 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build push_swap",
+      "label": "build unit test collect (debug)",
       "type": "shell",
-      "command": "make PROFILE=debug push_swap",
-      "group": {
-        "kind": "build",
-        "isDefault": false,
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": false
-      },
+      "command": "make test.exe",
       "options": {
-        "cwd": "${workspaceFolder}/src"
+        "cwd": "${workspaceFolder}/test/case_unit/test_collect",
       },
-      "problemMatcher": [
-        "$gcc",
-      ],
+      "problemMatcher": ["$gcc"]
     },
   ],
 }
