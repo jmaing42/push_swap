@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:28:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 21:49:56 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/11 22:29:26 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-typedef struct t_checker_state_part
+typedef struct s_checker_state_part
 {
 	int		*arr;
 	size_t	capacity;
@@ -24,7 +24,7 @@ typedef struct t_checker_state_part
 	size_t	size;
 }	t_checker_state_part;
 
-typedef struct t_checker_state
+typedef struct s_checker_state
 {
 	t_checker_state_part	a;
 	t_checker_state_part	b;
