@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/11 21:56:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ void	push_swap_solve_internal_collect(t_push_swap_solve_internal *p)
 		else
 			p->all[i++] = p->part_c[c++];
 	}
-}
-
-static void	internal(const char *str, size_t len, size_t *increment)
-{
-	if (ft_write(STDOUT_FILENO, str, len))
-		ft_exit(EXIT_FAILURE);
-	(*increment)++;
 }
 
 static void	push_swap_solve_internal_collect_print_internal(

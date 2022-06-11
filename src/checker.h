@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_main.c                                     :+:      :+:    :+:   */
+/*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/11 22:09:12 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/06/11 21:17:26 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/06/11 22:08:09 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef CHECKER_H
+# define CHECKER_H
 
-#include "ft_io.h"
-#include "ft_exit.h"
+# include "ft_exit.h"
 
-#include "checker.h"
+# include "checker_state.h"
 
-static void	print_error_message(void)
-{
-	ft_write(STDERR_FILENO, "An unknown error occurred.\n", 6);
-}
+int				checker_exit(const char *message);
 
-int	main(int argc, char **argv)
-{
-	t_checker_state *const	state = checker_init(argc - 1, argv + 1);
+t_checker_state	*checker_init(size_t count, char **arr_as_string);
 
-	(void) state;
-	ft_set_exit_handler(print_error_message);
-	return (0);
-}
+#endif
