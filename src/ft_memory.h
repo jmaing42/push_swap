@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 08:08:29 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/04 22:21:05 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/12 18:43:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,14 @@
 
 # include <stddef.h>
 
+# include "ft_types.h"
+
 void	*ft_calloc(size_t count, size_t size);
 void	ft_bzero(void *mem, size_t len);
 void	*ft_memset(void *mem, int value, size_t len);
 void	ft_memcpy(void *dest, const void *source, size_t size);
 void	*ft_memdup(const void *source, size_t size);
+
+bool	ft_memory_find(const void *mem, size_t size, char to_find, size_t *out);
 
 #endif

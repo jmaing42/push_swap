@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:18:13 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 22:25:32 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/12 18:36:55 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_ft_to_lines {
 	t_stringbuilder	*current;
-	char			*pending;
+	const char		*pending;
 	size_t			pending_offset;
 	size_t			pending_length;
 }	t_ft_to_lines;
