@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:21:13 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/12 18:53:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/13 02:20:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ static t_err	ft_to_lines_internal_append(
 			&context->pending[context->pending_offset]))
 		return (true);
 	context->pending = NULL;
+	*out_line = NULL;
 	return (false);
 }
 
