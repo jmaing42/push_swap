@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:05:03 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/14 01:20:54 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:40:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,9 @@ void	push_swap_solve_internal_inverse(
 	size_t length
 )
 {
-	const size_t	to = length / 2;
 	size_t			i;
 
 	i = -1;
-	while (++i < to)
+	while (++i < length)
 		ptr[i] = ~ptr[i];
 }
