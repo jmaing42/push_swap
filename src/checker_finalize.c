@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.h                                          :+:      :+:    :+:   */
+/*   checker_finalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 21:17:26 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/14 00:07:29 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/06/14 00:04:42 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/06/14 00:17:05 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CHECKER_H
-# define CHECKER_H
+#include "checker.h"
 
-# include "ft_types.h"
-# include "checker_state.h"
+#include <unistd.h>
 
-int				checker_exit(const char *message);
+#include "ft_io.h"
+#include "ft_exit.h"
 
-t_checker_state	*checker_init(size_t count, char **arr_as_string);
-
-t_err			checker_do(t_checker_state *self, const char *operation);
-bool			checker_sorted(t_checker_state *self);
-void			checker_finalize(t_checker_state *self);
-
-#endif
+void	checker_finalize(t_checker_state *self)
+{
+	if (checker_sorted(self))
+	{
+		if (ft_puts(STDOUT_FILENO, "OK\n"))
+			ft_exit(EXIT_FAILURE);
+	}
+	else
+	{
+		if (ft_puts(STDOUT_FILENO, "KO\n"))
+			ft_exit(EXIT_FAILURE);
+	}
+	ft_set_exit_handler(NULL);
+	ft_exit(EXIT_SUCCESS);
+}

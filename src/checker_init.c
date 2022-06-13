@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:59:55 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 22:07:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 00:16:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_checker_state	*checker_init(size_t count, char **arr_as_string)
 	size_t					i;
 	size_t					j;
 
-	result->a = (t_checker_state_part){a, count, 0, 0};
+	result->a = (t_checker_state_part){a, count, 0, count};
 	result->b = (t_checker_state_part){b, count, 0, 0};
 	i = -1;
 	while (++i < count)

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/13 23:46:13 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 00:11:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 #define BUFFER_SIZE 1024
 
-#define ERROR_MESSAGE "An unknown error occurred.\n"
+#define ERROR_MESSAGE "Error: an unknown error occurred.\n"
 
 static void	print_error_message(void)
 {
@@ -78,9 +78,10 @@ int	main(int argc, char **argv)
 			ft_exit(EXIT_FAILURE);
 		if (line)
 		{
-			ft_puts(STDERR_FILENO, line);
+			if (checker_do(state, line))
+				checker_exit("Error: invalid operation given.");
 			free(line);
 		}
 	}
-	return (EXIT_FAILURE);
+	checker_finalize(state);
 }
