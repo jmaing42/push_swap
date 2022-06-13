@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 15:08:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:19:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	init_s(
 	t->part_b = &arr_result[t->c_a];
 	t->part_c = &arr_result[t->c_a + t->c_b];
 	memcpy(arr_sorted, arr, sizeof(int) * i);
-	push_swap_solve_internal_sort(arr_sorted, i, false);
+	push_swap_solve_internal_sort(arr_sorted, i);
 	*out_length = i;
 }
 

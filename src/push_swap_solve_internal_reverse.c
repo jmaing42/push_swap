@@ -6,13 +6,13 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/04 18:24:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:27:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_solve_internal.h"
 
-void	push_swap_sort_internal_reverse(
+void	push_swap_solve_internal_reverse(
 	int *ptr,
 	size_t length
 )

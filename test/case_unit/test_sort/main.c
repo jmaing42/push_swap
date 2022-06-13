@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 10:52:12 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 16:30:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:34:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,9 @@ int	main(int argc, char **argv)
 	i = 0;
 	while (scanf("%d", &arr[i]) == 1)
 		i++;
-	push_swap_solve_internal_sort(arr, i, !strcmp(argv[1], "true"));
+	push_swap_solve_internal_sort(arr, i);
+	if (!strcmp(argv[1], "true"))
+		push_swap_solve_internal_reverse(arr, i);
 	j = 0;
 	while (j < i)
 	{

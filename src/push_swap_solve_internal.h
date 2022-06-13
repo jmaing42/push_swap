@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 21:05:45 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:27:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,41 +14,6 @@
 # define PUSH_SWAP_SOLVE_INTERNAL_H
 
 # include "push_swap_solve.h"
-
-void	push_swap_solve_internal_ltl(
-			t_push_swap *self,
-			size_t offset,
-			size_t count,
-			bool reverse_order);
-void	push_swap_solve_internal_ltr(
-			t_push_swap *self,
-			size_t offset,
-			size_t count,
-			bool reverse_order);
-void	push_swap_solve_internal_rtl(
-			t_push_swap *self,
-			size_t offset,
-			size_t count,
-			bool reverse_order);
-void	push_swap_solve_internal_rtr(
-			t_push_swap *self,
-			size_t offset,
-			size_t count,
-			bool reverse_order);
-
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_LEFT_ASC 0
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_RIGHT_ASC 1
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_LEFT_DESC 2
-# define PUSH_SWAP_SOLVE_INTERNAL_TYPE_SORT_ONLY_FROM_RIGHT_DESC 3
-
-bool	push_swap_solve_internal_type_is_reverse_order(
-			int type);
-bool	push_swap_solve_internal_type_is_reverse_direction(
-			int type);
-int		push_swap_solve_internal_type_inverse_order(
-			int type);
-int		push_swap_solve_internal_type_inverse_direction(
-			int type);
 
 void	push_swap_solve_internal_operation_px(
 			size_t a,
@@ -67,25 +32,13 @@ void	push_swap_solve_internal_operation_rrx(
 
 void	push_swap_solve_internal_sort(
 			int *ptr,
-			size_t length,
-			bool reverse_order);
-void	push_swap_sort_internal_reverse(
+			size_t length);
+void	push_swap_solve_internal_reverse(
 			int *ptr,
 			size_t length);
-void	push_swap_sort_internal_inverse(
+void	push_swap_solve_internal_inverse(
 			int *ptr,
 			size_t length);
-
-void	push_swap_solve_internal_sort_only(
-			t_push_swap *context,
-			int *a,
-			size_t count,
-			int type);
-void	push_swap_solve_internal_sort_and_move(
-			t_push_swap *context,
-			int *a,
-			size_t count,
-			int type);
 
 typedef struct s_push_swap_solve_internal
 {
@@ -133,5 +86,16 @@ void	push_swap_solve_internal_divide_print(
 			t_push_swap_solve_internal_print_divide *param);
 void	push_swap_solve_internal_collect_print(
 			t_push_swap_solve_internal_print_collect *param);
+
+void	push_swap_solve_internal_sort_only(
+			t_push_swap *context,
+			int *arr,
+			size_t count,
+			bool rtl);
+void	push_swap_solve_internal_sort_and_move(
+			t_push_swap *context,
+			int *arr,
+			size_t count,
+			bool rtl);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 17:10:42 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:34:29 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ static void	init_s(
 	t->part_a = arr_result;
 	t->part_b = &arr_result[t->c_a];
 	t->part_c = &arr_result[t->c_a + t->c_b];
-	push_swap_solve_internal_sort(t->part_a, t->c_a, false);
-	push_swap_solve_internal_sort(t->part_b, t->c_b, false);
-	push_swap_solve_internal_sort(t->part_c, t->c_c, true);
+	push_swap_solve_internal_sort(t->part_a, t->c_a);
+	push_swap_solve_internal_sort(t->part_b, t->c_b);
+	push_swap_solve_internal_sort(t->part_c, t->c_c);
+	push_swap_solve_internal_reverse(t->part_c, t->c_c);
 	*out_length = i;
 }
 

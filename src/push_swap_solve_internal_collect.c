@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 21:56:41 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:27:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,11 @@ void	push_swap_solve_internal_collect_print(
 	size_t		c;
 
 	if (p->reverse_a)
-		push_swap_sort_internal_reverse(p->s.part_a, p->s.c_a);
+		push_swap_solve_internal_reverse(p->s.part_a, p->s.c_a);
 	if (p->reverse_b)
-		push_swap_sort_internal_reverse(p->s.part_b, p->s.c_b);
+		push_swap_solve_internal_reverse(p->s.part_b, p->s.c_b);
 	if (p->reverse_c)
-		push_swap_sort_internal_reverse(p->s.part_c, p->s.c_c);
+		push_swap_solve_internal_reverse(p->s.part_c, p->s.c_c);
 	push_swap_solve_internal_collect(&p->s);
 	a = 0;
 	b = 0;
@@ -92,9 +92,9 @@ void	push_swap_solve_internal_collect_print(
 	while (a + b + c != p->s.c_a + p->s.c_b + p->s.c_c)
 		push_swap_solve_internal_collect_print_internal(p, &a, &b, &c);
 	if (p->reverse_a)
-		push_swap_sort_internal_reverse(p->s.part_a, p->s.c_a);
+		push_swap_solve_internal_reverse(p->s.part_a, p->s.c_a);
 	if (p->reverse_b)
-		push_swap_sort_internal_reverse(p->s.part_b, p->s.c_b);
+		push_swap_solve_internal_reverse(p->s.part_b, p->s.c_b);
 	if (p->reverse_c)
-		push_swap_sort_internal_reverse(p->s.part_c, p->s.c_c);
+		push_swap_solve_internal_reverse(p->s.part_c, p->s.c_c);
 }

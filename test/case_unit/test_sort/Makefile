@@ -2,7 +2,7 @@ Q := $(if $(filter 1,$(V) $(VERBOSE)),,@)
 
 LIBFT := ../../../src/.cache/libft.development.debug.address.a
 SRC_DIR := ../../../src
-SRCS := main.c $(LIBFT) $(SRC_DIR)/push_swap_solve_internal_sort.c
+SRCS := main.c $(LIBFT) $(SRC_DIR)/push_swap_solve_internal_sort.c $(SRC_DIR)/push_swap_solve_internal_reverse.c
 
 .PHONY: all clean fclean test $(LIBFT)
 all: test

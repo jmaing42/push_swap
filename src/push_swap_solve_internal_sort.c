@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/04 16:31:45 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 01:18:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	push_swap_solve_internal_sort(
 	int *ptr,
-	size_t length,
-	bool reverse_order
+	size_t length
 )
 {
 	size_t	i;
@@ -30,7 +29,7 @@ void	push_swap_solve_internal_sort(
 		j = i;
 		while (++j < length)
 		{
-			if (ptr[i] < ptr[j] == reverse_order)
+			if (ptr[i] > ptr[j])
 			{
 				tmp = ptr[i];
 				ptr[i] = ptr[j];
