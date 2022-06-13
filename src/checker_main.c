@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/13 02:21:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/13 23:46:13 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,9 @@ static t_err	read_line(
 			return (true);
 		if (bytes_read == 0)
 		{
-			line = ft_to_lines_end(context);
+			*out_line = ft_to_lines_end(context);
 			*out_eof = true;
+			return (false);
 		}
 		else if (ft_to_lines(context, buffer, bytes_read, &line))
 			return (true);
@@ -75,8 +76,11 @@ int	main(int argc, char **argv)
 	{
 		if (read_line(&context, &line, &eof))
 			ft_exit(EXIT_FAILURE);
-		ft_puts(STDERR_FILENO, line);
-		free(line);
+		if (line)
+		{
+			ft_puts(STDERR_FILENO, line);
+			free(line);
+		}
 	}
 	return (EXIT_FAILURE);
 }
