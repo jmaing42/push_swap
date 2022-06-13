@@ -10,5 +10,14 @@
       "cwd": "${workspaceFolder}/test/case_unit/test_collect",
       "preLaunchTask": "build unit test collect (debug)",
     },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug checker",
+      "program": "${workspaceFolder}/src/.cache/checker.production.debug.address.exe",
+      "args": ["1", "2", "3"],
+      "cwd": "${workspaceFolder}/src",
+      "preLaunchTask": "build checker (debug)",
+    },
   ],
 }

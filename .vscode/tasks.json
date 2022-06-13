@@ -10,5 +10,14 @@
       },
       "problemMatcher": ["$gcc"]
     },
+    {
+      "label": "build checker (debug)",
+      "type": "shell",
+      "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",
+      "options": {
+        "cwd": "${workspaceFolder}/src",
+      },
+      "problemMatcher": ["$gcc"]
+    },
   ],
 }
