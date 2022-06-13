@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/14 00:11:58 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 00:50:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 	bool					eof;
 	char					*line;
 
-	(void) state;
+	context.buffer_size = BUFFER_SIZE;
 	ft_set_exit_handler(print_error_message);
 	ft_bzero(&context, sizeof(context));
 	eof = false;

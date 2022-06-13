@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 22:21:13 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/13 21:14:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/14 00:51:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 #include "ft_memory.h"
 
-#define BUFFER_SIZE 10
-
 static t_err	ft_to_lines_internal_append(
 	t_ft_to_lines *context,
 	char **out_line
 )
 {
 	if (!context->current)
-		context->current = new_stringbuilder(BUFFER_SIZE);
+		context->current = new_stringbuilder(context->buffer_size);
 	if (!context->current)
 		return (true);
 	if (stringbuilder_append(
@@ -42,7 +40,7 @@ static t_err	ft_to_lines_internal_final(
 )
 {
 	if (!context->current)
-		context->current = new_stringbuilder(BUFFER_SIZE);
+		context->current = new_stringbuilder(context->buffer_size);
 	if (!context->current)
 		return (true);
 	if (stringbuilder_append(
