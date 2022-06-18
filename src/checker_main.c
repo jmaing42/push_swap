@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/14 00:50:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/18 22:49:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,33 +31,33 @@ static void	print_error_message(void)
 static t_err	read_line(
 	t_ft_to_lines *context,
 	char **out_line,
+	size_t *out_length,
 	bool *out_eof
 )
 {
-	char	buffer[BUFFER_SIZE];
-	ssize_t	bytes_read;
-	char	*line;
+	static char	buffer[BUFFER_SIZE];
+	ssize_t		bytes_read;
 
 	*out_eof = false;
-	if (ft_to_lines(context, NULL, 0, &line))
+	if (ft_to_lines_drain(context, out_line, out_length))
 		return (true);
-	while (!line)
+	while (!*out_line)
 	{
 		bytes_read = read(STDIN_FILENO, buffer, BUFFER_SIZE);
 		if (bytes_read < 0)
 			return (true);
-		if (bytes_read == 0)
+		if (!bytes_read)
 		{
-			*out_line = ft_to_lines_end(context);
 			*out_eof = true;
+			if (ft_to_lines_get_current_line(context, out_line, out_length))
+				return (true);
+			ft_to_lines_free(context);
 			return (false);
 		}
-		else if (ft_to_lines(context, buffer, bytes_read, &line))
+		if (ft_to_lines_feed(context, buffer, bytes_read)
+			|| ft_to_lines_drain(context, out_line, out_length))
 			return (true);
 	}
-	if (!line)
-		return (true);
-	*out_line = line;
 	return (false);
 }
 
@@ -67,6 +67,7 @@ int	main(int argc, char **argv)
 	t_ft_to_lines			context;
 	bool					eof;
 	char					*line;
+	size_t					nop;
 
 	context.buffer_size = BUFFER_SIZE;
 	ft_set_exit_handler(print_error_message);
@@ -74,7 +75,7 @@ int	main(int argc, char **argv)
 	eof = false;
 	while (!eof)
 	{
-		if (read_line(&context, &line, &eof))
+		if (read_line(&context, &line, &nop, &eof))
 			ft_exit(EXIT_FAILURE);
 		if (line)
 		{
