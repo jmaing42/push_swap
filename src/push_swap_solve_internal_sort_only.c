@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/20 01:55:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/20 02:29:02 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ static void	collect_last_internal_init_params(
 	p->from_c_length = 4;
 }
 
+#include <stdio.h>
+
 void	push_swap_solve_internal_sort_only_collect_last(
 	t_push_swap *context,
 	int *arr,
@@ -57,6 +59,7 @@ void	push_swap_solve_internal_sort_only_collect_last(
 	const size_t								xy = c.x + c.y;
 	t_push_swap_solve_internal_print_collect	collect_params;
 
+	printf("%*.0d sort only %zu (collect last): start\n", (int)count, 0, count);
 	if (!sorted)
 		ft_exit(EXIT_FAILURE);
 	push_swap_solve_internal_sort(sorted, count);
@@ -74,6 +77,7 @@ void	push_swap_solve_internal_sort_only_collect_last(
 	push_swap_solve_internal_reverse(sorted, count);
 	ft_memcpy(arr, sorted, sizeof(int) * count);
 	free(sorted);
+	printf("%*.0d sort only %zu (collect last): end\n", (int)count, 0, count);
 }
 
 static void	divide_first_internal_init_params(
@@ -107,7 +111,7 @@ void	push_swap_solve_internal_sort_only_divide_first(
 )
 {
 	const t_push_swap_count_item				c
-		= context->map[count].sort_only_collect_last;
+		= context->map[count].sort_only_divide_first;
 	int *const									sorted
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	int *const									original
@@ -115,7 +119,8 @@ void	push_swap_solve_internal_sort_only_divide_first(
 	const size_t								xy = c.x + c.y;
 	t_push_swap_solve_internal_print_divide		divide_params;
 
-	if (!sorted)
+	printf("%*.0d sort only %zu (divide first): start\n", (int)count, 0, count);
+	if (!sorted || !original)
 		ft_exit(EXIT_FAILURE);
 	push_swap_solve_internal_sort(sorted, count);
 	divide_params.s = (t_push_swap_solve_internal){
@@ -130,6 +135,7 @@ void	push_swap_solve_internal_sort_only_divide_first(
 	ft_memcpy(arr, sorted, sizeof(int) * count);
 	free(original);
 	free(sorted);
+	printf("%*.0d sort only %zu (divide first): start\n", (int)count, 0, count);
 }
 
 void	push_swap_solve_internal_sort_only(
@@ -145,7 +151,8 @@ void	push_swap_solve_internal_sort_only(
 		return ;
 	if (count == 2)
 	{
-		push_swap_solve_internal_operation_sx(from_right);
+		if (arr[0] > arr[1])
+			push_swap_solve_internal_operation_sx(from_right);
 		return ;
 	}
 	if (part->sort_only_collect_last.total_moves
