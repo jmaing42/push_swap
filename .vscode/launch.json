@@ -19,5 +19,14 @@
       "cwd": "${workspaceFolder}/src",
       "preLaunchTask": "build checker (debug)",
     },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug push_swap",
+      "program": "${workspaceFolder}/src/.cache/push_swap.production.debug.address.exe",
+      "args": ["1", "2", "3"],
+      "cwd": "${workspaceFolder}/src",
+      "preLaunchTask": "build push_swap (debug)",
+    },
   ],
 }

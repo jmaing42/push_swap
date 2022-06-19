@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/04 18:37:20 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/20 02:10:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ static void	init_internal(t_push_swap *self, unsigned int count)
 	t_push_swap_count_part *const	map = self->map;
 	size_t							i;
 
+	if (count < 3)
+		return ;
 	map[0].sort_only_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
 	map[0].sort_only_collect_last = (t_push_swap_count_item){0, 0, 0, 0};
 	map[0].sort_and_move_divide_first = (t_push_swap_count_item){0, 0, 0, 0};
@@ -60,7 +62,7 @@ static void	init(
 	int *const						numbers = (int *)
 		ft_malloc(sizeof(int) * count);
 	t_push_swap_count_part *const	map = (t_push_swap_count_part *)
-		ft_malloc(sizeof(t_push_swap_count_part) * count + 1);
+		ft_malloc(sizeof(t_push_swap_count_part) * (count + 1));
 	size_t							i;
 	size_t							j;
 
@@ -93,6 +95,6 @@ int	main(int argc, const char **argv)
 	ft_set_exit_handler(print_error_message);
 	count = argc - 1;
 	init(&context, &numbers, count, &argv[1]);
-	push_swap_solve(&context);
+	push_swap_solve(&context, numbers, count);
 	return (EXIT_SUCCESS);
 }

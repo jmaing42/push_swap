@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/20 01:40:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/20 01:55:48 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include "ft_memory.h"
 #include "ft_malloc.h"
+#include "ft_exit.h"
 
 static void	collect_last_internal_init_params(
 	t_push_swap_solve_internal_print_collect *p,
@@ -56,6 +57,8 @@ void	push_swap_solve_internal_sort_only_collect_last(
 	const size_t								xy = c.x + c.y;
 	t_push_swap_solve_internal_print_collect	collect_params;
 
+	if (!sorted)
+		ft_exit(EXIT_FAILURE);
 	push_swap_solve_internal_sort(sorted, count);
 	push_swap_solve_internal_inverse(arr, c.x);
 	push_swap_solve_internal_sort_and_move(context, arr, c.x, from_right);
@@ -112,6 +115,8 @@ void	push_swap_solve_internal_sort_only_divide_first(
 	const size_t								xy = c.x + c.y;
 	t_push_swap_solve_internal_print_divide		divide_params;
 
+	if (!sorted)
+		ft_exit(EXIT_FAILURE);
 	push_swap_solve_internal_sort(sorted, count);
 	divide_params.s = (t_push_swap_solve_internal){
 		original, sorted, arr, arr + c.x, arr + xy, c.x, c.y, c.z};
