@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/19 21:17:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/19 21:19:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	collect_last_internal_init_params(
 	p->from_c_length = 4;
 }
 
-static void	collect_last(
+void	push_swap_solve_internal_sort_only_collect_last(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -96,7 +96,7 @@ static void	divide_first_internal_init_params(
 	p->to_c_length = 6;
 }
 
-static void	divide_first(
+void	push_swap_solve_internal_sort_only_divide_first(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -143,7 +143,15 @@ void	push_swap_solve_internal_sort_only(
 	}
 	if (part->sort_only_collect_last.total_moves
 		< part->sort_only_divide_first.total_moves)
-		collect_last(context, arr, count, from_right);
+		push_swap_solve_internal_sort_only_collect_last(
+			context,
+			arr,
+			count,
+			from_right);
 	else
-		divide_first(context, arr, count, from_right);
+		push_swap_solve_internal_sort_only_divide_first(
+			context,
+			arr,
+			count,
+			from_right);
 }
