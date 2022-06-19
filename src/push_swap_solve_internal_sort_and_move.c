@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_solve_internal_sort_only.c               :+:      :+:    :+:   */
+/*   push_swap_solve_internal_sort_and_move.c           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/20 01:40:35 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/06/20 01:34:18 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/06/20 01:50:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,27 +22,27 @@ static void	collect_last_internal_init_params(
 	bool to_right
 )
 {
-	p->reverse_a = false;
+	p->reverse_a = true;
 	p->reverse_b = true;
-	p->reverse_c = true;
+	p->reverse_c = false;
 	if (!to_right)
 	{
-		p->from_a = "pa\n";
-		p->from_b = "rrb\npa\n";
-		p->from_c = "rra\n";
+		p->from_a = "rrb\n";
+		p->from_b = "rra\npb\n";
+		p->from_c = "pb\n";
 	}
 	else
 	{
-		p->from_a = "pb\n";
-		p->from_b = "rra\npb\n";
-		p->from_c = "rrb\n";
+		p->from_a = "rra\n";
+		p->from_b = "rrb\npa\n";
+		p->from_c = "pa\n";
 	}
-	p->from_a_length = 3;
+	p->from_a_length = 4;
 	p->from_b_length = 7;
-	p->from_c_length = 4;
+	p->from_c_length = 3;
 }
 
-void	push_swap_solve_internal_sort_only_collect_last(
+void	push_swap_solve_internal_sort_and_move_collect_last(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -50,19 +50,19 @@ void	push_swap_solve_internal_sort_only_collect_last(
 )
 {
 	const t_push_swap_count_item				c
-		= context->map[count].sort_only_collect_last;
+		= context->map[count].sort_and_move_collect_last;
 	int *const									sorted
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	const size_t								xy = c.x + c.y;
 	t_push_swap_solve_internal_print_collect	collect_params;
 
 	push_swap_solve_internal_sort(sorted, count);
-	push_swap_solve_internal_inverse(arr, c.x);
 	push_swap_solve_internal_sort_and_move(context, arr, c.x, from_right);
-	push_swap_solve_internal_inverse(arr, c.x);
-	push_swap_solve_internal_sort_and_move(context, arr + c.x, c.y, from_right);
+	push_swap_solve_internal_sort_only(context, arr + c.x, c.y, from_right);
+	push_swap_solve_internal_operation_rx(c.y, c.x, from_right);
+	push_swap_solve_internal_inverse(arr + xy, c.z);
 	push_swap_solve_internal_sort_only(context, arr + xy, c.z, from_right);
-	push_swap_solve_internal_operation_rx(c.z, c.y, from_right);
+	push_swap_solve_internal_inverse(arr + xy, c.z);
 	collect_params.s = (t_push_swap_solve_internal){
 		arr, sorted, arr, arr + c.x, arr + xy, c.x, c.y, c.z};
 	collect_last_internal_init_params(&collect_params, from_right);
@@ -81,22 +81,22 @@ static void	divide_first_internal_init_params(
 	p->reverse = false;
 	if (!from_right)
 	{
-		p->to_a = "pb\n";
-		p->to_b = "ra\n";
-		p->to_c = "pb\nrb\n";
+		p->to_a = "ra\n";
+		p->to_b = "pb\nrb\n";
+		p->to_c = "pb\n";
 	}
 	else
 	{
-		p->to_a = "pa\n";
-		p->to_b = "rb\n";
-		p->to_c = "pa\nra\n";
+		p->to_a = "rb\n";
+		p->to_b = "pa\nra\n";
+		p->to_c = "pa\n";
 	}
 	p->to_a_length = 3;
-	p->to_b_length = 3;
-	p->to_c_length = 6;
+	p->to_b_length = 6;
+	p->to_c_length = 3;
 }
 
-void	push_swap_solve_internal_sort_only_divide_first(
+void	push_swap_solve_internal_sort_and_move_divide_first(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -104,7 +104,7 @@ void	push_swap_solve_internal_sort_only_divide_first(
 )
 {
 	const t_push_swap_count_item				c
-		= context->map[count].sort_only_collect_last;
+		= context->map[count].sort_and_move_collect_last;
 	int *const									sorted
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	int *const									original
@@ -117,17 +117,17 @@ void	push_swap_solve_internal_sort_only_divide_first(
 		original, sorted, arr, arr + c.x, arr + xy, c.x, c.y, c.z};
 	divide_first_internal_init_params(&divide_params, from_right);
 	push_swap_solve_internal_divide_print(&divide_params);
-	push_swap_solve_internal_reverse(arr, c.x);
-	push_swap_solve_internal_sort_and_move(context, arr, c.x, !from_right);
-	push_swap_solve_internal_operation_rrx(c.y, c.z, from_right);
-	push_swap_solve_internal_sort_only(context, arr + c.x, c.y, from_right);
-	push_swap_solve_internal_sort_and_move(context, arr + xy, c.z, !from_right);
+	push_swap_solve_internal_reverse(arr, c.z);
+	push_swap_solve_internal_sort_only(context, arr + xy, c.z, !from_right);
+	push_swap_solve_internal_operation_rrx(c.x, c.z, from_right);
+	push_swap_solve_internal_sort_only(context, arr + c.x, c.y, !from_right);
+	push_swap_solve_internal_sort_and_move(context, arr, c.x, from_right);
 	ft_memcpy(arr, sorted, sizeof(int) * count);
 	free(original);
 	free(sorted);
 }
 
-void	push_swap_solve_internal_sort_only(
+void	push_swap_solve_internal_sort_and_move(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -143,15 +143,15 @@ void	push_swap_solve_internal_sort_only(
 		push_swap_solve_internal_operation_sx(from_right);
 		return ;
 	}
-	if (part->sort_only_collect_last.total_moves
-		< part->sort_only_divide_first.total_moves)
-		push_swap_solve_internal_sort_only_collect_last(
+	if (part->sort_and_move_collect_last.total_moves
+		< part->sort_and_move_divide_first.total_moves)
+		push_swap_solve_internal_sort_and_move_collect_last(
 			context,
 			arr,
 			count,
 			from_right);
 	else
-		push_swap_solve_internal_sort_only_divide_first(
+		push_swap_solve_internal_sort_and_move_divide_first(
 			context,
 			arr,
 			count,
