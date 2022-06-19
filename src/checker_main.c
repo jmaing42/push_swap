@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/18 22:49:19 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/19 20:23:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,33 @@ static t_err	read_line(
 	}
 	return (false);
 }
+
+/*
+
+// example code to print the stack properly below
+
+#include <stdio.h>
+
+static void	print_state(t_checker_state *state)
+{
+	size_t	index;
+
+	printf("A:");
+	index = -1;
+	while (++index < state->a.size)
+		printf(
+			" %d",
+			state->a.arr[(state->a.offset + index) % state->a.capacity]);
+	printf("\nB:");
+	index = -1;
+	while (++index < state->b.size)
+		printf(
+			" %d",
+			state->b.arr[(state->b.offset + index) % state->b.capacity]);
+	printf("\n");
+}
+
+// */
 
 int	main(int argc, char **argv)
 {
