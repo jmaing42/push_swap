@@ -6,11 +6,13 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/19 21:16:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/19 21:17:55 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_solve_internal.h"
+
+#include <stdlib.h>
 
 #include "ft_memory.h"
 #include "ft_malloc.h"
