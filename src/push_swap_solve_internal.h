@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/14 01:27:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/19 20:37:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,11 @@ void	push_swap_solve_internal_sort_only(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
-			bool rtl);
+			bool from_right);
 void	push_swap_solve_internal_sort_and_move(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
-			bool rtl);
+			bool from_right);
 
 #endif
