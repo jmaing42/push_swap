@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 01:06:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/20 02:34:56 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/20 21:42:02 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	push_swap_solve_internal_sort_only_divide_first(
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	int *const									original
 		= (int *)ft_memdup(arr, sizeof(int) * count);
-	const size_t								xy = c.x + c.y;
+	const size_t								xy = c.z + c.y;
 	t_push_swap_solve_internal_print_divide		divide_params;
 
 	printf("%*.0d sort only %zu (divide first): start\n", (int)count, 0, count);
@@ -124,21 +124,21 @@ void	push_swap_solve_internal_sort_only_divide_first(
 		ft_exit(EXIT_FAILURE);
 	push_swap_solve_internal_sort(sorted, count);
 	divide_params.s = (t_push_swap_solve_internal){
-		original, sorted, arr, arr + c.x, arr + xy, c.x, c.y, c.z};
+		original, sorted, arr, arr + c.z, arr + xy, c.z, c.y, c.x};
 	divide_first_internal_init_params(&divide_params, from_right);
 	printf("%*.0d sort only %zu (divide first): divide start\n", (int)count, 0, count);
 	push_swap_solve_internal_divide_print(&divide_params);
 	printf("%*.0d sort only %zu (divide first): divide end\n", (int)count, 0, count);
-	push_swap_solve_internal_reverse(arr, c.x);
+	push_swap_solve_internal_reverse(arr, c.z);
 	printf("%*.0d sort only %zu (divide first): sort x start\n", (int)count, 0, count);
-	push_swap_solve_internal_sort_and_move(context, arr, c.x, !from_right);
+	push_swap_solve_internal_sort_and_move(context, arr, c.z, !from_right);
 	printf("%*.0d sort only %zu (divide first): sort x end\n", (int)count, 0, count);
-	push_swap_solve_internal_operation_rrx(c.y, c.z, from_right);
+	push_swap_solve_internal_operation_rrx(c.y, c.x, from_right);
 	printf("%*.0d sort only %zu (divide first): sort y start\n", (int)count, 0, count);
-	push_swap_solve_internal_sort_only(context, arr + c.x, c.y, from_right);
+	push_swap_solve_internal_sort_only(context, arr + c.z, c.y, from_right);
 	printf("%*.0d sort only %zu (divide first): sort y end\n", (int)count, 0, count);
 	printf("%*.0d sort only %zu (divide first): sort z start\n", (int)count, 0, count);
-	push_swap_solve_internal_sort_and_move(context, arr + xy, c.z, !from_right);
+	push_swap_solve_internal_sort_and_move(context, arr + xy, c.x, !from_right);
 	printf("%*.0d sort only %zu (divide first): sort z end\n", (int)count, 0, count);
 	ft_memcpy(arr, sorted, sizeof(int) * count);
 	free(original);

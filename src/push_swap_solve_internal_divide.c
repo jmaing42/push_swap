@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/04 19:55:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/20 21:20:59 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,10 @@ void	push_swap_solve_internal_divide(t_push_swap_solve_internal *p)
 	while (a + b + c != p->c_a + p->c_b + p->c_c)
 	{
 		if ((!p->c_b && !p->c_c) || p->all[a + b + c] < (p->all_sorted[p->c_a]))
+		{
 			p->part_a[a] = p->all[a + b + c];
-		if ((!p->c_b && !p->c_c) || p->all[a + b + c] < (p->all_sorted[p->c_a]))
 			a++;
+		}
 		else if (!p->c_c || p->all[a + b + c] < p->all_sorted[p->c_a + p->c_b])
 		{
 			p->part_b[b] = p->all[a + b + c];
