@@ -22,8 +22,8 @@ AR := ar
 CFLAGS := -Wall -Wextra -Werror
 CPPFLAGS := -DEXIT_ALLOWED
 
-all: $(NAME) $(OTHER_USEFUL_FILES)
-bonus: all $(NAME_CHECKER)
+all: $(NAME) $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
+bonus: all
 clean:
 	$Qrm -rf $(OBJ_DIR)
 	$Qrm -f $(OTHER_USEFUL_FILES)
