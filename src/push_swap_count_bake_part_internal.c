@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/22 01:47:16 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/22 22:20:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,44 +16,73 @@
 
 #include "ft_size_t.h"
 
-static inline size_t	_(const char *comment)
-{
-	(void)comment;
-	return (0);
-}
-
+/**
+ * @brief calculate maximum operation count to sort with method described below
+ *
+ * @param map array containing previous operation count   (bottom-up DP)
+ * @param x count of small part
+ * @param y count of middle part
+ * @param z count of big part
+ * @return size_t maximum operation count to sort given arguments
+ *
+ * ||                                                                         ||
+ * ||    :                                                           X        ||
+ * ||    : |           |           |         y |         Y |         Y |      ||
+ * ||    : |           | z       Z |         Z | x       Z | x       Z |      ||
+ * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
+ * ||      |         y | x       y | x         |           |           |      ||
+ * ||      |           |           |           |           |           |      ||
+ * ||                                                                         ||
+ * ||   (1) divide  (2) sort+move z  (3) rotate  (4) sort y  (5) sort+move x  ||
+ *
+ */
 size_t	push_swap_c_bake_part_only_first_internal(
-	t_push_swap_count_part *map,
+	const t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
-	_("|   :     |         |         |         |         |   X     ||  x/y/z ");
-	_("|   :     |         |         |   y     |   Y     |   Y     ||  X/Y/Z ");
-	_("|   :     |     z   |   Z     |   Z x   |   Z x   |   Z     ||        ");
-	_("| --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- || upper  ");
-	_("|         |   y x   |   y x   |         |         |         ||  case  ");
-	_("|       (1)       (2)       (3)       (4)       (5)         ||   is   ");
-	_("|  divide    sort+move z    rotate    sort y    sort+move x || sorted ");
-	return (
-		+ 2 * x + y + z + _("                                       divide (1)")
-		+ ft_size_t_min(_("                                    sort+move z (2)")
-			+ map[z].sort_and_move_collect_last.total_moves,
-			+ map[z].sort_and_move_divide_first.total_moves
-		)
-		+ ft_size_t_max(y, x) + _("                                 rotate (3)")
-		+ ft_size_t_min(_("                                         sort y (4)")
-			+ map[y].sort_only_collect_last.total_moves,
-			+ map[y].sort_only_divide_first.total_moves
-		)
-		+ ft_size_t_min(_("                                    sort+move x (5)")
+	const size_t												divide
+		= 2 * x + y + z;
+	const size_t												sort_and_move_z
+		= ft_size_t_min(
+			map[z].sort_and_move_collect_last.total_moves,
+			map[z].sort_and_move_divide_first.total_moves);
+	const size_t												rotate
+		= ft_size_t_max(y, x);
+	const size_t												sort_only_y
+		= ft_size_t_min(
+			map[y].sort_only_collect_last.total_moves,
+			map[y].sort_only_divide_first.total_moves);
+	const size_t												sort_and_move_x
+		= ft_size_t_min(
 			+ map[x].sort_and_move_collect_last.total_moves,
-			+ map[x].sort_and_move_divide_first.total_moves
-		)
-	);
+			+ map[x].sort_and_move_divide_first.total_moves);
+
+	return (divide + sort_and_move_z + rotate + sort_only_y + sort_and_move_x);
 }
 
+/**
+ * @brief calculate maximum operation count to sort with method described below
+ *
+ * @param map array containing previous operation count   (bottom-up DP)
+ * @param x count of top part
+ * @param y count of middle part
+ * @param z count of bottom part
+ * @return size_t maximum operation count to sort given arguments
+ *
+ * ||                                                                         ||
+ * ||    x                                                           :        ||
+ * ||    y |         y |           | Y         | Y         |         : |      ||
+ * ||    z |         z | X       z | X       Z | X         | X       : |      ||
+ * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
+ * ||      |           |           |           |         Z | Y         |      ||
+ * ||      |           |           |           |           |           |      ||
+ * ||                                                                         ||
+ * ||  (1) sort+move x  (2) sort+move y  (3) sort z  (4) rotate  (5) collect  ||
+ *
+ */
 size_t	push_swap_c_bake_part_only_last_internal(
 	t_push_swap_count_part *map,
 	size_t x,
@@ -61,31 +90,46 @@ size_t	push_swap_c_bake_part_only_last_internal(
 	size_t z
 )
 {
-	_("|   x     |         |         |         |         |   :     ||  x/y/z ");
-	_("|   y     |   y     |     Y   |     Y   |         |   :     ||  X/Y/Z ");
-	_("|   z     |   z X   |   z X   |   Z X   |     X   |   :     ||        ");
-	_("| --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- || upper  ");
-	_("|         |         |         |         |   Z Y   |         ||  case  ");
-	_("|         (1)       (2)       (3)       (4)       (5)       ||   is   ");
-	_("| sort+move x    sort+move y    sort z    rotate    collect || sorted ");
-	return (
-		+ ft_size_t_min(_("                                    sort+move x (1)")
-			+ map[x].sort_and_move_collect_last.total_moves,
-			+ map[x].sort_and_move_divide_first.total_moves
-		)
-		+ ft_size_t_min(_("                                    sort+move y (2)")
-			+ map[y].sort_and_move_collect_last.total_moves,
-			+ map[y].sort_and_move_divide_first.total_moves
-		)
-		+ ft_size_t_min(_("                                         sort z (3)")
-			+ map[z].sort_only_collect_last.total_moves,
-			+ map[z].sort_only_divide_first.total_moves
-		)
-		+ ft_size_t_max(z, y) + _("                                 rotate (4)")
-		+ x + 2 * y + z + _("                                      collect (5)")
-	);
+	const size_t												sort_and_move_x
+		= ft_size_t_min(
+			map[x].sort_and_move_collect_last.total_moves,
+			map[x].sort_and_move_divide_first.total_moves);
+	const size_t												sort_and_move_y
+		= ft_size_t_min(
+			map[y].sort_and_move_collect_last.total_moves,
+			map[y].sort_and_move_divide_first.total_moves);
+	const size_t												sort_only_z
+		= ft_size_t_min(
+			map[z].sort_only_collect_last.total_moves,
+			map[z].sort_only_divide_first.total_moves);
+	const size_t												rotate
+		= ft_size_t_max(z, y);
+	const size_t												collect
+		= x + 2 * y + z;
+
+	return (sort_and_move_x + sort_and_move_y + sort_only_z + rotate + collect);
 }
 
+/**
+ * @brief calculate maximum operation count to sort with method described below
+ *
+ * @param map array containing previous operation count   (bottom-up DP)
+ * @param x count of small part
+ * @param y count of middle part
+ * @param z count of big part
+ * @return size_t maximum operation count to sort given arguments
+ *
+ * ||                                                                         ||
+ * ||    :                                                               X    ||
+ * ||    : |           |           |           | y         | Y         | Y    ||
+ * ||    : |           | x         | X       z | X       z | X         | Z    ||
+ * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
+ * ||      |         z | y       z | y         |           |           |      ||
+ * ||      |           |           |           |           |           |      ||
+ * ||                                                                         ||
+ * ||   (1) divide  (2) sort x  (3) rotate  (4) sort y  (5) sort+move x  ||
+ *
+ */
 size_t	push_swap_c_bake_part_move_first_internal(
 	t_push_swap_count_part *map,
 	size_t x,
@@ -93,31 +137,46 @@ size_t	push_swap_c_bake_part_move_first_internal(
 	size_t z
 )
 {
-	_("|   :     |         |         |         |         |     X   ||  x/y/z ");
-	_("|   :     |         |         |     y   |     Y   |     Y   ||  X/Y/Z ");
-	_("|   :     |     z   |     Z   |   x Z   |   x Z   |     Z   ||        ");
-	_("| --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- || upper  ");
-	_("|         |   x y   |   x y   |         |         |         ||  case  ");
-	_("|       (1)       (2)       (3)       (4)       (5)         ||   is   ");
-	_("|  divide    sort z    rotate    sort+move y    sort+move x || sorted ");
-	return (
-		+ x + 2 * y + z + _("                                       divide (1)")
-		+ ft_size_t_min(_("                                         sort z (2)")
-			+ map[x].sort_only_collect_last.total_moves,
-			+ map[x].sort_only_divide_first.total_moves
-		)
-		+ ft_size_t_max(x, y) + _("                                 rotate (3)")
-		+ ft_size_t_min(_("                                    sort+move y (4)")
-			+ map[y].sort_and_move_collect_last.total_moves,
-			+ map[y].sort_and_move_divide_first.total_moves
-		)
-		+ ft_size_t_min(_("                                    sort+move x (5)")
-			+ map[x].sort_and_move_collect_last.total_moves,
-			+ map[x].sort_and_move_divide_first.total_moves
-		)
-	);
+	const size_t												divide
+		= x + 2 * y + z;
+	const size_t												sort_only_x
+		= ft_size_t_min(
+			map[x].sort_only_collect_last.total_moves,
+			map[x].sort_only_divide_first.total_moves);
+	const size_t												rotate
+		= ft_size_t_max(x, y);
+	const size_t												sort_and_move_y
+		= ft_size_t_min(
+			map[y].sort_and_move_collect_last.total_moves,
+			map[y].sort_and_move_divide_first.total_moves);
+	const size_t												sort_and_move_z
+		= ft_size_t_min(
+			map[z].sort_and_move_collect_last.total_moves,
+			map[z].sort_and_move_divide_first.total_moves);
+
+	return (divide + sort_only_x + rotate + sort_and_move_y + sort_and_move_z);
 }
 
+/**
+ * @brief calculate maximum operation count to sort with method described below
+ *
+ * @param map array containing previous operation count   (bottom-up DP)
+ * @param x count of top part
+ * @param y count of middle part
+ * @param z count of bottom part
+ * @return size_t maximum operation count to sort given arguments
+ *
+ * ||                                                                         ||
+ * ||    x                                                               :    ||
+ * ||    y |         y |         Y |           |           |           | :    ||
+ * ||    z |         z | X       z | X       z |         Z |           | :    ||
+ * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
+ * ||      |           |           |         Y | X       Y | X         |      ||
+ * ||      |           |           |           |           |           |      ||
+ * ||                                                                         ||
+ * ||  (1) sort+move x  (2) sort+move y  (3) sort z  (4) rotate  (5) collect  ||
+ *
+ */
 size_t	push_swap_c_bake_part_move_last_internal(
 	t_push_swap_count_part *map,
 	size_t x,
@@ -125,27 +184,22 @@ size_t	push_swap_c_bake_part_move_last_internal(
 	size_t z
 )
 {
-	_("|   x     |         |         |         |         |     :   ||  x/y/z ");
-	_("|   y     |   y     |   Y     |         |         |     :   ||  X/Y/Z ");
-	_("|   z     |   z X   |   z X   |   z     |   Z     |     :   ||        ");
-	_("| --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- | --A-B-- || upper  ");
-	_("|         |         |         |   Y X   |   Y Z   |         ||  case  ");
-	_("|         (1)       (2)       (3)       (4)       (5)       ||   is   ");
-	_("|  sort+move x     sort y     rotate     sort z     collect || sorted ");
-	return (
-		+ ft_size_t_min(_("                                    sort+move x (1)")
-			+ map[x].sort_and_move_collect_last.total_moves,
-			+ map[x].sort_and_move_divide_first.total_moves
-		)
-		+ ft_size_t_min(_("                                         sort y (2)")
-			+ map[y].sort_only_collect_last.total_moves,
-			+ map[y].sort_only_divide_first.total_moves
-		)
-		+ ft_size_t_max(y, x) + _("                                 rotate (3)")
-		+ ft_size_t_min(_("                                         sort z (4)")
-			+ map[z].sort_only_collect_last.total_moves,
-			+ map[z].sort_only_divide_first.total_moves
-		)
-		+ x + 2 * y + z + _("                                      collect (5)")
-	);
+	const size_t												sort_and_move_x
+		= ft_size_t_min(
+			map[x].sort_and_move_collect_last.total_moves,
+			map[x].sort_and_move_divide_first.total_moves);
+	const size_t												sort_only_y
+		= ft_size_t_min(
+			map[y].sort_only_collect_last.total_moves,
+			map[y].sort_only_divide_first.total_moves);
+	const size_t												rotate
+		= ft_size_t_max(y, x);
+	const size_t												sort_only_z
+		= ft_size_t_min(
+			map[z].sort_only_collect_last.total_moves,
+			map[z].sort_only_divide_first.total_moves);
+	const size_t												collect
+		= x + 2 * y + z;
+
+	return (sort_and_move_x + sort_only_y + rotate + sort_only_z + collect);
 }
