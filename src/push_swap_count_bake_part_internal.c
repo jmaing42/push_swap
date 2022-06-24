@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/22 22:20:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/24 21:58:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,13 @@ size_t	push_swap_c_bake_part_only_first_internal(
 			+ map[x].sort_and_move_collect_last.total_moves,
 			+ map[x].sort_and_move_divide_first.total_moves);
 
-	return (divide + sort_and_move_z + rotate + sort_only_y + sort_and_move_x);
+	return (
+		+ divide
+		+ sort_and_move_z
+		+ rotate
+		+ sort_only_y
+		+ sort_and_move_x
+	);
 }
 
 /**
@@ -107,7 +113,13 @@ size_t	push_swap_c_bake_part_only_last_internal(
 	const size_t												collect
 		= x + 2 * y + z;
 
-	return (sort_and_move_x + sort_and_move_y + sort_only_z + rotate + collect);
+	return (
+		+ sort_and_move_x
+		+ sort_and_move_y
+		+ sort_only_z
+		+ rotate
+		+ collect
+	);
 }
 
 /**
@@ -154,7 +166,13 @@ size_t	push_swap_c_bake_part_move_first_internal(
 			map[z].sort_and_move_collect_last.total_moves,
 			map[z].sort_and_move_divide_first.total_moves);
 
-	return (divide + sort_only_x + rotate + sort_and_move_y + sort_and_move_z);
+	return (
+		+ divide
+		+ sort_only_x
+		+ rotate
+		+ sort_and_move_y
+		+ sort_and_move_z
+	);
 }
 
 /**
@@ -201,5 +219,11 @@ size_t	push_swap_c_bake_part_move_last_internal(
 	const size_t												collect
 		= x + 2 * y + z;
 
-	return (sort_and_move_x + sort_only_y + rotate + sort_only_z + collect);
+	return (
+		+ sort_and_move_x
+		+ sort_only_y
+		+ rotate
+		+ sort_only_z
+		+ collect
+	);
 }
