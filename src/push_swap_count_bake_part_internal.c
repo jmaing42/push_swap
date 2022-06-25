@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 15:53:41 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 16:10:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
  * ||   (1) divide  (2) sort+move z  (3) rotate  (4) sort y  (5) sort+move x  ||
  *
  */
-size_t	push_swap_c_bake_part_only_first_internal(
+size_t	push_swap_count_bake_part_sort_only_divide_first(
 	const t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
@@ -89,8 +89,8 @@ size_t	push_swap_c_bake_part_only_first_internal(
  * ||  (1) sort+move x  (2) sort+move y  (3) sort z  (4) rotate  (5) collect  ||
  *
  */
-size_t	push_swap_c_bake_part_only_last_internal(
-	t_push_swap_count_part *map,
+size_t	push_swap_count_bake_part_sort_only_collect_last(
+	const t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
 	size_t z
@@ -142,8 +142,8 @@ size_t	push_swap_c_bake_part_only_last_internal(
  * ||   (1) divide   (2) sort x   (3) rotate   (4) sort y   (5) sort+move x   ||
  *
  */
-size_t	push_swap_c_bake_part_move_first_internal(
-	t_push_swap_count_part *map,
+size_t	push_swap_count_bake_part_sort_and_move_divide_first(
+	const t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
 	size_t z
@@ -195,8 +195,8 @@ size_t	push_swap_c_bake_part_move_first_internal(
  * ||  (1) sort+move x  (2) sort+move y  (3) sort z  (4) rotate  (5) collect  ||
  *
  */
-size_t	push_swap_c_bake_part_move_last_internal(
-	t_push_swap_count_part *map,
+size_t	push_swap_count_bake_part_sort_and_move_collect_last(
+	const t_push_swap_count_part *map,
 	size_t x,
 	size_t y,
 	size_t z
