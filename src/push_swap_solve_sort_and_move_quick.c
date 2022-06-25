@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 01:52:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:16:42 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	push_swap_solve_sort_and_move_quick_internal_sort_only_y(
 	const t_push_swap_solve_context *context
 )
 {
-	push_swap_solve_sort_and_move(
+	push_swap_solve_sort_only(
 		context->self,
 		context->y,
 		context->part->y,
