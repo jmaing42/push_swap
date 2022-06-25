@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 18:43:26 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,22 +98,22 @@ void	push_swap_solve_internal_sort_and_move(
 			size_t count,
 			bool from_right);
 
-void	push_swap_solve_internal_sort_only_collect_last(
+void	push_swap_solve_internal_sort_only_merge(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
 			bool from_right);
-void	push_swap_solve_internal_sort_only_divide_first(
+void	push_swap_solve_internal_sort_only_quick(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
 			bool from_right);
-void	push_swap_solve_internal_sort_and_move_collect_last(
+void	push_swap_solve_internal_sort_and_move_merge(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
 			bool from_right);
-void	push_swap_solve_internal_sort_and_move_divide_first(
+void	push_swap_solve_internal_sort_and_move_quick(
 			t_push_swap *context,
 			int *arr,
 			size_t count,
@@ -130,45 +130,45 @@ typedef struct s_push_swap_solve_context {
 	bool							from_right;
 }	t_push_swap_solve_context;
 
-void	push_swap_solve_sort_only_divide_first_internal_divide(
+void	push_swap_solve_sort_only_quick_internal_divide(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_divide_first_internal_sort_and_move_z(
+void	push_swap_solve_sort_only_quick_internal_sort_and_move_z(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_divide_first_internal_rotate(
+void	push_swap_solve_sort_only_quick_internal_rotate(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_divide_first_internal_sort_only_y(
+void	push_swap_solve_sort_only_quick_internal_sort_only_y(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_divide_first_internal_sort_and_move_x(
+void	push_swap_solve_sort_only_quick_internal_sort_and_move_x(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_collect_last_internal_sort_and_move_x(
+void	push_swap_solve_sort_only_merge_internal_sort_and_move_x(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_collect_last_internal_sort_and_move_y(
+void	push_swap_solve_sort_only_merge_internal_sort_and_move_y(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_collect_last_internal_sort_only_z(
+void	push_swap_solve_sort_only_merge_internal_sort_only_z(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_collect_last_internal_rotate(
+void	push_swap_solve_sort_only_merge_internal_rotate(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_only_collect_last_internal_collect(
+void	push_swap_solve_sort_only_merge_internal_collect(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_divide_first_internal_divide(
+void	push_swap_solve_sort_and_move_quick_internal_divide(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_divide_first_internal_sort_only_x(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_x(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_divide_first_internal_rotate(
+void	push_swap_solve_sort_and_move_quick_internal_rotate(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_divide_first_internal_sort_and_move_y(
+void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_y(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_divide_first_internal_sort_and_move_z(
+void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_z(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_collect_last_internal_sort_and_move_x(
+void	push_swap_solve_sort_and_move_merge_internal_sort_and_move_x(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_collect_last_internal_sort_only_y(
+void	push_swap_solve_sort_and_move_merge_internal_sort_only_y(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_collect_last_internal_rotate(
+void	push_swap_solve_sort_and_move_merge_internal_rotate(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_collect_last_internal_sort_only_z(
+void	push_swap_solve_sort_and_move_merge_internal_sort_only_z(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_collect_last_internal_collect(
+void	push_swap_solve_sort_and_move_merge_internal_collect(
 			const t_push_swap_solve_context *context);
 
 #endif

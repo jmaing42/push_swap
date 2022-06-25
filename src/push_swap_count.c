@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:11:42 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/24 00:03:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ size_t	push_swap_count_solution_internal(
 {
 	return (
 		+ ft_size_t_min(
-			map[x].sort_and_move_collect_last.total_moves,
-			map[x].sort_and_move_divide_first.total_moves
+			map[x].sort_and_move_merge.total_moves,
+			map[x].sort_and_move_quick.total_moves
 		)
 		+ ft_size_t_min(
-			map[y].sort_and_move_collect_last.total_moves,
-			map[y].sort_and_move_divide_first.total_moves
+			map[y].sort_and_move_merge.total_moves,
+			map[y].sort_and_move_quick.total_moves
 		)
 		+ ft_size_t_min(
-			map[z].sort_only_collect_last.total_moves,
-			map[z].sort_only_divide_first.total_moves
+			map[z].sort_only_merge.total_moves,
+			map[z].sort_only_quick.total_moves
 		)
 		+ 2 * x
 		+ y

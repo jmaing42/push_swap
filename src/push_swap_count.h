@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:44:12 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 16:09:59 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,31 +26,31 @@ typedef struct s_push_swap_count_item
 
 typedef struct s_push_swap_count_part
 {
-	t_push_swap_count_item	sort_only_divide_first;
-	t_push_swap_count_item	sort_only_collect_last;
-	t_push_swap_count_item	sort_and_move_divide_first;
-	t_push_swap_count_item	sort_and_move_collect_last;
+	t_push_swap_count_item	sort_only_quick;
+	t_push_swap_count_item	sort_only_merge;
+	t_push_swap_count_item	sort_and_move_quick;
+	t_push_swap_count_item	sort_and_move_merge;
 }	t_push_swap_count_part;
 
 t_push_swap_count_part	push_swap_count_bake_part(
 							t_push_swap_count_part *map,
 							size_t count);
-size_t					push_swap_count_bake_part_sort_only_divide_first(
+size_t					push_swap_count_bake_part_sort_only_quick(
 							const t_push_swap_count_part *map,
 							size_t x,
 							size_t y,
 							size_t z);
-size_t					push_swap_count_bake_part_sort_only_collect_last(
+size_t					push_swap_count_bake_part_sort_only_merge(
 							const t_push_swap_count_part *map,
 							size_t x,
 							size_t y,
 							size_t z);
-size_t					push_swap_count_bake_part_sort_and_move_divide_first(
+size_t					push_swap_count_bake_part_sort_and_move_quick(
 							const t_push_swap_count_part *map,
 							size_t x,
 							size_t y,
 							size_t z);
-size_t					push_swap_count_bake_part_sort_and_move_collect_last(
+size_t					push_swap_count_bake_part_sort_and_move_merge(
 							const t_push_swap_count_part *map,
 							size_t x,
 							size_t y,

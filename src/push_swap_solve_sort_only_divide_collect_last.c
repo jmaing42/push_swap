@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_solve_sort_only_divide_collect_last.c    :+:      :+:    :+:   */
+/*   push_swap_solve_sort_only_divide_merge.c    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -18,7 +18,7 @@
 #include "ft_malloc.h"
 #include "ft_exit.h"
 
-static void	divide_first(
+static void	quick(
 	t_push_swap *self,
 	int *arr,
 	size_t count,
@@ -26,7 +26,7 @@ static void	divide_first(
 )
 {
 	const t_push_swap_count_item *const	item
-		= &self->map[count].sort_only_divide_first;
+		= &self->map[count].sort_only_quick;
 	const t_push_swap_solve_context		context = {
 		self,
 		arr,
@@ -38,17 +38,17 @@ static void	divide_first(
 		from_right
 	};
 
-	push_swap_solve_sort_only_divide_first_internal_divide(&context);
-	push_swap_solve_sort_only_divide_first_internal_sort_and_move_z(&context);
-	push_swap_solve_sort_only_divide_first_internal_rotate(&context);
-	push_swap_solve_sort_only_divide_first_internal_sort_only_y(&context);
-	push_swap_solve_sort_only_divide_first_internal_sort_and_move_x(&context);
+	push_swap_solve_sort_only_quick_internal_divide(&context);
+	push_swap_solve_sort_only_quick_internal_sort_and_move_z(&context);
+	push_swap_solve_sort_only_quick_internal_rotate(&context);
+	push_swap_solve_sort_only_quick_internal_sort_only_y(&context);
+	push_swap_solve_sort_only_quick_internal_sort_and_move_x(&context);
 	free(context.x);
 	free(context.y);
 	free(context.z);
 }
 
-static void	collect_last(
+static void	merge(
 	t_push_swap *self,
 	int *arr,
 	size_t count,
@@ -56,7 +56,7 @@ static void	collect_last(
 )
 {
 	const t_push_swap_count_item *const	item
-		= &self->map[count].sort_only_collect_last;
+		= &self->map[count].sort_only_merge;
 	const t_push_swap_solve_context		context = {
 		self,
 		arr,
@@ -68,11 +68,11 @@ static void	collect_last(
 		from_right
 	};
 
-	push_swap_solve_sort_only_collect_last_internal_sort_and_move_x(&context);
-	push_swap_solve_sort_only_collect_last_internal_sort_and_move_y(&context);
-	push_swap_solve_sort_only_collect_last_internal_sort_only_z(&context);
-	push_swap_solve_sort_only_collect_last_internal_rotate(&context);
-	push_swap_solve_sort_only_collect_last_internal_collect(&context);
+	push_swap_solve_sort_only_merge_internal_sort_and_move_x(&context);
+	push_swap_solve_sort_only_merge_internal_sort_and_move_y(&context);
+	push_swap_solve_sort_only_merge_internal_sort_only_z(&context);
+	push_swap_solve_sort_only_merge_internal_rotate(&context);
+	push_swap_solve_sort_only_merge_internal_collect(&context);
 	free(context.x);
 	free(context.y);
 	free(context.z);
@@ -93,9 +93,9 @@ void	push_swap_solve_sort_only(
 			push_swap_solve_internal_operation_sx(from_right);
 		return ;
 	}
-	if (part->sort_only_divide_first.total_moves
-		> part->sort_only_collect_last.total_moves)
-		divide_first(self, arr, count, from_right);
+	if (part->sort_only_quick.total_moves
+		> part->sort_only_merge.total_moves)
+		quick(self, arr, count, from_right);
 	else
-		collect_last(self, arr, count, from_right);
+		merge(self, arr, count, from_right);
 }

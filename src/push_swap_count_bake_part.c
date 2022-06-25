@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 16:15:26 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,19 @@ t_push_swap_count_part	push_swap_count_bake_part(
 		get_item_minimum(
 			map,
 			count,
-			push_swap_count_bake_part_sort_only_divide_first),
+			push_swap_count_bake_part_sort_only_quick),
 		get_item_minimum(
 			map,
 			count,
-			push_swap_count_bake_part_sort_only_collect_last),
+			push_swap_count_bake_part_sort_only_merge),
 		get_item_minimum(
 			map,
 			count,
-			push_swap_count_bake_part_sort_and_move_divide_first),
+			push_swap_count_bake_part_sort_and_move_quick),
 		get_item_minimum(
 			map,
 			count,
-			push_swap_count_bake_part_sort_and_move_collect_last),
+			push_swap_count_bake_part_sort_and_move_merge),
 	};
 
 	return (result);

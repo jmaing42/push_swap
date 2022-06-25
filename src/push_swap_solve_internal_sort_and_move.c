@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 01:34:18 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/21 02:00:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ft_malloc.h"
 #include "ft_exit.h"
 
-static void	collect_last_internal_init_params(
+static void	merge_internal_init_params(
 	t_push_swap_solve_internal_print_collect *p,
 	bool to_right
 )
@@ -45,7 +45,7 @@ static void	collect_last_internal_init_params(
 
 #include <stdio.h>
 
-void	push_swap_solve_internal_sort_and_move_collect_last(
+void	push_swap_solve_internal_sort_and_move_merge(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -53,7 +53,7 @@ void	push_swap_solve_internal_sort_and_move_collect_last(
 )
 {
 	const t_push_swap_count_item				c
-		= context->map[count].sort_and_move_collect_last;
+		= context->map[count].sort_and_move_merge;
 	int *const									sorted
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	const size_t								xy = c.x + c.y;
@@ -79,7 +79,7 @@ void	push_swap_solve_internal_sort_and_move_collect_last(
 	push_swap_solve_internal_inverse(arr + xy, c.z);
 	collect_params.s = (t_push_swap_solve_internal){
 		arr, sorted, arr, arr + c.x, arr + xy, c.x, c.y, c.z};
-	collect_last_internal_init_params(&collect_params, from_right);
+	merge_internal_init_params(&collect_params, from_right);
 	push_swap_solve_internal_reverse(sorted, count);
 	printf("%*.0d sort+move %zu (collect last): collect start (x: %zu (%d ~ %d), y: %zu (%d ~ %d), z: %zu (%d ~ %d))\n", (int)count, 0, count, c.x, sorted[0], sorted[c.x - 1], c.y, sorted[c.x], sorted[xy - 1], c.z, sorted[xy], sorted[count - 1]);
 	push_swap_solve_internal_collect_print(&collect_params);
@@ -90,7 +90,7 @@ void	push_swap_solve_internal_sort_and_move_collect_last(
 	printf("%*.0d sort+move %zu (collect last): end\n", (int)count, 0, count);
 }
 
-static void	divide_first_internal_init_params(
+static void	quick_internal_init_params(
 	t_push_swap_solve_internal_print_divide *p,
 	bool from_right
 )
@@ -113,7 +113,7 @@ static void	divide_first_internal_init_params(
 	p->to_c_length = 3;
 }
 
-void	push_swap_solve_internal_sort_and_move_divide_first(
+void	push_swap_solve_internal_sort_and_move_quick(
 	t_push_swap *context,
 	int *arr,
 	size_t count,
@@ -121,7 +121,7 @@ void	push_swap_solve_internal_sort_and_move_divide_first(
 )
 {
 	const t_push_swap_count_item				c
-		= context->map[count].sort_and_move_divide_first;
+		= context->map[count].sort_and_move_quick;
 	int *const									sorted
 		= (int *)ft_memdup(arr, sizeof(int) * count);
 	int *const									original
@@ -135,7 +135,7 @@ void	push_swap_solve_internal_sort_and_move_divide_first(
 	push_swap_solve_internal_sort(sorted, count);
 	divide_params.s = (t_push_swap_solve_internal){
 		original, sorted, arr, arr + c.z, arr + xy, c.z, c.y, c.x};
-	divide_first_internal_init_params(&divide_params, from_right);
+	quick_internal_init_params(&divide_params, from_right);
 	printf("%*.0d sort+move %zu (divide first): divide start (x: %zu (%d ~ %d), y: %zu (%d ~ %d), z: %zu (%d ~ %d))\n", (int)count, 0, count, c.z, sorted[0], sorted[c.z - 1], c.y, sorted[c.z], sorted[xy - 1], c.z, sorted[xy], sorted[count - 1]);
 	push_swap_solve_internal_divide_print(&divide_params);
 	printf("%*.0d sort+move %zu (divide first): divide end (x: %zu (%d ~ %d), y: %zu (%d ~ %d), z: %zu (%d ~ %d))\n", (int)count, 0, count, c.z, sorted[0], sorted[c.z - 1], c.y, sorted[c.z], sorted[xy - 1], c.z, sorted[xy], sorted[count - 1]);
@@ -176,15 +176,15 @@ void	push_swap_solve_internal_sort_and_move(
 			push_swap_solve_internal_operation_sx(!from_right);
 		return ;
 	}
-	if (part->sort_and_move_collect_last.total_moves
-		< part->sort_and_move_divide_first.total_moves)
-		push_swap_solve_internal_sort_and_move_collect_last(
+	if (part->sort_and_move_merge.total_moves
+		< part->sort_and_move_quick.total_moves)
+		push_swap_solve_internal_sort_and_move_merge(
 			context,
 			arr,
 			count,
 			from_right);
 	else
-		push_swap_solve_internal_sort_and_move_divide_first(
+		push_swap_solve_internal_sort_and_move_quick(
 			context,
 			arr,
 			count,
