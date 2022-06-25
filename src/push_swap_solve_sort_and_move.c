@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:40:18 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,15 @@ static void	merge(
 {
 	const t_push_swap_count_item *const	item
 		= &self->map[count].sort_and_move_merge;
+	const size_t						offset_z = item->x + item->y;
 	const t_push_swap_solve_context		context = {
 		self,
 		arr,
 		count,
 		item,
-		(int *)ft_malloc(sizeof(int) * item->x),
-		(int *)ft_malloc(sizeof(int) * item->y),
-		(int *)ft_malloc(sizeof(int) * item->z),
+		(int *)ft_nonnull(ft_memdup(arr, sizeof(int) * item->x)),
+		(int *)ft_nonnull(ft_memdup(arr + item->x, sizeof(int) * item->y)),
+		(int *)ft_nonnull(ft_memdup(arr + offset_z, sizeof(int) * item->z)),
 		from_right
 	};
 
