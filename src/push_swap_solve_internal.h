@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 22:15:18 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:55:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ typedef struct s_push_swap_solve_internal_print_divide
 	size_t						to_a_length;
 	size_t						to_b_length;
 	size_t						to_c_length;
-	bool						reverse; // TODO: remove
 }	t_push_swap_solve_internal_print_divide;
 
 typedef struct s_push_swap_solve_internal_print_collect

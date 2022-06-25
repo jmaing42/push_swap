@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 02:27:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:49:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void	push_swap_solve_internal_collect_print_internal(
 			ft_exit(EXIT_FAILURE);
 		(*a)++;
 	}
-	else if ( *b != p->s.c_b && p->s.all[*a + *b + *c] == p->s.part_b[*b])
+	else if (*b != p->s.c_b && p->s.all[*a + *b + *c] == p->s.part_b[*b])
 	{
 		if (ft_write(STDOUT_FILENO, p->from_b, p->from_b_length))
 			ft_exit(EXIT_FAILURE);

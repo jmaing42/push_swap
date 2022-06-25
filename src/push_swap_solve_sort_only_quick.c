@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 02:16:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:58:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,7 @@ void	push_swap_solve_sort_only_quick_internal_divide(
 		(t_ccp)ft_const_pointer_if(c->from_right, "pa\n", "pb\n"),
 		6,
 		3,
-		3,
-		false
+		3
 	};
 
 	push_swap_solve_internal_divide_print(&divide_params);
