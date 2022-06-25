@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 22:06:32 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 02:06:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ void	push_swap_solve_internal_collect(const t_push_swap_solve_internal *p)
 	while (i != p->c_a + p->c_b + p->c_c)
 	{
 		if (a < p->c_a
-			&& (b == p->c_b || p->part_a[a] < p->part_b[b])
-			&& (c == p->c_c || p->part_a[a] < p->part_c[c]))
+			&& (b == p->c_b || p->part_a[a] > p->part_b[b])
+			&& (c == p->c_c || p->part_a[a] > p->part_c[c]))
 			p->all[i++] = p->part_a[a++];
 		else if (b < p->c_b
-			&& (a == p->c_a || p->part_b[b] < p->part_a[a])
-			&& (c == p->c_c || p->part_b[b] < p->part_c[c]))
+			&& (a == p->c_a || p->part_b[b] > p->part_a[a])
+			&& (c == p->c_c || p->part_b[b] > p->part_c[c]))
 			p->all[i++] = p->part_b[b++];
 		else
 			p->all[i++] = p->part_c[c++];
