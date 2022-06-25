@@ -1,39 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_t.c                                        :+:      :+:    :+:   */
+/*   ft_pointer.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 21:58:54 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 19:43:41 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/06/25 19:44:45 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/06/25 19:49:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_size_t.h"
+#include "ft_const_pointer.h"
 
-size_t	ft_size_t_min(size_t a, size_t b)
-{
-	if (a < b)
-		return (a);
-	return (b);
-}
-
-size_t	ft_size_t_max(size_t a, size_t b)
-{
-	if (a > b)
-		return (a);
-	return (b);
-}
-
-size_t	ft_size_t_if(
+void	*ft_pointer_if(
 	bool condition,
-	size_t value_if_true,
-	size_t value_if_false
+	void *value_if_true,
+	void *value_if_false
 )
 {
 	if (condition)
 		return (value_if_true);
-	else
-		return (value_if_false);
+	return (value_if_false);
 }
