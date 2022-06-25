@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:29:37 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 21:50:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 04:29:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	checker_state_part_operation_reverse_rotate(t_checker_state_part *self)
 
 	if (self->size <= 1)
 		return ;
-	self->offset = (self->offset - 1) % self->capacity;
+	self->offset = (self->capacity + self->offset - 1) % self->capacity;
 	self->arr[self->offset] = tmp;
 }
