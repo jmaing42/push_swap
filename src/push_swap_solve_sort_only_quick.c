@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 01:46:38 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 01:52:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ void	push_swap_solve_sort_only_quick_internal_divide(
 )
 {
 	int *const										sorted
-		= (int *)ft_nonnull(ft_memdup(c->arr, sizeof(int) * c->count));
+		= push_swap_solve_internal_sorted(c->arr, c->count);
 	const t_push_swap_solve_internal_print_divide	divide_params
 		= {
 	{
-		c->arr, push_swap_solve_internal_sorted(sorted, c->count),
-		c->x, c->y, c->z, c->part->x, c->part->y, c->part->z
+		c->arr, sorted,
+		c->x, c->y, c->z,
+		c->part->x, c->part->y, c->part->z
 	},
 		(t_ccp)ft_const_pointer_if(c->from_right, "pa\nra\n", "pb\nrb\n"),
 		(t_ccp)ft_const_pointer_if(c->from_right, "rb\n", "ra\n"),

@@ -6,11 +6,14 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 22:15:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 01:51:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_solve_internal.h"
+
+#include "ft_memory.h"
+#include "ft_malloc.h"
 
 void	push_swap_solve_internal_sort(
 	int *ptr,
@@ -40,10 +43,13 @@ void	push_swap_solve_internal_sort(
 }
 
 int	*push_swap_solve_internal_sorted(
-	int *ptr,
+	int *arr,
 	size_t length
 )
 {
-	push_swap_solve_internal_sort(ptr, length);
-	return (ptr);
+	int *const	result
+		= (int *)ft_nonnull(ft_memdup(arr, sizeof(int) * length));
+
+	push_swap_solve_internal_sort(result, length);
+	return (result);
 }
