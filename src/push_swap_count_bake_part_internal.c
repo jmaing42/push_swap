@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 21:26:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 01:37:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,7 +139,7 @@ size_t	push_swap_count_bake_part_sort_only_merge(
  * ||      |         z | y       z | y         |           |           |      ||
  * ||      |           |           |           |           |           |      ||
  * ||                                                                         ||
- * ||   (1) divide   (2) sort x   (3) rotate   (4) sort y   (5) sort+move x   ||
+ * ||   (1) divide   (2) sort x   (3) rotate   (4) sort y   (5) sort+move z   ||
  *
  */
 size_t	push_swap_count_bake_part_sort_and_move_quick(

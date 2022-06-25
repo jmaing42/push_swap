@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_solve_sort_only_quick.c                  :+:      :+:    :+:   */
+/*   push_swap_solve_sort_and_move_quick.c              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 01:46:38 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 01:43:56 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 #include "ft_malloc.h"
 #include "ft_exit.h"
 
-void	push_swap_solve_sort_only_quick_internal_divide(
+void	push_swap_solve_sort_and_move_quick_internal_divide(
 	const t_push_swap_solve_context *c
 )
 {
@@ -32,42 +32,42 @@ void	push_swap_solve_sort_only_quick_internal_divide(
 		c->arr, push_swap_solve_internal_sorted(sorted, c->count),
 		c->x, c->y, c->z, c->part->x, c->part->y, c->part->z
 	},
+		(t_ccp)ft_const_pointer_if(c->from_right, "pa\n", "pb\n"),
 		(t_ccp)ft_const_pointer_if(c->from_right, "pa\nra\n", "pb\nrb\n"),
 		(t_ccp)ft_const_pointer_if(c->from_right, "rb\n", "ra\n"),
-		(t_ccp)ft_const_pointer_if(c->from_right, "pa\n", "pb\n"),
-		6,
 		3,
+		6,
 		3,
 		false
 	};
 
 	push_swap_solve_internal_divide_print(&divide_params);
-	push_swap_solve_internal_reverse(c->z, c->part->z);
+	push_swap_solve_internal_reverse(c->x, c->part->x);
 	free(sorted);
 }
 
-void	push_swap_solve_sort_only_quick_internal_sort_and_move_z(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_x(
 	const t_push_swap_solve_context *context
 )
 {
-	push_swap_solve_sort_and_move(
+	push_swap_solve_sort_only(
 		context->self,
-		context->z,
-		context->part->z,
+		context->x,
+		context->part->x,
 		!context->from_right);
 }
 
-void	push_swap_solve_sort_only_quick_internal_rotate(
+void	push_swap_solve_sort_and_move_quick_internal_rotate(
 	const t_push_swap_solve_context *context
 )
 {
 	push_swap_solve_internal_operation_rrx(
+		context->part->z,
 		context->part->y,
-		context->part->x,
 		context->from_right);
 }
 
-void	push_swap_solve_sort_only_quick_internal_sort_only_y(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_y(
 	const t_push_swap_solve_context *context
 )
 {
@@ -75,16 +75,16 @@ void	push_swap_solve_sort_only_quick_internal_sort_only_y(
 		context->self,
 		context->y,
 		context->part->y,
-		context->from_right);
+		!context->from_right);
 }
 
-void	push_swap_solve_sort_only_quick_internal_sort_and_move_x(
+void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_z(
 	const t_push_swap_solve_context *context
 )
 {
 	push_swap_solve_sort_and_move(
 		context->self,
-		context->x,
-		context->part->x,
-		!context->from_right);
+		context->z,
+		context->part->z,
+		context->from_right);
 }
