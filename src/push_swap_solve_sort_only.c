@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 21:32:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 22:20:26 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,7 @@ static void	quick(
 	const t_push_swap_count_item *const	item
 		= &self->map[count].sort_only_quick;
 	const t_push_swap_solve_context		context = {
-		self,
-		arr,
-		count,
-		item,
+		self, arr, count, item,
 		(int *)ft_malloc(sizeof(int) * item->x),
 		(int *)ft_malloc(sizeof(int) * item->y),
 		(int *)ft_malloc(sizeof(int) * item->z),
@@ -39,6 +36,7 @@ static void	quick(
 	};
 
 	push_swap_solve_sort_only_quick_internal_divide(&context);
+	push_swap_solve_internal_reverse(context->z)
 	push_swap_solve_sort_only_quick_internal_sort_and_move_z(&context);
 	push_swap_solve_sort_only_quick_internal_rotate(&context);
 	push_swap_solve_sort_only_quick_internal_sort_only_y(&context);

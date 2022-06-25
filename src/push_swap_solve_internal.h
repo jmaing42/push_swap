@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 22:15:18 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@ void	push_swap_solve_internal_operation_rrx(
 			bool reverse_direction);
 
 void	push_swap_solve_internal_sort(
+			int *ptr,
+			size_t length);
+int		*push_swap_solve_internal_sorted(
 			int *ptr,
 			size_t length);
 void	push_swap_solve_internal_reverse(
@@ -61,7 +64,7 @@ typedef struct s_push_swap_solve_internal_print_divide
 	size_t						to_a_length;
 	size_t						to_b_length;
 	size_t						to_c_length;
-	bool						reverse;
+	bool						reverse; // TODO: remove
 }	t_push_swap_solve_internal_print_divide;
 
 typedef struct s_push_swap_solve_internal_print_collect
@@ -79,13 +82,13 @@ typedef struct s_push_swap_solve_internal_print_collect
 }	t_push_swap_solve_internal_print_collect;
 
 void	push_swap_solve_internal_divide(
-			t_push_swap_solve_internal *param);
+			const t_push_swap_solve_internal *param);
 void	push_swap_solve_internal_collect(
-			t_push_swap_solve_internal *param);
+			const t_push_swap_solve_internal *param);
 void	push_swap_solve_internal_divide_print(
-			t_push_swap_solve_internal_print_divide *param);
+			const t_push_swap_solve_internal_print_divide *param);
 void	push_swap_solve_internal_collect_print(
-			t_push_swap_solve_internal_print_collect *param);
+			const t_push_swap_solve_internal_print_collect *param);
 
 void	push_swap_solve_internal_sort_only(
 			t_push_swap *context,

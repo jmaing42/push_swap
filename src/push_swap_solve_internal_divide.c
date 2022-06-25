@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/20 21:20:59 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 22:06:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ft_io.h"
 #include "ft_exit.h"
 
-void	push_swap_solve_internal_divide(t_push_swap_solve_internal *p)
+void	push_swap_solve_internal_divide(const t_push_swap_solve_internal *p)
 {
 	size_t			a;
 	size_t			b;
@@ -55,7 +55,7 @@ static void	internal(const char *str, size_t len, size_t *increment)
 }
 
 static void	push_swap_solve_internal_divide_print_internal(
-	t_push_swap_solve_internal_print_divide *p
+	const t_push_swap_solve_internal_print_divide *p
 )
 {
 	size_t		a;
@@ -86,7 +86,7 @@ static void	push_swap_solve_internal_divide_print_internal(
 }
 
 void	push_swap_solve_internal_divide_print(
-	t_push_swap_solve_internal_print_divide *p
+	const t_push_swap_solve_internal_print_divide *p
 )
 {
 	push_swap_solve_internal_divide(&p->s);

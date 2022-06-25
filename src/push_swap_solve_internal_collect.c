@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/14 01:27:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/25 22:06:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include "ft_io.h"
 #include "ft_exit.h"
 
-void	push_swap_solve_internal_collect(t_push_swap_solve_internal *p)
+void	push_swap_solve_internal_collect(const t_push_swap_solve_internal *p)
 {
 	size_t	a;
 	size_t	b;
@@ -45,7 +45,7 @@ void	push_swap_solve_internal_collect(t_push_swap_solve_internal *p)
 }
 
 static void	push_swap_solve_internal_collect_print_internal(
-	t_push_swap_solve_internal_print_collect *p,
+	const t_push_swap_solve_internal_print_collect *p,
 	size_t *a,
 	size_t *b,
 	size_t *c
@@ -72,7 +72,7 @@ static void	push_swap_solve_internal_collect_print_internal(
 }
 
 void	push_swap_solve_internal_collect_print(
-	t_push_swap_solve_internal_print_collect *p
+	const t_push_swap_solve_internal_print_collect *p
 )
 {
 	size_t		a;
