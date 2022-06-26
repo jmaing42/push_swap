@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 05:06:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 20:34:07 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ static void	quick(
 	};
 
 	push_swap_solve_sort_and_move_quick_internal_divide(&context);
-	push_swap_solve_sort_and_move_quick_internal_sort_only_x(&context);
+	push_swap_solve_sort_and_move_quick_internal_sort_only_z(&context);
 	push_swap_solve_sort_and_move_quick_internal_rotate(&context);
-	push_swap_solve_sort_and_move_quick_internal_sort_and_move_y(&context);
-	push_swap_solve_sort_and_move_quick_internal_sort_and_move_z(&context);
+	push_swap_solve_sort_and_move_quick_internal_sort_only_y(&context);
+	push_swap_solve_sort_and_move_quick_internal_sort_and_move_x(&context);
 	free(context.x);
 	free(context.y);
 	free(context.z);
@@ -106,7 +106,7 @@ void	push_swap_solve_sort_and_move(
 		(int)count, 0, count);
 	if (part->sort_and_move_quick.total_moves
 		> part->sort_and_move_merge.total_moves
-		|| true)
+		&& false)
 		quick(self, arr, count, from_right);
 	else
 		merge(self, arr, count, from_right);

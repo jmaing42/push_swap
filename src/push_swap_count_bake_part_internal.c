@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 16:52:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 01:37:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 20:15:57 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,12 +134,12 @@ size_t	push_swap_count_bake_part_sort_only_merge(
  * ||                                                                         ||
  * ||    :                                                               X    ||
  * ||    : |           |           |           | y         | Y         | Y    ||
- * ||    : |           | x         | X       z | X       z | X         | Z    ||
+ * ||    : |           | z         | Z       x | Z       x | Z         | Z    ||
  * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
- * ||      |         z | y       z | y         |           |           |      ||
+ * ||      |         x | y       x | y         |           |           |      ||
  * ||      |           |           |           |           |           |      ||
  * ||                                                                         ||
- * ||   (1) divide   (2) sort x   (3) rotate   (4) sort y   (5) sort+move z   ||
+ * ||   (1) divide   (2) sort z   (3) rotate   (4) sort y   (5) sort+move x   ||
  *
  */
 size_t	push_swap_count_bake_part_sort_and_move_quick(
@@ -151,27 +151,27 @@ size_t	push_swap_count_bake_part_sort_and_move_quick(
 {
 	const size_t												divide
 		= x + 2 * y + z;
-	const size_t												sort_only_x
+	const size_t												sort_only_z
 		= ft_size_t_min(
-			map[x].sort_only_merge.total_moves,
-			map[x].sort_only_quick.total_moves);
+			map[z].sort_only_merge.total_moves,
+			map[z].sort_only_quick.total_moves);
 	const size_t												rotate
 		= ft_size_t_max(x, y);
-	const size_t												sort_and_move_y
+	const size_t												sort_only_y
 		= ft_size_t_min(
 			map[y].sort_and_move_merge.total_moves,
 			map[y].sort_and_move_quick.total_moves);
-	const size_t												sort_and_move_z
+	const size_t												sort_and_move_x
 		= ft_size_t_min(
-			map[z].sort_and_move_merge.total_moves,
-			map[z].sort_and_move_quick.total_moves);
+			map[x].sort_and_move_merge.total_moves,
+			map[x].sort_and_move_quick.total_moves);
 
 	return (
 		+ divide
-		+ sort_only_x
+		+ sort_only_z
 		+ rotate
-		+ sort_and_move_y
-		+ sort_and_move_z
+		+ sort_only_y
+		+ sort_and_move_x
 	);
 }
 

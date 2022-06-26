@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 03:32:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 18:34:53 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,12 +101,12 @@ void	push_swap_solve_sort_only_quick_internal_sort_and_move_x(
 )
 {
 	printf("%*.0d sort %zu items - phase 5: sort&move %zu items - start\n",
-		(int)context->count, 0, context->count, context->part->z);
+		(int)context->count, 0, context->count, context->part->x);
 	push_swap_solve_sort_and_move(
 		context->self,
 		context->x,
 		context->part->x,
 		!context->from_right);
 	printf("%*.0d sort %zu items - phase 5: sort&move %zu items - start\n",
-		(int)context->count, 0, context->count, context->part->z);
+		(int)context->count, 0, context->count, context->part->x);
 }

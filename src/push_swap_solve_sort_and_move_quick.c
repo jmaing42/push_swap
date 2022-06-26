@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 03:27:19 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 20:33:06 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ void	push_swap_solve_sort_and_move_quick_internal_divide(
 		c->x, c->y, c->z,
 		c->part->x, c->part->y, c->part->z
 	},
-		(t_ccp)ft_const_pointer_if(c->from_right, "pa\n", "pb\n"),
-		(t_ccp)ft_const_pointer_if(c->from_right, "pa\nra\n", "pb\nrb\n"),
 		(t_ccp)ft_const_pointer_if(c->from_right, "rb\n", "ra\n"),
+		(t_ccp)ft_const_pointer_if(c->from_right, "pa\nra\n", "pb\nrb\n"),
+		(t_ccp)ft_const_pointer_if(c->from_right, "pa\n", "pb\n"),
 		3,
 		6,
 		3
@@ -48,20 +48,20 @@ void	push_swap_solve_sort_and_move_quick_internal_divide(
 	push_swap_solve_internal_divide_print(&divide_params);
 	printf("%*.0d sort&move %zu items - phase 1: divide - end\n",
 		(int)c->count, 0, c->count);
-	push_swap_solve_internal_reverse(c->x, c->part->x);
+	push_swap_solve_internal_reverse(c->z, c->part->z);
 	free(sorted);
 }
 
-void	push_swap_solve_sort_and_move_quick_internal_sort_only_x(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_z(
 	const t_push_swap_solve_context *context
 )
 {
 	printf("%*.0d sort&move %zu items - phase 2: sort %zu items - start\n",
-		(int)context->count, 0, context->count, context->part->x);
+		(int)context->count, 0, context->count, context->part->z);
 	push_swap_solve_sort_only(
 		context->self,
-		context->x,
-		context->part->x,
+		context->z,
+		context->part->z,
 		!context->from_right);
 	printf("%*.0d sort&move %zu items - phase 2: sort %zu items - end\n",
 		(int)context->count, 0, context->count, context->part->x);
@@ -81,32 +81,32 @@ void	push_swap_solve_sort_and_move_quick_internal_rotate(
 		(int)context->count, 0, context->count);
 }
 
-void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_y(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_y(
 	const t_push_swap_solve_context *context
 )
 {
-	printf("%*.0d sort&move %zu items - phase 4: sort&move %zu items - start\n",
+	printf("%*.0d sort&move %zu items - phase 4: sort %zu items - start\n",
 		(int)context->count, 0, context->count, context->part->y);
-	push_swap_solve_sort_and_move(
+	push_swap_solve_sort_only(
 		context->self,
 		context->y,
 		context->part->y,
 		!context->from_right);
-	printf("%*.0d sort&move %zu items - phase 4: sort&move %zu items - end\n",
+	printf("%*.0d sort&move %zu items - phase 4: sort %zu items - end\n",
 		(int)context->count, 0, context->count, context->part->y);
 }
 
-void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_z(
+void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_x(
 	const t_push_swap_solve_context *context
 )
 {
 	printf("%*.0d sort&move %zu items - phase 5: sort&move %zu items - start\n",
-		(int)context->count, 0, context->count, context->part->z);
+		(int)context->count, 0, context->count, context->part->x);
 	push_swap_solve_sort_and_move(
 		context->self,
-		context->z,
-		context->part->z,
+		context->x,
+		context->part->x,
 		context->from_right);
 	printf("%*.0d sort&move %zu items - phase 5: sort&move %zu items - end\n",
-		(int)context->count, 0, context->count, context->part->z);
+		(int)context->count, 0, context->count, context->part->x);
 }

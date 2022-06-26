@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 02:55:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 20:16:22 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,13 +154,13 @@ void	push_swap_solve_sort_only_merge_internal_collect(
 			const t_push_swap_solve_context *context);
 void	push_swap_solve_sort_and_move_quick_internal_divide(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_quick_internal_sort_only_x(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_z(
 			const t_push_swap_solve_context *context);
 void	push_swap_solve_sort_and_move_quick_internal_rotate(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_y(
+void	push_swap_solve_sort_and_move_quick_internal_sort_only_y(
 			const t_push_swap_solve_context *context);
-void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_z(
+void	push_swap_solve_sort_and_move_quick_internal_sort_and_move_x(
 			const t_push_swap_solve_context *context);
 void	push_swap_solve_sort_and_move_merge_internal_sort_and_move_x(
 			const t_push_swap_solve_context *context);
