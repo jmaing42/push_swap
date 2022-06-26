@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/20 02:38:58 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 03:22:55 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static t_err	read_line(
 	return (false);
 }
 
-// /*
+/*
 
 // example code to print the stack properly below
 
@@ -107,14 +107,7 @@ int	main(int argc, char **argv)
 		if (line)
 		{
 			if (checker_do(state, line))
-			// 	checker_exit("Error: invalid operation given.");
-			{
-				printf("%s", line);
-				free(line);
-				continue ;
-			}
-			printf("%s", line);
-			print_state(state);
+				checker_exit("Error: invalid operation given.");
 			free(line);
 		}
 	}

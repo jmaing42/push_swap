@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 21:56:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 03:23:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,7 @@ void	push_swap_solve_sort_and_move(
 		return ;
 	}
 	if (part->sort_and_move_quick.total_moves
-		< part->sort_and_move_merge.total_moves
-		&& false)
+		< part->sort_and_move_merge.total_moves)
 		quick(self, arr, count, from_right);
 	else
 		merge(self, arr, count, from_right);
