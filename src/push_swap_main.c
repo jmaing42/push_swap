@@ -6,13 +6,12 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 21:37:26 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-#include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <inttypes.h>
@@ -86,15 +85,12 @@ static void	print_error_message(void)
 	ft_write(STDOUT_FILENO, "Error\n", 6);
 }
 
-#include <stdio.h>
-
 int	main(int argc, const char **argv)
 {
 	t_push_swap		context;
 	int				*numbers;
 	unsigned int	count;
 
-	setvbuf(stdout, NULL, _IONBF, 0);
 	ft_set_exit_handler(print_error_message);
 	count = argc - 1;
 	init(&context, &numbers, count, &argv[1]);
