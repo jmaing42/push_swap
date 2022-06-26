@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 02:40:18 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 05:06:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include "ft_memory.h"
 #include "ft_malloc.h"
 #include "ft_exit.h"
+
+#include <stdio.h>
 
 static void	quick(
 	t_push_swap *self,
@@ -91,14 +93,23 @@ void	push_swap_solve_sort_and_move(
 
 	if (count <= 2)
 	{
+		printf("%*.0d sort&move %zu items - hardcoded - start\n",
+			(int)count, 0, count);
 		if (count == 2 && arr[0] < arr[1])
 			push_swap_solve_internal_operation_sx(from_right);
 		push_swap_solve_internal_operation_px(0, count, from_right);
+		printf("%*.0d sort&move %zu items - hardcoded - end\n",
+			(int)count, 0, count);
 		return ;
 	}
+	printf("%*.0d sort&move %zu items - dynamic - start\n",
+		(int)count, 0, count);
 	if (part->sort_and_move_quick.total_moves
-		> part->sort_and_move_merge.total_moves)
+		> part->sort_and_move_merge.total_moves
+		|| true)
 		quick(self, arr, count, from_right);
 	else
 		merge(self, arr, count, from_right);
+	printf("%*.0d sort&move %zu items - dynamic - end\n",
+		(int)count, 0, count);
 }

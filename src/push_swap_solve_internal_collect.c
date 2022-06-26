@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 02:49:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 04:54:02 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 
 #include "ft_io.h"
 #include "ft_exit.h"
+
+#include <stdio.h>
 
 void	push_swap_solve_internal_collect(const t_push_swap_solve_internal *p)
 {
@@ -31,6 +33,11 @@ void	push_swap_solve_internal_collect(const t_push_swap_solve_internal *p)
 	i = 0;
 	while (i != p->c_a + p->c_b + p->c_c)
 	{
+		printf("collect - current:");
+		if (a != p->c_a) printf(" %d", p->part_a[a]);
+		if (b != p->c_b) printf(" %d", p->part_b[b]);
+		if (c != p->c_c) printf(" %d", p->part_c[c]);
+		putchar('\n');
 		if (a < p->c_a
 			&& (b == p->c_b || p->part_a[a] > p->part_b[b])
 			&& (c == p->c_c || p->part_a[a] > p->part_c[c]))
