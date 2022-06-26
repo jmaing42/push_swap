@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/04 14:20:27 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 04:54:02 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 21:17:48 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,9 +82,9 @@ void	push_swap_solve_internal_collect_print(
 	const t_push_swap_solve_internal_print_collect *p
 )
 {
-	size_t		a;
-	size_t		b;
-	size_t		c;
+	size_t	a;
+	size_t	b;
+	size_t	c;
 
 	if (p->reverse_a)
 		push_swap_solve_internal_reverse(p->s.part_a, p->s.c_a);

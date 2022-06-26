@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 20:34:07 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 21:31:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,7 @@ void	push_swap_solve_sort_and_move(
 			(int)count, 0, count);
 		if (count == 2 && arr[0] < arr[1])
 			push_swap_solve_internal_operation_sx(from_right);
+		if (count == 2) printf("%d and %d\n", arr[0], arr[1]);
 		push_swap_solve_internal_operation_px(0, count, from_right);
 		printf("%*.0d sort&move %zu items - hardcoded - end\n",
 			(int)count, 0, count);
@@ -105,8 +106,7 @@ void	push_swap_solve_sort_and_move(
 	printf("%*.0d sort&move %zu items - dynamic - start\n",
 		(int)count, 0, count);
 	if (part->sort_and_move_quick.total_moves
-		> part->sort_and_move_merge.total_moves
-		&& false)
+		> part->sort_and_move_merge.total_moves)
 		quick(self, arr, count, from_right);
 	else
 		merge(self, arr, count, from_right);

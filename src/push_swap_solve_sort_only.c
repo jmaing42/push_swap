@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 20:33:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 21:31:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,7 @@ void	push_swap_solve_sort_only(
 	printf("%*.0d sort %zu items - dynamic - start\n",
 		(int)count, 0, count);
 	if (part->sort_only_quick.total_moves
-		> part->sort_only_merge.total_moves
-		&& false)
+		> part->sort_only_merge.total_moves)
 		quick(self, arr, count, from_right);
 	else
 		merge(self, arr, count, from_right);

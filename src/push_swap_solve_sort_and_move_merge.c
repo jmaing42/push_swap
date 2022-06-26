@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 04:41:29 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/26 21:30:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,15 @@ void	push_swap_solve_sort_and_move_merge_internal_collect(
 		7,
 		3,
 		true,
-		true,
+		false,
 		false
 	};
 
+	push_swap_solve_internal_sort(c->x, c->part->x);
+	push_swap_solve_internal_sort(c->y, c->part->y);
+	push_swap_solve_internal_reverse(c->y, c->part->y);
+	push_swap_solve_internal_sort(c->z, c->part->z);
+	push_swap_solve_internal_reverse(c->z, c->part->z);
 	printf("%*.0d sort&move %zu items - phase 5: collect - start\n",
 		(int)c->count, 0, c->count);
 	push_swap_solve_internal_collect_print(&collect_params);
