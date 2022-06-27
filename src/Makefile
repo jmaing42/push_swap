@@ -90,5 +90,5 @@ $(EXECUTABLE_TARGETS): %: $(OBJ_DIR)/%$(SUFFIX).exe
 
 # dependencies
 ifneq ($(MOULINETTE_MODE),1)
--include $(OBJ_DIR)/$(SRCS:.c=$(SUFFIX).d)
+-include $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).d,$(SRCS))
 endif
