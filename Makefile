@@ -27,8 +27,8 @@ ifndef GIT_REMOTE_URL
 	$(error GIT_REMOTE_URL is undefined)
 endif
 	$Qrm -rf tmp
-	$Qcp -r ./src ./tmp
-	$Q$(MAKE) -C tmp fclean
+	$Qmkdir tmp
+	$Qcp src/*.c src/*.h tmp
 	$Q(printf ".POSIX:\n# this file is generated, do not modify directly\n\nOBJS_PUSH_SWAP := %s\nOBJS_CHECKER := %s\nOBJS_LIBFT := %s\n\n" "$$(cd src && find . -maxdepth 1 -name "push_swap_*.c" | cut -c 3- | sed s/\\.c\$$/.o/ | xargs)" "$$(cd src && find . -maxdepth 1 -name "checker_*.c" | cut -c 3- | sed s/\\.c\$$/.o/ | xargs)" "$$(cd src && find . -maxdepth 1 -name "ft_*.c" | cut -c 3- | sed s/\\.c\$$/.o/ | xargs)" && cat template.mk && (cd src && find . -maxdepth 1 -name "*.c" | cut -c 3- | xargs gcc -MM -MG)) > tmp/Makefile
 	$Q(cd tmp && git init && git add . && git commit -m "Initial commit" && git push "$(GIT_REMOTE_URL)" HEAD:master) || (echo "Failed to publish" && false)
 	$Qrm -rf tmp
