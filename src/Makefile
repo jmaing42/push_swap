@@ -20,7 +20,7 @@ CC := clang
 CCLD := clang
 AR := ar
 CFLAGS := -Wall -Wextra -Werror
-CPPFLAGS := -DEXIT_ALLOWED
+CPPFLAGS :=
 
 all: $(NAME) $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
 bonus: all
