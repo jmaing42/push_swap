@@ -1,6 +1,8 @@
 {
   "files.exclude": {
     ".vscode": true,
+    "src/.cache": true,
+    "**/*.dSYM": true,
     "**/*.{o,d,bc,i,s,exe,a,lib,so,dll,dylib}": true,
   },
   "files.associations": {
