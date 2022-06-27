@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:20:33 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 20:16:22 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 21:00:36 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,12 @@ void	push_swap_solve_internal_operation_rrx(
 			bool reverse_direction);
 
 void	push_swap_solve_internal_sort(
+			int *ptr,
+			size_t length);
+size_t	push_swap_solve_internal_reverse_sorted_count_front(
+			int *ptr,
+			size_t length);
+size_t	push_swap_solve_internal_reverse_sorted_count_back(
 			int *ptr,
 			size_t length);
 int		*push_swap_solve_internal_sorted(
@@ -95,27 +101,6 @@ void	push_swap_solve_internal_sort_only(
 			size_t count,
 			bool from_right);
 void	push_swap_solve_internal_sort_and_move(
-			t_push_swap *context,
-			int *arr,
-			size_t count,
-			bool from_right);
-
-void	push_swap_solve_internal_sort_only_merge(
-			t_push_swap *context,
-			int *arr,
-			size_t count,
-			bool from_right);
-void	push_swap_solve_internal_sort_only_quick(
-			t_push_swap *context,
-			int *arr,
-			size_t count,
-			bool from_right);
-void	push_swap_solve_internal_sort_and_move_merge(
-			t_push_swap *context,
-			int *arr,
-			size_t count,
-			bool from_right);
-void	push_swap_solve_internal_sort_and_move_quick(
 			t_push_swap *context,
 			int *arr,
 			size_t count,

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/27 03:23:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 21:12:54 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,17 +83,19 @@ void	push_swap_solve_sort_only(
 	bool from_right
 )
 {
-	const t_push_swap_count_part *const	part = &self->map[count];
+	const size_t	already_sorted_count
+		= push_swap_solve_internal_reverse_sorted_count_back(arr, count);
+	const size_t	count_to_sort = count - already_sorted_count;
 
-	if (count <= 2)
+	if (count_to_sort <= 2)
 	{
-		if (count == 2 && arr[0] > arr[1])
+		if (count_to_sort == 2 && arr[0] > arr[1])
 			push_swap_solve_internal_operation_sx(from_right);
 		return ;
 	}
-	if (part->sort_only_quick.total_moves
-		< part->sort_only_merge.total_moves)
-		quick(self, arr, count, from_right);
+	if (self->map[count_to_sort].sort_only_quick.total_moves
+		< self->map[count_to_sort].sort_only_merge.total_moves)
+		quick(self, arr, count_to_sort, from_right);
 	else
-		merge(self, arr, count, from_right);
+		merge(self, arr, count_to_sort, from_right);
 }

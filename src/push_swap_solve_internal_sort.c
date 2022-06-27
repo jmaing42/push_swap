@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:53:35 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/26 01:51:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 20:59:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,44 @@ void	push_swap_solve_internal_sort(
 			}
 		}
 	}
+}
+
+size_t	push_swap_solve_internal_reverse_sorted_count_front(
+	int *ptr,
+	size_t length
+)
+{
+	size_t	result;
+	size_t	i;
+
+	result = -1;
+	while (++result < length)
+	{
+		i = result;
+		while (++i < length)
+			if (ptr[i] > ptr[result])
+				return (result);
+	}
+	return (result);
+}
+
+size_t	push_swap_solve_internal_reverse_sorted_count_back(
+	int *ptr,
+	size_t length
+)
+{
+	size_t	result;
+	size_t	i;
+
+	result = -1;
+	while (++result < length)
+	{
+		i = -1;
+		while (++i < length - result - 1)
+			if (ptr[i] > ptr[length - result - 1])
+				return (result);
+	}
+	return (result);
 }
 
 int	*push_swap_solve_internal_sorted(

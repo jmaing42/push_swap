@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/27 03:23:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/27 21:09:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,18 +87,22 @@ void	push_swap_solve_sort_and_move(
 	bool from_right
 )
 {
-	const t_push_swap_count_part *const	part = &self->map[count];
+	const size_t	already_sorted_count
+		= push_swap_solve_internal_reverse_sorted_count_front(arr, count);
+	const size_t	count_to_sort = count - already_sorted_count;
 
-	if (count <= 2)
+	push_swap_solve_internal_operation_px(0, already_sorted_count, from_right);
+	if (count_to_sort <= 2)
 	{
-		if (count == 2 && arr[0] < arr[1])
+		if (count_to_sort == 2
+			&& (arr[already_sorted_count] < arr[already_sorted_count + 1]))
 			push_swap_solve_internal_operation_sx(from_right);
-		push_swap_solve_internal_operation_px(0, count, from_right);
+		push_swap_solve_internal_operation_px(0, count_to_sort, from_right);
 		return ;
 	}
-	if (part->sort_and_move_quick.total_moves
-		< part->sort_and_move_merge.total_moves)
-		quick(self, arr, count, from_right);
+	if (self->map[count_to_sort].sort_and_move_quick.total_moves
+		< self->map[count_to_sort].sort_and_move_merge.total_moves)
+		quick(self, &arr[already_sorted_count], count_to_sort, from_right);
 	else
-		merge(self, arr, count, from_right);
+		merge(self, &arr[already_sorted_count], count_to_sort, from_right);
 }
