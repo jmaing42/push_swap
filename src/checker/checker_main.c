@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/27 03:22:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/30 00:16:13 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,40 +61,13 @@ static t_err	read_line(
 	return (false);
 }
 
-/*
-
-// example code to print the stack properly below
-
-#include <stdio.h>
-
-static void	print_state(t_checker_state *state)
-{
-	size_t	index;
-
-	printf("A:");
-	index = -1;
-	while (++index < state->a.size)
-		printf(
-			" %d",
-			state->a.arr[(state->a.offset + index) % state->a.capacity]);
-	printf("\nB:");
-	index = -1;
-	while (++index < state->b.size)
-		printf(
-			" %d",
-			state->b.arr[(state->b.offset + index) % state->b.capacity]);
-	printf("\n");
-}
-
-// */
-
 int	main(int argc, char **argv)
 {
-	t_checker_state *const	state = checker_init(argc - 1, argv + 1);
-	t_ft_to_lines			context;
-	bool					eof;
-	char					*line;
-	size_t					nop;
+	t_ps_stack *const	state = checker_init(argc - 1, argv + 1);
+	t_ft_to_lines		context;
+	bool				eof;
+	char				*line;
+	size_t				nop;
 
 	context.buffer_size = BUFFER_SIZE;
 	ft_set_exit_handler(print_error_message);

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_state_operation_rra.c                      :+:      :+:    :+:   */
+/*   ps_stack_operation_rrb.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:29:37 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 21:54:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/30 00:13:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_state.h"
+#include "ps_stack.h"
 
-void	checker_state_operation_rra(t_checker_state *self)
+void	ps_stack_operation_rrb(t_ps_stack *self)
 {
-	checker_state_part_operation_reverse_rotate(&self->a);
+	ps_stack_part_operation_reverse_rotate(&self->b);
 }

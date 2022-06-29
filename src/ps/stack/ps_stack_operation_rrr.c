@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker_state_part_operation_reverse_rotate.c      :+:      :+:    :+:   */
+/*   ps_stack_operation_rrr.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 21:29:37 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 04:29:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/06/30 00:13:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "checker_state.h"
+#include "ps_stack.h"
 
-void	checker_state_part_operation_reverse_rotate(t_checker_state_part *self)
+void	ps_stack_operation_rrr(t_ps_stack *self)
 {
-	const int	tmp
-		= self->arr[(self->offset + self->size - 1) % self->capacity];
-
-	if (self->size <= 1)
-		return ;
-	self->offset = (self->capacity + self->offset - 1) % self->capacity;
-	self->arr[self->offset] = tmp;
+	ps_stack_part_operation_reverse_rotate(&self->a);
+	ps_stack_part_operation_reverse_rotate(&self->b);
 }
