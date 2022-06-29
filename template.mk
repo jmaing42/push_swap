@@ -1,11 +1,11 @@
-NAME_PUSH_SWAP := push_swap
-NAME_CHECKER := checker
-NAME_LIBFT := libft.a
-EXECUTABLE_TARGETS := $(NAME_PUSH_SWAP) $(NAME_CHECKER)
+NAME_PUSH_SWAP = push_swap
+NAME_CHECKER = checker
+NAME_LIBFT = libft.a
+EXECUTABLE_TARGETS = $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 
-OTHER_USEFUL_FILES := .editorconfig .gitignore
+OTHER_USEFUL_FILES = .editorconfig .gitignore
 
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME_PUSH_SWAP) $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
 bonus: all
