@@ -28,8 +28,11 @@ re:
 	(printf ".*\n*.o\n\n" && echo "$(EXECUTABLE_TARGETS) $(NAME_LIBFT)" | xargs -n 1 echo) > $@
 
 $(NAME_LIBFT): $(OBJS_LIBFT)
-	$(AR) $(ARFLAGS) $@ $^
+$(NAME_LIBPS): $(OBJS_LIBPS)
 $(NAME_PUSH_SWAP): $(OBJS_PUSH_SWAP) $(NAME_LIBFT) $(NAME_LIBPS)
-	$(CC) $(LDFLAGS) -o $@ $^
 $(NAME_CHECKER): $(OBJS_CHECKER) $(NAME_LIBFT) $(NAME_LIBPS)
+
+$(LIBS):
+	$(AR) $(ARFLAGS) $@ $^
+$(EXECUTABLE_TARGETS):
 	$(CC) $(LDFLAGS) -o $@ $^

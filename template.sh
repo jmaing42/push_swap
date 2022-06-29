@@ -11,7 +11,7 @@ printf "OBJS_LIBPS = %s\n" "$(find . -name "ps_*.c" | cut -c 3- | sed s/\\.c\$/.
 
 printf "\n"
 
-cat template.mk
+cat ../template.mk
 
 printf "\n# dependencies\n"
 
