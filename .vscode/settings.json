@@ -1,16 +1,15 @@
 {
   "files.exclude": {
     ".vscode": true,
+    "src/.cache": true,
+    "**/*.dSYM": true,
     "**/*.{o,d,bc,i,s,exe,a,lib,so,dll,dylib}": true,
   },
   "files.associations": {
     "*.h": "c",
   },
   "C_Cpp.default.includePath": [
-    "${workspaceFolder}/src"
-  ],
-  "c-cpp-flylint.includePaths": [
-    "${workspaceFolder}/src"
+    "${workspaceFolder}/src/**"
   ],
   "C_Cpp.default.cStandard": "c99",
   "c-cpp-flylint.standard": [

@@ -8,9 +8,4 @@
 *.exe
 .vscode/*.log
 tmp
-
-# push_swap specific
-src/*
-!src/Makefile
-!src/*.c
-!src/*.h
+*.dSYM

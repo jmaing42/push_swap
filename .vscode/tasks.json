@@ -2,23 +2,31 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Build push_swap",
+      "label": "build unit test collect (debug)",
       "type": "shell",
-      "command": "make PROFILE=debug push_swap",
-      "group": {
-        "kind": "build",
-        "isDefault": false,
-      },
-      "presentation": {
-        "reveal": "always",
-        "focus": false
-      },
+      "command": "make test.exe",
       "options": {
-        "cwd": "${workspaceFolder}/src"
+        "cwd": "${workspaceFolder}/test/case_unit/test_collect",
       },
-      "problemMatcher": [
-        "$gcc",
-      ],
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build checker (debug)",
+      "type": "shell",
+      "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",
+      "options": {
+        "cwd": "${workspaceFolder}/src",
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build push_swap (debug)",
+      "type": "shell",
+      "command": "make PROFILE=debug SANITIZER=address .cache/push_swap.production.debug.address.exe",
+      "options": {
+        "cwd": "${workspaceFolder}/src",
+      },
+      "problemMatcher": ["$gcc"]
     },
   ],
 }
