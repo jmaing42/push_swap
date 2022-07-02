@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/02 14:02:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 00:16:06 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,81 @@ size_t	ps_strategy_count_tst_q2(
 			size_t y,
 			size_t z);
 size_t	ps_strategy_count_tst_q2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tstx_m(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tstx_q(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tsb_m(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tsb_q(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tsbx_m(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tsbx_q(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tot_m1(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tot_m2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tot_q2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tot_q2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tos_m(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tos_q2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tos_q2(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tob_m(
+			const t_ps_strategy_count *table,
+			size_t x,
+			size_t y,
+			size_t z);
+size_t	ps_strategy_count_tob_q(
 			const t_ps_strategy_count *table,
 			size_t x,
 			size_t y,
