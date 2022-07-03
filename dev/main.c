@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 21:07:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 21:33:51 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,11 @@
 
 #include "../src/ps/strategy/ps_strategy.h"
 
+#define COUNT 100
+
 int	main(void)
 {
-	t_ps_strategy_count	table[501];
+	t_ps_strategy_count	table[COUNT + 1];
 
 	table[0].tst.moves = 0; table[1].tst.moves = 0; table[2].tst.moves = 1;
 	table[0].tstx.moves = 0; table[1].tstx.moves = 0; table[2].tstx.moves = 1;
@@ -37,7 +39,31 @@ int	main(void)
 	table[0].sot.moves = 0; table[1].sot.moves = 1; table[2].sot.moves = 3;
 	table[0].sos.moves = 0; table[1].sos.moves = 1; table[2].sos.moves = 3;
 	table[0].sob.moves = 0; table[1].sob.moves = 2; table[2].sob.moves = 5;
-	ps_strategy_bake(table, 3, 501);
-	printf("solution: %zu\n", table[500].sss.moves);
+	ps_strategy_bake(table, 3, COUNT + 1);
+	for (size_t i = 0; i <= COUNT; i++)
+	{
+		printf("%3zu: ", i);
+		printf("%5zu", table[i].tst.moves);
+		printf("%5zu", table[i].tstx.moves);
+		printf("%5zu", table[i].tsb.moves);
+		printf("%5zu", table[i].tsbx.moves);
+		printf("%5zu", table[i].tot.moves);
+		printf("%5zu", table[i].tos.moves);
+		printf("%5zu", table[i].tob.moves);
+		printf("%5zu", table[i].bst.moves);
+		printf("%5zu", table[i].bstx.moves);
+		printf("%5zu", table[i].bsb.moves);
+		printf("%5zu", table[i].bsbx.moves);
+		printf("%5zu", table[i].bot.moves);
+		printf("%5zu", table[i].bos.moves);
+		printf("%5zu", table[i].bob.moves);
+		printf("%5zu", table[i].sss.moves);
+		printf("%5zu", table[i].sssx.moves);
+		printf("%5zu", table[i].sot.moves);
+		printf("%5zu", table[i].sos.moves);
+		printf("%5zu", table[i].sob.moves);
+		printf("\n");
+	}
+	printf("solution: %zu\n", table[COUNT].sss.moves);
 	return (0);
 }
