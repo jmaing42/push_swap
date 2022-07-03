@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 21:13:03 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 21:24:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ typedef struct s_ps_strategy_count
 	t_ps_strategy_count_item	sos_m2;
 	t_ps_strategy_count_item	sos_q1;
 	t_ps_strategy_count_item	sos_q2;
-	t_ps_strategy_count_item	sos_q3;
 	t_ps_strategy_count_item	sob_m1;
 	t_ps_strategy_count_item	sob_m2;
 	t_ps_strategy_count_item	sob_m3;

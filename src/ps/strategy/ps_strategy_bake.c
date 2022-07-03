@@ -73,7 +73,6 @@ static void	ps_strategy_bake_part2(
 	table[count].sos_m2 = f(table, count, ps_strategy_count_sos_m2);
 	table[count].sos_q1 = f(table, count, ps_strategy_count_sos_q1);
 	table[count].sos_q2 = f(table, count, ps_strategy_count_sos_q2);
-	table[count].sos_q3 = f(table, count, ps_strategy_count_sos_q3);
 	table[count].sob_m1 = f(table, count, ps_strategy_count_sob_m1);
 	table[count].sob_m2 = f(table, count, ps_strategy_count_sob_m2);
 	table[count].sob_m3 = f(table, count, ps_strategy_count_sob_m3);
@@ -89,6 +88,7 @@ static void	ps_strategy_bake_part2(
 	table[count].bsbx_q = f(table, count, ps_strategy_count_bsbx_q);
 	table[count].bot_m1 = f(table, count, ps_strategy_count_bot_m1);
 	table[count].bot_m2 = f(table, count, ps_strategy_count_bot_m2);
+	table[count].bot_q = f(table, count, ps_strategy_count_bot_q);
 }
 
 static void	ps_strategy_bake_part3(
@@ -100,7 +100,6 @@ static void	ps_strategy_bake_part3(
 	const t_m					m = ft_size_t_min;
 	t_ps_strategy_count *const	c = &table[count];
 
-	c->bot_q = f(table, count, ps_strategy_count_bot_q);
 	c->bos_m = f(table, count, ps_strategy_count_bos_m);
 	c->bos_q1 = f(table, count, ps_strategy_count_bos_q1);
 	c->bos_q2 = f(table, count, ps_strategy_count_bos_q2);
@@ -119,8 +118,8 @@ static void	ps_strategy_bake_part3(
 	c->sss.moves = m(c->sss_m.moves, c->sss_q.moves);
 	c->sssx.moves = m(c->sssx_m.moves, c->sssx_q.moves);
 	c->sot.moves = m(m(c->sot_m1.moves, c->sot_m2.moves), c->sot_q.moves);
-	c->sos.moves = m(m(m(m(c->sos_m1.moves, c->sos_m2.moves),
-					c->sos_q1.moves), c->sos_q2.moves), c->sos_q3.moves);
+	c->sos.moves = m(m(m(c->sos_m1.moves, c->sos_m2.moves),
+				c->sos_q1.moves), c->sos_q2.moves);
 }
 
 static void	ps_strategy_bake_part4(
