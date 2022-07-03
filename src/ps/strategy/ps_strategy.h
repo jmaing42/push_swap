@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 20:55:39 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 21:13:03 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,10 +66,10 @@ typedef struct s_ps_strategy_count
 	t_ps_strategy_count_item	sob_m2;
 	t_ps_strategy_count_item	sob_m3;
 	t_ps_strategy_count_item	sob_q;
-	t_ps_strategy_count_item	bst_m;
+	t_ps_strategy_count_item	bst_m1;
+	t_ps_strategy_count_item	bst_m2;
 	t_ps_strategy_count_item	bst_q;
-	t_ps_strategy_count_item	bstx_m1;
-	t_ps_strategy_count_item	bstx_m2;
+	t_ps_strategy_count_item	bstx_m;
 	t_ps_strategy_count_item	bstx_q;
 	t_ps_strategy_count_item	bsb_m;
 	t_ps_strategy_count_item	bsb_q;
@@ -280,7 +280,12 @@ size_t						ps_strategy_count_sob_q(
 								size_t x,
 								size_t y,
 								size_t z);
-size_t						ps_strategy_count_bst_m(
+size_t						ps_strategy_count_bst_m1(
+								const t_ps_strategy_count *table,
+								size_t x,
+								size_t y,
+								size_t z);
+size_t						ps_strategy_count_bst_m2(
 								const t_ps_strategy_count *table,
 								size_t x,
 								size_t y,
@@ -290,12 +295,7 @@ size_t						ps_strategy_count_bst_q(
 								size_t x,
 								size_t y,
 								size_t z);
-size_t						ps_strategy_count_bstx_m1(
-								const t_ps_strategy_count *table,
-								size_t x,
-								size_t y,
-								size_t z);
-size_t						ps_strategy_count_bstx_m2(
+size_t						ps_strategy_count_bstx_m(
 								const t_ps_strategy_count *table,
 								size_t x,
 								size_t y,

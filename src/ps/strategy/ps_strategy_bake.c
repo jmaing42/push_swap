@@ -78,10 +78,10 @@ static void	ps_strategy_bake_part2(
 	table[count].sob_m2 = f(table, count, ps_strategy_count_sob_m2);
 	table[count].sob_m3 = f(table, count, ps_strategy_count_sob_m3);
 	table[count].sob_q = f(table, count, ps_strategy_count_sob_q);
-	table[count].bst_m = f(table, count, ps_strategy_count_bst_m);
+	table[count].bst_m1 = f(table, count, ps_strategy_count_bst_m1);
+	table[count].bst_m2 = f(table, count, ps_strategy_count_bst_m2);
 	table[count].bst_q = f(table, count, ps_strategy_count_bst_q);
-	table[count].bstx_m1 = f(table, count, ps_strategy_count_bstx_m1);
-	table[count].bstx_m2 = f(table, count, ps_strategy_count_bstx_m2);
+	table[count].bstx_m = f(table, count, ps_strategy_count_bstx_m);
 	table[count].bstx_q = f(table, count, ps_strategy_count_bstx_q);
 	table[count].bsb_m = f(table, count, ps_strategy_count_bsb_m);
 	table[count].bsb_q = f(table, count, ps_strategy_count_bsb_q);
@@ -123,7 +123,7 @@ static void	ps_strategy_bake_part3(
 					c->sos_q1.moves), c->sos_q2.moves), c->sos_q3.moves);
 }
 
-static void	ps_strategy_bake_part3(
+static void	ps_strategy_bake_part4(
 	t_ps_strategy_count *table,
 	size_t count
 )
@@ -133,8 +133,8 @@ static void	ps_strategy_bake_part3(
 
 	c->sob.moves = m(m(m(c->sob_m1.moves, c->sob_m2.moves),
 				c->sob_m3.moves), c->sob_q.moves);
-	c->bst.moves = m(c->bst_m.moves, c->bst_q.moves);
-	c->bstx.moves = m(m(c->bstx_m1.moves, c->bstx_m2.moves), c->bstx_q.moves);
+	c->bst.moves = m(m(c->bst_m1.moves, c->bst_m2.moves), c->bst_q.moves);
+	c->bstx.moves = m(c->bstx_m.moves, c->bstx_q.moves);
 	c->bsb.moves = m(c->bsb_m.moves, c->bsb_q.moves);
 	c->bsbx.moves = m(c->bsbx_m.moves, c->bsbx_q.moves);
 	c->bot.moves = m(m(c->bot_m1.moves, c->bot_m2.moves), c->bot_q.moves);
