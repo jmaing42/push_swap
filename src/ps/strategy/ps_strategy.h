@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 20:13:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 20:55:39 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ size_t						ps_strategy_count_tst_m2(
 								size_t x,
 								size_t y,
 								size_t z);
-size_t						ps_strategy_count_tst_q2(
+size_t						ps_strategy_count_tst_q1(
 								const t_ps_strategy_count *table,
 								size_t x,
 								size_t y,
@@ -165,7 +165,7 @@ size_t						ps_strategy_count_tot_m2(
 								size_t x,
 								size_t y,
 								size_t z);
-size_t						ps_strategy_count_tot_q2(
+size_t						ps_strategy_count_tot_q1(
 								const t_ps_strategy_count *table,
 								size_t x,
 								size_t y,
@@ -180,7 +180,7 @@ size_t						ps_strategy_count_tos_m(
 								size_t x,
 								size_t y,
 								size_t z);
-size_t						ps_strategy_count_tos_q2(
+size_t						ps_strategy_count_tos_q1(
 								const t_ps_strategy_count *table,
 								size_t x,
 								size_t y,
@@ -372,12 +372,17 @@ size_t						ps_strategy_count_bob_q(
 								size_t z);
 
 t_ps_strategy_count_item	ps_strategy_count_get_optimal(
-								t_ps_strategy_count *map,
+								t_ps_strategy_count *table,
 								size_t count,
 								size_t (*calculate_with_exact_count)(
-									const t_ps_strategy_count *map,
+									const t_ps_strategy_count *table,
 									size_t x,
 									size_t y,
 									size_t z));
+
+void						ps_strategy_bake(
+								t_ps_strategy_count *table,
+								size_t count_from,
+								size_t count_to_exclusive);
 
 #endif

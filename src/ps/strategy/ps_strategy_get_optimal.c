@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:09:22 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 20:12:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 20:17:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 #include "ps_strategy.h"
 
 t_ps_strategy_count_item	ps_strategy_count_get_optimal(
-	t_ps_strategy_count *map,
+	t_ps_strategy_count *table,
 	size_t count,
 	size_t (*calculate_with_exact_count)(
-		const t_ps_strategy_count *map,
+		const t_ps_strategy_count *table,
 		size_t x,
 		size_t y,
 		size_t z
