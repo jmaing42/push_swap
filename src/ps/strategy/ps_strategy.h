@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 00:16:06 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/03 17:12:14 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,39 @@ typedef struct s_ps_strategy_count
 	t_ps_strategy_count_item	tos_q2;
 	t_ps_strategy_count_item	tob_m;
 	t_ps_strategy_count_item	tob_q;
+	t_ps_strategy_count_item	sss_m;
+	t_ps_strategy_count_item	sss_q;
+	t_ps_strategy_count_item	sssx_m;
+	t_ps_strategy_count_item	sssx_q;
+	t_ps_strategy_count_item	sot_m1;
+	t_ps_strategy_count_item	sot_m2;
+	t_ps_strategy_count_item	sot_q;
+	t_ps_strategy_count_item	sos_m1;
+	t_ps_strategy_count_item	sos_m2;
+	t_ps_strategy_count_item	sos_q1;
+	t_ps_strategy_count_item	sos_q2;
+	t_ps_strategy_count_item	sos_q3;
+	t_ps_strategy_count_item	sob_m1;
+	t_ps_strategy_count_item	sob_m2;
+	t_ps_strategy_count_item	sob_m3;
+	t_ps_strategy_count_item	sob_q;
+	t_ps_strategy_count_item	bst_m;
+	t_ps_strategy_count_item	bst_q;
+	t_ps_strategy_count_item	bstx_m;
+	t_ps_strategy_count_item	bstx_q;
+	t_ps_strategy_count_item	bsb_m;
+	t_ps_strategy_count_item	bsb_q;
+	t_ps_strategy_count_item	bsbx_m;
+	t_ps_strategy_count_item	bsbx_q;
+	t_ps_strategy_count_item	bot_m1;
+	t_ps_strategy_count_item	bot_m2;
+	t_ps_strategy_count_item	bot_q;
+	t_ps_strategy_count_item	bos_m;
+	t_ps_strategy_count_item	bos_q1;
+	t_ps_strategy_count_item	bos_q2;
+	t_ps_strategy_count_item	bos_q3;
+	t_ps_strategy_count_item	bob_m;
+	t_ps_strategy_count_item	bob_q;
 	t_ps_strategy_count_part	tst;
 	t_ps_strategy_count_part	tstx;
 	t_ps_strategy_count_part	tsb;
