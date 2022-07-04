@@ -9,3 +9,5 @@
 .vscode/*.log
 tmp
 *.dSYM
+.clangd
+compile_commands.json

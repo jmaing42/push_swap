@@ -7,7 +7,14 @@
   },
   "files.associations": {
     "*.h": "c",
+    ".clangd": "yaml"
   },
+  "clangd.arguments": [
+    "-log=verbose",
+    "-pretty",
+    "--background-index",
+    "--enable-config"
+  ],
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/src/**"
   ],
@@ -15,5 +22,8 @@
   "c-cpp-flylint.standard": [
     "c99",
     "c++98"
+  ],
+  "c-cpp-flylint.clang.extraArgs": [
+    "--enable-config"
   ],
 }
