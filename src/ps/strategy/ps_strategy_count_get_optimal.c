@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:09:22 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 21:10:38 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/05 00:05:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_ps_strategy_count_item	ps_strategy_count_get_optimal(
 				continue ;
 			now = calculate_with_exact_count(table, x, y, z);
 			if (now < result.moves)
-				result = (t_ps_strategy_count_item){now, x, y, z};
+				result = (t_ps_strategy_count_item){x, y, z, now};
 		}
 	}
 	return (result);

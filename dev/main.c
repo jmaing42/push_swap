@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 21:33:51 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/05 00:06:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "../src/ps/strategy/ps_strategy.h"
 
-#define COUNT 100
+#define COUNT 500
 
 int	main(void)
 {
@@ -62,8 +62,64 @@ int	main(void)
 		printf("%5zu", table[i].sot.moves);
 		printf("%5zu", table[i].sos.moves);
 		printf("%5zu", table[i].sob.moves);
+		/*
+		printf("     (");
+		printf("%5zu", table[i].tst_m1.moves);
+		printf("%5zu", table[i].tst_m2.moves);
+		printf("%5zu", table[i].tst_q1.moves);
+		printf("%5zu", table[i].tst_q2.moves);
+		printf("%5zu", table[i].tstx_m.moves);
+		printf("%5zu", table[i].tstx_q.moves);
+		printf("%5zu", table[i].tsb_m.moves);
+		printf("%5zu", table[i].tsb_q.moves);
+		printf("%5zu", table[i].tsbx_m.moves);
+		printf("%5zu", table[i].tsbx_q.moves);
+		printf("%5zu", table[i].tot_m1.moves);
+		printf("%5zu", table[i].tot_m2.moves);
+		printf("%5zu", table[i].tot_q1.moves);
+		printf("%5zu", table[i].tot_q2.moves);
+		printf("%5zu", table[i].tos_m.moves);
+		printf("%5zu", table[i].tos_q1.moves);
+		printf("%5zu", table[i].tos_q2.moves);
+		printf("%5zu", table[i].tob_m.moves);
+		printf("%5zu", table[i].tob_q.moves);
+		printf("%5zu", table[i].sss_m.moves);
+		printf("%5zu", table[i].sss_q.moves);
+		printf("%5zu", table[i].sssx_m.moves);
+		printf("%5zu", table[i].sssx_q.moves);
+		printf("%5zu", table[i].sot_m1.moves);
+		printf("%5zu", table[i].sot_m2.moves);
+		printf("%5zu", table[i].sot_q.moves);
+		printf("%5zu", table[i].sos_m1.moves);
+		printf("%5zu", table[i].sos_m2.moves);
+		printf("%5zu", table[i].sos_q1.moves);
+		printf("%5zu", table[i].sos_q2.moves);
+		printf("%5zu", table[i].sob_m1.moves);
+		printf("%5zu", table[i].sob_m2.moves);
+		printf("%5zu", table[i].sob_m3.moves);
+		printf("%5zu", table[i].sob_q.moves);
+		printf("%5zu", table[i].bst_m1.moves);
+		printf("%5zu", table[i].bst_m2.moves);
+		printf("%5zu", table[i].bst_q.moves);
+		printf("%5zu", table[i].bstx_m.moves);
+		printf("%5zu", table[i].bstx_q.moves);
+		printf("%5zu", table[i].bsb_m.moves);
+		printf("%5zu", table[i].bsb_q.moves);
+		printf("%5zu", table[i].bsbx_m.moves);
+		printf("%5zu", table[i].bsbx_q.moves);
+		printf("%5zu", table[i].bot_m1.moves);
+		printf("%5zu", table[i].bot_m2.moves);
+		printf("%5zu", table[i].bot_q.moves);
+		printf("%5zu", table[i].bos_m.moves);
+		printf("%5zu", table[i].bos_q1.moves);
+		printf("%5zu", table[i].bos_q2.moves);
+		printf("%5zu", table[i].bos_q3.moves);
+		printf("%5zu", table[i].bob_m.moves);
+		printf("%5zu", table[i].bob_q.moves);
+		printf("     )");
+		//*/
 		printf("\n");
 	}
-	printf("solution: %zu\n", table[COUNT].sss.moves);
+	printf("solution: %zu\n", table[COUNT].sssx.moves);
 	return (0);
 }
