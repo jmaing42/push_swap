@@ -38,12 +38,12 @@ static void	ps_strategy_bake_part1(
 	table[count].tst_m2 = f(table, count, ps_strategy_count_tst_m2);
 	table[count].tst_q1 = f(table, count, ps_strategy_count_tst_q1);
 	table[count].tst_q2 = f(table, count, ps_strategy_count_tst_q2);
-	table[count].tstx_m = f(table, count, ps_strategy_count_tstx_m);
-	table[count].tstx_q = f(table, count, ps_strategy_count_tstx_q);
+	table[count].txt_m = f(table, count, ps_strategy_count_txt_m);
+	table[count].txt_q = f(table, count, ps_strategy_count_txt_q);
 	table[count].tsb_m = f(table, count, ps_strategy_count_tsb_m);
 	table[count].tsb_q = f(table, count, ps_strategy_count_tsb_q);
-	table[count].tsbx_m = f(table, count, ps_strategy_count_tsbx_m);
-	table[count].tsbx_q = f(table, count, ps_strategy_count_tsbx_q);
+	table[count].txb_m = f(table, count, ps_strategy_count_txb_m);
+	table[count].txb_q = f(table, count, ps_strategy_count_txb_q);
 	table[count].tot_m1 = f(table, count, ps_strategy_count_tot_m1);
 	table[count].tot_m2 = f(table, count, ps_strategy_count_tot_m2);
 	table[count].tot_q1 = f(table, count, ps_strategy_count_tot_q1);
@@ -55,8 +55,8 @@ static void	ps_strategy_bake_part1(
 	table[count].tob_q = f(table, count, ps_strategy_count_tob_q);
 	table[count].sss_m = f(table, count, ps_strategy_count_sss_m);
 	table[count].sss_q = f(table, count, ps_strategy_count_sss_q);
-	table[count].sssx_m = f(table, count, ps_strategy_count_sssx_m);
-	table[count].sssx_q = f(table, count, ps_strategy_count_sssx_q);
+	table[count].sxs_m = f(table, count, ps_strategy_count_sxs_m);
+	table[count].sxs_q = f(table, count, ps_strategy_count_sxs_q);
 }
 
 static void	ps_strategy_bake_part2(
@@ -80,12 +80,12 @@ static void	ps_strategy_bake_part2(
 	table[count].bst_m1 = f(table, count, ps_strategy_count_bst_m1);
 	table[count].bst_m2 = f(table, count, ps_strategy_count_bst_m2);
 	table[count].bst_q = f(table, count, ps_strategy_count_bst_q);
-	table[count].bstx_m = f(table, count, ps_strategy_count_bstx_m);
-	table[count].bstx_q = f(table, count, ps_strategy_count_bstx_q);
+	table[count].bxt_m = f(table, count, ps_strategy_count_bxt_m);
+	table[count].bxt_q = f(table, count, ps_strategy_count_bxt_q);
 	table[count].bsb_m = f(table, count, ps_strategy_count_bsb_m);
 	table[count].bsb_q = f(table, count, ps_strategy_count_bsb_q);
-	table[count].bsbx_m = f(table, count, ps_strategy_count_bsbx_m);
-	table[count].bsbx_q = f(table, count, ps_strategy_count_bsbx_q);
+	table[count].bxb_m = f(table, count, ps_strategy_count_bxb_m);
+	table[count].bxb_q = f(table, count, ps_strategy_count_bxb_q);
 	table[count].bot_m1 = f(table, count, ps_strategy_count_bot_m1);
 	table[count].bot_m2 = f(table, count, ps_strategy_count_bot_m2);
 	table[count].bot_q = f(table, count, ps_strategy_count_bot_q);
@@ -108,15 +108,15 @@ static void	ps_strategy_bake_part3(
 	c->bob_q = f(table, count, ps_strategy_count_bob_q);
 	c->tst.moves = m(m(m(c->tst_m1.moves, c->tst_m2.moves),
 				c->tst_q1.moves), c->tst_q2.moves);
-	c->tstx.moves = m(c->tstx_m.moves, c->tstx_q.moves);
+	c->txt.moves = m(c->txt_m.moves, c->txt_q.moves);
 	c->tsb.moves = m(c->tsb_m.moves, c->tsb_q.moves);
-	c->tsbx.moves = m(c->tsbx_m.moves, c->tsbx_q.moves);
+	c->txb.moves = m(c->txb_m.moves, c->txb_q.moves);
 	c->tot.moves = m(m(m(c->tot_m1.moves, c->tot_m2.moves),
 				c->tot_q1.moves), c->tot_q2.moves);
 	c->tos.moves = m(m(c->tos_m.moves, c->tos_q1.moves), c->tos_q2.moves);
 	c->tob.moves = m(c->tob_m.moves, c->tob_q.moves);
 	c->sss.moves = m(c->sss_m.moves, c->sss_q.moves);
-	c->sssx.moves = m(c->sssx_m.moves, c->sssx_q.moves);
+	c->sxs.moves = m(c->sxs_m.moves, c->sxs_q.moves);
 	c->sot.moves = m(m(c->sot_m1.moves, c->sot_m2.moves), c->sot_q.moves);
 	c->sos.moves = m(m(m(c->sos_m1.moves, c->sos_m2.moves),
 				c->sos_q1.moves), c->sos_q2.moves);
@@ -133,9 +133,9 @@ static void	ps_strategy_bake_part4(
 	c->sob.moves = m(m(m(c->sob_m1.moves, c->sob_m2.moves),
 				c->sob_m3.moves), c->sob_q.moves);
 	c->bst.moves = m(m(c->bst_m1.moves, c->bst_m2.moves), c->bst_q.moves);
-	c->bstx.moves = m(c->bstx_m.moves, c->bstx_q.moves);
+	c->bxt.moves = m(c->bxt_m.moves, c->bxt_q.moves);
 	c->bsb.moves = m(c->bsb_m.moves, c->bsb_q.moves);
-	c->bsbx.moves = m(c->bsbx_m.moves, c->bsbx_q.moves);
+	c->bxb.moves = m(c->bxb_m.moves, c->bxb_q.moves);
 	c->bot.moves = m(m(c->bot_m1.moves, c->bot_m2.moves), c->bot_q.moves);
 	c->bos.moves = m(m(m(c->bos_m.moves, c->bos_q1.moves),
 				c->bos_q2.moves), c->bos_q3.moves);

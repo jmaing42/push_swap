@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:42:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 00:12:16 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/05 00:14:42 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	ps_strategy_count_tos_m(
 )
 {
 	return (
-		+ table[x].tsbx.moves
+		+ table[x].txb.moves
 		+ table[y].tos.moves
 		+ table[z].tst.moves
 		+ 2 * x + y + z

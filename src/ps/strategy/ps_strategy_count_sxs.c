@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_count_bsbx.c                           :+:      :+:    :+:   */
+/*   ps_strategy_count_sxs.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:42:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/03 20:05:14 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/05 00:16:29 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stddef.h>
 
-size_t	ps_strategy_count_bsbx_m(
+size_t	ps_strategy_count_sxs_m(
 	const t_ps_strategy_count *table,
 	size_t x,
 	size_t y,
@@ -22,14 +22,14 @@ size_t	ps_strategy_count_bsbx_m(
 )
 {
 	return (
-		+ table[x].bstx.moves
-		+ table[y].bos.moves
-		+ table[z].bot.moves
-		+ x + 3 * y + 2 * z
+		+ table[x].tos.moves
+		+ table[y].tot.moves
+		+ table[z].sss.moves
+		+ 2 * x + y + z
 	);
 }
 
-size_t	ps_strategy_count_bsbx_q(
+size_t	ps_strategy_count_sxs_q(
 	const t_ps_strategy_count *table,
 	size_t x,
 	size_t y,
@@ -37,9 +37,9 @@ size_t	ps_strategy_count_bsbx_q(
 )
 {
 	return (
-		+ 2 * x + 3 * y + z
-		+ table[x].tob.moves
-		+ table[y].sob.moves
-		+ table[z].tsbx.moves
+		+ 2 * x + y + z
+		+ table[z].sss.moves
+		+ table[y].tot.moves
+		+ table[x].sot.moves
 	);
 }
