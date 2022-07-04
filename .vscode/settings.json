@@ -26,4 +26,5 @@
   "c-cpp-flylint.clang.extraArgs": [
     "--enable-config"
   ],
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
 }
