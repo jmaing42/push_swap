@@ -14,7 +14,7 @@
 
 #include "../src/ps/strategy/ps_strategy.h"
 
-#define COUNT 3000
+#define COUNT 4242
 
 int	main(void)
 {
