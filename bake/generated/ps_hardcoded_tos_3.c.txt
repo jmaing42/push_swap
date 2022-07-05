@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_hardcoded_tos_3.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: Automatically                            #+#    #+#             */
+/*   Updated: Never                                   ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+static const size_t	g_ps_hardcoded_tos_3_distance = 5;
+static const char	*g_ps_hardcoded_tos_3[] = {
+	"\6\2\2\13\2",
+	"\2\2\2\12",
+	"\2\2\2\6",
+	"\3\2\2\2",
+	"\2\3\2\2",
+	"\2\2\2",
+};
+
+void	ps_hardcoded_tos_3(
+	const char *const **out_ptr,
+	size_t *out_distance
+)
+{
+	*out_ptr = g_ps_hardcoded_tos_3;
+	*out_distance = g_ps_hardcoded_tos_3_distance;
+}

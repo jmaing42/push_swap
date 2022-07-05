@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_hardcoded_bxb_2.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: Automatically                            #+#    #+#             */
+/*   Updated: Never                                   ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+static const size_t	g_ps_hardcoded_bxb_2_distance = 5;
+static const char	*g_ps_hardcoded_bxb_2[] = {
+	"",
+	"\11\11\3\6\6",
+};
+
+void	ps_hardcoded_bxb_2(
+	const char *const **out_ptr,
+	size_t *out_distance
+)
+{
+	*out_ptr = g_ps_hardcoded_bxb_2;
+	*out_distance = g_ps_hardcoded_bxb_2_distance;
+}

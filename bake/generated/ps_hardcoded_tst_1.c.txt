@@ -1,0 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_hardcoded_tst_1.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: Automatically                            #+#    #+#             */
+/*   Updated: Never                                   ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+static const size_t	g_ps_hardcoded_tst_1_distance = 0;
+static const char	*g_ps_hardcoded_tst_1[] = {
+	"",
+};
+
+void	ps_hardcoded_tst_1(
+	const char *const **out_ptr,
+	size_t *out_distance
+)
+{
+	*out_ptr = g_ps_hardcoded_tst_1;
+	*out_distance = g_ps_hardcoded_tst_1_distance;
+}

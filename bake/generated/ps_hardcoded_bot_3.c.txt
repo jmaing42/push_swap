@@ -1,0 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_hardcoded_bot_3.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: Automatically                            #+#    #+#             */
+/*   Updated: Never                                   ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+static const size_t	g_ps_hardcoded_bot_3_distance = 7;
+static const char	*g_ps_hardcoded_bot_3[] = {
+	"\11\2\11\2\11\2",
+	"\11\11\2\2\11\2",
+	"\11\2\11\11\2\2",
+	"\11\11\2\11\2\2",
+	"\11\11\3\11\2\2\2",
+	"\11\11\11\2\2\2",
+};
+
+void	ps_hardcoded_bot_3(
+	const char *const **out_ptr,
+	size_t *out_distance
+)
+{
+	*out_ptr = g_ps_hardcoded_bot_3;
+	*out_distance = g_ps_hardcoded_bot_3_distance;
+}

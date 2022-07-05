@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_hardcoded_tob_2.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: Automatically                            #+#    #+#             */
+/*   Updated: Never                                   ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stddef.h>
+
+static const size_t	g_ps_hardcoded_tob_2_distance = 4;
+static const char	*g_ps_hardcoded_tob_2[] = {
+	"\2\6\2\6",
+	"\2\2\6\6",
+};
+
+void	ps_hardcoded_tob_2(
+	const char *const **out_ptr,
+	size_t *out_distance
+)
+{
+	*out_ptr = g_ps_hardcoded_tob_2;
+	*out_distance = g_ps_hardcoded_tob_2_distance;
+}
