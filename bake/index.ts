@@ -100,7 +100,7 @@ const after: { [K in Operation]: (state: State) => State } = {
   rrb: ({ left, right, operations }) => ({
     left,
     right: [right[right.length - 1], ...right.slice(0, right.length - 1)],
-    operations: [...operations, "rra"],
+    operations: [...operations, "rrb"],
   }),
   rrr: ({ left, right, operations }) => ({
     left: [left[left.length - 1], ...left.slice(0, left.length - 1)],

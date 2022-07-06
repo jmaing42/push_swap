@@ -14,7 +14,7 @@
 
 static const size_t	g_ps_hardcoded_tob_1_distance = 2;
 static const char	*g_ps_hardcoded_tob_1[] = {
-	"\2\6",
+	"\2\7",
 };
 
 void	ps_hardcoded_tob_1(
