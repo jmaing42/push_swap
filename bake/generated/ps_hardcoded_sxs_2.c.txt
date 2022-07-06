@@ -15,7 +15,7 @@
 static const size_t	g_ps_hardcoded_sxs_2_distance = 1;
 static const char	*g_ps_hardcoded_sxs_2[] = {
 	"",
-	"\3",
+	"\6",
 };
 
 void	ps_hardcoded_sxs_2(

@@ -125,7 +125,8 @@ function get_all_cases(
     if (list[distance].length == 0) return [distance - 1, map, list];
     list.push([]);
     list[distance].forEach((currentState) => {
-      operations
+      [...operations]
+        .reverse()
         .filter((op) => meaningful[op](currentState))
         .forEach((op) => {
           const nextState = after[op](currentState);

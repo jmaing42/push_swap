@@ -14,8 +14,8 @@
 
 static const size_t	g_ps_hardcoded_bob_2_distance = 6;
 static const char	*g_ps_hardcoded_bob_2[] = {
-	"\11\11\2\7\2\7",
-	"\11\2\7\11\2\7",
+	"\11\2\11\2\7\7",
+	"\11\11\2\2\7\7",
 };
 
 void	ps_hardcoded_bob_2(
