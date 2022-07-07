@@ -10,10 +10,10 @@ CPPFLAGS := $(shell find . -type d | sed "s/^/-I /" | xargs)
 SRC_DIR := .
 OBJ_DIR := .cache
 
-SRCS_PUSH_SWAP := $(shell find . -name "push_swap_*.c" | xargs)
-SRCS_CHECKER := $(shell find . -name "checker_*.c" | xargs)
-SRCS_LIBFT := $(shell find . -name "ft_*.c" | xargs)
-SRCS_LIBPS := $(shell find . -name "ps_*.c" | xargs)
+SRCS_PUSH_SWAP := $(shell find . -name "push_swap_*.c" | grep -v /test/ | xargs)
+SRCS_CHECKER := $(shell find . -name "checker_*.c" | grep -v /test/ | xargs)
+SRCS_LIBFT := $(shell find . -name "ft_*.c" | grep -v /test/ | xargs)
+SRCS_LIBPS := $(shell find . -name "ps_*.c" | grep -v /test/ | xargs)
 
 NAME := push_swap
 NAME_CHECKER := checker
