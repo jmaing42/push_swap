@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 01:12:24 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/07 23:32:27 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/07 23:41:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,8 @@ typedef struct s_ps_stream
 t_ps_stream	*new_ps_stream(
 				size_t a,
 				size_t b);
+void		ps_stream_free(
+				t_ps_stream *self);
 t_err		ps_stream_print(
 				t_ps_stream *self);
 t_err		ps_stream_append(
