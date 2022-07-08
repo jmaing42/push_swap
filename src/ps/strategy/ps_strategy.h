@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 09:15:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 09:28:52 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,26 +108,6 @@ typedef struct s_ps_strategy_count
 	t_ps_strategy_count_part	sos;
 }	t_ps_strategy_count;
 
-size_t						ps_strategy_count_tst_m1(
-								const t_ps_strategy_count *table,
-								size_t x,
-								size_t y,
-								size_t z);
-size_t						ps_strategy_count_tst_m2(
-								const t_ps_strategy_count *table,
-								size_t x,
-								size_t y,
-								size_t z);
-size_t						ps_strategy_count_tst_q1(
-								const t_ps_strategy_count *table,
-								size_t x,
-								size_t y,
-								size_t z);
-size_t						ps_strategy_count_tst_q2(
-								const t_ps_strategy_count *table,
-								size_t x,
-								size_t y,
-								size_t z);
 size_t						ps_strategy_count_txt_m(
 								const t_ps_strategy_count *table,
 								size_t x,
@@ -396,5 +376,63 @@ typedef struct s_ps_solve_param
 	int					*arr;
 	bool				from_right;
 }	t_ps_solve_param;
+
+void						ps_strategy_tst_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_tsb_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_txt_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_txb_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_tot_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_tos_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_tob_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_sss_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_sxs_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_sot_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_sos_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_sob_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bst_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bsb_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bxt_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bxb_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bot_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bos_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
+void						ps_strategy_bob_init(
+								t_ps_strategy_count *table,
+								t_ps_strategy_count_part *out_result);
 
 #endif
