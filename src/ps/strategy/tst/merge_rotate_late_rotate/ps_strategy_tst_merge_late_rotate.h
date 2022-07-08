@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_tst_m1.h                               :+:      :+:    :+:   */
+/*   ps_strategy_tst_merge_late_rotate.h                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 09:26:26 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 09:29:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 20:57:36 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_STRATEGY_TST_M1_H
-# define PS_STRATEGY_TST_M1_H
+#ifndef PS_STRATEGY_TST_MERGE_LATE_ROTATE_H
+# define PS_STRATEGY_TST_MERGE_LATE_ROTATE_H
 
 # include "ps_strategy_tst.h"
 
