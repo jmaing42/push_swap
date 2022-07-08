@@ -41,6 +41,10 @@ size_t	ps_strategy_tst_merge_late_rotate_count(
 			size_t y,
 			size_t z);
 
+void	ps_strategy_tst_merge_late_rotate_count_init_if_better(
+			t_ps_strategy_count *table,
+			size_t index);
+
 t_err	ps_strategy_tst_merge_late_rotate_execute(
 			struct s_ps_solve_context context,
 			size_t count,

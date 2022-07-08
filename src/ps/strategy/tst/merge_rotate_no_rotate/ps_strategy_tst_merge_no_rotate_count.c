@@ -15,6 +15,7 @@
 #include <stddef.h>
 
 #include "ft_size_t.h"
+#include "ps_strategy_util.h"
 
 size_t	ps_strategy_tst_merge_late_rotate_count(
 	const t_ps_strategy_count *table,
@@ -29,4 +30,23 @@ size_t	ps_strategy_tst_merge_late_rotate_count(
 	const size_t	collect = x + y + 2 * z;
 
 	return (sort_x + sort_y + sort_z + collect);
+}
+
+void	ps_strategy_tst_merge_late_rotate_count_init_if_better(
+	t_ps_strategy_count *table,
+	size_t index
+)
+{
+	const t_ps_strategy_count_item	current
+		= ps_strategy_util_try_all_permutations(
+			table,
+			index,
+			ps_strategy_tst_merge_late_rotate_count);
+
+	if (table[index].tst.item.moves > current.moves)
+	{
+		table[index].tst.item = current;
+		table[index] = ps_strategy_tst_merge_late_rotate_execute;
+		table[index] = "tst_merge_late_rotate";
+	}
 }
