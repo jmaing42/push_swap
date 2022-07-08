@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/05 00:15:17 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 09:15:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define PS_STRATEGY_H
 
 # include <stddef.h>
+
+# include "ps_stream.h"
 
 typedef struct s_ps_strategy_count_item
 {
@@ -23,10 +25,12 @@ typedef struct s_ps_strategy_count_item
 	size_t	moves;
 }	t_ps_strategy_count_item;
 
+typedef t_err	(*t_ps_solve)(struct s_ps_solve_param context);
+
 typedef struct s_ps_strategy_count_part
 {
-	size_t	moves;
-	// TODO: add function pointer
+	t_ps_strategy_count_item	item;
+	t_ps_solve					func;
 }	t_ps_strategy_count_part;
 
 typedef struct s_ps_strategy_count
@@ -383,5 +387,14 @@ void						ps_strategy_bake(
 								t_ps_strategy_count *table,
 								size_t count_from,
 								size_t count_to_exclusive);
+
+typedef struct s_ps_solve_param
+{
+	t_ps_strategy_count	*map;
+	t_ps_stream			*output;
+	size_t				count;
+	int					*arr;
+	bool				from_right;
+}	t_ps_solve_param;
 
 #endif
