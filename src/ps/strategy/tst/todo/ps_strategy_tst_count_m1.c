@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy_tst.h"
+#include "ps_strategy_tst_count.h"
 
 #include <stddef.h>
 
