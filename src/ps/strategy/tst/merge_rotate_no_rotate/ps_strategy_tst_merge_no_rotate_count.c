@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:42:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 20:57:44 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 21:06:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ps_strategy_tst_merge_no_rotate_count_init_if_better(
 	if (table[index].tst.item.moves > current.moves)
 	{
 		table[index].tst.item = current;
-		table[index] = ps_strategy_tst_merge_no_rotate_execute;
-		table[index] = "tst_merge_no_rotate";
+		table[index].tst.func = ps_strategy_tst_merge_no_rotate_execute;
+		table[index].tst.name = "tst_merge_no_rotate";
 	}
 }
