@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:15:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 20:59:59 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 21:08:52 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include "ps_strategy_tst.h"
 
-void	ps_strategy_bake(
+void	ps_strategy_init(
 	t_ps_strategy_count *table,
 	size_t count_from,
 	size_t count_to_execlusive

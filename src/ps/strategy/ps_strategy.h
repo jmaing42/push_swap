@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:45:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 09:28:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 21:22:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,14 @@ typedef struct s_ps_strategy_count_item
 	size_t	moves;
 }	t_ps_strategy_count_item;
 
+typedef struct s_ps_strategy_solve_context
+{
+	struct s_ps_strategy_count	*map;
+	t_ps_stream					*output;
+}	t_ps_strategy_solve_context;
+
 typedef t_err	(*t_ps_strategy_solve)(
-					struct s_ps_solve_context context,
+					t_ps_strategy_solve_context *context,
 					size_t count,
 					int *arr,
 					bool from_right);
@@ -65,11 +71,5 @@ void	ps_strategy_init(
 			t_ps_strategy_count *table,
 			size_t count_from,
 			size_t count_to_exclusive);
-
-typedef struct s_ps_strategy_solve_context
-{
-	t_ps_strategy_count	*map;
-	t_ps_stream			*output;
-}	t_ps_strategy_solve_context;
 
 #endif

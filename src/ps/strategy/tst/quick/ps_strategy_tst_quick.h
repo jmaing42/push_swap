@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 21:01:02 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 21:03:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 21:20:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	ps_strategy_tst_quick_count_init_if_better(
 			size_t index);
 
 t_err	ps_strategy_tst_quick_execute(
-			struct s_ps_solve_context context,
+			t_ps_strategy_solve_context *context,
 			size_t count,
 			int *arr,
 			bool from_right);
