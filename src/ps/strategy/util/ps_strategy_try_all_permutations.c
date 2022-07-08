@@ -14,7 +14,7 @@
 
 #include "ps_strategy.h"
 
-t_ps_strategy_count_item	ps_strategy_count_get_optimal(
+t_ps_strategy_count_item	ps_strategy_util_try_all_permutations(
 	t_ps_strategy_count *table,
 	size_t count,
 	size_t (*calculate_with_exact_count)(
