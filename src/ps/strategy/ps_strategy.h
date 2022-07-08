@@ -25,12 +25,16 @@ typedef struct s_ps_strategy_count_item
 	size_t	moves;
 }	t_ps_strategy_count_item;
 
-typedef t_err	(*t_ps_solve)(struct s_ps_solve_param context);
+typedef t_err	(*t_ps_strategy_solve)(
+					struct s_ps_solve_context context,
+					size_t count,
+					int *arr,
+					bool from_right);
 
 typedef struct s_ps_strategy_count_part
 {
 	t_ps_strategy_count_item	item;
-	t_ps_solve					func;
+	t_ps_strategy_solve			func;
 	const char					*name;
 }	t_ps_strategy_count_part;
 
@@ -62,13 +66,10 @@ void	ps_strategy_init(
 			size_t count_from,
 			size_t count_to_exclusive);
 
-typedef struct s_ps_solve_param
+typedef struct s_ps_strategy_solve_context
 {
 	t_ps_strategy_count	*map;
 	t_ps_stream			*output;
-	size_t				count;
-	int					*arr;
-	bool				from_right;
-}	t_ps_solve_param;
+}	t_ps_strategy_solve_context;
 
 #endif

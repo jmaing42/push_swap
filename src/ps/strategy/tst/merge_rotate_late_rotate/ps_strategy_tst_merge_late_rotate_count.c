@@ -1,60 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_count_tos.c                            :+:      :+:    :+:   */
+/*   ps_strategy_tst_m1_count.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:42:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/05 00:14:42 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/08 09:29:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy.h"
+#include "ps_strategy_tst_merge_late_rotate.h"
 
 #include <stddef.h>
 
-size_t	ps_strategy_count_tos_m(
-	const t_ps_strategy_count *table,
-	size_t x,
-	size_t y,
-	size_t z
-)
-{
-	return (
-		+ table[x].txb.moves
-		+ table[y].tos.moves
-		+ table[z].tst.moves
-		+ 2 * x + y + z
-	);
-}
+#include "ft_size_t.h"
 
-size_t	ps_strategy_count_tos_q1(
+size_t	ps_strategy_tst_merge_late_rotate_count(
 	const t_ps_strategy_count *table,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
-	return (
-		+ x + 2 * y + z
-		+ table[z].tst.moves
-		+ table[y].bot.moves
-		+ table[x].bot.moves
-	);
-}
+	const size_t	sort_x = table[x].tot.item.moves;
+	const size_t	sort_y = table[y].tot.item.moves;
+	const size_t	sort_z = table[z].tst.item.moves;
+	const size_t	rotate = ft_size_t_max(z, y);
+	const size_t	collect = x + 2 * y + z;
 
-size_t	ps_strategy_count_tos_q2(
-	const t_ps_strategy_count *table,
-	size_t x,
-	size_t y,
-	size_t z
-)
-{
-	return (
-		+ x + y + 2 * z
-		+ table[z].bsb.moves
-		+ table[y].tst.moves
-		+ table[x].bot.moves
-	);
+	return (sort_x + sort_y + sort_z + rotate + collect);
 }

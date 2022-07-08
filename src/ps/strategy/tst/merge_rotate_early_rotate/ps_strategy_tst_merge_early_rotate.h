@@ -26,19 +26,25 @@
  *
  * ||                                                                         ||
  * ||    x                                                           :        ||
- * ||    y |         y |           | Y         | Y         |         : |      ||
- * ||    z |         z | X       z | X       Z | X         | X       : |      ||
+ * ||    y |         y |         Y |           |           |         : |      ||
+ * ||    z |         z | X       z | X       z |           | Z       : |      ||
  * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
- * ||      |           |           |           |         Z | Y         |      ||
+ * ||      |           |           |         Y | X       Y | X         |      ||
  * ||      |           |           |           |           |           |      ||
  * ||                                                                         ||
- * ||   (1) sort x    (2) sort y    (3) sort z    (4) rotate    (5) collect   ||
+ * ||   (1) sort x    (2) sort y    (3) rotate    (4) sort z    (5) collect   ||
  *
  */
-size_t	ps_strategy_tst_m1_count(
+size_t	ps_strategy_tst_merge_early_rotate_count(
 			const t_ps_strategy_count *table,
 			size_t x,
 			size_t y,
 			size_t z);
+
+t_err	ps_strategy_tst_merge_early_rotate_execute(
+			struct s_ps_solve_context context,
+			size_t count,
+			int *arr,
+			bool from_right);
 
 #endif
