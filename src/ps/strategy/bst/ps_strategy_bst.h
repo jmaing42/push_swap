@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_sos_init.c                             :+:      :+:    :+:   */
+/*   ps_strategy_bst.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:26:00 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 17:44:18 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/09 17:41:55 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 17:49:14 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy_sos.h"
+#ifndef PS_STRATEGY_BST_H
+# define PS_STRATEGY_BST_H
 
-#include <stdint.h>
+# include "ps_strategy.h"
 
-// TODO: implement
+void	ps_strategy_bst_init(
+			t_ps_strategy_count *table,
+			size_t index);
 
-void	ps_strategy_sos_init(
-	t_ps_strategy_count *table,
-	size_t index
-)
-{
-	table[index].sot.item.moves = SIZE_MAX;
-	table[index].sot.func = NULL;
-	table[index].sot.name = "sos_never_used";
-}
+t_err	ps_strategy_bst_fallback_tst_execute(
+			t_ps_strategy_solve_context *context,
+			size_t count,
+			int *arr,
+			bool from_right);
+
+#endif

@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_sos_init.c                             :+:      :+:    :+:   */
+/*   ps_strategy_bst_init.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 16:26:00 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 17:44:18 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/09 17:43:01 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 17:56:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy_sos.h"
+#include "ps_strategy_bst.h"
 
 #include <stdint.h>
 
-// TODO: implement
+#include "ps_strategy_bst_merge_no_rotate.h"
 
-void	ps_strategy_sos_init(
+// TODO: implement others
+
+void	ps_strategy_bst_init(
 	t_ps_strategy_count *table,
 	size_t index
 )
 {
-	table[index].sot.item.moves = SIZE_MAX;
-	table[index].sot.func = NULL;
-	table[index].sot.name = "sos_never_used";
+	table[index].bst.item.moves = table[index].tst.item.moves + index;
+	table[index].bst.func = ps_strategy_bst_fallback_tst_execute;
+	table[index].bst.name = "bst_fallback_tst";
+	ps_strategy_bst_merge_no_rotate_count_init_if_better(table, index);
 }

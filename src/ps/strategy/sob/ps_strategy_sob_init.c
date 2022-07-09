@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 16:15:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 16:35:51 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 17:44:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 // #include "ps_strategy_sob_quick_twist.h"
 // #include "ps_strategy_sob_quick_straightforward.h"
 
-void	ps_strategy_sss_init(
+void	ps_strategy_sob_init(
 	t_ps_strategy_count *table,
 	size_t index
 )
