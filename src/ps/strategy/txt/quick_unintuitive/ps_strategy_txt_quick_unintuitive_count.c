@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 21:28:23 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 00:32:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 09:29:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	ps_strategy_txt_quick_unintuitive_count_init_if_better(
 			index,
 			ps_strategy_txt_quick_unintuitive_count);
 
-	if (table[index].tst.item.moves > current.moves)
+	if (table[index].txt.item.moves > current.moves)
 	{
-		table[index].tst.item = current;
-		table[index].tst.func = ps_strategy_txt_quick_unintuitive_execute;
-		table[index].tst.name = "txt_quick_unintuitive";
+		table[index].txt.item = current;
+		table[index].txt.func = ps_strategy_txt_quick_unintuitive_execute;
+		table[index].txt.name = "txt_quick_unintuitive";
 	}
 }

@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_txt_quick_intuitive_count.c            :+:      :+:    :+:   */
+/*   ps_strategy_txb_quick_unintuitive_count.c          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 00:31:07 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 09:28:59 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/09 09:36:36 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 09:43:44 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy_txt_quick_intuitive.h"
+#include "ps_strategy_txb_quick_unintuitive.h"
 
 #include <stddef.h>
 
 #include "ft_size_t.h"
 #include "ps_strategy_util.h"
 
-size_t	ps_strategy_txt_quick_intuitive_count(
+size_t	ps_strategy_txb_quick_unintuitive_count(
 	const t_ps_strategy_count *table,
 	size_t x,
 	size_t y,
@@ -25,14 +25,14 @@ size_t	ps_strategy_txt_quick_intuitive_count(
 )
 {
 	const size_t	divide = x + 2 * y + z;
-	const size_t	sort_z = table[z].tot.item.moves;
-	const size_t	sort_y = table[y].sot.item.moves;
-	const size_t	sort_x = table[x].bxt.item.moves;
+	const size_t	sort_x = table[x].bsb.item.moves;
+	const size_t	sort_y = table[y].bob.item.moves;
+	const size_t	sort_z = table[z].sob.item.moves;
 
 	return (divide + sort_x + sort_y + sort_z);
 }
 
-void	ps_strategy_txt_quick_intuitive_count_init_if_better(
+void	ps_strategy_txb_quick_unintuitive_count_init_if_better(
 	t_ps_strategy_count *table,
 	size_t index
 )
@@ -41,12 +41,12 @@ void	ps_strategy_txt_quick_intuitive_count_init_if_better(
 		= ps_strategy_util_try_all_permutations(
 			table,
 			index,
-			ps_strategy_txt_quick_intuitive_count);
+			ps_strategy_txb_quick_unintuitive_count);
 
-	if (table[index].txt.item.moves > current.moves)
+	if (table[index].txb.item.moves > current.moves)
 	{
-		table[index].txt.item = current;
-		table[index].txt.func = ps_strategy_txt_quick_intuitive_execute;
-		table[index].txt.name = "txt_quick_intuitive";
+		table[index].txb.item = current;
+		table[index].txb.func = ps_strategy_txb_quick_unintuitive_execute;
+		table[index].txb.name = "txb_quick_unintuitive";
 	}
 }

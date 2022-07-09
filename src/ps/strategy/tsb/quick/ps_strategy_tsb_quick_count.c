@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 21:28:23 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 21:50:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 09:28:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,10 @@ void	ps_strategy_tsb_quick_count_init_if_better(
 			index,
 			ps_strategy_tsb_quick_count);
 
-	if (table[index].tst.item.moves > current.moves)
+	if (table[index].tsb.item.moves > current.moves)
 	{
-		table[index].tst.item = current;
-		table[index].tst.func = ps_strategy_tsb_quick_execute;
-		table[index].tst.name = "tsb_quick";
+		table[index].tsb.item = current;
+		table[index].tsb.func = ps_strategy_tsb_quick_execute;
+		table[index].tsb.name = "tsb_quick";
 	}
 }
