@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 12:52:00 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 12:52:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 13:10:44 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	ps_strategy_tob_merge_count_init_if_better(
 			index,
 			ps_strategy_tob_merge_count);
 
-	if (table[index].tsb.item.moves > current.moves)
+	if (table[index].tob.item.moves > current.moves)
 	{
-		table[index].tsb.item = current;
-		table[index].tsb.func = ps_strategy_tob_merge_execute;
-		table[index].tsb.name = "tob_merge";
+		table[index].tob.item = current;
+		table[index].tob.func = ps_strategy_tob_merge_execute;
+		table[index].tob.name = "tob_merge";
 	}
 }

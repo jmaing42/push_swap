@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_tob_quick_no_rotate_count.c            :+:      :+:    :+:   */
+/*   ps_strategy_tsb_quick_no_rotate_count.c            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 13:06:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 13:10:32 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/08 21:28:23 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 13:09:35 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_strategy_tob_quick_no_rotate.h"
+#include "ps_strategy_tsb_quick_no_rotate.h"
 
 #include <stddef.h>
 
 #include "ps_strategy_util.h"
 
-size_t	ps_strategy_tob_quick_no_rotate_count(
+size_t	ps_strategy_tsb_quick_no_rotate_count(
 	const t_ps_strategy_count *table,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
-	const size_t	divide = 2 * x + y + z;
+	const size_t	divide = x + 2 * y + z;
 	const size_t	sort_x = table[x].bsb.item.moves;
 	const size_t	sort_y = table[y].bob.item.moves;
-	const size_t	sort_z = table[z].tsb.item.moves;
+	const size_t	sort_z = table[z].tob.item.moves;
 
 	return (divide + sort_x + sort_y + sort_z);
 }
 
-void	ps_strategy_tob_quick_no_rotate_count_init_if_better(
+void	ps_strategy_tsb_quick_no_rotate_count_init_if_better(
 	t_ps_strategy_count *table,
 	size_t index
 )
@@ -40,12 +40,12 @@ void	ps_strategy_tob_quick_no_rotate_count_init_if_better(
 		= ps_strategy_util_try_all_permutations(
 			table,
 			index,
-			ps_strategy_tob_quick_no_rotate_count);
+			ps_strategy_tsb_quick_no_rotate_count);
 
-	if (table[index].tob.item.moves > current.moves)
+	if (table[index].tsb.item.moves > current.moves)
 	{
-		table[index].tob.item = current;
-		table[index].tob.func = ps_strategy_tob_quick_no_rotate_execute;
-		table[index].tob.name = "tob_quick_no_rotate";
+		table[index].tsb.item = current;
+		table[index].tsb.func = ps_strategy_tsb_quick_no_rotate_execute;
+		table[index].tsb.name = "tsb_quick_no_rotate";
 	}
 }

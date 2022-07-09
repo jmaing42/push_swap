@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_tsb_quick.h                            :+:      :+:    :+:   */
+/*   ps_strategy_tsb_quick_rotate.h                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/08 21:26:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 09:36:05 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/09 13:19:27 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 13:22:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_STRATEGY_TSB_QUICK_H
-# define PS_STRATEGY_TSB_QUICK_H
+#ifndef PS_STRATEGY_TSB_QUICK_ROTATE_H
+# define PS_STRATEGY_TSB_QUICK_ROTATE_H
 
 # include "ps_strategy_tsb.h"
 
@@ -26,26 +26,26 @@
  *
  * ||                                                                         ||
  * ||    :                                                                    ||
- * ||    : |              |              |              |              |      ||
- * ||    : |              | z            | z            | z            |      ||
- * ||   -A-+-B-    (1) -A-+-B-    (2) -A-+-B-    (3) -A-+-B-    (4) -A-+-B-   ||
- * ||      |            x | y          X | y          X |            X |      ||
- * ||      |              |              |            Y |            Y |      ||
+ * ||    : |           |           | y         | y         |           |      ||
+ * ||    : |           | z       x | z         | z         | z         |      ||
+ * ||   -A-+-B- (1) -A-+-B- (2) -A-+-B- (3) -A-+-B- (4) -A-+-B- (5) -A-+-B-   ||
+ * ||      |         x | y         |         X |         X |         X |      ||
+ * ||      |           |           |           |         Y |         Y |      ||
  * ||                                                                Z        ||
- * ||    (1) divide        (2) sort x        (3) sort y        (4) sort z     ||
+ * ||   (1) divide    (2) rotate    (3) sort x    (4) sort y    (5) sort z    ||
  *
  */
-size_t	ps_strategy_tsb_quick_count(
+size_t	ps_strategy_tsb_quick_rotate_count(
 			const t_ps_strategy_count *table,
 			size_t x,
 			size_t y,
 			size_t z);
 
-void	ps_strategy_tsb_quick_count_init_if_better(
+void	ps_strategy_tsb_quick_rotate_count_init_if_better(
 			t_ps_strategy_count *table,
 			size_t index);
 
-t_err	ps_strategy_tsb_quick_execute(
+t_err	ps_strategy_tsb_quick_rotate_execute(
 			t_ps_strategy_solve_context *context,
 			size_t count,
 			int *arr,
