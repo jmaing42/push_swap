@@ -58,10 +58,10 @@ $(OBJ_DIR)/%.a:
 	$Q$(AR) rcs $@ $^
 $(OBJ_DIR)/%.exe:
 	$Qmkdir -p $(@D)
-	$Q$(CCLD) $(LDFLAGS) -o $@ $^
+	$Q$(CCLD) $(LDFLAGS) -MJ $@.json -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) $(CPPFLAGS) -MMD -o $@ -c $<
+	$Q$(CC) $(CFLAGS) $(CPPFLAGS) -MJ $@.json -MMD -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(OBJ_DIR)/libps$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBPS))

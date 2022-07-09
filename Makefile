@@ -37,3 +37,7 @@ publish:
 	$Q$(MAKE) test
 	$Q$(MAKE) publish_without_test
 .PHONY: all clean fclean re init deinit reinit refresh test publish publish_without_test
+
+.PHONY: compile_commands.json
+compile_commands.json:
+	$Q$(MAKE) -C src -k PROFILE=debug TARGET=development SANITIZER=address all ; (printf "[" && find src/.cache -name "*.json" | xargs cat && printf "]") > $@
