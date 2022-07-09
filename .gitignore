@@ -1,13 +1,7 @@
 # temporary files
-*.o
-*.d
-*.bc
-*.i
-*.s
-*.a
-*.exe
-.vscode/*.log
 tmp
+.cache
+*.exe
 *.dSYM
-.clangd
+*.log
 compile_commands.json

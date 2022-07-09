@@ -3,7 +3,7 @@ MAKE := make $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
 
 all: test
 clean:
-	$Qrm -rf ./tmp
+	$Qrm -rf ./tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
 	$Q$(MAKE) -C test clean
 	@printf "\033[0m"
@@ -41,3 +41,5 @@ publish:
 .PHONY: compile_commands.json
 compile_commands.json:
 	$Q$(MAKE) -C src -k PROFILE=debug TARGET=development SANITIZER=address all ; (printf "[" && find src/.cache -name "*.json" | xargs cat && printf "]") > $@
+.PHONY: dev
+dev: compile_commands.json
