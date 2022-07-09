@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/08 21:28:23 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 09:28:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 11:11:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <stddef.h>
 
-#include "ft_size_t.h"
 #include "ps_strategy_util.h"
 
 size_t	ps_strategy_tsb_quick_count(
