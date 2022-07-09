@@ -6,13 +6,31 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:15:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 21:08:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/09 16:21:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_strategy.h"
 
 #include "ps_strategy_tst.h"
+#include "ps_strategy_tsb.h"
+#include "ps_strategy_txt.h"
+#include "ps_strategy_txb.h"
+#include "ps_strategy_tot.h"
+#include "ps_strategy_tos.h"
+#include "ps_strategy_tob.h"
+#include "ps_strategy_sss.h"
+#include "ps_strategy_sxs.h"
+#include "ps_strategy_sot.h"
+#include "ps_strategy_sos.h"
+#include "ps_strategy_sob.h"
+#include "ps_strategy_bst.h"
+#include "ps_strategy_bsb.h"
+#include "ps_strategy_bxt.h"
+#include "ps_strategy_bxb.h"
+#include "ps_strategy_bot.h"
+#include "ps_strategy_bos.h"
+#include "ps_strategy_bob.h"
 
 void	ps_strategy_init(
 	t_ps_strategy_count *table,
