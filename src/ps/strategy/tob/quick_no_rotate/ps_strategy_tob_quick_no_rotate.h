@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_strategy_tot_quick_no_rotate.h                  :+:      :+:    :+:   */
+/*   ps_strategy_tob_quick_no_rotate.h                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/09 10:12:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 13:04:46 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/09 13:03:04 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/09 13:05:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_STRATEGY_TOT_QUICK_NO_ROTATE_H
-# define PS_STRATEGY_TOT_QUICK_NO_ROTATE_H
+#ifndef PS_STRATEGY_TOB_QUICK_NO_ROTATE_H
+# define PS_STRATEGY_TOB_QUICK_NO_ROTATE_H
 
-# include "ps_strategy_tot.h"
+# include "ps_strategy_tob.h"
 
 /**
  * @brief calculate maximum operation count to sort with quick sort like way
@@ -25,27 +25,27 @@
  * @return size_t maximum operation count to sort given arguments
  *
  * ||                                                                         ||
- * ||    :                                                               X    ||
- * ||    : |              |              |              | Y            | Y    ||
- * ||    : |              | z            | Z            | Z            | Z    ||
+ * ||    :                                                                    ||
+ * ||    : |              |              |              |              |      ||
+ * ||    : |              | z            | z            | z            |      ||
  * ||   -A-+-B-    (1) -A-+-B-    (2) -A-+-B-    (3) -A-+-B-    (4) -A-+-B-   ||
- * ||      |            x | y          x | y          x |              |      ||
- * ||      |              |              |              |              |      ||
- * ||                                                                         ||
- * ||    (1) divide        (2) sort z        (3) sort y        (4) sort x     ||
+ * ||      |            y | x          y | X            | X            | X    ||
+ * ||      |              |              |              | Y            | Y    ||
+ * ||                                                                    Z    ||
+ * ||    (1) divide        (2) sort x        (3) sort y        (4) sort z     ||
  *
  */
-size_t	ps_strategy_tot_quick_no_rotate_count(
+size_t	ps_strategy_tob_quick_no_rotate_count(
 			const t_ps_strategy_count *table,
 			size_t x,
 			size_t y,
 			size_t z);
 
-void	ps_strategy_tot_quick_no_rotate_count_init_if_better(
+void	ps_strategy_tob_quick_no_rotate_count_init_if_better(
 			t_ps_strategy_count *table,
 			size_t index);
 
-t_err	ps_strategy_tot_quick_no_rotate_execute(
+t_err	ps_strategy_tob_quick_no_rotate_execute(
 			t_ps_strategy_solve_context *context,
 			size_t count,
 			int *arr,
