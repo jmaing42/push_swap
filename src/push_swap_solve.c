@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 01:54:20 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 17:10:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 17:22:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,6 @@ static bool	hardcoded(const int *arr, size_t count)
 	return (true);
 }
 
-#include <stdio.h>
-
 void	push_swap_solve(t_push_swap *self, const int *arr, size_t count)
 {
 	int *const	copy = (int *)ft_memdup(arr, sizeof(int) * count);
@@ -55,7 +53,6 @@ void	push_swap_solve(t_push_swap *self, const int *arr, size_t count)
 		free(copy);
 		return ;
 	}
-	fflush(stdout);
 	push_swap_solve_sort_only(self, copy, count, false);
 	free(copy);
 }
