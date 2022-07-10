@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 17:34:19 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 19:01:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "ft_memory.h"
 #include "ft_malloc.h"
 #include "ft_exit.h"
-
-#include "ps_hardcoded.h"
 
 static void	quick(
 	t_push_swap *self,
@@ -94,14 +92,12 @@ void	push_swap_solve_sort_and_move(
 	const size_t	count_to_sort = count - already_sorted_count;
 
 	push_swap_solve_internal_operation_px(0, already_sorted_count, from_right);
-	if (count_to_sort <= 8)
+	if (count_to_sort <= 2)
 	{
-		if (!count_to_sort)
-			return ;
-		ps_hardcoded_execute(
-			ps_hardcoded_find_index(arr, count_to_sort),
-			from_right,
-			ps_hardcoded_tot(count_to_sort));
+		if (count_to_sort == 2
+			&& (arr[already_sorted_count] < arr[already_sorted_count + 1]))
+			push_swap_solve_internal_operation_sx(from_right);
+		push_swap_solve_internal_operation_px(0, count_to_sort, from_right);
 		return ;
 	}
 	if (self->map[count_to_sort].sort_and_move_quick.total_moves

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/27 03:22:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 19:02:59 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 #include "ft_memory.h"
 #include "ft_to_lines.h"
 #include "ft_exit.h"
-
-#define BUFFER_SIZE 1024
 
 #define ERROR_MESSAGE "Error: an unknown error occurred.\n"
 

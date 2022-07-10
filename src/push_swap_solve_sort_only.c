@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 17:34:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 19:01:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@
 #include "ft_memory.h"
 #include "ft_malloc.h"
 #include "ft_exit.h"
-
-#include "ps_hardcoded.h"
 
 static void	quick(
 	t_push_swap *self,
@@ -89,14 +87,10 @@ void	push_swap_solve_sort_only(
 		= push_swap_solve_internal_reverse_sorted_count_back(arr, count);
 	const size_t	count_to_sort = count - already_sorted_count;
 
-	if (count_to_sort <= 8)
+	if (count_to_sort <= 2)
 	{
-		if (!count_to_sort)
-			return ;
-		ps_hardcoded_execute(
-			ps_hardcoded_find_index(arr, count_to_sort),
-			from_right,
-			ps_hardcoded_tst(count_to_sort));
+		if (count_to_sort == 2 && arr[0] > arr[1])
+			push_swap_solve_internal_operation_sx(from_right);
 		return ;
 	}
 	if (self->map[count_to_sort].sort_only_quick.total_moves

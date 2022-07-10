@@ -6,11 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by jmaing            #+#    #+#             */
-/*   Updated: 2022/07/10 09:56:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 18:59:59 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap_main.h"
+#include "push_swap.h"
 
 #include <stdlib.h>
 #include <unistd.h>
@@ -29,10 +29,21 @@ static void	init_internal(t_push_swap *self, unsigned int count)
 	t_push_swap_count_part *const	map = self->map;
 	size_t							i;
 
-	push_swap_main_init_012(self, count);
-	push_swap_main_init_345(self, count);
-	push_swap_main_init_678(self, count);
-	i = 8;
+	if (count < 3)
+		return ;
+	map[0].sort_only_quick = (t_push_swap_count_item){0, 0, 0, 0};
+	map[0].sort_only_merge = (t_push_swap_count_item){0, 0, 0, 0};
+	map[0].sort_and_move_quick = (t_push_swap_count_item){0, 0, 0, 0};
+	map[0].sort_and_move_merge = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_only_quick = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_only_merge = (t_push_swap_count_item){0, 0, 0, 0};
+	map[1].sort_and_move_quick = (t_push_swap_count_item){1, 0, 0, 0};
+	map[1].sort_and_move_merge = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_only_quick = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_only_merge = (t_push_swap_count_item){1, 0, 0, 0};
+	map[2].sort_and_move_quick = (t_push_swap_count_item){3, 0, 0, 0};
+	map[2].sort_and_move_merge = (t_push_swap_count_item){3, 0, 0, 0};
+	i = 2;
 	while (++i <= count)
 		map[i] = push_swap_count_bake_part(map, i);
 	self->solution = push_swap_count_solution(map, count);
