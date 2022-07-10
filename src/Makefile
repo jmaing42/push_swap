@@ -1,5 +1,5 @@
 Q := $(if $(filter 1,$(V) $(VERBOSE)),,@)
-MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
+MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh build/nproc.sh))
 
 CC := clang
 CCLD := clang
@@ -27,8 +27,8 @@ fclean:
 	$Q$(MAKE) clean
 	$Qrm -f $(EXECUTABLE_TARGETS:=.exe)
 re:
-	$Q$(MAKE) fclean
-	$Q$(MAKE) all
+	$Q$(MAKE) NO_ADDITIONAL_J=1 fclean
+	$Q$(MAKE) NO_ADDITIONAL_J=1 all
 test:
 	$Qfind . -type d -mindepth 1 -name "test" | xargs -L1 -I {} make -C {} test
 .PHONY: all bonus clean fclean re test
