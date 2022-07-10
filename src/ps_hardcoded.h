@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 08:58:43 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 10:11:10 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 17:05:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,36 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-size_t				ps_hardcoded_find_index(int *arr, size_t len);
+size_t				ps_hardcoded_find_index(const int *arr, size_t len);
 void				ps_hardcoded_execute(
 						size_t index,
 						bool from_right,
-						char *const *table);
+						const char *const *table);
 
+void				ps_hardcoded_sxs_1(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_2(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_3(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_4(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_5(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_6(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_7(
+						const char *const **out_ptr,
+						size_t *out_distance);
+void				ps_hardcoded_sxs_8(
+						const char *const **out_ptr,
+						size_t *out_distance);
 void				ps_hardcoded_tst_1(
 						const char *const **out_ptr,
 						size_t *out_distance);
@@ -70,6 +94,7 @@ void				ps_hardcoded_tot_8(
 						const char *const **out_ptr,
 						size_t *out_distance);
 
-const char *const	*
+const char *const	*ps_hardcoded_tst(size_t count);
+const char *const	*ps_hardcoded_tot(size_t count);
 
 #endif

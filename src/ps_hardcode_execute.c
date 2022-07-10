@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 10:01:03 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 10:09:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 16:52:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
+
+#include "ft_io.h"
+#include "ft_exit.h"
 
 #include "push_swap_solve_internal.h"
 
@@ -55,9 +58,13 @@ static void	reverse_rotate(char command, bool from_right)
 		push_swap_solve_internal_operation_rrx(1, 1, from_right);
 }
 
-void	ps_hardcoded_execute(size_t index, bool from_right, char *const *table)
+void	ps_hardcoded_execute(
+	size_t index,
+	bool from_right,
+	const char *const *table
+)
 {
-	char	*current;
+	const char	*current;
 
 	current = table[index] - 1;
 	while (*++current)

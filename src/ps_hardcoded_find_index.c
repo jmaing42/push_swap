@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/10 09:01:37 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 09:21:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 17:04:58 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ size_t	factorial(size_t n)
 	return (1);
 }
 
-size_t	ps_hardcoded_find_index(int *arr, size_t len)
+size_t	ps_hardcoded_find_index(const int *arr, size_t len)
 {
 	size_t		result;
 	size_t		i;
