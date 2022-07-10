@@ -1,17 +1,7 @@
 # temporary files
-*.o
-*.d
-*.bc
-*.i
-*.s
-*.a
-*.exe
-.vscode/*.log
 tmp
+.cache
+*.exe
 *.dSYM
-
-# push_swap specific
-src/*
-!src/Makefile
-!src/*.c
-!src/*.h
+*.log
+compile_commands.json
