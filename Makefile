@@ -28,7 +28,7 @@ ifndef GIT_REMOTE_URL
 endif
 	$Qrm -rf tmp
 	$Qmkdir tmp
-	$Qsh copy_src_to_tmp_flatten.sh
+	$Qcp src/*.c src/*.h tmp
 	$Qcd tmp && sh ../template.sh > Makefile
 	$Q(cd tmp && git init && git add . && git commit -m "Initial commit" && git push "$(GIT_REMOTE_URL)" HEAD:master) || (echo "Failed to publish" && false)
 	$Qrm -rf tmp
