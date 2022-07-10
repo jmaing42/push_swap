@@ -4,8 +4,8 @@ MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
 CC := clang
 CCLD := clang
 AR := ar
-CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic
-CPPFLAGS := $(shell find . -type d | sed "s/^/-I /" | xargs)
+CPPFLAGS := $(shell find . -type d -mindepth 1 | grep -v /test/ | sed "s/^/-I /" | xargs)
+CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS)
 
 SRC_DIR := .
 OBJ_DIR := .cache
@@ -29,7 +29,9 @@ fclean:
 re:
 	$Q$(MAKE) fclean
 	$Q$(MAKE) all
-.PHONY: all bonus clean fclean re
+test:
+	$Qfind . -type d -mindepth 1 -name "test" | xargs -L1 -I {} make -C {} test
+.PHONY: all bonus clean fclean re test
 
 PROFILE ?= release
 ifeq ($(PROFILE),release)
@@ -61,7 +63,7 @@ $(OBJ_DIR)/%.exe:
 	$Q$(CCLD) $(LDFLAGS) -MJ $@.json -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) $(CPPFLAGS) -MJ $@.json -MMD -o $@ -c $<
+	$Q$(CC) $(CFLAGS) -MJ $@.json -MMD -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(OBJ_DIR)/libps$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBPS))
