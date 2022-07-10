@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 16:49:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 17:34:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,12 +96,12 @@ void	push_swap_solve_sort_and_move(
 	push_swap_solve_internal_operation_px(0, already_sorted_count, from_right);
 	if (count_to_sort <= 8)
 	{
-		if (!count)
+		if (!count_to_sort)
 			return ;
 		ps_hardcoded_execute(
-			ps_hardcoded_find_index(arr, count),
+			ps_hardcoded_find_index(arr, count_to_sort),
 			from_right,
-			ps_hardcoded_tot(count));
+			ps_hardcoded_tot(count_to_sort));
 		return ;
 	}
 	if (self->map[count_to_sort].sort_and_move_quick.total_moves

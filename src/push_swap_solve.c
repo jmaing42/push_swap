@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 01:54:20 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/10 17:22:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/10 17:33:44 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,9 @@ static bool	hardcoded(const int *arr, size_t count)
 	const char *const	*table;
 	size_t				dummy;
 
-	if (count < 3)
+	if (count < 2 || count > 8)
+		return (false);
+	if (count == 2)
 		ps_hardcoded_sxs_2(&table, &dummy);
 	if (count == 3)
 		ps_hardcoded_sxs_3(&table, &dummy);
