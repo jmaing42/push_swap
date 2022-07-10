@@ -198,10 +198,10 @@ function c_style_print(
     "/*                                                +#+#+#+#+#+   +#+           */"
   );
   console.log(
-    "/*   Created: Automatically                            #+#    #+#             */"
+    "/*   Created: 0000/00/00 00:00:00 by script            #+#    #+#             */"
   );
   console.log(
-    "/*   Updated: Never                                   ###   ########.fr       */"
+    `/*   Updated: 0000/00/00 00:00:00 by nobody           ###   ########.fr       */`
   );
   console.log(
     "/*                                                                            */"
@@ -223,7 +223,7 @@ function c_style_print(
   });
   console.log("};");
   console.log(
-    `\nvoid\t${name}_${count}(\n\tconst char *const **out_ptr,\n\tsize_t *out_distance\n)\n{\n\t*out_ptr = g_${name}_${count};\n\t*out_distance = g_${name}_${count}_distance;\n}`
+    `\nconst char *const\t*${name}_${count}_table(void)\n{\n\treturn (g_${name}_${count});\n}\n\nsize_t\t${name}_${count}_length(void)\n{\n\treturn (g_${name}_${count}_distance);\n}`
   );
 }
 
@@ -345,9 +345,31 @@ const bob = (count: number) =>
 declare const process: any;
 
 (function main() {
-  c_style_print(process.argv[2], parseInt(process.argv[3]), ({
-    tst, tsb, txt, txb, tot, tos, tob,
-    sss, sxs, sot, sos, sob,
-    bst, bsb, bxt, bxb, bot, bos, bob,
-  } as const)[process.argv[4] as 'sxs']);
+  c_style_print(
+    process.argv[2],
+    parseInt(process.argv[3]),
+    (
+      {
+        tst,
+        tsb,
+        txt,
+        txb,
+        tot,
+        tos,
+        tob,
+        sss,
+        sxs,
+        sot,
+        sos,
+        sob,
+        bst,
+        bsb,
+        bxt,
+        bxb,
+        bot,
+        bos,
+        bob,
+      } as const
+    )[process.argv[4] as "sxs"]
+  );
 })();
