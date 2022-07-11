@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 01:12:24 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/07 23:41:58 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/11 09:01:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,17 +19,10 @@
 
 typedef enum e_ps_stream_operation
 {
-	PS_STREAM_OPERATION_PUSH_TO_LEFT,
-	PS_STREAM_OPERATION_PUSH_TO_RIGHT,
-	PS_STREAM_OPERATION_SWAP_LEFT,
-	PS_STREAM_OPERATION_SWAP_RIGHT,
-	PS_STREAM_OPERATION_SWAP_BOTH,
-	PS_STREAM_OPERATION_ROTATE_LEFT,
-	PS_STREAM_OPERATION_ROTATE_RIGHT,
-	PS_STREAM_OPERATION_ROTATE_BOTH,
-	PS_STREAM_OPERATION_REVERSE_ROTATE_LEFT,
-	PS_STREAM_OPERATION_REVERSE_ROTATE_RIGHT,
-	PS_STREAM_OPERATION_REVERSE_ROTATE_BOTH,
+	PS_STREAM_OPERATION_PUSH,
+	PS_STREAM_OPERATION_SWAP,
+	PS_STREAM_OPERATION_ROTATE,
+	PS_STREAM_OPERATION_REVERSE_ROTATE,
 }	t_ps_stream_operation;
 
 typedef enum e_ps_stream_node_type
@@ -101,6 +94,7 @@ t_err		ps_stream_print(
 t_err		ps_stream_append(
 				t_ps_stream *self,
 				t_ps_stream_operation operation,
-				size_t count);
+				size_t count,
+				bool to_b);
 
 #endif
