@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 20:58:26 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 21:07:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 01:00:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ static t_err	process_parallel_a(
 			while (++i < node->count)
 				if (ft_puts(fd, "rra\n"))
 					return (true);
+		node = node->next;
 	}
 	return (false);
 }
@@ -62,6 +63,7 @@ static t_err	process_parallel_b(
 			while (++i < node->count)
 				if (ft_puts(fd, "rrb\n"))
 					return (true);
+		node = node->next;
 	}
 	return (false);
 }
