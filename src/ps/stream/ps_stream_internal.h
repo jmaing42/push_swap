@@ -38,16 +38,20 @@ t_err	*ps_stream_internal_append_empty_parallel_node(
 			t_ps_stream *self);
 
 t_err	*ps_stream_internal_separator_append_push(
-			t_ps_stream_node_parallel *node,
-			size_t count);
+			t_ps_stream_node_separator *node,
+			size_t count,
+			bool to_b);
 t_err	*ps_stream_internal_parallel_append_swap(
 			t_ps_stream_node_parallel *node,
-			size_t count);
+			size_t count,
+			bool to_b);
 t_err	*ps_stream_internal_parallel_append_rotate(
 			t_ps_stream_node_parallel *node,
-			size_t count);
+			size_t count,
+			bool to_b);
 t_err	*ps_stream_internal_parallel_append_reverse_rotate(
 			t_ps_stream_node_parallel *node,
-			size_t count);
+			size_t count,
+			bool to_b);
 
 #endif
