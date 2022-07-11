@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:03:43 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 09:25:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/11 20:55:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ t_err	ps_stream_internal_append_empty_separator_node(
 			t_ps_stream *self);
 t_err	ps_stream_internal_append_empty_parallel_node(
 			t_ps_stream *self);
-void	ps_stream_internal_clear_last_separator_node(
+bool	ps_stream_internal_clear_last_separator_node(
 			t_ps_stream *self);
-void	ps_stream_internal_clear_last_parallel_node(
+bool	ps_stream_internal_clear_last_parallel_node(
 			t_ps_stream *self);
 
 t_err	ps_stream_internal_append_push(

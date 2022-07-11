@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 20:02:13 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 20:02:14 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/11 20:55:29 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_err	ps_stream_internal_append_empty_parallel_node(
 	return (false);
 }
 
-void	ps_stream_internal_clear_last_separator_node(t_ps_stream *self)
+bool	ps_stream_internal_clear_last_separator_node(t_ps_stream *self)
 {
 	t_ps_stream_node *const	node = self->tail;
 
@@ -81,28 +81,61 @@ void	ps_stream_internal_clear_last_separator_node(t_ps_stream *self)
 		node->value.separator->push_to_left
 		|| node->value.separator->push_to_right
 	)
-		return ;
+		return (false);
 	if (!node->prev)
 		self->head = NULL;
 	else
 		node->prev->next = NULL;
 	free(node->value.separator);
 	free(node);
+	return (true);
 }
 
-void	ps_stream_internal_clear_last_parallel_node(t_ps_stream *self)
+static bool	clear_parallel_node(t_ps_stream_node_parallel *node)
+{
+	t_ps_stream_node_parallel_list_node	*tmp;
+
+	tmp = node->a_tail;
+	if (tmp && tmp->count == 0)
+	{
+		if (!tmp->prev)
+			node->a_head = NULL;
+		else
+			tmp->prev->next = NULL;
+		node->a_tail = tmp->prev;
+		free(tmp);
+		return (true);
+	}
+	tmp = node->b_tail;
+	if (tmp && tmp->count == 0)
+	{
+		if (!tmp->prev)
+			node->b_head = NULL;
+		else
+			tmp->prev->next = NULL;
+		node->b_tail = tmp->prev;
+		free(tmp);
+		return (true);
+	}
+	return (false);
+}
+
+bool	ps_stream_internal_clear_last_parallel_node(t_ps_stream *self)
 {
 	t_ps_stream_node *const	node = self->tail;
+	bool					result;
 
+	result = clear_parallel_node(node->value.parallel);
 	if (
 		node->value.parallel->a_head
 		|| node->value.parallel->b_head
 	)
-		return ;
+		return (result);
 	if (!node->prev)
 		self->head = NULL;
 	else
 		node->prev->next = NULL;
 	free(node->value.parallel);
 	free(node);
+	return (true);
 }
