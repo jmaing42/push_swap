@@ -25,7 +25,7 @@ t_err	ps_stream_internal_append_empty_separator_node(
 	separator->push_to_right = 0;
 	if (!self->tail)
 		self->head = node;
-	if (self->tail)
+	else
 		self->tail->next = node;
 	self->tail = node;
 	return (false);
@@ -55,8 +55,42 @@ t_err	ps_stream_internal_append_empty_parallel_node(
 	parallel->b_tail = NULL;
 	if (!self->tail)
 		self->head = node;
-	if (self->tail)
+	else
 		self->tail->next = node;
 	self->tail = node;
 	return (false);
+}
+
+void	ps_stream_internal_clear_last_separator_node(t_ps_stream *self)
+{
+	t_ps_stream_node *const	node = self->tail;
+
+	if (
+		node->value.separator->push_to_left
+		|| node->value.separator->push_to_right
+	)
+		return ;
+	if (!node->prev)
+		self->head = NULL;
+	else
+		node->prev->next = NULL;
+	free(node->value.separator);
+	free(node);
+}
+
+void	ps_stream_internal_clear_last_parallel_node(t_ps_stream *self)
+{
+	t_ps_stream_node *const	node = self->tail;
+
+	if (
+		node->value.parallel->a_head
+		|| node->value.parallel->b_head
+	)
+		return ;
+	if (!node->prev)
+		self->head = NULL;
+	else
+		node->prev->next = NULL;
+	free(node->value.parallel);
+	free(node);
 }

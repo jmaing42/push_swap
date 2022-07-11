@@ -36,6 +36,10 @@ t_err	ps_stream_internal_append_empty_separator_node(
 			t_ps_stream *self);
 t_err	ps_stream_internal_append_empty_parallel_node(
 			t_ps_stream *self);
+void	ps_stream_internal_clear_last_separator_node(
+			t_ps_stream *self);
+void	ps_stream_internal_clear_last_parallel_node(
+			t_ps_stream *self);
 
 t_err	ps_stream_internal_append_push(
 			t_ps_stream_node_separator *node,
