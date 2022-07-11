@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 08:59:14 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 09:27:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/11 23:28:05 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,12 @@
 
 static t_err	push(t_ps_stream *self, size_t count, bool to_b)
 {
+	size_t	remain;
+
 	if ((to_b && !self->a) || (!to_b && !self->b))
 		return (false);
+	remain = count
+		- ps_stream_internal_reduce_push(self, count, to_b);
 	return (
 		(
 			(
@@ -27,7 +31,7 @@ static t_err	push(t_ps_stream *self, size_t count, bool to_b)
 		)
 		|| ps_stream_internal_append_push(
 			self->tail->value.separator,
-			count - ps_stream_internal_reduce_push(self, count, to_b),
+			remain,
 			to_b
 		)
 	);
@@ -35,8 +39,12 @@ static t_err	push(t_ps_stream *self, size_t count, bool to_b)
 
 static t_err	swap(t_ps_stream *self, size_t count, bool to_b)
 {
+	size_t	remain;
+
 	if ((to_b && self->a < 2) || (!to_b && self->b < 2))
 		return (false);
+	remain = count
+		- ps_stream_internal_reduce_swap(self, count, to_b);
 	return (
 		(
 			(
@@ -47,7 +55,7 @@ static t_err	swap(t_ps_stream *self, size_t count, bool to_b)
 		)
 		|| ps_stream_internal_append_swap(
 			self->tail->value.parallel,
-			count - ps_stream_internal_reduce_swap(self, count, to_b),
+			remain,
 			to_b
 		)
 	);
@@ -55,8 +63,12 @@ static t_err	swap(t_ps_stream *self, size_t count, bool to_b)
 
 static t_err	rotate(t_ps_stream *self, size_t count, bool to_b)
 {
+	size_t	remain;
+
 	if ((to_b && self->a < 2) || (!to_b && self->b < 2))
 		return (false);
+	remain = count
+		- ps_stream_internal_reduce_rotate(self, count, to_b);
 	return (
 		(
 			(
@@ -67,7 +79,7 @@ static t_err	rotate(t_ps_stream *self, size_t count, bool to_b)
 		)
 		|| ps_stream_internal_append_rotate(
 			self->tail->value.parallel,
-			count - ps_stream_internal_reduce_rotate(self, count, to_b),
+			remain,
 			to_b
 		)
 	);
@@ -75,8 +87,12 @@ static t_err	rotate(t_ps_stream *self, size_t count, bool to_b)
 
 static t_err	reverse_rotate(t_ps_stream *self, size_t count, bool to_b)
 {
+	size_t	remain;
+
 	if ((to_b && self->a < 2) || (!to_b && self->b < 2))
 		return (false);
+	remain = count
+		- ps_stream_internal_reduce_reverse_rotate(self, count, to_b);
 	return (
 		(
 			(
@@ -87,7 +103,7 @@ static t_err	reverse_rotate(t_ps_stream *self, size_t count, bool to_b)
 		)
 		|| ps_stream_internal_append_reverse_rotate(
 			self->tail->value.parallel,
-			count - ps_stream_internal_reduce_reverse_rotate(self, count, to_b),
+			remain,
 			to_b
 		)
 	);
