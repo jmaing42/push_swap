@@ -20,6 +20,7 @@ SRCS := \
 	../../ps_stream_free.c \
 	../../ps_stream_append.c \
 	../../ps_stream_print.c \
+	../../ps_stream_internal_append.c \
 	../../ps_stream_internal_reduce.c \
 	../../ps_stream_internal_node.c \
 	$(BASE_PATH)/ft/per_type/ft_size_t.c \
@@ -27,8 +28,11 @@ SRCS := \
 	$(BASE_PATH)/ft/cstring/ft_cstring_strlen.c \
 	$(BASE_PATH)/ft/byte_map/ft_byte_map.c \
 
+COMMON_FLAGS := -fsanitize=address
+
 CPPFLAGS := $(patsubst %, -I%, $(INCS))
-CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS)
+CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -g3
+LDFLAGS := $(COMMON_FLAGS)
 
 test.exe: $(SRCS)
 	$Q$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^

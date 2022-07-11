@@ -4,11 +4,9 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug unit test collect",
-      "program": "${workspaceFolder}/test/case_unit/test_collect/test.exe",
-      "args": ["input.txt"],
-      "cwd": "${workspaceFolder}/test/case_unit/test_collect",
-      "preLaunchTask": "build unit test collect (debug)",
+      "name": "Debug unit test ps_stream",
+      "program": "${workspaceFolder}/src/ps/stream/test/basic/test.exe",
+      "cwd": "${workspaceFolder}/src/ps/stream/test/basic",
     },
     {
       "type": "lldb",
