@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 01:12:24 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 09:01:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/11 20:58:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ t_ps_stream	*new_ps_stream(
 void		ps_stream_free(
 				t_ps_stream *self);
 t_err		ps_stream_print(
-				t_ps_stream *self);
+				t_ps_stream *self,
+				int fd);
 t_err		ps_stream_append(
 				t_ps_stream *self,
 				t_ps_stream_operation operation,
