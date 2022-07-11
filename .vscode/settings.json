@@ -9,12 +9,6 @@
     "*.h": "c",
     ".clangd": "yaml"
   },
-  "clangd.arguments": [
-    "-log=verbose",
-    "-pretty",
-    "--background-index",
-    "--enable-config"
-  ],
   "C_Cpp.default.includePath": [
     "${workspaceFolder}/src/**"
   ],
