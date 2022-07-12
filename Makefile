@@ -5,20 +5,11 @@ all: test
 clean:
 	$Qrm -rf ./tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
-	$Q$(MAKE) -C test clean
 	@printf "\033[0m"
 fclean: clean deinit
 re:
 	$Q$(MAKE) fclean
 	$Q$(MAKE) all
-init:
-	$Q$(MAKE) -C test init
-deinit:
-	$Q$(MAKE) -C test deinit
-reinit:
-	$Q$(MAKE) -C test reinit
-refresh:
-	$Q$(MAKE) -C test refresh
 test:
 	$Qfind src -type d -name "test" | xargs $(MAKE) -C
 	@echo "Some test might need manual review"
