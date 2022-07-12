@@ -1,11 +1,4 @@
 BASE_PATH := ../../../..
-include $(BASE_PATH)/build/common.mk
-include $(BASE_PATH)/build/compile_commands.mk
-
-all: test
-.PHONY: all test clean fclean re build
-test: test.exe
-	$Qsh test.sh
 
 INCS := \
 	$(BASE_PATH)/ft \
@@ -15,33 +8,25 @@ INCS := \
 	$(BASE_PATH)/ft/cstring \
 	$(BASE_PATH)/ft/byte_map \
 
-SRCS := \
-	main.c \
-	../../ps_stream_new.c \
-	../../ps_stream_free.c \
-	../../ps_stream_append.c \
-	../../ps_stream_print.c \
-	../../ps_stream_internal_append.c \
-	../../ps_stream_internal_reduce.c \
-	../../ps_stream_internal_node.c \
-	$(BASE_PATH)/ft/per_type/ft_size_t.c \
-	$(BASE_PATH)/ft/io/ft_io_basic.c \
-	$(BASE_PATH)/ft/cstring/ft_cstring_strlen.c \
-	$(BASE_PATH)/ft/byte_map/ft_byte_map.c \
+OBJS := main.o ps_stream_new.o ps_stream_free.o ps_stream_append.o ps_stream_print.o ps_stream_internal_append.o ps_stream_internal_node.o ps_stream_internal_reduce.o ft_size_t.o ft_io_basic.o ft_cstring_strlen.o ft_byte_map.o
 
 COMMON_FLAGS := -fsanitize=address
 
-CPPFLAGS := $(patsubst %, -I%, $(INCS))
-CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -g3
-LDFLAGS := $(COMMON_FLAGS)
+include $(BASE_PATH)/build/test.mk
 
-test.exe: $(SRCS)
-	$Q$(CC) -MJ $@.part.json $(CFLAGS) $(LDFLAGS) -o $@ $^
+test: test.exe
+	$Qsh test.sh
 
-build: test.exe
-clean:
-	$Qrm test.exe
-fclean: clean
-re:
-	$Q$(MAKE) fclean
-	$Q$(MAKE) all
+main.o: main.c
+ps_stream_new.o: ../../ps_stream_new.c
+ps_stream_free.o: ../../ps_stream_free.c
+ps_stream_append.o: ../../ps_stream_append.c
+ps_stream_print.o: ../../ps_stream_print.c
+ps_stream_internal_append.o: ../../ps_stream_internal_append.c
+ps_stream_internal_node.o: ../../ps_stream_internal_node.c
+ps_stream_internal_reduce.o: ../../ps_stream_internal_reduce.c
+ft_size_t.o: $(BASE_PATH)/ft/per_type/ft_size_t.c
+ft_io_basic.o: $(BASE_PATH)/ft/io/ft_io_basic.c
+ft_cstring_strlen.o: $(BASE_PATH)/ft/cstring/ft_cstring_strlen.c
+ft_byte_map.o: $(BASE_PATH)/ft/byte_map/ft_byte_map.c
+test.exe: $(OBJS)
