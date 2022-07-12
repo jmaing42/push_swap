@@ -1,0 +1,9 @@
+100 100
+ra 1
+rra 2
+rrb 3
+rb 4
+rra 5
+rb 6
+ra 7
+rrb 8

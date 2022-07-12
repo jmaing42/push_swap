@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 20:02:02 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 20:46:16 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 20:49:53 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ size_t	ps_stream_internal_reduce_rotate(
 		|| *self->tail->value.type != PS_STREAM_NODE_TYPE_PARALLEL
 		|| (!to_b && (!self->tail->value.parallel->a_tail
 				|| self->tail->value.parallel->a_tail->type
-				!= PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE))
+				!= PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE))
 		|| (to_b && (!self->tail->value.parallel->b_tail
 				|| self->tail->value.parallel->b_tail->type
-				!= PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)))
+				!= PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)))
 		return (0);
 	if (!to_b)
 		min = self->tail->value.parallel->a_tail->count;
@@ -112,10 +112,10 @@ size_t	ps_stream_internal_reduce_reverse_rotate(
 		|| *self->tail->value.type != PS_STREAM_NODE_TYPE_PARALLEL
 		|| (!to_b && (!self->tail->value.parallel->a_tail
 				|| self->tail->value.parallel->a_tail->type
-				!= PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE))
+				!= PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE))
 		|| (to_b && (!self->tail->value.parallel->b_tail
 				|| self->tail->value.parallel->b_tail->type
-				!= PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)))
+				!= PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)))
 		return (0);
 	if (!to_b)
 		min = self->tail->value.parallel->a_tail->count;

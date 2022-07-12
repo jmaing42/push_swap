@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:16:38 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/12 20:47:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 21:14:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdbool.h>
 
 #include "../../ps_stream.h"
 

@@ -3,10 +3,15 @@ MAKE := make $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
 
 all: test
 clean:
-	$Qrm -rf ./tmp compile_commands.json
+	$Qrm -rf tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} clean
 	@printf "\033[0m"
-fclean: clean deinit
+fclean:
+	$Qrm -rf tmp compile_commands.json push_swap.exe checker.exe
+	$Q$(MAKE) -C src fclean
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} fclean
+	@printf "\033[0m"
 re:
 	$Q$(MAKE) fclean
 	$Q$(MAKE) all
@@ -34,3 +39,4 @@ compile_commands.json:
 	$Q$(MAKE) -C src -k PROFILE=debug TARGET=development SANITIZER=address all ; (printf "[" && find src/.cache -name "*.json" | xargs cat && printf "]") > $@
 .PHONY: dev
 dev: compile_commands.json
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} dev

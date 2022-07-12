@@ -6,6 +6,7 @@
       "request": "launch",
       "name": "Debug unit test ps_stream (basic)",
       "program": "${workspaceFolder}/src/ps/stream/test/basic/test.exe",
+      "args": ["data/4-mixed.in.txt"],
       "cwd": "${workspaceFolder}/src/ps/stream/test/basic",
       "preLaunchTask": "build unit test ps_stream (basic)",
     },

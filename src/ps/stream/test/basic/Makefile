@@ -1,8 +1,9 @@
 BASE_PATH := ../../../..
 include $(BASE_PATH)/build/common.mk
+include $(BASE_PATH)/build/compile_commands.mk
 
 all: test
-.PHONY: all test clean fclean re
+.PHONY: all test clean fclean re build
 test: test.exe
 	$Qsh test.sh
 
@@ -35,4 +36,12 @@ CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -
 LDFLAGS := $(COMMON_FLAGS)
 
 test.exe: $(SRCS)
-	$Q$(CC) $(CFLAGS) $(LDFLAGS) -o $@ $^
+	$Q$(CC) -MJ $@.part.json $(CFLAGS) $(LDFLAGS) -o $@ $^
+
+build: test.exe
+clean:
+	$Qrm test.exe
+fclean: clean
+re:
+	$Q$(MAKE) fclean
+	$Q$(MAKE) all
