@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Automatically                            #+#    #+#             */
-/*   Updated: Never                                   ###   ########.fr       */
+/*   Created: 0000/00/00 00:00:00 by script            #+#    #+#             */
+/*   Updated: 0000/00/00 00:00:00 by nobody           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,12 @@ static const char	*g_ps_hardcoded_txb_4[] = {
 	"\2\2\5\10\10\1\1\6\6",
 };
 
-void	ps_hardcoded_txb_4(
-	const char *const **out_ptr,
-	size_t *out_distance
-)
+const char *const	*ps_hardcoded_txb_4_table(void)
 {
-	*out_ptr = g_ps_hardcoded_txb_4;
-	*out_distance = g_ps_hardcoded_txb_4_distance;
+	return (g_ps_hardcoded_txb_4);
+}
+
+size_t	ps_hardcoded_txb_4_length(void)
+{
+	return (g_ps_hardcoded_txb_4_distance);
 }

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: push_swap/bake.ts <powered-by@node.js>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: Automatically                            #+#    #+#             */
-/*   Updated: Never                                   ###   ########.fr       */
+/*   Created: 0000/00/00 00:00:00 by script            #+#    #+#             */
+/*   Updated: 0000/00/00 00:00:00 by nobody           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,11 +136,12 @@ static const char	*g_ps_hardcoded_bob_5[] = {
 	"\11\11\11\11\11\2\2\2\2\2\7\7\7\7\7",
 };
 
-void	ps_hardcoded_bob_5(
-	const char *const **out_ptr,
-	size_t *out_distance
-)
+const char *const	*ps_hardcoded_bob_5_table(void)
 {
-	*out_ptr = g_ps_hardcoded_bob_5;
-	*out_distance = g_ps_hardcoded_bob_5_distance;
+	return (g_ps_hardcoded_bob_5);
+}
+
+size_t	ps_hardcoded_bob_5_length(void)
+{
+	return (g_ps_hardcoded_bob_5_distance);
 }
