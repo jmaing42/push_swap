@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 08:59:14 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/12 00:56:07 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 09:19:34 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ static t_err	push(t_ps_stream *self, size_t count, bool to_b)
 
 	if ((to_b && !self->a) || (!to_b && !self->b))
 		return (false);
-	if (!to_b)
-		count = ft_size_t_min(count, self->b);
-	else
-		count = ft_size_t_min(count, self->a);
+	count = ft_size_t_min(count, ft_size_t_if(to_b, self->a, self->b));
 	remain = count
 		- ps_stream_internal_reduce_push(self, count, to_b);
 	if (((!self->head
@@ -34,10 +31,10 @@ static t_err	push(t_ps_stream *self, size_t count, bool to_b)
 			remain,
 			to_b))
 		return (true);
-	if (!to_b)
-		self->a -= count;
-	else
-		self->b -= count;
+	self->a -= ft_size_t_if(to_b, count, 0);
+	self->b += ft_size_t_if(to_b, count, 0);
+	self->b -= ft_size_t_if(!to_b, count, 0);
+	self->a += ft_size_t_if(!to_b, count, 0);
 	return (false);
 }
 

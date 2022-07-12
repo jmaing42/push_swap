@@ -2,11 +2,11 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build unit test collect (debug)",
+      "label": "build unit test ps_stream (basic)",
       "type": "shell",
       "command": "make test.exe",
       "options": {
-        "cwd": "${workspaceFolder}/test/case_unit/test_collect",
+        "cwd": "${workspaceFolder}/src/ps/stream/test/basic",
       },
       "problemMatcher": ["$gcc"]
     },

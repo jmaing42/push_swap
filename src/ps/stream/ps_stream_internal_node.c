@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 20:02:13 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 23:18:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 08:58:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ bool	ps_stream_internal_clear_last_separator_node(t_ps_stream *self)
 		self->head = NULL;
 	else
 		node->prev->next = NULL;
+	self->tail = node->prev;
 	free(node->value.separator);
 	free(node);
 	return (true);
@@ -137,6 +138,7 @@ bool	ps_stream_internal_clear_last_parallel_node(t_ps_stream *self)
 		self->head = NULL;
 	else
 		node->prev->next = NULL;
+	self->tail = node->prev;
 	free(node->value.parallel);
 	free(node);
 	return (true);
