@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:16:38 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/12 00:59:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 20:47:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,13 @@ t_err	test(size_t a, size_t b)
 	return (false);
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
 	size_t					a;
 	size_t					b;
 
+	if (argc > 1)
+		freopen(argv[1], "r", stdin);
 	scanf("%zu %zu", &a, &b);
 	if (test(a, b))
 		return (EXIT_FAILURE);
