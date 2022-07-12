@@ -6,13 +6,15 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 21:37:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 21:52:03 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/12 22:17:52 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stream_internal.h"
 
 #include <stdlib.h>
+
+#include "ft_pointer.h"
 
 t_err	ps_stream_internal_append_push(
 	t_ps_stream_node_separator *node,
@@ -27,6 +29,8 @@ t_err	ps_stream_internal_append_push(
 	return (false);
 }
 
+typedef t_ps_stream_node_parallel_list_node	*t_n;
+
 t_err	append_node(
 	t_ps_stream_node_parallel *node,
 	size_t count,
@@ -34,30 +38,19 @@ t_err	append_node(
 	bool to_b
 )
 {
-	t_ps_stream_node_parallel_list_node *const	last
-		= malloc(sizeof(t_ps_stream_node_parallel_list_node));
+	const t_n	last = malloc(sizeof(t_ps_stream_node_parallel_list_node));
 
 	if (!last)
 		return (true);
 	last->count = count;
 	last->type = type;
 	last->next = NULL;
-	if (!to_b)
-	{
-		last->prev = node->a_tail;
-		if (!node->a_tail)
-			node->a_head = last;
-		else
-			node->a_tail->next = last;
-	}
+	last->prev = ft_pointer_if(!to_b, node->a_tail, node->b_tail);
+	*((t_n *)ft_pointer_if(!to_b, &node->a_tail, &node->b_tail)) = last;
+	if (last->prev)
+		last->prev->next = last;
 	else
-	{
-		last->prev = node->b_tail;
-		if (!node->b_tail)
-			node->b_head = last;
-		else
-			node->b_tail->next = last;
-	}
+		*((t_n *)ft_pointer_if(!to_b, &node->a_head, &node->b_head)) = last;
 	return (false);
 }
 
