@@ -25,14 +25,16 @@ bool	ps_stream_internal_clear_last_node_separator(
 			t_ps_stream_node_separator *self);
 bool	ps_stream_internal_clear_last_node_parallel(
 			t_ps_stream_node_parallel *self);
+void	ps_stream_internal_clear_last_parallel_list(
+			t_ps_stream_node_parallel_list *list);
 bool	ps_stream_internal_clear_last_parallel_node(
-			t_ps_stream_node_parallel_list *node);
+			t_ps_stream_node_parallel_list_node *node);
 bool	ps_stream_internal_clear_last_parallel_node_swap(
-			t_ps_stream_node_parallel_list *node);
+			t_ps_stream_node_parallel_list_node *node);
 bool	ps_stream_internal_clear_last_parallel_node_rotate(
-			t_ps_stream_node_parallel_list *node);
+			t_ps_stream_node_parallel_list_node *node);
 bool	ps_stream_internal_clear_last_parallel_node_reverse_rotate(
-			t_ps_stream_node_parallel_list *node);
+			t_ps_stream_node_parallel_list_node *node);
 
 t_err	ps_stream_internal_make_last_separator_node(
 			t_ps_stream *self);
