@@ -18,5 +18,7 @@ Makefile: .cache/deps.mk
 
 clean:
 	$Qrm -rf .cache
+fclean:
+	$Qrm -f test.exe
 
 -include .cache/deps.mk $(shell find .cache -name "*.d")

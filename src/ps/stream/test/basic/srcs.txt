@@ -1,0 +1,13 @@
+main.c
+../../ps_stream_new.c
+../../ps_stream_free.c
+../../ps_stream_append.c
+../../ps_stream_print.c
+../../ps_stream_internal_append.c
+../../ps_stream_internal_node.c
+../../ps_stream_internal_reduce.c
+../../../../ft/per_type/ft_size_t.c
+../../../../ft/per_type/ft_pointer.c
+../../../../ft/io/ft_io_basic.c
+../../../../ft/cstring/ft_cstring_strlen.c
+../../../../ft/byte_map/ft_byte_map.c
