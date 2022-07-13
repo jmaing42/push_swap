@@ -1,9 +1,9 @@
 BASE_PATH := ../../../../..
 
 INCS := \
-	../../.. \
-	../../../../stream \
-	../../../../../ft/types \
+	$(BASE_PATH)/ps/strategy \
+	$(BASE_PATH)/ft/types \
+	$(BASE_PATH)/ps/stream \
 
 include $(BASE_PATH)/build/test.mk
 

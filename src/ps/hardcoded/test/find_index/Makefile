@@ -1,13 +1,9 @@
 BASE_PATH := ../../../..
 
 INCS := \
-	../.. \
+	$(BASE_PATH)/ps/hardcoded \
 	$(BASE_PATH)/ps/stream \
 	$(BASE_PATH)/ft/types \
-INCS := \
-	../../.. \
-	../../../../stream \
-	../../../../../ft/types \
 
 include $(BASE_PATH)/build/test.mk
 
