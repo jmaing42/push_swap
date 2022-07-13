@@ -7,7 +7,7 @@ clean_compile_commands.json:
 	$Qfind . -name "*.part.json" | xargs rm
 
 .PHONY: fclean_compile_commands.json
-fclean_compile_commands.json: clean_compile_commands.json
+fclean_compile_commands.json:
 	$Qrm -rf compile_commands.json
 
 dev: compile_commands.json

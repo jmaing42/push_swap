@@ -2,26 +2,21 @@ include $(BASE_PATH)/build/common.mk
 
 all: test
 
-CPPFLAGS := $(patsubst %, -I%, $(INCS))
-CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -g3
-LDFLAGS := $(COMMON_FLAGS)
-
-%.a:
-	$Q$(AR) crs $@ $^
-%.o:
-	$Q$(CC) -MMD -MJ $@.part.json $(CFLAGS) -o $@ -c $<
-%.exe:
-	$Q$(CC) $(LDFLAGS) -o $@ $^
-
 include $(BASE_PATH)/build/compile_commands.mk
 
-.PHONY: clean_test
-clean_test:
-	$Qfind . -name "*.o" -o -name "*.d" | xargs rm
+build: .cache/Makefile
 
-.PHONY: fclean_test
-fclean_test: clean_test
-	$Qrm -rf test.exe
+.cache/Makefile:
+	$Qmkdir -p .cache
+	$Qsh $(BASE_PATH)/build/test_build.sh $(BASE_PATH) $(SRCS_FILE) $(INCS_FILE)
 
-clean: clean_test
-fclean: fclean_test
+clean:
+	$Qrm -rf .cache
+
+fclean: clean
+
+test: build
+	$Qsh test.sh
+
+build:
+	$Qmake -C .cache test.exe
