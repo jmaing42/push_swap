@@ -3,7 +3,7 @@
 t_err	ps_stream_internal_append_sb(t_ps_stream *self)
 {
 	if (
-		ps_stream_internal_make_last_parallel_node(self)
+		ps_stream_internal_make_last_node_parallel(self)
 		|| ps_stream_internal_append_no_check_swap(
 			&self->tail->value.parallel->b
 		)
