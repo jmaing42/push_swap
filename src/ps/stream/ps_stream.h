@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 01:12:24 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 20:58:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/13 09:02:29 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,6 @@
 
 # include "ft_types.h"
 
-typedef enum e_ps_stream_operation
-{
-	PS_STREAM_OPERATION_PUSH,
-	PS_STREAM_OPERATION_SWAP,
-	PS_STREAM_OPERATION_ROTATE,
-	PS_STREAM_OPERATION_REVERSE_ROTATE,
-}	t_ps_stream_operation;
-
 typedef enum e_ps_stream_node_type
 {
 	PS_STREAM_NODE_TYPE_SEPARATOR,
@@ -34,8 +26,8 @@ typedef enum e_ps_stream_node_type
 typedef struct s_ps_stream_node_separator
 {
 	t_ps_stream_node_type	type;
-	size_t					push_to_left;
-	size_t					push_to_right;
+	size_t					pa;
+	size_t					pb;
 }	t_ps_stream_node_separator;
 
 typedef enum e_ps_stream_node_parallel_operation
@@ -53,13 +45,17 @@ typedef struct s_ps_stream_node_parallel_list_node
 	t_ps_stream_node_parallel_operation			type;
 }	t_ps_stream_node_parallel_list_node;
 
+typedef struct s_ps_stream_node_parallel_list
+{
+	t_ps_stream_node_parallel_list_node	*head;
+	t_ps_stream_node_parallel_list_node	*tail;
+}	t_ps_stream_node_parallel_list;
+
 typedef struct s_ps_stream_node_parallel
 {
-	t_ps_stream_node_type				type;
-	t_ps_stream_node_parallel_list_node	*a_head;
-	t_ps_stream_node_parallel_list_node	*a_tail;
-	t_ps_stream_node_parallel_list_node	*b_head;
-	t_ps_stream_node_parallel_list_node	*b_tail;
+	t_ps_stream_node_type			type;
+	t_ps_stream_node_parallel_list	a;
+	t_ps_stream_node_parallel_list	b;
 }	t_ps_stream_node_parallel;
 
 typedef union u_ps_stream_node_value
@@ -92,10 +88,17 @@ void		ps_stream_free(
 t_err		ps_stream_print(
 				t_ps_stream *self,
 				int fd);
-t_err		ps_stream_append(
-				t_ps_stream *self,
-				t_ps_stream_operation operation,
-				size_t count,
-				bool to_b);
+
+t_err		ps_stream_append_pa(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_pb(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_sa(t_ps_stream *self, bool reverse);
+t_err		ps_stream_append_sb(t_ps_stream *self, bool reverse);
+t_err		ps_stream_append_ss(t_ps_stream *self);
+t_err		ps_stream_append_ra(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_rb(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_rr(t_ps_stream *self, size_t count);
+t_err		ps_stream_append_rra(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_rrb(t_ps_stream *self, size_t count, bool reverse);
+t_err		ps_stream_append_rrr(t_ps_stream *self, size_t count);
 
 #endif
