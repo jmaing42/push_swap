@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:03:43 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/13 09:06:11 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/13 09:15:25 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,14 @@ size_t	ps_stream_internal_reduce_reverse_rotate(
 			size_t count,
 			bool to_b);
 
-t_err	ps_stream_internal_append_empty_separator_node(
-			t_ps_stream *self);
-t_err	ps_stream_internal_append_empty_parallel_node(
-			t_ps_stream *self);
-bool	ps_stream_internal_clear_last_separator_node(
-			t_ps_stream *self);
+bool	ps_stream_internal_clear_last_node(
+			t_ps_stream_node *self);
+bool	ps_stream_internal_clear_last_node_separator(
+			t_ps_stream_node_separator *self);
+bool	ps_stream_internal_clear_last_node_parallel(
+			t_ps_stream_node_parallel *self);
 bool	ps_stream_internal_clear_last_parallel_node(
-			t_ps_stream *self);
-
-size_t	ps_stream_internal_remove_last_pa(t_ps_stream *self, size_t max_count);
-size_t	ps_stream_internal_remove_last_pb(t_ps_stream *self, size_t max_count);
-bool	ps_stream_internal_remove_last_sa(t_ps_stream *self);
-bool	ps_stream_internal_remove_last_sb(t_ps_stream *self);
-size_t	ps_stream_internal_remove_last_ra(t_ps_stream *self, size_t max_count);
-size_t	ps_stream_internal_remove_last_rb(t_ps_stream *self, size_t max_count);
-size_t	ps_stream_internal_remove_last_rra(t_ps_stream *self, size_t max_count);
-size_t	ps_stream_internal_remove_last_rrb(t_ps_stream *self, size_t max_count);
+			t_ps_stream_node_parallel_list *node);
 
 t_err	ps_stream_internal_append_no_check_pa(t_ps_stream *self, size_t count);
 t_err	ps_stream_internal_append_no_check_pb(t_ps_stream *self, size_t count);
