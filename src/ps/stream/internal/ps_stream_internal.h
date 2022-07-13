@@ -15,6 +15,10 @@
 
 # include "ps_stream.h"
 
+void	ps_stream_internal_clear(
+			t_ps_stream *self);
+bool	ps_stream_internal_clear_last(
+			t_ps_stream *self);
 bool	ps_stream_internal_clear_last_node(
 			t_ps_stream_node *self);
 bool	ps_stream_internal_clear_last_node_separator(
@@ -29,6 +33,11 @@ bool	ps_stream_internal_clear_last_parallel_node_rotate(
 			t_ps_stream_node_parallel_list *node);
 bool	ps_stream_internal_clear_last_parallel_node_reverse_rotate(
 			t_ps_stream_node_parallel_list *node);
+
+t_err	ps_stream_internal_make_last_separator_node(
+			t_ps_stream *self);
+t_err	ps_stream_internal_make_last_parallel_node(
+			t_ps_stream *self);
 
 t_err	ps_stream_internal_append_no_check_push_to_a(
 			t_ps_stream *self,
