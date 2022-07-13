@@ -1,11 +1,7 @@
 # temporary files
 tmp
 .cache
-*.o
-*.d
-*.a
 *.exe
-*.part.json
 *.dSYM
 *.log
 compile_commands.json

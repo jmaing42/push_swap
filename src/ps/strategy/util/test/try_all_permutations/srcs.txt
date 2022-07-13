@@ -1,0 +1,2 @@
+main.c
+../../ps_strategy_util_try_all_permutations.c

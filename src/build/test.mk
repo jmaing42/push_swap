@@ -1,7 +1,6 @@
 include $(BASE_PATH)/build/common.mk
 
 all: test
-.PHONY: all test clean fclean re build dev
 
 CPPFLAGS := $(patsubst %, -I%, $(INCS))
 CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -g3

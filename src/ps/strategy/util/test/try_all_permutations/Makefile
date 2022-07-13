@@ -5,14 +5,18 @@ INCS := \
 	../../../../stream \
 	../../../../../ft/types \
 
-OBJS := main.o ps_strategy_util_try_all_permutations.o
-
 include $(BASE_PATH)/build/test.mk
 
 test: test.exe
 	$Qsh test.sh
 
-main.o: main.c
-ps_strategy_util_try_all_permutations.o: ../../ps_strategy_util_try_all_permutations.c
+Makefile: .cache/deps.mk
+	$Qtouch $@
+.cache/deps.mk: srcs.txt
+	$Qmkdir -p .cache
+	$Qsh $(BASE_PATH)/build/srcs_to_deps.sh test.exe < $< > $@
 
-test.exe: $(OBJS)
+clean:
+	$Qrm -rf .cache
+
+-include .cache/deps.mk $(shell find .cache -name "*.d")
