@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:03:43 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/14 23:53:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/15 00:50:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,16 @@ typedef struct s_ps_stream_node_in_parallel
 
 void	ps_stream_internal_clear(
 			t_ps_stream *self);
-bool	ps_stream_internal_clear_last(
-			t_ps_stream *self);
-bool	ps_stream_internal_clear_last_node(
+bool	ps_stream_internal_clear_node(
 			t_ps_stream_node *self);
-bool	ps_stream_internal_clear_last_node_separator(
+bool	ps_stream_internal_clear_node_separator(
 			t_ps_stream_node_separator *self);
-bool	ps_stream_internal_clear_last_node_parallel(
+bool	ps_stream_internal_clear_node_parallel(
 			t_ps_stream_node_parallel *self);
-void	ps_stream_internal_clear_last_parallel_list(
+void	ps_stream_internal_clear_parallel(
 			t_ps_stream_node_parallel_list *list);
-bool	ps_stream_internal_clear_last_parallel_node(
-			t_ps_stream_node_parallel_list_node *node);
-bool	ps_stream_internal_clear_last_parallel_node_swap(
-			t_ps_stream_node_parallel_list_node *node);
-bool	ps_stream_internal_clear_last_parallel_node_rotate(
-			t_ps_stream_node_parallel_list_node *node);
-bool	ps_stream_internal_clear_last_parallel_node_reverse_rotate(
-			t_ps_stream_node_parallel_list_node *node);
+void	ps_stream_internal_clear_parallel_remove_zeros(
+			t_ps_stream_node_parallel_list *list);
 
 t_err	ps_stream_internal_make_last_node_separator(
 			t_ps_stream *self);

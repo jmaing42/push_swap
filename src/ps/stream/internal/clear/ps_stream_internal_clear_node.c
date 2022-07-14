@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_stream_internal_clear_last_parallel_node.c      :+:      :+:    :+:   */
+/*   ps_stream_internal_clear_node.c                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/14 23:45:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/14 23:46:45 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/14 23:45:32 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/15 00:31:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stream_internal.h"
 
-bool	ps_stream_internal_clear_last_parallel_node(
-	t_ps_stream_node_parallel_list_node *node
-)
+bool	ps_stream_internal_clear_node(t_ps_stream_node *self)
 {
-	if (node->type == PS_STREAM_NODE_PARALLEL_OPERATION_SWAP)
+	if (*self->value.type == PS_STREAM_NODE_TYPE_SEPARATOR)
 		return (
-			ps_stream_internal_clear_last_parallel_node_swap(node)
-		);
-	if (node->type == PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)
-		return (
-			ps_stream_internal_clear_last_parallel_node_rotate(node)
+			ps_stream_internal_clear_node_separator(self->value.separator)
 		);
 	else
 		return (
-			ps_stream_internal_clear_last_parallel_node_reverse_rotate(node)
+			ps_stream_internal_clear_node_parallel(self->value.parallel)
 		);
 }
