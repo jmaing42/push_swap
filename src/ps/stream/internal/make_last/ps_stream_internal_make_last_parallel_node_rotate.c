@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_stream_internal_make_last_parallel_node_rotate. :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/14 23:45:09 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/14 23:45:10 by Juyeong Maing    ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps_stream_internal.h"
 
 #include <stdlib.h>
