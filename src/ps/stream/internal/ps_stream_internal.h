@@ -59,18 +59,18 @@ t_err	ps_stream_internal_make_last_parallel_node_rotate(
 t_err	ps_stream_internal_make_last_parallel_node_reverse_rotate(
 			t_ps_stream_node_parallel_list *list);
 
-t_err	ps_stream_internal_append_no_check_push_to_a(
+void	ps_stream_internal_append_no_check_push_to_a(
 			t_ps_stream *self,
 			size_t count);
-t_err	ps_stream_internal_append_no_check_push_to_b(
+void	ps_stream_internal_append_no_check_push_to_b(
 			t_ps_stream *self,
 			size_t count);
-t_err	ps_stream_internal_append_no_check_swap(
+void	ps_stream_internal_append_no_check_swap(
 			t_ps_stream_node_parallel_list *node);
-t_err	ps_stream_internal_append_no_check_rotate(
+void	ps_stream_internal_append_no_check_rotate(
 			t_ps_stream_node_parallel_list *node,
 			size_t count);
-t_err	ps_stream_internal_append_no_check_reverse_rotate(
+void	ps_stream_internal_append_no_check_reverse_rotate(
 			t_ps_stream_node_parallel_list *node,
 			size_t count);
 
