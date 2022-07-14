@@ -15,4 +15,4 @@ cat ../template.mk
 
 printf "\n# dependencies\n"
 
-find . -name "*.c" | cut -c 3- | sort | xargs gcc -MM -MG
+find . -name "*.c" | cut -c 3- | sort | xargs clang -MM -MG
