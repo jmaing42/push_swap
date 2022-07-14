@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 09:03:43 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/13 09:15:25 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/14 23:53:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,7 @@ void	ps_stream_internal_append_no_check_push_to_a(
 void	ps_stream_internal_append_no_check_push_to_b(
 			t_ps_stream *self,
 			size_t count);
-void	ps_stream_internal_append_no_check_swap(
-			t_ps_stream_node_parallel_list *node);
-void	ps_stream_internal_append_no_check_rotate(
-			t_ps_stream_node_parallel_list *node,
-			size_t count);
-void	ps_stream_internal_append_no_check_reverse_rotate(
+void	ps_stream_internal_append_no_check_parallel(
 			t_ps_stream_node_parallel_list *node,
 			size_t count);
 
