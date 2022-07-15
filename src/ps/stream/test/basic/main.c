@@ -14,9 +14,40 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <stdbool.h>
 
 #include "ps_stream.h"
+
+static t_err	append_swap(
+	t_ps_stream *stream,
+	const char *operation,
+	size_t count
+)
+{
+	size_t	i;
+
+	i = -1;
+	if (!strcmp(operation, "sa"))
+	{
+		while (++i < count)
+			if (ps_stream_append_sa(stream, false))
+				return (true);
+	}
+	else if (!strcmp(operation, "sb"))
+	{
+		while (++i < count)
+			if (ps_stream_append_sb(stream, false))
+				return (true);
+	}
+	else if (!strcmp(operation, "ss"))
+	{
+		while (++i < count)
+			if (ps_stream_append_ss(stream))
+				return (true);
+	}
+	else
+		return (true);
+	return (false);
+}
 
 static t_err	append(t_ps_stream *stream, const char *operation, size_t count)
 {
@@ -24,12 +55,6 @@ static t_err	append(t_ps_stream *stream, const char *operation, size_t count)
 		return ps_stream_append_pa(stream, count, false);
 	if (!strcmp(operation, "pb"))
 		return ps_stream_append_pb(stream, count, false);
-	if (!strcmp(operation, "sa"))
-		return ps_stream_append_sa(stream, false);
-	if (!strcmp(operation, "sb"))
-		return ps_stream_append_sb(stream, false);
-	if (!strcmp(operation, "ss"))
-		return ps_stream_append_ss(stream);
 	if (!strcmp(operation, "ra"))
 		return ps_stream_append_ra(stream, count, false);
 	if (!strcmp(operation, "rb"))
@@ -42,7 +67,7 @@ static t_err	append(t_ps_stream *stream, const char *operation, size_t count)
 		return ps_stream_append_rrb(stream, count, false);
 	if (!strcmp(operation, "rrr"))
 		return ps_stream_append_rrr(stream, count);
-	return (true);
+	return (append_swap(stream, operation, count));
 }
 
 t_err	test(size_t a, size_t b)
