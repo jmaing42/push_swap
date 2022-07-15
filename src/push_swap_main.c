@@ -89,6 +89,8 @@ int	main(int argc, const char **argv)
 	int				*numbers;
 	unsigned int	count;
 
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	ft_set_exit_handler(print_error_message);
 	count = argc - 1;
 	init(&context, &numbers, count, &argv[1]);

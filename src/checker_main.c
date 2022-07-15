@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "checker.h"
@@ -96,6 +97,8 @@ int	main(int argc, char **argv)
 	char					*line;
 	size_t					nop;
 
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	context.buffer_size = BUFFER_SIZE;
 	ft_set_exit_handler(print_error_message);
 	ft_bzero(&context, sizeof(context));
