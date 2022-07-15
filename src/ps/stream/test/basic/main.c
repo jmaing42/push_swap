@@ -16,7 +16,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-#include "../../ps_stream.h"
+#include "ps_stream.h"
 
 t_err	parse_input(char *buffer, t_ps_stream_operation *operation, bool *to_b)
 {

@@ -26,6 +26,6 @@ t_err	ps_stream_internal_append_rb(t_ps_stream *self, size_t count)
 	ps_stream_internal_append_no_check_parallel(
 		&self->tail->value.parallel->b,
 		count);
-	ps_stream_internal_clear_last(self);
+	ps_stream_internal_clear(self);
 	return (false);
 }

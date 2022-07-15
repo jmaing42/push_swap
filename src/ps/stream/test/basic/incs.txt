@@ -1,3 +1,5 @@
+/ps/stream
+/ps/stream/internal
 /ft
 /ft/types
 /ft/per_type

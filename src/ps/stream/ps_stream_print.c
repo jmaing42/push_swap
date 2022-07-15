@@ -1,9 +1,9 @@
-#include "ft_const_pointer.h"
-#include "ft_io.h"
 #include "ps_stream.h"
 
-#include <stdbool.h>
 #include <stdlib.h>
+
+#include "ft_io.h"
+#include "ft_const_pointer.h"
 
 static t_err	ps_stream_print_separator(
 	t_ps_stream_node_separator *node,
@@ -66,8 +66,16 @@ static t_err	ps_stream_print_node(
 		|| (
 			*node->value.type == PS_STREAM_NODE_TYPE_PARALLEL
 			&& (
-				ps_stream_print_parallel_list(&node->value.parallel->a, fd)
-				|| ps_stream_print_parallel_list(&node->value.parallel->b, fd)
+				ps_stream_print_parallel_list(
+					&node->value.parallel->a,
+					fd,
+					false
+				)
+				|| ps_stream_print_parallel_list(
+					&node->value.parallel->b,
+					fd,
+					true
+				)
 			)
 		)
 	);
