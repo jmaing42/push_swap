@@ -26,6 +26,5 @@ bool	ps_stream_internal_clear_node_separator(
 	self->pb -= common;
 	if (self->pa || self->pb)
 		return (false);
-	free(self);
 	return (true);
 }

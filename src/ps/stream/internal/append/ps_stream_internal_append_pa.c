@@ -16,7 +16,7 @@
 
 t_err	ps_stream_internal_append_pa(t_ps_stream *self, size_t count)
 {
-	count = ft_size_t_max(count, self->b);
+	count = ft_size_t_min(count, self->b);
 	if (!count)
 		return (false);
 	if (ps_stream_internal_make_last_node_separator(self))

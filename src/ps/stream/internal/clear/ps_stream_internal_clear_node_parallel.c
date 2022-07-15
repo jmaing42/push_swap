@@ -24,6 +24,5 @@ bool	ps_stream_internal_clear_node_parallel(
 	ps_stream_internal_clear_parallel(&self->b);
 	if (self->a.head || self->b.head)
 		return (false);
-	free(self);
 	return (true);
 }
