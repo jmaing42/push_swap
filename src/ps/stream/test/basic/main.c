@@ -18,49 +18,44 @@
 
 #include "ps_stream.h"
 
-t_err	parse_input(char *buffer, t_ps_stream_operation *operation, bool *to_b)
+static t_err	append(t_ps_stream *stream, const char *operation, size_t count)
 {
-	bool	result;
-
-	result = true;
-	*to_b = (buffer[1] == 'b' || (buffer[1] == 'r' && buffer[2] == 'a'));
-	if (buffer[0] == 'p')
-	{
-		*operation = PS_STREAM_OPERATION_PUSH;
-		result = false;
-	}
-	if (buffer[0] == 's')
-	{
-		*operation = PS_STREAM_OPERATION_SWAP;
-		result = false;
-	}
-	if (buffer[0] == 'r')
-	{
-		*operation = PS_STREAM_OPERATION_ROTATE;
-		result = false;
-	}
-	if (buffer[1] == 'r')
-	{
-		*operation = PS_STREAM_OPERATION_REVERSE_ROTATE;
-		result = false;
-	}
-	return (result);
+	if (!strcmp(operation, "pa"))
+		return ps_stream_append_pa(stream, count, false);
+	if (!strcmp(operation, "pb"))
+		return ps_stream_append_pb(stream, count, false);
+	if (!strcmp(operation, "sa"))
+		return ps_stream_append_sa(stream, false);
+	if (!strcmp(operation, "sb"))
+		return ps_stream_append_sb(stream, false);
+	if (!strcmp(operation, "ss"))
+		return ps_stream_append_ss(stream);
+	if (!strcmp(operation, "ra"))
+		return ps_stream_append_ra(stream, count, false);
+	if (!strcmp(operation, "rb"))
+		return ps_stream_append_rb(stream, count, false);
+	if (!strcmp(operation, "rr"))
+		return ps_stream_append_rr(stream, count);
+	if (!strcmp(operation, "rra"))
+		return ps_stream_append_rra(stream, count, false);
+	if (!strcmp(operation, "rrb"))
+		return ps_stream_append_rrb(stream, count, false);
+	if (!strcmp(operation, "rrr"))
+		return ps_stream_append_rrr(stream, count);
+	return (true);
 }
 
 t_err	test(size_t a, size_t b)
 {
 	t_ps_stream *const		stream = new_ps_stream(a, b);
-	t_ps_stream_operation	operation;
 	size_t					count;
-	bool					to_b;
 	char					buffer[4];
 
 	if (!stream)
 		return (true);
 	while (!feof(stdin) && scanf("%3s %zu", buffer, &count) == 2)
 	{
-		if (parse_input(buffer, &operation, &to_b)
-			|| ps_stream_append(stream, operation, count, to_b))
+		if (append(stream, buffer, count))
 		{
 			ps_stream_free(stream);
 			return (true);
@@ -78,8 +73,8 @@ t_err	test(size_t a, size_t b)
 
 int	main(int argc, char **argv)
 {
-	size_t					a;
-	size_t					b;
+	size_t	a;
+	size_t	b;
 
 	if (argc > 1)
 		freopen(argv[1], "r", stdin);

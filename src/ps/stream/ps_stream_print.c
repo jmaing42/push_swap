@@ -14,11 +14,11 @@ static t_err	ps_stream_print_separator(
 
 	i = -1;
 	while (++i < node->pa)
-		if (ft_puts(fd, "pa"))
+		if (ft_puts(fd, "pa\n"))
 			return (true);
 	i = -1;
 	while (++i < node->pb)
-		if (ft_puts(fd, "pb"))
+		if (ft_puts(fd, "pb\n"))
 			return (true);
 	return (false);
 }
@@ -38,15 +38,15 @@ static t_err	ps_stream_print_parallel_list(
 		i = -1;
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_SWAP)
 			while (++i < current->count)
-				if (ft_puts(fd, ft_const_pointer_if(b, "sb", "sa")))
+				if (ft_puts(fd, ft_const_pointer_if(b, "sb\n", "sa\n")))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)
 			while (++i < current->count)
-				if (ft_puts(fd, ft_const_pointer_if(b, "rb", "ra")))
+				if (ft_puts(fd, ft_const_pointer_if(b, "rb\n", "ra\n")))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)
 			while (++i < current->count)
-				if (ft_puts(fd, ft_const_pointer_if(b, "rrb", "rra")))
+				if (ft_puts(fd, ft_const_pointer_if(b, "rrb\n", "rra\n")))
 					return (true);
 		current = current->next;
 	}
