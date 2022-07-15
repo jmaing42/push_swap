@@ -1,6 +1,8 @@
+#include "ft_const_pointer.h"
 #include "ft_io.h"
 #include "ps_stream.h"
 
+#include <stdbool.h>
 #include <stdlib.h>
 
 static t_err	ps_stream_print_separator(
@@ -22,19 +24,33 @@ static t_err	ps_stream_print_separator(
 }
 
 static t_err	ps_stream_print_parallel_list(
-	t_ps_stream_node_parallel_list *list
+	t_ps_stream_node_parallel_list *list,
+	int fd,
+	bool b
 )
 {
 	t_ps_stream_node_parallel_list_node	*current;
-	size_t			internal			i;
+	size_t								i;
 
 	current = list->head;
 	while (current)
 	{
 		i = -1;
-		// TODO:
+		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_SWAP)
+			while (++i < current->count)
+				if (ft_puts(fd, ft_const_pointer_if(b, "sb", "sa")))
+					return (true);
+		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)
+			while (++i < current->count)
+				if (ft_puts(fd, ft_const_pointer_if(b, "rb", "ra")))
+					return (true);
+		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)
+			while (++i < current->count)
+				if (ft_puts(fd, ft_const_pointer_if(b, "rrb", "rra")))
+					return (true);
 		current = current->next;
 	}
+	return (false);
 }
 
 static t_err	ps_stream_print_node(
