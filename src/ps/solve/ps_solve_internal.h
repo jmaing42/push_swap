@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/17 00:50:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/17 00:55:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,6 @@ void					ps_solve_util_reverse(
 							int *arr,
 							size_t count);
 
-t_err					ps_solve_util_move_tst(
-							t_ps_stream *stream,
-							bool from_right);
 t_err					ps_solve_util_move_tsb(
 							t_ps_stream *stream,
 							bool from_right);
@@ -67,9 +64,6 @@ t_err					ps_solve_util_move_tob(
 							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_move_bst(
-							t_ps_stream *stream,
-							bool from_right);
-t_err					ps_solve_util_move_bsb(
 							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_move_bot(
