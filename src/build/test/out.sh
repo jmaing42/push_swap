@@ -4,14 +4,14 @@ set -e
 
 find data -name "*.txt" | sed s/\\.txt\$// | sort | cut -c 6- | while IFS= read -r line
 do
-  if ./test.exe $line | cmp -s "data/$line.txt" ; then
+  if ./test.exe "$line" | cmp -s "data/$line.txt" ; then
     if [ "$V" = "1" ]; then
       if [ -t 1 ]; then
         printf "\033[0;32m[PASS]\033[0m "
       else
         printf "[PASS] "
       fi
-      printf "ps_strategy_util/try_all_permutations - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
   else
     if [ "$V" = "1" ]; then
@@ -20,7 +20,7 @@ do
       else
         printf "[FAIL] "
       fi
-      printf "ps_strategy_util/try_all_permutations - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
     exit 1
   fi

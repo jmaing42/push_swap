@@ -6,14 +6,14 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/11 00:24:14 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/11 00:36:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/17 01:30:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "../../ps_strategy_util.h"
+#include "ps_strategy_util.h"
 
 static size_t	print(
 	const t_ps_strategy_count *unused,

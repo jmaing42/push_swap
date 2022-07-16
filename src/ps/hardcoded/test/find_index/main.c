@@ -6,11 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/13 01:15:30 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/13 01:19:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/17 01:21:35 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ps_hardcoded.h"
+#include "ps_hardcoded.h"
 
 #include <stdio.h>
 #include <stdlib.h>

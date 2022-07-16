@@ -1,5 +1,3 @@
-include $(BASE_PATH)/build/common.mk
-
 all: test
 
 include $(BASE_PATH)/build/compile_commands.mk
@@ -16,7 +14,6 @@ clean:
 fclean: clean
 
 test: build
-	$Qsh test.sh
 
 build:
-	$Qmake -C .cache test.exe
+	$Qmake COMMON_FLAGS=$(COMMON_FLAGS) -C .cache test.exe

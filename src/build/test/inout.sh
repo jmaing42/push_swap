@@ -11,7 +11,7 @@ do
       else
         printf "[PASS] "
       fi
-      printf "ft/strict_atoi - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
   else
     if [ "$V" = "1" ]; then
@@ -20,7 +20,7 @@ do
       else
         printf "[FAIL] "
       fi
-      printf "ft/strict_atoi - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
     exit 1
   fi

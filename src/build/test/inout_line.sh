@@ -11,7 +11,7 @@ do
       else
         printf "[PASS] "
       fi
-      printf "ps_hardcoded/find_index - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
   else
     if [ "$V" = "1" ]; then
@@ -20,7 +20,7 @@ do
       else
         printf "[FAIL] "
       fi
-      printf "ps_hardcoded/find_index - %s\n" "$line"
+      printf "$1 - %s\n" "$line"
     fi
     exit 1
   fi
