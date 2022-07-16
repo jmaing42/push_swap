@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/16 00:03:22 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/17 00:16:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 typedef struct s_ps_solve_context
 {
 	t_ps_stream					*stream;
-	struct s_ps_strategy_count	*table;
+	struct s_ps_solve_table		*table;
 	size_t						table_size;
 }	t_ps_solve_context;
 
@@ -65,5 +65,101 @@ typedef struct s_ps_solve_table
 	t_ps_solve_count_part	bos;
 	t_ps_solve_count_part	bob;
 }	t_ps_solve_table;
+
+t_err	ps_solve_tst(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_tsb(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_txt(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_txb(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_tot(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_tos(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_tob(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_sss(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_sxs(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_sot(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_sos(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_sob(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bst(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bsb(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bxt(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bxb(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bot(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bos(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
+t_err	ps_solve_bob(
+			t_ps_solve_context *context,
+			int *arr,
+			size_t length,
+			bool from_right);
 
 #endif
