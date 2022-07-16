@@ -2,8 +2,8 @@ Q := $(if $(filter 1,$(V) $(VERBOSE)),,@)
 MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh build/nproc.sh))
 
 CC := clang
-CCLD := clang
 AR := ar
+ARFLAGS := cr$(if $(filter 1,$(V) $(VERBOSE)),v,)
 CPPFLAGS := $(shell find . -type d -mindepth 1 | grep -v /test/ | sed "s/^/-I /" | xargs)
 CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS)
 
@@ -57,10 +57,10 @@ LDFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 
 $(OBJ_DIR)/%.a:
 	$Qmkdir -p $(@D)
-	$Q$(AR) rcs $@ $^
+	$Q$(AR) $(ARFLAGS) $@ $^
 $(OBJ_DIR)/%.exe:
 	$Qmkdir -p $(@D)
-	$Q$(CCLD) $(LDFLAGS) -MJ $@.part.json -o $@ $^
+	$Q$(CC) $(LDFLAGS) -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
 	$Q$(CC) $(CFLAGS) -MJ $@.part.json -MMD -o $@ -c $<
