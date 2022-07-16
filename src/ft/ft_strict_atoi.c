@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:43:21 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/16 17:28:14 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/16 17:41:48 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ t_err	ft_strict_atoi(const char *str, int *out)
 	int	sgn;
 	int	result;
 
-	if (!is_invalid(str))
+	if (is_invalid(str))
 		return (true);
 	result = 0;
 	sgn = 1;
