@@ -1,0 +1,369 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_solve_internal.h                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/16 00:24:34 by Juyeong Maing    ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef PS_SOLVE_INTERNAL_H
+# define PS_SOLVE_INTERNAL_H
+
+# include "ps_solve.h"
+
+typedef size_t	(*t_ps_solve_count)(
+					t_ps_solve_context *context,
+					int *arr,
+					size_t length);
+
+typedef struct s_ps_solve_count_tuple
+{
+	t_ps_solve			solver;
+	t_ps_solve_count	counter;
+}	t_ps_solve_count_tuple;
+
+t_ps_solve_count_part	ps_solve_count_part(
+							t_ps_solve_count_tuple *strategies,
+							size_t count);
+t_ps_solve_count_item	ps_solve_util_try_all_permutation(
+							t_ps_solve_count strategy,
+							size_t count);
+
+t_err					ps_solve_tst(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_tsb(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_txt(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_txb(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_tot(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_tos(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_tob(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_sss(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_sxs(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_sot(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_sos(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_sob(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bst(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bsb(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bxt(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bxb(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bot(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bos(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+t_err					ps_solve_bob(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+
+size_t					ps_solve_util_chunk_size_tst_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tst_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tst_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tsb_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tsb_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tsb_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txt_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txt_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txt_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txb_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txb_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_txb_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tot_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tot_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tot_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tos_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tos_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tos_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tob_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tob_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_tob_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sss_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sss_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sss_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sxs_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sxs_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sxs_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sot_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sot_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sot_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sos_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sos_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sos_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sob_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sob_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_sob_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bst_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bst_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bst_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bsb_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bsb_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bsb_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxt_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxt_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxt_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxb_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxb_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bxb_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bot_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bot_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bot_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bos_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bos_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bos_z(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bob_x(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bob_y(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_chunk_size_bob_z(
+							t_ps_solve_context *context,
+							size_t count);
+
+size_t					ps_solve_util_approximate_tst(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_tsb(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_txt(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_txb(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_tot(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_tos(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_tob(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_sss(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_sxs(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_sot(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_sos(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_sob(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bst(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bsb(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bxt(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bxb(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bot(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bos(
+							t_ps_solve_context *context,
+							size_t count);
+size_t					ps_solve_util_approximate_bob(
+							t_ps_solve_context *context,
+							size_t count);
+
+void					ps_solve_util_inverse(
+							int *arr,
+							size_t count);
+void					ps_solve_util_reverse(
+							int *arr,
+							size_t count);
+
+#endif

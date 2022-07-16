@@ -16,12 +16,12 @@
 
 t_err	ps_stream_internal_append_pb(t_ps_stream *self, size_t count)
 {
-	count = ft_size_t_max(count, self->a);
+	count = ft_size_t_min(count, self->a);
 	if (!count)
 		return (false);
 	if (ps_stream_internal_make_last_node_separator(self))
 		return (true);
 	ps_stream_internal_append_no_check_push_to_b(self, count);
-	ps_stream_internal_clear_last(self);
+	ps_stream_internal_clear(self);
 	return (false);
 }

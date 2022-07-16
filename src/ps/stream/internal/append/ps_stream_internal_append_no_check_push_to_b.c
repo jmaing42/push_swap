@@ -12,7 +12,7 @@
 
 #include "ps_stream_internal.h"
 
-void	ps_stream_internal_append_no_check_push_to_a(
+void	ps_stream_internal_append_no_check_push_to_b(
 	t_ps_stream *self,
 	size_t count
 )

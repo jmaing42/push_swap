@@ -4,7 +4,7 @@
     {
       "label": "build unit test ps_stream (basic)",
       "type": "shell",
-      "command": "make test.exe",
+      "command": "make build",
       "options": {
         "cwd": "${workspaceFolder}/src/ps/stream/test/basic",
       },
