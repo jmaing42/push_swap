@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:43:21 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/11 22:11:29 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/16 17:28:14 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,29 @@
 
 #include <limits.h>
 
+static bool	is_invalid(const char *str)
+{
+	return (
+		!str[0]
+		|| (str[0] == '-' && !str[1])
+		|| (str[0] == '+' && !str[1])
+		|| (str[0] == '-' && str[1] == '0')
+		|| (str[0] == '+' && str[1] == '0')
+		|| (str[0] == '0' && str[1])
+	);
+}
+
 t_err	ft_strict_atoi(const char *str, int *out)
 {
 	int	sgn;
 	int	result;
 
+	if (!is_invalid(str))
+		return (true);
 	result = 0;
 	sgn = 1;
-	if (*str == '-')
-	{
-		str++;
+	if (*str == '-' && *str++)
 		sgn = -1;
-	}
 	else if (*str == '+')
 		str++;
 	while (*str)
