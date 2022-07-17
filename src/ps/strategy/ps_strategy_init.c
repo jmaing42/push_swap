@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:15:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 16:21:20 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 00:58:43 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@
 #include "ps_strategy_sss.h"
 #include "ps_strategy_sxs.h"
 #include "ps_strategy_sot.h"
-#include "ps_strategy_sos.h"
 #include "ps_strategy_sob.h"
 #include "ps_strategy_bst.h"
 #include "ps_strategy_bsb.h"
@@ -53,7 +52,6 @@ void	ps_strategy_init(
 		ps_strategy_sss_init(table, i);
 		ps_strategy_sxs_init(table, i);
 		ps_strategy_sot_init(table, i);
-		ps_strategy_sos_init(table, i);
 		ps_strategy_sob_init(table, i);
 		ps_strategy_bst_init(table, i);
 		ps_strategy_bsb_init(table, i);

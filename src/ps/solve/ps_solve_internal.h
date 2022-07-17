@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 00:48:09 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 01:01:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -364,6 +364,186 @@ t_err					ps_solve_tob_quick_rotate_solve(
 							size_t length,
 							bool from_right);
 size_t					ps_solve_tob_quick_rotate_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sss_merge_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sss_merge_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sss_quick_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sss_quick_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sxs_merge_no_twist_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sxs_merge_no_twist_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sxs_merge_twist_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sxs_merge_twist_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sxs_quick_no_twist_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sxs_quick_no_twist_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sxs_quick_twist_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sxs_quick_twist_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_merge_twist_up_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_merge_twist_up_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_merge_twist_down_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_merge_twist_down_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_merge_rotate_up_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_merge_rotate_up_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_merge_rotate_down_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_merge_rotate_down_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_merge_no_rotate_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_merge_no_rotate_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sot_quick_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sot_quick_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_merge_twist_up_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_merge_twist_up_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_merge_twist_down_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_merge_twist_down_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_merge_rotate_up_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_merge_rotate_up_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_merge_rotate_down_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_merge_rotate_down_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_merge_no_rotate_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_merge_no_rotate_count(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length);
+
+t_err					ps_solve_sob_quick_solve(
+							t_ps_solve_context *context,
+							int *arr,
+							size_t length,
+							bool from_right);
+size_t					ps_solve_sob_quick_count(
 							t_ps_solve_context *context,
 							int *arr,
 							size_t length);

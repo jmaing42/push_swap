@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 01:25:28 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/07 23:12:05 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 00:58:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,8 +174,6 @@ const char *const			*ps_dijkstra_solution_ssb(
 const char *const			*ps_dijkstra_solution_sxb(
 								uint8_t length);
 const char *const			*ps_dijkstra_solution_sot(
-								uint8_t length);
-const char *const			*ps_dijkstra_solution_sos(
 								uint8_t length);
 const char *const			*ps_dijkstra_solution_sob(
 								uint8_t length);

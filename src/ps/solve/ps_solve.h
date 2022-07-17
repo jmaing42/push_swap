@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/17 00:16:40 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 00:58:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ typedef struct s_ps_solve_table
 	t_ps_solve_count_part	sss;
 	t_ps_solve_count_part	sxs;
 	t_ps_solve_count_part	sot;
-	t_ps_solve_count_part	sos;
 	t_ps_solve_count_part	sob;
 	t_ps_solve_count_part	bst;
 	t_ps_solve_count_part	bsb;
@@ -112,11 +111,6 @@ t_err	ps_solve_sxs(
 			size_t length,
 			bool from_right);
 t_err	ps_solve_sot(
-			t_ps_solve_context *context,
-			int *arr,
-			size_t length,
-			bool from_right);
-t_err	ps_solve_sos(
 			t_ps_solve_context *context,
 			int *arr,
 			size_t length,
