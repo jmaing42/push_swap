@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 07:48:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 08:06:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,34 +94,45 @@ t_err					ps_solve_util_divide_from_top(
 							t_ps_solve_util_parts params);
 t_err					ps_solve_util_divide_from_bottom(
 							t_ps_solve_util_parts params);
-t_ps_solve_util_parts	*ps_solve_util_collect(
+t_err					ps_solve_util_rotate_up(
+							t_ps_stream *stream,
+							t_ps_solve_util_array *left,
+							t_ps_solve_util_array *right,
+							bool from_right);
+t_err					ps_solve_util_rotate_down(
+							t_ps_stream *stream,
+							t_ps_solve_util_array *left,
+							t_ps_solve_util_array *right,
+							bool from_right);
+
+t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 							int *array,
 							size_t top,
 							size_t middle,
 							size_t bottom);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_stb(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_stb(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_stb(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_stb(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_sbt(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_sbt(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_sbt(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_sbt(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_tsb(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_tsb(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_tsb(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_tsb(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_tbs(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_tbs(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_tbs(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_tbs(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_bst(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_bst(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_bst(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_bst(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_top_bts(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_top_bts(
 							t_ps_solve_util_divide params);
-t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_bts(
+t_ps_solve_util_parts	ps_solve_util_allocate_divide_from_bottom_bts(
 							t_ps_solve_util_divide params);
 
 t_err					ps_solve_tsb_merge_solve(
