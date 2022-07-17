@@ -16,4 +16,4 @@ fclean: clean
 test: build
 
 build:
-	$Qmake COMMON_FLAGS=$(COMMON_FLAGS) -C .cache test.exe
+	$Qmake COMMON_FLAGS=$(COMMON_FLAGS) -C .cache
