@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 00:58:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 05:41:21 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,22 @@ typedef t_err	(*t_ps_solve)(
 					size_t length,
 					bool from_right);
 
-typedef struct s_ps_solve_count_item
+typedef struct s_ps_solve_count_size
 {
 	size_t	x;
 	size_t	y;
 	size_t	z;
-	size_t	count;
+}	t_ps_solve_count_size;
+
+typedef struct s_ps_solve_count_item
+{
+	t_ps_solve_count_size	size;
+	size_t					count;
 }	t_ps_solve_count_item;
 
 typedef struct s_ps_solve_count_part
 {
-	t_ps_solve_count_item	s;
+	t_ps_solve_count_item	item;
 	t_ps_solve				solve;
 }	t_ps_solve_count_part;
 
