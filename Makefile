@@ -3,14 +3,13 @@ MAKE := make $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
 
 all: test
 clean:
-	$Qrm -rf tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
-	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} clean
+	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} clean
 	@printf "\033[0m"
 fclean:
-	$Qrm -rf tmp compile_commands.json push_swap.exe checker.exe
+	$Qrm -rf tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
-	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} fclean
+	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} fclean
 	@printf "\033[0m"
 re:
 	$Q$(MAKE) fclean
