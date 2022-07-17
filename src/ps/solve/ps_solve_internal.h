@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 07:42:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 07:48:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,18 +34,18 @@ typedef struct s_ps_solve_util_array
 
 typedef struct s_ps_solve_util_parts
 {
-	t_ps_solve_util_array	x;
-	t_ps_solve_util_array	y;
-	t_ps_solve_util_array	z;
+	t_ps_solve_util_array	a;
+	t_ps_solve_util_array	b;
+	t_ps_solve_util_array	c;
 	int						memory[];
 }	t_ps_solve_util_parts;
 
 typedef struct s_ps_solve_util_divide
 {
 	t_ps_stream					*stream;
-	const t_ps_solve_util_array	*x;
-	const t_ps_solve_util_array	*y;
-	const t_ps_solve_util_array	*z;
+	const t_ps_solve_util_array	*p;
+	const t_ps_solve_util_array	*q;
+	const t_ps_solve_util_array	*r;
 	bool						from_right;
 }	t_ps_solve_util_divide;
 
@@ -86,24 +86,19 @@ t_err					ps_solve_util_move_bob(
 							t_ps_stream *stream,
 							bool from_right);
 
-t_ps_solve_util_parts	*ps_solve_util_allocate(
-							size_t first,
-							size_t second,
-							size_t third);
-t_ps_solve_util_parts	*ps_solve_util_allocate_quick(
-							int *array,
-							size_t small,
-							size_t medium,
-							size_t big);
-t_ps_solve_util_parts	*ps_solve_util_allocate_merge(
-							int *array,
-							size_t top,
-							size_t middle,
-							size_t bottom);
 t_err					ps_solve_util_collect_to_top(
 							t_ps_solve_util_divide params);
 t_err					ps_solve_util_collect_to_bottom(
 							t_ps_solve_util_divide params);
+t_err					ps_solve_util_divide_from_top(
+							t_ps_solve_util_parts params);
+t_err					ps_solve_util_divide_from_bottom(
+							t_ps_solve_util_parts params);
+t_ps_solve_util_parts	*ps_solve_util_collect(
+							int *array,
+							size_t top,
+							size_t middle,
+							size_t bottom);
 t_ps_solve_util_parts	ps_solve_util_divide_from_top_stb(
 							t_ps_solve_util_divide params);
 t_ps_solve_util_parts	ps_solve_util_divide_from_bottom_stb(
