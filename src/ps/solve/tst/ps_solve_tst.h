@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 05:08:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 05:40:31 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 09:19:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,11 @@
 
 # include "ps_solve_internal.h"
 
-t_ps_solve_strategy		ps_solve_tst_strategy(size_t count);
-t_ps_solve_count_part	ps_solve_tst_count_part(size_t count);
+t_ps_solve_strategy		ps_solve_tst_strategy(
+							t_ps_solve_context *context,
+							size_t count);
+t_ps_solve_count_part	ps_solve_tst_count_part(
+							size_t count);
 
 t_err					ps_solve_tst_merge_no_rotate_solve(
 							t_ps_solve_context *context,

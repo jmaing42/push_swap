@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 05:41:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 09:15:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,18 @@ typedef struct s_ps_solve_context
 	size_t						table_size;
 }	t_ps_solve_context;
 
-typedef t_err	(*t_ps_solve)(
-					t_ps_solve_context *context,
-					int *arr,
-					size_t length,
-					bool from_right);
-
 typedef struct s_ps_solve_count_size
 {
 	size_t	x;
 	size_t	y;
 	size_t	z;
 }	t_ps_solve_count_size;
+
+typedef t_err	(*t_ps_solve)(
+					t_ps_solve_context *context,
+					int *arr,
+					t_ps_solve_count_size size,
+					bool from_right);
 
 typedef struct s_ps_solve_count_item
 {

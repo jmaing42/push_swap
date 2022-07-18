@@ -6,19 +6,22 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 08:06:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 09:19:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PS_SOLVE_INTERNAL_H
 # define PS_SOLVE_INTERNAL_H
 
-#include "ft_types.h"
 # include "ps_solve.h"
+
+# include "ft_types.h"
 
 typedef size_t	(*t_ps_solve_count)(
 					t_ps_solve_context *context,
-					size_t count);
+					size_t x,
+					size_t y,
+					size_t z);
 
 typedef struct s_ps_solve_count_tuple
 {
@@ -57,6 +60,7 @@ typedef struct s_ps_solve_strategy
 
 t_ps_solve_count_part	ps_solve_count_part(
 							const t_ps_solve_count_tuple *strategies,
+							size_t length,
 							size_t count);
 t_ps_solve_count_item	ps_solve_util_try_all_permutation(
 							t_ps_solve_count strategy,
