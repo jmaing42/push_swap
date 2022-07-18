@@ -82,9 +82,17 @@ t_err	ps_solve_tst(
 	bool from_right
 )
 {
-	const t_ps_solve_strategy	strategy = ps_solve_tst_strategy(
+	const t_ps_solve_strategy	strategy
+		= ps_solve_tst_strategy(
 			context,
 			length);
 
-	return (strategy.solve(context, arr, strategy.size, from_right));
+	return (
+		strategy.solve(
+			context,
+			arr,
+			strategy.size,
+			from_right
+		)
+	);
 }
