@@ -18,7 +18,7 @@
 # include "ft_types.h"
 
 typedef size_t	(*t_ps_solve_count)(
-					t_ps_solve_context *context,
+					const t_ps_solve_table *context,
 					size_t x,
 					size_t y,
 					size_t z);
@@ -63,6 +63,7 @@ t_ps_solve_count_part	ps_solve_count_part(
 							size_t length,
 							size_t count);
 t_ps_solve_count_item	ps_solve_util_try_all_permutation(
+							const t_ps_solve_table *table,
 							t_ps_solve_count strategy,
 							size_t count);
 

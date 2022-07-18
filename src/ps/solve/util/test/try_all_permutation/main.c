@@ -13,10 +13,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "ps_strategy_util.h"
+#include "ps_solve_internal.h"
 
 static size_t	print(
-	const t_ps_strategy_count *unused,
+	const t_ps_solve_table *unused,
 	size_t x,
 	size_t y,
 	size_t z
@@ -36,6 +36,6 @@ int	main(int argc, char **argv)
 	count = atoi(argv[1]);
 	if (count < 0)
 		return (EXIT_FAILURE);
-	ps_strategy_util_try_all_permutations(NULL, count, print);
+	ps_solve_util_try_all_permutation(NULL, print, count);
 	return (EXIT_SUCCESS);
 }

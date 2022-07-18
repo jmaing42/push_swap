@@ -1,0 +1,2 @@
+main.c
+../../ps_solve_util_try_all_permutation.c
