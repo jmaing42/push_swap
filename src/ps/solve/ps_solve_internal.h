@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 22:11:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/18 22:24:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,15 @@ t_ps_solve_count_part	ps_solve_count_part(
 							size_t count);
 t_ps_solve_count_item	ps_solve_util_try_all_permutation(
 							const t_ps_solve_table *table,
-							t_ps_solve_count strategy,
+							const t_ps_solve_count strategy,
 							size_t count);
 
+void					ps_solve_util_sort(
+							t_ps_solve_util_array	*array);
 void					ps_solve_util_inverse(
-							const t_ps_solve_util_array	*array);
+							t_ps_solve_util_array	*array);
 void					ps_solve_util_reverse(
-							const t_ps_solve_util_array	*array);
+							t_ps_solve_util_array	*array);
 
 t_err					ps_solve_util_move_tsb(
 							t_ps_stream *stream,
@@ -92,13 +94,13 @@ t_err					ps_solve_util_move_bob(
 							bool from_right);
 
 t_err					ps_solve_util_collect_to_top(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_collect_to_bottom(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_divide_from_top(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_divide_from_bottom(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_rotate_up(
 							t_ps_stream *stream,
 							t_ps_solve_util_array *left,
@@ -116,29 +118,29 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 							size_t middle,
 							size_t bottom);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_stb(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_stb(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_sbt(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_sbt(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_tsb(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_tsb(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_tbs(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_tbs(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_bst(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_bst(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_bts(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_bts(
-							t_ps_solve_util_divide params);
+							const t_ps_solve_util_divide params);
 
 t_err					ps_solve_tsb_merge_solve(
 							t_ps_solve_context *context,
