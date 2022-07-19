@@ -13,6 +13,15 @@
     {
       "type": "lldb",
       "request": "launch",
+      "name": "Debug unit test ps_solve_util_allocate_collect (basic)",
+      "program": "${workspaceFolder}/src/ps/solve/util/allocate/test/allocate_collect/.cache/test.exe",
+      "args": ["data/1-sorted.in.txt"],
+      "cwd": "${workspaceFolder}/src/ps/solve/util/allocate/test/allocate_collect",
+      "preLaunchTask": "build unit test ps_solve_util_allocate_collect (basic)",
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
       "name": "Debug checker",
       "program": "${workspaceFolder}/src/.cache/checker.production.debug.address.exe",
       "args": ["1", "2", "3"],

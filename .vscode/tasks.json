@@ -11,6 +11,15 @@
       "problemMatcher": ["$gcc"]
     },
     {
+      "label": "build unit test ps_solve_util_allocate_collect (basic)",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "${workspaceFolder}/src/ps/solve/util/allocate/test/allocate_collect",
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
       "label": "build checker (debug)",
       "type": "shell",
       "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",

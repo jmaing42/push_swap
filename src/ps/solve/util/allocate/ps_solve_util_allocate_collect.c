@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:00:48 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:11:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 21:38:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 {
 	const size_t					length = top + middle + bottom;
 	t_ps_solve_util_parts *const	result
-		= malloc( sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
+		= malloc(sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
 
 	if (!result)
 		return (NULL);
 	ft_memcpy(result->memory, array, sizeof(int) * (length));
 	result->a.array = result->memory;
 	result->b.array = result->memory + top;
-	result->b.array = result->memory + top + middle;
+	result->c.array = result->memory + top + middle;
 	result->a.length = top;
 	result->b.length = middle;
 	result->c.length = bottom;
