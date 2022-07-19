@@ -6,14 +6,12 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:01:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 09:21:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 08:53:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_tst.h"
 #include "ps_solve_internal.h"
-
-// TODO: implement
 
 static const t_ps_solve_count_tuple	g_strategies[] = {
 {
@@ -42,8 +40,10 @@ static const t_ps_solve_count_tuple	g_strategies[] = {
 },
 };
 
+// TODO: implement
+
 t_ps_solve_strategy	ps_solve_tst_strategy(
-	t_ps_solve_context *context,
+	const t_ps_solve_context *context,
 	size_t count
 )
 {
@@ -76,8 +76,8 @@ t_ps_solve_count_part	ps_solve_tst_count_part(
 }
 
 t_err	ps_solve_tst(
-	t_ps_solve_context *context,
-	int *arr,
+	const t_ps_solve_context *context,
+	const int *arr,
 	size_t length,
 	bool from_right
 )

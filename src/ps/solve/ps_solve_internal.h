@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 22:24:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 08:49:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ typedef size_t	(*t_ps_solve_count)(
 
 typedef struct s_ps_solve_count_tuple
 {
-	t_ps_solve			solver;
-	t_ps_solve_count	counter;
+	const t_ps_solve		solver;
+	const t_ps_solve_count	counter;
 }	t_ps_solve_count_tuple;
 
 typedef struct s_ps_solve_util_array
