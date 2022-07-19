@@ -68,12 +68,19 @@ t_ps_solve_count_item	ps_solve_util_try_all_permutation(
 							const t_ps_solve_count strategy,
 							size_t count);
 
+void					ps_solve_util_sort(
+							int	*array,
+							size_t length);
 void					ps_solve_util_array_sort(
-							t_ps_solve_util_array	*array);
+							t_ps_solve_util_array	*self);
+void					ps_solve_util_array_sort_as(
+							t_ps_solve_util_array	*self_sorted,
+							const int *order_array,
+							size_t order_length);
 void					ps_solve_util_array_inverse(
-							t_ps_solve_util_array	*array);
+							t_ps_solve_util_array	*self);
 void					ps_solve_util_array_reverse(
-							t_ps_solve_util_array	*array);
+							t_ps_solve_util_array	*self);
 
 t_err					ps_solve_util_move_tsb(
 							t_ps_stream *stream,
@@ -118,30 +125,11 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 							size_t top,
 							size_t middle,
 							size_t bottom);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_stb(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_stb(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_sbt(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_sbt(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_tsb(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_tsb(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_tbs(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_tbs(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_bst(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_bst(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_bts(
-							const t_ps_solve_util_divide params);
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_bts(
-							const t_ps_solve_util_divide params);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
 
 // TODO: move declarations below to each header
 

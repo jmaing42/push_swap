@@ -10,32 +10,32 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory.h"
 #include "ps_solve_internal.h"
 
 #include <stdlib.h>
 
+#include "ft_memory.h"
+
 t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 	const int *array,
-	size_t a,
-	size_t b,
-	size_t c
+	size_t top,
+	size_t middle,
+	size_t bottom
 )
 {
+	const size_t					length = top + middle + bottom;
 	t_ps_solve_util_parts *const	result
-		= malloc(
-			sizeof(t_ps_solve_util_parts)
-			+ sizeof(int) * (a + b + c));
+		= malloc( sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
 
 	if (!result)
 		return (NULL);
-	ft_memcpy(result->memory, array, sizeof(int) * (a + b + c));
+	ft_memcpy(result->memory, array, sizeof(int) * (length));
 	result->a.array = result->memory;
-	result->b.array = result->memory + a;
-	result->b.array = result->memory + a + b;
-	result->a.length = a;
-	result->b.length = b;
-	result->c.length = c;
+	result->b.array = result->memory + top;
+	result->b.array = result->memory + top + middle;
+	result->a.length = top;
+	result->b.length = middle;
+	result->c.length = bottom;
 	ps_solve_util_array_sort(&result->a);
 	ps_solve_util_array_sort(&result->b);
 	ps_solve_util_array_sort(&result->c);
