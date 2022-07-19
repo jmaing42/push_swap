@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:06:41 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:12:09 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ t_ps_solve_count_item	ps_solve_util_try_all_permutation(
 							const t_ps_solve_count strategy,
 							size_t count);
 
-void					ps_solve_util_sort(
+void					ps_solve_util_array_sort(
 							t_ps_solve_util_array	*array);
-void					ps_solve_util_inverse(
+void					ps_solve_util_array_inverse(
 							t_ps_solve_util_array	*array);
-void					ps_solve_util_reverse(
+void					ps_solve_util_array_reverse(
 							t_ps_solve_util_array	*array);
 
 t_err					ps_solve_util_move_tsb(

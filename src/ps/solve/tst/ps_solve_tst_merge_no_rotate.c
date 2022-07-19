@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/18 08:22:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:12:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_err	ps_solve_tst_merge_no_rotate_solve(
 	div.q = &p->b;
 	div.r = &p->c;
 	div.from_right = right;
-	ps_solve_util_inverse(&p->b);
+	ps_solve_util_array_inverse(&p->b);
 	result = (ps_solve_tsb(context, p->a.array, size.x, right)
 			|| ps_solve_tot(context, p->b.array, size.y, right)
 			|| ps_solve_tob(context, p->c.array, size.z, right)
