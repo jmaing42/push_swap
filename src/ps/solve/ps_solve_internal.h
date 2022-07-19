@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:12:09 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:16:22 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ t_err					ps_solve_util_divide_from_bottom(
 							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_rotate_up(
 							t_ps_stream *stream,
-							t_ps_solve_util_array *left,
-							t_ps_solve_util_array *right,
+							const t_ps_solve_util_array *left,
+							const t_ps_solve_util_array *right,
 							bool from_right);
 t_err					ps_solve_util_rotate_down(
 							t_ps_stream *stream,
-							t_ps_solve_util_array *left,
-							t_ps_solve_util_array *right,
+							const t_ps_solve_util_array *left,
+							const t_ps_solve_util_array *right,
 							bool from_right);
 
 t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
@@ -142,6 +142,8 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_top_bts(
 							const t_ps_solve_util_divide params);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_from_bottom_bts(
 							const t_ps_solve_util_divide params);
+
+// TODO: move declarations below to each header
 
 t_err					ps_solve_tsb_merge_solve(
 							t_ps_solve_context *context,
