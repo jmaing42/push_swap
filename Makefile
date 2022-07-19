@@ -4,11 +4,15 @@ MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory) $(if $(f
 all: test
 clean:
 	$Q$(MAKE) -C src fclean
+	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
+	$Qfind src -type d -empty -delete
 	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} clean
 	@printf "\033[0m"
 fclean:
 	$Qrm -rf tmp compile_commands.json
 	$Q$(MAKE) -C src fclean
+	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
+	$Qfind src -type d -empty -delete
 	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} fclean
 	@printf "\033[0m"
 re:
