@@ -74,7 +74,7 @@ void					ps_solve_util_sort(
 void					ps_solve_util_array_sort(
 							t_ps_solve_util_array	*self);
 void					ps_solve_util_array_sort_as(
-							t_ps_solve_util_array	*self_sorted,
+							t_ps_solve_util_array	*self,
 							const int *order_array,
 							size_t order_length);
 void					ps_solve_util_array_inverse(
