@@ -21,7 +21,7 @@ void	ps_solve_util_array_sort_as(
 		{
 			escape = false;
 			k = -1;
-			while (++k < index)
+			while (++k < index && !escape)
 				if (self->array[k] == order_array[j])
 					escape = true;
 			if (escape)

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:19:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 20:19:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 00:28:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
 	ps_solve_util_sort(result->memory, length);
 	result->a.array = result->memory;
 	result->b.array = result->memory + small;
-	result->b.array = result->memory + small + medium;
+	result->c.array = result->memory + small + medium;
 	result->a.length = small;
 	result->b.length = medium;
 	result->c.length = big;
