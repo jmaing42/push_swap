@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:01:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 08:53:04 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:10:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,13 @@ t_ps_solve_strategy	ps_solve_tst_strategy(
 }
 
 t_ps_solve_count_part	ps_solve_tst_count_part(
+	const t_ps_solve_table *table,
 	size_t count
 )
 {
 	return (
-		ps_solve_count_part(
+		ps_solve_util_count_part(
+			table,
 			g_strategies,
 			sizeof(g_strategies) / sizeof(g_strategies[0]),
 			count

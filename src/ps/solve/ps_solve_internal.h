@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 08:49:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:06:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ typedef struct s_ps_solve_strategy
 	t_ps_solve				solve;
 }	t_ps_solve_strategy;
 
-t_ps_solve_count_part	ps_solve_count_part(
+t_ps_solve_count_part	ps_solve_util_count_part(
+							const t_ps_solve_table *table,
 							const t_ps_solve_count_tuple *strategies,
 							size_t length,
 							size_t count);

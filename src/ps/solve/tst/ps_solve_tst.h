@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 05:08:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 08:52:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/19 09:10:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ t_ps_solve_strategy		ps_solve_tst_strategy(
 							const t_ps_solve_context *context,
 							size_t count);
 t_ps_solve_count_part	ps_solve_tst_count_part(
+							const t_ps_solve_table *table,
 							size_t count);
 
 t_err					ps_solve_tst_merge_no_rotate_solve(
