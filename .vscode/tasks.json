@@ -2,24 +2,6 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build unit test ps_stream (basic)",
-      "type": "shell",
-      "command": "make build",
-      "options": {
-        "cwd": "${workspaceFolder}/src/ps/stream/test/basic",
-      },
-      "problemMatcher": ["$gcc"]
-    },
-    {
-      "label": "build unit test ps_solve_util_allocate_collect (basic)",
-      "type": "shell",
-      "command": "make build",
-      "options": {
-        "cwd": "${workspaceFolder}/src/ps/solve/util/allocate/test/allocate_collect",
-      },
-      "problemMatcher": ["$gcc"]
-    },
-    {
       "label": "build checker (debug)",
       "type": "shell",
       "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",
@@ -36,6 +18,69 @@
         "cwd": "${workspaceFolder}/src",
       },
       "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "build unit test move",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/solve/util/test/move",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test try_all_permutation",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/solve/util/test/try_all_permutation",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test allocate_divide",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/solve/util/allocate/test/allocate_divide",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test allocate_collect",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/solve/util/allocate/test/allocate_collect",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test find_index",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/hardcoded/test/find_index",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test basic",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ps/stream/test/basic",
+      },
+      "problemMatcher": ["cc"]
+    },
+    {
+      "label": "build unit test strict_atoi",
+      "type": "shell",
+      "command": "make build",
+      "options": {
+        "cwd": "/Users/user/workspace/42/all/src/ft/test/strict_atoi",
+      },
+      "problemMatcher": ["cc"]
     },
   ],
 }

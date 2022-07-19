@@ -63,7 +63,7 @@ $(OBJ_DIR)/%.exe:
 	$Q$(CC) $(LDFLAGS) -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) -MJ $@.part.json -MMD -o $@ -c $<
+	$Q$(CC) $(CFLAGS) -MJ $@.compile_commands.part.json -MMD -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(OBJ_DIR)/libps$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBPS))

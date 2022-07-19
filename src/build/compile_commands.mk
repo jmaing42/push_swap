@@ -1,10 +1,10 @@
 .PHONY: compile_commands.json
 compile_commands.json:
-	$Q$(MAKE) -k build ; (printf "[" && find . -name "*.part.json" | xargs cat && printf "]") > $@
+	$Q$(MAKE) -k build ; (printf "[" && find . -name "*.compile_commands.part.json" | xargs cat && printf "]") > $@
 
 .PHONY: clean_compile_commands.json
 clean_compile_commands.json:
-	$Qfind . -name "*.part.json" | xargs rm
+	$Qfind . -name "*.compile_commands.part.json" | xargs rm
 
 .PHONY: fclean_compile_commands.json
 fclean_compile_commands.json:

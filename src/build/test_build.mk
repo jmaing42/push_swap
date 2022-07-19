@@ -5,7 +5,7 @@ CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -
 LDFLAGS := $(COMMON_FLAGS)
 
 %.o:
-	$Q$(CC) -MMD -MJ $@.part.json $(CFLAGS) -o $@ -c $<
+	$Q$(CC) -MMD -MJ $@.compile_commands.part.json $(CFLAGS) -o $@ -c $<
 %.a:
 	$Q$(AR) $(ARFLAGS) $@ $^
 %.exe:
