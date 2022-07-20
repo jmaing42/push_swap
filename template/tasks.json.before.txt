@@ -2,18 +2,18 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build checker (debug)",
+      "label": "build push_swap (debug)",
       "type": "shell",
-      "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",
+      "command": "make PROFILE=debug SANITIZER=address .cache/push_swap.production.debug.address.exe",
       "options": {
         "cwd": "${workspaceFolder}/src",
       },
       "problemMatcher": ["$gcc"]
     },
     {
-      "label": "build push_swap (debug)",
+      "label": "build checker (debug)",
       "type": "shell",
-      "command": "make PROFILE=debug SANITIZER=address .cache/push_swap.production.debug.address.exe",
+      "command": "make PROFILE=debug SANITIZER=address .cache/checker.production.debug.address.exe",
       "options": {
         "cwd": "${workspaceFolder}/src",
       },
