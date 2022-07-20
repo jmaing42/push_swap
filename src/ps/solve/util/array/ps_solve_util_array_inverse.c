@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_solve_util_array_inverse.c                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/20 20:44:42 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/20 20:44:42 by Juyeong Maing    ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps_solve_internal.h"
 
 void	ps_solve_util_array_inverse(
