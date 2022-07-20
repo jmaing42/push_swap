@@ -8,20 +8,20 @@ clean:
 	$Q$(MAKE) -C src fclean
 	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$Qfind src -type d -empty -delete
-	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} clean
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} clean
 	@printf "\033[0m"
 fclean:
 	$Qrm -rf tmp compile_commands.json .vscode/launch.json .vscode/tasks.json
 	$Q$(MAKE) -C src fclean
 	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$Qfind src -type d -empty -delete
-	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} fclean
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} fclean
 	@printf "\033[0m"
 re:
 	$Q$(MAKE) fclean
 	$Q$(MAKE) all
 test:
-	$Qfind src -type d -name "test" | grep -v ^src/build/test\$$ | sort | xargs -L1 $(MAKE) -C
+	$Qfind src -type d -name test | sort | xargs -L1 $(MAKE) -C
 	@echo "Some test might need manual review"
 publish_without_test:
 ifndef GIT_REMOTE_URL
@@ -41,7 +41,7 @@ publish:
 
 .PHONY: pre_dev
 pre_dev:
-	$Qfind src -type d -name test | grep -v ^src/build/test\$$ | xargs -L1 -I {} make -C {} dev
+	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} dev
 .PHONY: compile_commands.json
 compile_commands.json: pre_dev
 	$Q$(MAKE) -C src -k PROFILE=debug TARGET=development SANITIZER=address all ; (printf "[" && find src/.cache -name "*.json" | xargs cat && printf "]") > $@
