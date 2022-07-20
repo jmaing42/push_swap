@@ -5,15 +5,15 @@ CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS) $(COMMON_FLAGS) -
 LDFLAGS := $(COMMON_FLAGS)
 
 %.o:
-	$Q$(CC) -MMD -MJ $@.compile_commands.part.json $(CFLAGS) -o $@ -c $<
+	$(Q2)$(CC) -MMD -MJ $@.compile_commands.part.json $(CFLAGS) -o $@ -c $<
 %.a:
-	$Q$(AR) $(ARFLAGS) $@ $^
+	$(Q2)$(AR) $(ARFLAGS) $@ $^
 %.exe:
-	$Q$(CC) $(LDFLAGS) -o $@ $^
+	$(Q2)$(CC) $(LDFLAGS) -o $@ $^
 
 Makefile: deps.mk
-	$Qtouch $@
+	$(Q3)touch $@
 deps.mk: $(DEPS_FILE)
-	$Qcat $^ | sh $(BASE_PATH)/build/srcs_to_deps.sh test.exe > $@
+	$(Q2)cat $^ | sh $(BASE_PATH)/build/srcs_to_deps.sh test.exe > $@
 
 -include deps.mk $(shell find . -type f -name "*.d")

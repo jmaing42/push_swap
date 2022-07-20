@@ -47,5 +47,21 @@ generated/ps_hardcoded_bos_8.c.txt:
 generated/ps_hardcoded_bob_8.c.txt:
 	node --max_old_space_size=4096 dist/index.js ps_hardcoded_bob 8 bob > generated/ps_hardcoded_bob_8.c.txt
 
+.PHONY: generated/ps_hardcoded_sxs_9.c.txt
+generated/ps_hardcoded_sxs_9.c.txt:
+	node --max_old_space_size=8192 dist/index.js ps_hardcoded_sxs 9 sxs > generated/ps_hardcoded_sxs_9.c.txt
+.PHONY: generated/ps_hardcoded_txt_9.c.txt
+generated/ps_hardcoded_txt_9.c.txt:
+	node --max_old_space_size=8192 dist/index.js ps_hardcoded_txt 9 txt > generated/ps_hardcoded_txt_9.c.txt
+.PHONY: generated/ps_hardcoded_txb_9.c.txt
+generated/ps_hardcoded_txb_9.c.txt:
+	node --max_old_space_size=8192 dist/index.js ps_hardcoded_txb 9 txb > generated/ps_hardcoded_txb_9.c.txt
+.PHONY: generated/ps_hardcoded_bxt_9.c.txt
+generated/ps_hardcoded_bxt_9.c.txt:
+	node --max_old_space_size=8192 dist/index.js ps_hardcoded_bxt 9 bxt > generated/ps_hardcoded_bxt_9.c.txt
+.PHONY: generated/ps_hardcoded_bxb_9.c.txt
+generated/ps_hardcoded_bxb_9.c.txt:
+	node --max_old_space_size=8192 dist/index.js ps_hardcoded_bxb 9 bxb > generated/ps_hardcoded_bxb_9.c.txt
+
 .PHONY: generate
 generate: generate_1_to_7 generate_8
