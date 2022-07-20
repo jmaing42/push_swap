@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 09:14:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 09:15:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,21 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 {
 	t_ps_solve_util_parts *const	arr
 		= ps_solve_util_allocate_collect(array, a, b, c);
-	const size_t					length = a + b + c;
 	size_t							i;
 
 	if (!arr)
 		return (true);
 	i = -1;
-	while (++i < length)
-		printf(&"%d\0 %d"[!!i * 3], arr->memory[i]);
+	while (++i < arr->a.length)
+		printf(&"%d\0 %d"[!!i * 3], arr->a.array[i]);
+	putchar('\n');
+	i = -1;
+	while (++i < arr->b.length)
+		printf(&"%d\0 %d"[!!i * 3], arr->b.array[i]);
+	putchar('\n');
+	i = -1;
+	while (++i < arr->c.length)
+		printf(&"%d\0 %d"[!!i * 3], arr->c.array[i]);
 	putchar('\n');
 	return (false);
 }
