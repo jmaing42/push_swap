@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/26 21:37:40 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:36:36 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 #include "ft_typedef_pointer.h"
-#include "ft_const_pointer.h"
+#include "ft_primitive_const_pointer.h"
 #include "ft_memory.h"
 #include "ft_malloc.h"
 #include "ft_exit.h"
@@ -78,9 +78,9 @@ void	push_swap_solve_sort_only_merge_internal_collect(
 		c->x, c->y, c->z,
 		c->part->x, c->part->y, c->part->z
 	},
-		(t_ccp)ft_const_pointer_if(c->from_right, "pb\n", "pa\n"),
-		(t_ccp)ft_const_pointer_if(c->from_right, "rra\npb\n", "rrb\npa\n"),
-		(t_ccp)ft_const_pointer_if(c->from_right, "rrb\n", "rra\n"),
+		(t_ccp)ft_primitive_const_pointer_if(c->from_right, "pb\n", "pa\n"),
+		(t_ccp)ft_primitive_const_pointer_if(c->from_right, "rra\npb\n", "rrb\npa\n"),
+		(t_ccp)ft_primitive_const_pointer_if(c->from_right, "rrb\n", "rra\n"),
 		3, 7, 4,
 		true, false, false
 	};

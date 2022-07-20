@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 22:11:42 by jmaing            #+#    #+#             */
-/*   Updated: 2022/06/25 21:23:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdint.h>
 
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 
 t_push_swap_count_item	push_swap_count_solution(
 	t_push_swap_count_part *map,
@@ -53,15 +53,15 @@ size_t	push_swap_count_solution_internal(
 )
 {
 	return (
-		+ ft_size_t_min(
+		+ ft_primitive_size_t_min(
 			map[x].sort_and_move_merge.total_moves,
 			map[x].sort_and_move_quick.total_moves
 		)
-		+ ft_size_t_min(
+		+ ft_primitive_size_t_min(
 			map[y].sort_and_move_merge.total_moves,
 			map[y].sort_and_move_quick.total_moves
 		)
-		+ ft_size_t_min(
+		+ ft_primitive_size_t_min(
 			map[z].sort_only_merge.total_moves,
 			map[z].sort_only_quick.total_moves
 		)

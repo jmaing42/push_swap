@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/02 13:42:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/08 21:06:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stddef.h>
 
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 #include "ps_strategy_util.h"
 
 size_t	ps_strategy_tst_merge_no_rotate_count(

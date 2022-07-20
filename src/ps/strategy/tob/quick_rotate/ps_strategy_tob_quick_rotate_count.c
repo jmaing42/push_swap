@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 12:56:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 13:10:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stddef.h>
 
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 #include "ps_strategy_util.h"
 
 size_t	ps_strategy_tob_quick_rotate_count(
@@ -25,7 +25,7 @@ size_t	ps_strategy_tob_quick_rotate_count(
 )
 {
 	const size_t	divide = 2 * x + y + z;
-	const size_t	rotate = ft_size_t_max(y, x);
+	const size_t	rotate = ft_primitive_size_t_max(y, x);
 	const size_t	sort_x = table[x].tsb.item.moves;
 	const size_t	sort_y = table[y].tob.item.moves;
 	const size_t	sort_z = table[z].tsb.item.moves;

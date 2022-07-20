@@ -3,5 +3,5 @@ main.c
 ../../../ps_solve_util_sort.c
 ../../../array/ps_solve_util_array_sort.c
 ../../../array/ps_solve_util_array_sort_as.c
-../../../../../../ft/per_type/ft_int.c
+../../../../../../ft/primitive/ft_primitive_int.c
 ../../../../../../ft/memory/ft_memory.c

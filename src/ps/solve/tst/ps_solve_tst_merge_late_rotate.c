@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:12:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 
 t_err	ps_solve_tst_merge_early_rotate_solve(
 	t_ps_solve_context *context,
@@ -59,7 +59,7 @@ size_t	ps_solve_tst_merge_early_rotate_count(
 		+ context->table[x].tot.item.count
 		+ context->table[y].tot.item.count
 		+ context->table[z].tst.item.count
-		+ ft_size_t_max(z, y)
+		+ ft_primitive_size_t_max(z, y)
 		+ 2 * x + y + z
 	);
 }

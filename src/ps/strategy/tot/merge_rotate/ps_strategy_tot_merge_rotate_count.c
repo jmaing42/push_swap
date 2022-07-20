@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 10:00:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/09 10:02:02 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stddef.h>
 
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 #include "ps_strategy_util.h"
 
 size_t	ps_strategy_tot_merge_rotate_count(
@@ -27,7 +27,7 @@ size_t	ps_strategy_tot_merge_rotate_count(
 	const size_t	sort_x = table[x].tot.item.moves;
 	const size_t	sort_y = table[y].tot.item.moves;
 	const size_t	sort_z = table[z].tst.item.moves;
-	const size_t	rotate = ft_size_t_max(z, y);
+	const size_t	rotate = ft_primitive_size_t_max(z, y);
 	const size_t	collect = x + 2 * y + z;
 
 	return (sort_x + sort_y + sort_z + rotate + collect);

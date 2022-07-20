@@ -6,13 +6,13 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 08:48:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 09:12:10 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:36:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
-#include "ft_int.h"
+#include "ft_primitive_int.h"
 
 void	ps_solve_util_array_sort_as(
 	t_ps_solve_util_array *self,
@@ -36,7 +36,7 @@ void	ps_solve_util_array_sort_as(
 			if (order_array[i] == self->array[j])
 			{
 				in_self = true;
-				ft_int_swap(&self->array[j], &self->array[index++]);
+				ft_primitive_int_swap(&self->array[j], &self->array[index++]);
 			}
 		}
 	}

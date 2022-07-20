@@ -1,23 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_pointer.h                                       :+:      :+:    :+:   */
+/*   ft_primitive_const_pointer.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 19:44:45 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 08:56:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:32:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_POINTER_H
+#include "ft_primitive_const_pointer.h"
 
-# include <stdbool.h>
+void	ft_primitive_const_pointer_swap(const void **a, const void **b)
+{
+	const void	*tmp;
 
-void	ft_pointer_swap(void **a, void **b);
-void	*ft_pointer_if(
-			bool condition,
-			void *value_if_true,
-			void *value_if_false);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-#endif
+const void	*ft_primitive_const_pointer_if(
+	bool condition,
+	const void *value_if_true,
+	const void *value_if_false
+)
+{
+	if (condition)
+		return (value_if_true);
+	return (value_if_false);
+}

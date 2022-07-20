@@ -2,7 +2,7 @@
 /ps/stream/internal
 /ft
 /ft/types
-/ft/per_type
+/ft/primitive
 /ft/io
 /ft/cstring
 /ft/byte_map

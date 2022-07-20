@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 21:48:38 by jmaing            #+#    #+#             */
-/*   Updated: 2022/05/29 15:32:13 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:35:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #include "ft_io.h"
 #include "ft_exit.h"
-#include "ft_size_t.h"
+#include "ft_primitive_size_t.h"
 
 void	push_swap_solve_internal_operation_px(
 	size_t a,
@@ -25,7 +25,7 @@ void	push_swap_solve_internal_operation_px(
 	bool reverse_direction
 )
 {
-	const size_t	c = ft_size_t_min(a, b);
+	const size_t	c = ft_primitive_size_t_min(a, b);
 	size_t			i;
 
 	if (reverse_direction)
@@ -61,7 +61,7 @@ void	push_swap_solve_internal_operation_rx(
 	bool reverse_direction
 )
 {
-	const size_t	c = ft_size_t_min(a, b);
+	const size_t	c = ft_primitive_size_t_min(a, b);
 	size_t			i;
 
 	if (reverse_direction)
@@ -90,7 +90,7 @@ void	push_swap_solve_internal_operation_rrx(
 	bool reverse_direction
 )
 {
-	const size_t	c = ft_size_t_min(a, b);
+	const size_t	c = ft_primitive_size_t_min(a, b);
 	size_t			i;
 
 	if (reverse_direction)

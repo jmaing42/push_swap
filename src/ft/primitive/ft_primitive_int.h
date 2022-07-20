@@ -1,33 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_const_pointer.c                                 :+:      :+:    :+:   */
+/*   ft_primitive_int.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:44:45 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 08:56:15 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/05/23 21:58:38 by jmaing            #+#    #+#             */
+/*   Updated: 2022/07/20 20:31:57 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_const_pointer.h"
+#ifndef FT_PRIMITIVE_INT_H
+# define FT_PRIMITIVE_INT_H
 
-void	ft_const_pointer_swap(const void **a, const void **b)
-{
-	const void	*tmp;
+# include <stddef.h>
+# include <stdbool.h>
 
-	tmp = *a;
-	*a = *b;
-	*b = tmp;
-}
+void	ft_primitive_int_swap(int *a, int *b);
+int		ft_primitive_int_min(int a, int b);
+int		ft_primitive_int_max(int a, int b);
+int		ft_primitive_int_if(
+			bool condition,
+			int value_if_true,
+			int value_if_false);
 
-const void	*ft_const_pointer_if(
-	bool condition,
-	const void *value_if_true,
-	const void *value_if_false
-)
-{
-	if (condition)
-		return (value_if_true);
-	return (value_if_false);
-}
+#endif

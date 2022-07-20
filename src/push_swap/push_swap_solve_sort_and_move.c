@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/25 17:38:19 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/27 21:09:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 20:39:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 #include <stdlib.h>
 
-#include "ft_pointer.h"
 #include "ft_memory.h"
 #include "ft_malloc.h"
 #include "ft_exit.h"
