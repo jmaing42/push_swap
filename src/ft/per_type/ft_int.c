@@ -1,44 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_size_t.c                                        :+:      :+:    :+:   */
+/*   ft_int.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/23 21:58:54 by jmaing            #+#    #+#             */
-/*   Updated: 2022/07/20 08:53:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 08:54:56 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_size_t.h"
+#include "ft_int.h"
 
-void	ft_size_t_swap(size_t *a, size_t *b)
+void	ft_int_swap(int *a, int *b)
 {
-	size_t	tmp;
+	int	tmp;
 
 	tmp = *a;
 	*a = *b;
 	*b = tmp;
 }
 
-size_t	ft_size_t_min(size_t a, size_t b)
+int	ft_int_min(int a, int b)
 {
 	if (a < b)
 		return (a);
 	return (b);
 }
 
-size_t	ft_size_t_max(size_t a, size_t b)
+int	ft_int_max(int a, int b)
 {
 	if (a > b)
 		return (a);
 	return (b);
 }
 
-size_t	ft_size_t_if(
+int	ft_int_if(
 	bool condition,
-	size_t value_if_true,
-	size_t value_if_false
+	int value_if_true,
+	int value_if_false
 )
 {
 	if (condition)

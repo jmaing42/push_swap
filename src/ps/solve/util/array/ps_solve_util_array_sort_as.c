@@ -1,4 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ps_solve_util_array_sort_as.c                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/07/20 08:48:52 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/20 09:12:10 by Juyeong Maing    ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ps_solve_internal.h"
+
+#include "ft_int.h"
 
 void	ps_solve_util_array_sort_as(
 	t_ps_solve_util_array *self,
@@ -8,25 +22,22 @@ void	ps_solve_util_array_sort_as(
 {
 	size_t	i;
 	size_t	j;
-	size_t	k;
-	bool	escape;
 	size_t	index;
+	bool	in_self;
 
 	index = 0;
 	i = -1;
-	while (++i < self->length)
+	while (++i < order_length)
 	{
-		j = -1;
-		while (++j < order_length)
+		in_self = false;
+		j = index - 1;
+		while (++j < self->length && !in_self)
 		{
-			escape = false;
-			k = -1;
-			while (++k < index && !escape)
-				if (self->array[k] == order_array[j])
-					escape = true;
-			if (escape)
-				break ;
-			self->array[index++] = order_array[j];
+			if (order_array[i] == self->array[j])
+			{
+				in_self = true;
+				ft_int_swap(&self->array[j], &self->array[index++]);
+			}
 		}
 	}
 }
