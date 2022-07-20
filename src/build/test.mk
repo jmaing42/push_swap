@@ -6,7 +6,7 @@ build: .cache/Makefile
 
 .cache/Makefile:
 	$(Q3)mkdir -p .cache
-	$(Q2)sh $(BASE_PATH)/build/test_build.sh $(BASE_PATH) $(SRCS_FILE) $(INCS_FILE)
+	$(Q2)sh $(BASE_PATH)/build/script/test_build.sh $(BASE_PATH) $(SRCS_FILE) $(INCS_FILE)
 
 clean:
 	$(Q2)rm -rf .cache

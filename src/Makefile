@@ -1,5 +1,5 @@
 Q := $(if $(filter 1 2 3,$(V) $(VERBOSE)),,@)
-MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh build/nproc.sh) NO_ADDITIONAL_J=1)
+MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh build/script/nproc.sh) NO_ADDITIONAL_J=1)
 
 CC := clang
 AR := ar

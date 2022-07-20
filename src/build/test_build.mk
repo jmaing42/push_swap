@@ -14,6 +14,6 @@ LDFLAGS := $(COMMON_FLAGS)
 Makefile: deps.mk
 	$(Q3)touch $@
 deps.mk: $(DEPS_FILE)
-	$(Q2)cat $^ | sh $(BASE_PATH)/build/srcs_to_deps.sh test.exe > $@
+	$(Q2)cat $^ | sh $(BASE_PATH)/build/script/srcs_to_deps.sh test.exe > $@
 
 -include deps.mk $(shell find . -type f -name "*.d")
