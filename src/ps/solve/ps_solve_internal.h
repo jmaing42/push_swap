@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:16:22 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/21 00:07:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,13 +111,13 @@ t_err					ps_solve_util_divide_from_bottom(
 							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_rotate_up(
 							t_ps_stream *stream,
-							const t_ps_solve_util_array *left,
-							const t_ps_solve_util_array *right,
+							size_t left,
+							size_t right,
 							bool from_right);
 t_err					ps_solve_util_rotate_down(
 							t_ps_stream *stream,
-							const t_ps_solve_util_array *left,
-							const t_ps_solve_util_array *right,
+							size_t left,
+							size_t right,
 							bool from_right);
 
 t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
