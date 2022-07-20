@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 21:44:56 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/20 09:14:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,6 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 
 	if (!arr)
 		return (true);
-	i = -1;
-	while (++i < length)
-		printf(&"%d\0 %d"[!!i * 3], arr->memory[i]);
-	putchar('\n');
-	ps_solve_util_array_sort_as(&arr->a, array, a);
-	ps_solve_util_array_sort_as(&arr->b, array + a, b);
-	ps_solve_util_array_sort_as(&arr->c, array + a + b, c);
 	i = -1;
 	while (++i < length)
 		printf(&"%d\0 %d"[!!i * 3], arr->memory[i]);
