@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/19 15:43:21 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/16 17:41:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/21 22:12:26 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ t_err	ft_strict_atoi(const char *str, int *out)
 	sgn = 1;
 	if (*str == '-' && *str++)
 		sgn = -1;
-	else if (*str == '+')
-		str++;
 	while (*str)
 	{
 		if (!('0' <= *str && *str <= '9')
