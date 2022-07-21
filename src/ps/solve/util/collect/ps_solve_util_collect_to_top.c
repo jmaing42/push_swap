@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 20:52:10 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 21:09:13 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/21 22:57:24 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,12 @@ static t_err	process_p(
 	if (
 		args->p->length > *p
 		&& (
-			(
-				args->q->length == q
-				|| args->q->array[q] < args->p->array[*p]
-			)
-			|| (
-				args->r->length == r
-				|| args->r->array[r] < args->p->array[*p]
-			)
+			args->q->length == q
+			|| args->q->array[q] < args->p->array[*p]
+		)
+		&& (
+			args->r->length == r
+			|| args->r->array[r] < args->p->array[*p]
 		)
 	)
 	{
@@ -47,16 +45,14 @@ static t_err	process_q(
 )
 {
 	if (
-		args->p->length > *q
+		args->q->length > *q
 		&& (
-			(
-				args->p->length == p
-				|| args->p->array[p] < args->q->array[*q]
-			)
-			|| (
-				args->r->length == r
-				|| args->r->array[r] < args->q->array[*q]
-			)
+			args->p->length == p
+			|| args->p->array[p] < args->q->array[*q]
+		)
+		&& (
+			args->r->length == r
+			|| args->r->array[r] < args->q->array[*q]
 		)
 	)
 	{
@@ -74,16 +70,14 @@ static t_err	process_r(
 )
 {
 	if (
-		args->p->length > *r
+		args->r->length > *r
 		&& (
-			(
-				args->p->length == p
-				|| args->p->array[p] < args->r->array[*r]
-			)
-			|| (
-				args->q->length == q
-				|| args->q->array[q] < args->r->array[*r]
-			)
+			args->p->length == p
+			|| args->p->array[p] < args->r->array[*r]
+		)
+		&& (
+			args->q->length == q
+			|| args->q->array[q] < args->r->array[*r]
 		)
 	)
 	{
@@ -106,8 +100,8 @@ t_err	ps_solve_util_collect_to_top(
 	r_out = 0;
 	while (
 		params.p->length != p_out
-		|| params.p->length != p_out
-		|| params.p->length != p_out
+		|| params.q->length != q_out
+		|| params.r->length != r_out
 	)
 	{
 		if (process_p(&params, &p_out, q_out, r_out))
