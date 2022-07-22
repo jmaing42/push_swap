@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:03:25 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/21 00:04:38 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 22:03:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,12 @@
 static t_err	process_p(
 	const t_ps_solve_util_divide *args,
 	size_t *p,
-	size_t q,
-	size_t r
+	size_t length
 )
 {
 	if (
 		args->p->length > *p
-		&& (
-			(
-				args->q->length == q
-				|| args->q->array[q] < args->p->array[*p]
-			)
-			|| (
-				args->r->length == r
-				|| args->r->array[r] < args->p->array[*p]
-			)
-		)
+		&& args->array[length] == args->p->array[*p]
 	)
 	{
 		(*p)++;
@@ -41,23 +31,13 @@ static t_err	process_p(
 
 static t_err	process_q(
 	const t_ps_solve_util_divide *args,
-	size_t p,
 	size_t *q,
-	size_t r
+	size_t length
 )
 {
 	if (
 		args->p->length > *q
-		&& (
-			(
-				args->p->length == p
-				|| args->p->array[p] < args->q->array[*q]
-			)
-			|| (
-				args->r->length == r
-				|| args->r->array[r] < args->q->array[*q]
-			)
-		)
+		&& args->array[length] == args->q->array[*q]
 	)
 	{
 		(*q)++;
@@ -68,23 +48,13 @@ static t_err	process_q(
 
 static t_err	process_r(
 	const t_ps_solve_util_divide *args,
-	size_t p,
-	size_t q,
-	size_t *r
+	size_t *r,
+	size_t length
 )
 {
 	if (
 		args->p->length > *r
-		&& (
-			(
-				args->p->length == p
-				|| args->p->array[p] < args->r->array[*r]
-			)
-			|| (
-				args->q->length == q
-				|| args->q->array[q] < args->r->array[*r]
-			)
-		)
+		&& args->array[length] == args->r->array[*r]
 	)
 	{
 		(*r)++;
@@ -106,15 +76,15 @@ t_err	ps_solve_util_divide_from_top(
 	r_out = 0;
 	while (
 		params.p->length != p_out
-		|| params.p->length != p_out
-		|| params.p->length != p_out
+		|| params.q->length != q_out
+		|| params.r->length != r_out
 	)
 	{
-		if (process_p(&params, &p_out, q_out, r_out))
+		if (process_p(&params, &p_out, p_out + q_out + r_out))
 			return (true);
-		if (process_q(&params, p_out, &q_out, r_out))
+		if (process_q(&params, &q_out, p_out + q_out + r_out))
 			return (true);
-		if (process_r(&params, p_out, q_out, &r_out))
+		if (process_r(&params, &r_out, p_out + q_out + r_out))
 			return (true);
 	}
 	return (false);

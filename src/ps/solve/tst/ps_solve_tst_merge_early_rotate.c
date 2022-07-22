@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/21 00:08:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 21:53:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_err	ps_solve_tst_merge_late_rotate_solve(
 			size.x,
 			size.y,
 			size.z);
-	t_ps_solve_util_divide			div;
+	t_ps_solve_util_collect			div;
 	t_err							result;
 
 	if (!p)

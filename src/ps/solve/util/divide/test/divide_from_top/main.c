@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 22:05:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 22:06:08 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,23 @@
 static t_err	test(const int *array, size_t a, size_t b, size_t c)
 {
 	t_ps_solve_util_parts *const	arr
-		= ps_solve_util_allocate_collect(array, a, b, c);
+		= ps_solve_util_allocate_divide(array, a, b, c);
 	size_t							i;
 	t_ps_stream *const				stream = new_ps_stream(a, b + c);
-	const t_ps_solve_util_collect	collect = {
+	const t_ps_solve_util_divide	divide = {
 		stream,
 		&arr->a,
 		&arr->b,
 		&arr->c,
+		array,
 		false
 	};
 
 	if (!arr || !stream)
 		return (true);
-	ps_solve_util_array_reverse(&arr->b);
-	if (ps_solve_util_collect_to_top(collect) || ps_stream_print(stream, 1))
+	if (ps_solve_util_divide_from_top(divide) || ps_stream_print(stream, 1))
 		return (true);
+	ps_solve_util_array_reverse(&arr->b);
 	i = -1;
 	while (++i < a + b + c)
 		printf(&"%d\0 %d"[!!i * 3], arr->memory[i]);

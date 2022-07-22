@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/21 00:07:23 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 21:56:34 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,22 @@ typedef struct s_ps_solve_util_parts
 	int						memory[];
 }	t_ps_solve_util_parts;
 
+typedef struct s_ps_solve_util_collect
+{
+	t_ps_stream					*stream;
+	const t_ps_solve_util_array	*p;
+	const t_ps_solve_util_array	*q;
+	const t_ps_solve_util_array	*r;
+	bool						from_right;
+}	t_ps_solve_util_collect;
+
 typedef struct s_ps_solve_util_divide
 {
 	t_ps_stream					*stream;
 	const t_ps_solve_util_array	*p;
 	const t_ps_solve_util_array	*q;
 	const t_ps_solve_util_array	*r;
+	const int					*array;
 	bool						from_right;
 }	t_ps_solve_util_divide;
 
@@ -102,9 +112,9 @@ t_err					ps_solve_util_move_bob(
 							bool from_right);
 
 t_err					ps_solve_util_collect_to_top(
-							const t_ps_solve_util_divide params);
+							const t_ps_solve_util_collect params);
 t_err					ps_solve_util_collect_to_bottom(
-							const t_ps_solve_util_divide params);
+							const t_ps_solve_util_collect params);
 t_err					ps_solve_util_divide_from_top(
 							const t_ps_solve_util_divide params);
 t_err					ps_solve_util_divide_from_bottom(

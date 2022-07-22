@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 08:58:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 22:05:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 		= ps_solve_util_allocate_collect(array, a, b, c);
 	size_t							i;
 	t_ps_stream *const				stream = new_ps_stream(a, b + c);
-	const t_ps_solve_util_divide	div = {
+	const t_ps_solve_util_collect	collect = {
 		stream,
 		&arr->a,
 		&arr->b,
@@ -35,7 +35,7 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 		return (true);
 	ps_solve_util_array_reverse(&arr->a);
 	ps_solve_util_array_reverse(&arr->b);
-	if (ps_solve_util_collect_to_bottom(div) || ps_stream_print(stream, 1))
+	if (ps_solve_util_collect_to_bottom(collect) || ps_stream_print(stream, 1))
 		return (true);
 	i = -1;
 	while (++i < a + b + c)
