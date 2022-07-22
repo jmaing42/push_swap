@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:03:25 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 22:03:01 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 00:40:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 static t_err	process_p(
 	const t_ps_solve_util_divide *args,
 	size_t *p,
-	size_t length
+	size_t index
 )
 {
 	if (
 		args->p->length > *p
-		&& args->array[length] == args->p->array[*p]
+		&& args->array[index] == args->p->array[*p]
 	)
 	{
 		(*p)++;
@@ -32,12 +32,12 @@ static t_err	process_p(
 static t_err	process_q(
 	const t_ps_solve_util_divide *args,
 	size_t *q,
-	size_t length
+	size_t index
 )
 {
 	if (
 		args->p->length > *q
-		&& args->array[length] == args->q->array[*q]
+		&& args->array[index] == args->q->array[*q]
 	)
 	{
 		(*q)++;
@@ -49,12 +49,12 @@ static t_err	process_q(
 static t_err	process_r(
 	const t_ps_solve_util_divide *args,
 	size_t *r,
-	size_t length
+	size_t index
 )
 {
 	if (
 		args->p->length > *r
-		&& args->array[length] == args->r->array[*r]
+		&& args->array[index] == args->r->array[*r]
 	)
 	{
 		(*r)++;

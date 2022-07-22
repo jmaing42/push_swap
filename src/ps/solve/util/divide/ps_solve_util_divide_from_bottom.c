@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:03:25 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 22:02:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 00:43:36 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,13 @@
 static t_err	process_p(
 	const t_ps_solve_util_divide *args,
 	size_t *p,
-	size_t length
+	size_t index
 )
 {
 	if (
 		args->p->length > *p
-		&& args->array[length] == args->p->array[*p]
+		&& args->array[index]
+		== args->p->array[args->p->length - 1 - *p]
 	)
 	{
 		(*p)++;
@@ -32,12 +33,13 @@ static t_err	process_p(
 static t_err	process_q(
 	const t_ps_solve_util_divide *args,
 	size_t *q,
-	size_t length
+	size_t index
 )
 {
 	if (
-		args->p->length > *q
-		&& args->array[length] == args->q->array[*q]
+		args->q->length > *q
+		&& args->array[index]
+		== args->q->array[args->q->length - 1 - *q]
 	)
 	{
 		(*q)++;
@@ -49,12 +51,13 @@ static t_err	process_q(
 static t_err	process_r(
 	const t_ps_solve_util_divide *args,
 	size_t *r,
-	size_t length
+	size_t index
 )
 {
 	if (
-		args->p->length > *r
-		&& args->array[length] == args->r->array[*r]
+		args->r->length > *r
+		&& args->array[index]
+		== args->r->array[args->r->length - 1 - *r]
 	)
 	{
 		(*r)++;
@@ -67,9 +70,11 @@ t_err	ps_solve_util_divide_from_bottom(
 	const t_ps_solve_util_divide params
 )
 {
-	size_t	p_out;
-	size_t	q_out;
-	size_t	r_out;
+	size_t			p_out;
+	size_t			q_out;
+	size_t			r_out;
+	const size_t	length
+		= params.p->length + params.q->length + params.r->length;
 
 	p_out = 0;
 	q_out = 0;
@@ -80,11 +85,11 @@ t_err	ps_solve_util_divide_from_bottom(
 		|| params.r->length != r_out
 	)
 	{
-		if (process_p(&params, &p_out, p_out + q_out + r_out))
+		if (process_p(&params, &p_out, length - (p_out + q_out + r_out) - 1))
 			return (true);
-		if (process_q(&params, &q_out, p_out + q_out + r_out))
+		if (process_q(&params, &q_out, length - (p_out + q_out + r_out) - 1))
 			return (true);
-		if (process_r(&params, &r_out, p_out + q_out + r_out))
+		if (process_r(&params, &r_out, length - (p_out + q_out + r_out) - 1))
 			return (true);
 	}
 	return (false);
