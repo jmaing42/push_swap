@@ -3,7 +3,7 @@ BASE_PATH := ../../../../../..
 include $(BASE_PATH)/build/common.mk
 
 test:
-	$(Q2)sh "$(BASE_PATH)/build/script/inout.sh" "ps/solve/util/allocate_collect (basic)"
+	$(Q2)sh "$(BASE_PATH)/build/script/inout.sh" "ps/solve/util/collect_to_bottom"
 
 INCS_FILE := incs.txt
 SRCS_FILE := srcs.txt
