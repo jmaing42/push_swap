@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 22:06:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 22:21:42 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 	t_ps_solve_util_parts *const	arr
 		= ps_solve_util_allocate_divide(array, a, b, c);
 	size_t							i;
-	t_ps_stream *const				stream = new_ps_stream(a, b + c);
+	t_ps_stream *const				stream = new_ps_stream(a + b + c, 0);
 	const t_ps_solve_util_divide	divide = {
 		stream,
 		&arr->a,
