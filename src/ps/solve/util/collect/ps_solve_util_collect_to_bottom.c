@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:02:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/21 00:02:06 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/22 08:56:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,13 @@ static t_err	process_p(
 		&& (
 			(
 				args->q->length == q
-				|| args->q->array[q] < args->p->array[*p]
+				|| args->q->array[args->q->length - 1 - q]
+				< args->p->array[args->p->length - 1 - *p]
 			)
 			|| (
 				args->r->length == r
-				|| args->r->array[r] < args->p->array[*p]
+				|| args->r->array[r]
+				< args->p->array[args->p->length - 1 - *p]
 			)
 		)
 	)
@@ -47,15 +49,17 @@ static t_err	process_q(
 )
 {
 	if (
-		args->p->length > *q
+		args->q->length > *q
 		&& (
 			(
 				args->p->length == p
-				|| args->p->array[p] < args->q->array[*q]
+				|| args->p->array[args->p->length - 1 - p]
+				< args->q->array[args->q->length - 1 - *q]
 			)
 			|| (
 				args->r->length == r
-				|| args->r->array[r] < args->q->array[*q]
+				|| args->r->array[r]
+				< args->q->array[args->q->length - 1 - *q]
 			)
 		)
 	)
@@ -74,15 +78,17 @@ static t_err	process_r(
 )
 {
 	if (
-		args->p->length > *r
+		args->r->length > *r
 		&& (
 			(
 				args->p->length == p
-				|| args->p->array[p] < args->r->array[*r]
+				|| args->p->array[args->p->length - 1 - p]
+				< args->r->array[*r]
 			)
 			|| (
 				args->q->length == q
-				|| args->q->array[q] < args->r->array[*r]
+				|| args->q->array[args->q->length - 1 - q]
+				< args->r->array[*r]
 			)
 		)
 	)
