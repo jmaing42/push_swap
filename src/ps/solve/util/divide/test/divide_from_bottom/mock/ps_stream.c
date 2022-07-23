@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/23 11:49:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:51:04 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 13:33:37 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ t_ps_stream	*new_ps_stream(size_t a, size_t b)
 {
 	(void)a;
 	(void)b;
-
 	return (malloc(1));
 }
 
@@ -31,6 +30,5 @@ t_err	ps_stream_print(t_ps_stream *self, int fd)
 {
 	(void)self;
 	(void)fd;
-
 	return (false);
 }
