@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:13:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 11:15:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ t_err	ps_solve_tst_merge_no_rotate_solve(
 	result = (ps_solve_tsb(context, p->a.array, size.x, right)
 			|| ps_solve_tot(context, p->b.array, size.y, right)
 			|| ps_solve_tob(context, p->c.array, size.z, right)
-			|| ps_solve_util_collect_to_top(collect));
+			|| ps_solve_util_collect_to_top(&collect));
 	free(p);
 	return (result);
 }

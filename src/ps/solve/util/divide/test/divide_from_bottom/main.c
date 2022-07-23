@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 00:38:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 11:20:35 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 
 	if (!arr || !stream)
 		return (true);
-	if (ps_solve_util_divide_from_bottom(divide) || ps_stream_print(stream, 1))
+	if (ps_solve_util_divide_from_bottom(&divide) || ps_stream_print(stream, 1))
 		return (true);
 	ps_solve_util_array_reverse(&arr->c);
 	i = -1;

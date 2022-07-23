@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 20:52:10 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/22 21:53:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/23 11:18:05 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ static t_err	process_r(
 }
 
 t_err	ps_solve_util_collect_to_top(
-	const t_ps_solve_util_collect params
+	const t_ps_solve_util_collect *params
 )
 {
 	size_t	p_out;
@@ -105,16 +105,16 @@ t_err	ps_solve_util_collect_to_top(
 	q_out = 0;
 	r_out = 0;
 	while (
-		params.p->length != p_out
-		|| params.q->length != q_out
-		|| params.r->length != r_out
+		params->p->length != p_out
+		|| params->q->length != q_out
+		|| params->r->length != r_out
 	)
 	{
-		if (process_p(&params, &p_out, q_out, r_out))
-			return (true);
-		if (process_q(&params, p_out, &q_out, r_out))
-			return (true);
-		if (process_r(&params, p_out, q_out, &r_out))
+		if (
+			process_p(params, &p_out, q_out, r_out)
+			|| process_q(params, p_out, &q_out, r_out)
+			|| process_r(params, p_out, q_out, &r_out)
+		)
 			return (true);
 	}
 	return (false);
