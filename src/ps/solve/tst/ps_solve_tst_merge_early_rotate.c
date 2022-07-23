@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 07:28:26 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 08:48:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,18 @@ t_err	ps_solve_tst_merge_late_rotate_solve(
 	bool right
 )
 {
-	t_ps_solve_util_parts *const	p = ps_solve_util_allocate_collect(
-			arr,
-			size.x,
-			size.y,
-			size.z);
-	t_err							result;
-
-	if (!p)
-		return (true);
-	result = (ps_solve_util_solve_tot(context, &p->a, right, false)
+	t_ps_solve_util_parts *const	p
+		= ps_solve_util_allocate_collect(arr, size.x, size.y, size.z);
+	const t_err						result
+		= (
+			!p
+			|| ps_solve_util_solve_tot(context, &p->a, right, false)
 			|| ps_solve_util_solve_tst(context, &p->b, right, false)
 			|| ps_solve_util_rotate_up(context, &p->b, &p->a, right)
 			|| ps_solve_util_solve_tot(context, &p->c, right, true)
-			|| ps_solve_util_collect_to_top_bst(context, p, right));
+			|| ps_solve_util_collect_to_top_bst(context, p, right)
+			);
+
 	free(p);
 	return (result);
 }

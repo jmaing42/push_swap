@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 07:28:20 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 08:48:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,17 @@ t_err	ps_solve_tst_merge_no_rotate_solve(
 	bool right
 )
 {
-	t_ps_solve_util_parts *const	p = ps_solve_util_allocate_collect(
-			arr,
-			size.x,
-			size.y,
-			size.z);
-	t_err							result;
-
-	if (!p)
-		return (true);
-	result = (ps_solve_util_solve_tsb(context, &p->a, right, false)
+	t_ps_solve_util_parts *const	p
+		= ps_solve_util_allocate_collect(arr, size.x, size.y, size.z);
+	const t_err						result
+		= (
+			!p
+			|| ps_solve_util_solve_tsb(context, &p->a, right, false)
 			|| ps_solve_util_solve_tot(context, &p->b, right, true)
 			|| ps_solve_util_solve_tob(context, &p->c, right, false)
-			|| ps_solve_util_collect_to_top_stb(context, p, right));
+			|| ps_solve_util_collect_to_top_stb(context, p, right)
+			);
+
 	free(p);
 	return (result);
 }
