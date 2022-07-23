@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 23:45:09 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 06:44:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,97 +143,97 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
 
 t_err					ps_solve_util_solve_tst(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_tsb(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_txt(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_txb(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_tot(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_tos(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_tob(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_sss(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_sxs(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_sot(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_sos(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_sob(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bst(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bsb(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bxt(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bxb(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bot(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bos(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 t_err					ps_solve_util_solve_bob(
 							const t_ps_solve_context *context,
-							const t_ps_solve_util_array *array,
+							t_ps_solve_util_array *array,
 							bool from_right,
 							bool reverse);
 
