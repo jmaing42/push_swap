@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:09:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/21 00:12:04 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 07:15:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,28 +16,28 @@
 #include "ps_stream.h"
 
 t_err	ps_solve_util_rotate_up(
-	t_ps_stream *stream,
-	size_t left,
-	size_t right,
+	const t_ps_solve_context *context,
+	const t_ps_solve_util_array *left,
+	const t_ps_solve_util_array *right,
 	bool from_right
 )
 {
-	const size_t	rr = ft_primitive_size_t_min(left, right);
-	const size_t	ra = left - rr;
-	const size_t	rb = right - rr;
+	const size_t	rr = ft_primitive_size_t_min(left->length, right->length);
+	const size_t	ra = left->length - rr;
+	const size_t	rb = right->length - rr;
 	size_t			i;
 
 	i = -1;
 	while (++i < rr)
-		if (ps_stream_append_rr(stream, rr))
+		if (ps_stream_append_rr(context->stream, rr))
 			return (true);
 	i = -1;
 	while (++i < ra)
-		if (ps_stream_append_ra(stream, ra, from_right))
+		if (ps_stream_append_ra(context->stream, ra, from_right))
 			return (true);
 	i = -1;
 	while (++i < rb)
-		if (ps_stream_append_rb(stream, rb, from_right))
+		if (ps_stream_append_rb(context->stream, rb, from_right))
 			return (true);
 	return (false);
 }

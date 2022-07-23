@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:15:30 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 07:28:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "stdlib.h"
 
 t_err	ps_solve_tst_merge_no_rotate_solve(
-	t_ps_solve_context *context,
+	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
 	bool right
@@ -26,27 +26,20 @@ t_err	ps_solve_tst_merge_no_rotate_solve(
 			size.x,
 			size.y,
 			size.z);
-	t_ps_solve_util_collect			collect;
 	t_err							result;
 
 	if (!p)
 		return (true);
-	collect.stream = context->stream;
-	collect.p = &p->a;
-	collect.q = &p->b;
-	collect.r = &p->c;
-	collect.from_right = right;
-	ps_solve_util_array_inverse(&p->b);
-	result = (ps_solve_tsb(context, p->a.array, size.x, right)
-			|| ps_solve_tot(context, p->b.array, size.y, right)
-			|| ps_solve_tob(context, p->c.array, size.z, right)
-			|| ps_solve_util_collect_to_top(&collect));
+	result = (ps_solve_util_solve_tsb(context, &p->a, right, false)
+			|| ps_solve_util_solve_tot(context, &p->b, right, true)
+			|| ps_solve_util_solve_tob(context, &p->c, right, false)
+			|| ps_solve_util_collect_to_top_stb(context, p, right));
 	free(p);
 	return (result);
 }
 
 size_t	ps_solve_tst_merge_no_rotate_count(
-	t_ps_solve_context *context,
+	const t_ps_solve_context *context,
 	size_t x,
 	size_t y,
 	size_t z

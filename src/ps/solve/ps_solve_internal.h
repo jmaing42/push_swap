@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 06:44:32 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 07:17:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,14 +120,14 @@ t_err					ps_solve_util_divide_from_top(
 t_err					ps_solve_util_divide_from_bottom(
 							const t_ps_solve_util_divide *params);
 t_err					ps_solve_util_rotate_up(
-							t_ps_stream *stream,
-							size_t left,
-							size_t right,
+							const t_ps_solve_context *context,
+							const t_ps_solve_util_array *left,
+							const t_ps_solve_util_array *right,
 							bool from_right);
 t_err					ps_solve_util_rotate_down(
-							t_ps_stream *stream,
-							size_t left,
-							size_t right,
+							const t_ps_solve_context *context,
+							const t_ps_solve_util_array *left,
+							const t_ps_solve_util_array *right,
 							bool from_right);
 
 t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
@@ -238,111 +238,111 @@ t_err					ps_solve_util_solve_bob(
 							bool reverse);
 
 t_err					ps_solve_util_collect_to_top_stb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_top_sbt(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_top_tsb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_top_tbs(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_top_bst(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_top_bts(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_stb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_sbt(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_tsb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_tbs(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_bst(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_collect_to_bottom_bts(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right);
 t_err					ps_solve_util_divide_from_top_stb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_top_sbt(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_top_tsb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_top_tbs(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_top_bst(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_top_bts(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_stb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_sbt(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_tsb(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_tbs(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_bst(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 t_err					ps_solve_util_divide_from_bottom_bts(
+							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							t_ps_stream *stream,
 							bool from_right,
 							const int *array);
 

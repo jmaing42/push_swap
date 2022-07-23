@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:15:13 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 07:28:26 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "ft_primitive_size_t.h"
 
 t_err	ps_solve_tst_merge_late_rotate_solve(
-	t_ps_solve_context *context,
+	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
 	bool right
@@ -28,29 +28,21 @@ t_err	ps_solve_tst_merge_late_rotate_solve(
 			size.x,
 			size.y,
 			size.z);
-	t_ps_solve_util_collect			collect;
 	t_err							result;
 
 	if (!p)
 		return (true);
-	collect.stream = context->stream;
-	collect.p = &p->b;
-	collect.q = &p->c;
-	collect.r = &p->a;
-	collect.from_right = right;
-	ps_solve_util_array_inverse(&p->c);
-	result = (ps_solve_tot(context, p->a.array, size.x, right)
-			|| ps_solve_tst(context, p->b.array, size.y, right)
-			|| ps_solve_util_rotate_up(
-				context->stream, p->b.length, p->a.length, right)
-			|| ps_solve_tot(context, p->c.array, size.z, right)
-			|| ps_solve_util_collect_to_top(&collect));
+	result = (ps_solve_util_solve_tot(context, &p->a, right, false)
+			|| ps_solve_util_solve_tst(context, &p->b, right, false)
+			|| ps_solve_util_rotate_up(context, &p->b, &p->a, right)
+			|| ps_solve_util_solve_tot(context, &p->c, right, true)
+			|| ps_solve_util_collect_to_top_bst(context, p, right));
 	free(p);
 	return (result);
 }
 
 size_t	ps_solve_tst_merge_late_rotate_count(
-	t_ps_solve_context *context,
+	const t_ps_solve_context *context,
 	size_t x,
 	size_t y,
 	size_t z
