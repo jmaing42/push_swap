@@ -6,14 +6,14 @@ export V
 all: test
 clean:
 	$Q$(MAKE) -C src fclean
-	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
+	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$Qfind src -type d -empty -delete
 	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} clean
 	@printf "\033[0m"
 fclean:
 	$Qrm -rf tmp compile_commands.json .vscode/launch.json .vscode/tasks.json
 	$Q$(MAKE) -C src fclean
-	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.exe" \) -o -type d -name .cache \) -delete
+	$Qfind src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$Qfind src -type d -empty -delete
 	$Qfind src -type d -name test | xargs -L1 -I {} make -C {} fclean
 	@printf "\033[0m"
