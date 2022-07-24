@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_tst_merge_no_rotate.c                     :+:      :+:    :+:   */
+/*   ps_solve_tst_quick_late_rotate.c                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 21:18:41 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/24 21:19:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ft_primitive_size_t.h"
 
 #include <stdlib.h>
 
-t_err	ps_solve_tst_merge_no_rotate_solve(
+#include "ps_solve_internal.h"
+
+t_err	ps_solve_tst_quick_late_rotate_solve(
 	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
@@ -22,21 +24,22 @@ t_err	ps_solve_tst_merge_no_rotate_solve(
 )
 {
 	t_ps_solve_util_parts *const	p
-		= ps_solve_util_allocate_collect(arr, size.x, size.y, size.z);
+		= ps_solve_util_allocate_divide_bst(arr, size.x, size.y, size.z);
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_solve_tsb(context, &p->a, right, false)
-			|| ps_solve_util_solve_tot(context, &p->b, right, true)
-			|| ps_solve_util_solve_tob(context, &p->c, right, false)
-			|| ps_solve_util_collect_to_top_stb(context, p, right)
+			|| ps_solve_util_collect_to_top_bst(context, p, right)
+			|| ps_solve_util_solve_tot(context, &p->c, !right, false)
+			|| ps_solve_util_rotate_down(context, &p->b, &p->a, right)
+			|| ps_solve_util_solve_tst(context, &p->b, right, false)
+			|| ps_solve_util_solve_tot(context, &p->a, !right, false)
 			);
 
 	free(p);
 	return (result);
 }
 
-size_t	ps_solve_tst_merge_no_rotate_count(
+size_t	ps_solve_tst_quick_late_rotate_count(
 	const t_ps_solve_context *context,
 	size_t x,
 	size_t y,
@@ -44,9 +47,10 @@ size_t	ps_solve_tst_merge_no_rotate_count(
 )
 {
 	return (
-		+ context->table[x].tsb.item.count
-		+ context->table[y].tot.item.count
-		+ context->table[z].tob.item.count
-		+ x + y + 2 * z
+		+ context->table[z].tot.item.count
+		+ ft_primitive_size_t_max(y, x)
+		+ context->table[y].tst.item.count
+		+ context->table[x].tot.item.count
+		+ x + 2 * y + z
 	);
 }

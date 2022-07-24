@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 09:21:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 20:55:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -345,6 +345,37 @@ t_err					ps_solve_util_divide_from_bottom_bts(
 							const t_ps_solve_util_parts *parts,
 							const int *array,
 							bool from_right);
+
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_stb(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_sbt(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_tsb(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_tbs(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bst(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bts(
+							const int *array,
+							size_t big,
+							size_t medium,
+							size_t small);
 
 // TODO: move declarations below to each header
 
