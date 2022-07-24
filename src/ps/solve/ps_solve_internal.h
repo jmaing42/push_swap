@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 07:17:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/24 09:21:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -288,63 +288,63 @@ t_err					ps_solve_util_collect_to_bottom_bts(
 t_err					ps_solve_util_divide_from_top_stb(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_top_sbt(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_top_tsb(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_top_tbs(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_top_bst(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_top_bts(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_stb(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_sbt(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_tsb(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_tbs(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_bst(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 t_err					ps_solve_util_divide_from_bottom_bts(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
-							bool from_right,
-							const int *array);
+							const int *array,
+							bool from_right);
 
 // TODO: move declarations below to each header
 
