@@ -13,13 +13,14 @@ OBJ_DIR := .cache
 SRCS_PUSH_SWAP := $(shell find . -name "push_swap_*.c" | grep -v /test/ | xargs)
 SRCS_CHECKER := $(shell find . -name "checker_*.c" | grep -v /test/ | xargs)
 SRCS_LIBFT := $(shell find . -name "ft_*.c" | grep -v /test/ | xargs)
+SRCS_LIBFTO := $(shell find . -name "fto_*.c" | grep -v /test/ | xargs)
 SRCS_LIBPS := $(shell find . -name "ps_*.c" | grep -v /test/ | xargs)
 
-NAME := push_swap
+NAME_PUSH_SWAP := push_swap
 NAME_CHECKER := checker
-EXECUTABLE_TARGETS := $(NAME) $(NAME_CHECKER)
+EXECUTABLE_TARGETS := $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 
-all: $(NAME) $(NAME_CHECKER)
+all: $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 bonus: all
 clean:
 	$Qrm -rf $(OBJ_DIR)
@@ -66,9 +67,10 @@ $(OBJ_DIR)/%$(SUFFIX).o: %.c
 	$Q$(CC) $(CFLAGS) -MJ $@.compile_commands.part.json -MMD -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
+$(OBJ_DIR)/libfto$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFTO))
 $(OBJ_DIR)/libps$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBPS))
-$(OBJ_DIR)/$(NAME)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_PUSH_SWAP)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
-$(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_CHECKER)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
+$(OBJ_DIR)/$(NAME_PUSH_SWAP)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_PUSH_SWAP)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libfto$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
+$(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_CHECKER)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libfto$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
 $(EXECUTABLE_TARGETS): %: $(OBJ_DIR)/%$(SUFFIX).exe
 	$Qcp $< $@.exe
 .PHONY: $(EXECUTABLE_TARGETS)
