@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:01:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/19 09:10:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/28 08:21:41 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,16 @@ static const t_ps_solve_count_tuple	g_strategies[] = {
 	ps_solve_tst_merge_late_rotate_count,
 },
 {
-	ps_solve_tst_merge_no_rotate_solve,
-	ps_solve_tst_merge_no_rotate_count,
+	ps_solve_tst_quick_no_rotate_solve,
+	ps_solve_tst_quick_no_rotate_count,
 },
 {
-	ps_solve_tst_merge_early_rotate_solve,
-	ps_solve_tst_merge_early_rotate_count,
+	ps_solve_tst_quick_early_rotate_solve,
+	ps_solve_tst_quick_early_rotate_count,
 },
 {
-	ps_solve_tst_merge_late_rotate_solve,
-	ps_solve_tst_merge_late_rotate_count,
+	ps_solve_tst_quick_late_rotate_solve,
+	ps_solve_tst_quick_late_rotate_count,
 },
 };
 
