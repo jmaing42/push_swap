@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/28 08:51:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/28 09:03:51 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ t_err	ps_solve_tst_quick_no_rotate_solve(
 		= (
 			!p
 			|| ps_solve_util_divide_from_top_tbs(context, p, arr, right)
-			|| ps_solve_util_solve_tot(context, &p->a, !right, false)
-			|| ps_solve_util_solve_bot(context, &p->b, !right, false)
 			|| ps_solve_util_solve_bst(context, &p->c, right, false)
+			|| ps_solve_util_solve_bot(context, &p->b, !right, false)
+			|| ps_solve_util_solve_tot(context, &p->a, !right, false)
 			);
 
 	free(p);
@@ -44,9 +44,9 @@ size_t	ps_solve_tst_quick_no_rotate_count(
 )
 {
 	return (
-		+ context->table[x].tot.item.count
-		+ context->table[y].bob.item.count
-		+ context->table[z].bst.item.count
 		+ x + 2 * y + z
+		+ context->table[z].bst.item.count
+		+ context->table[y].bot.item.count
+		+ context->table[x].tot.item.count
 	);
 }
