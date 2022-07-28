@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 20:55:30 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/28 08:19:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,39 +378,6 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bts(
 							size_t small);
 
 // TODO: move declarations below to each header
-
-t_err					ps_solve_tsb_merge_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_tsb_merge_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_tsb_quick_no_rotate_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_tsb_quick_no_rotate_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_tsb_quick_rotate_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_tsb_quick_rotate_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
 
 t_err					ps_solve_txt_merge_no_twist_solve(
 							t_ps_solve_context *context,
