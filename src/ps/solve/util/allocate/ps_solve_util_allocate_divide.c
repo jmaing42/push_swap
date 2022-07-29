@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:19:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 00:28:19 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/29 09:32:08 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 
 #include "ft_memory.h"
 
-t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
+t_ps_solve_util_parts_divide	*ps_solve_util_allocate_divide(
 	const int *array,
 	size_t small,
 	size_t medium,
 	size_t big
 )
 {
-	const size_t					length = small + medium + big;
-	t_ps_solve_util_parts *const	result
-		= malloc(sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
+	const size_t						length = small + medium + big;
+	t_ps_solve_util_parts_divide *const	result
+		= malloc(
+			sizeof(t_ps_solve_util_parts_divide) + sizeof(int) * (length));
 
 	if (!result)
 		return (NULL);
