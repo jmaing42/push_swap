@@ -26,9 +26,9 @@ t_err	ps_solve_tsb_merge_solve(
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_solve_tot(context, &p->a, right, true)
-			|| ps_solve_util_solve_tob(context, &p->b, right, false)
-			|| ps_solve_util_solve_tst(context, &p->c, right, true)
+			|| ps_solve_util_solve_tot(context, &p->a, right, false)
+			|| ps_solve_util_solve_tob(context, &p->b, right, true)
+			|| ps_solve_util_solve_tst(context, &p->c, right, false)
 			|| ps_solve_util_collect_to_bottom_tbs(context, p, right)
 			);
 
