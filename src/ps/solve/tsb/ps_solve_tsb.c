@@ -6,12 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:01:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/28 08:20:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/29 09:15:31 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_tsb.h"
-#include "ps_solve_internal.h"
 
 static const t_ps_solve_count_tuple	g_strategies[] = {
 {

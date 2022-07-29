@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_tst.c                                     :+:      :+:    :+:   */
+/*   ps_solve_txb.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 09:01:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/29 09:15:24 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/29 09:18:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_tst.h"
+#include "ps_solve_txb.h"
 
 static const t_ps_solve_count_tuple	g_strategies[] = {
 {
-	ps_solve_tst_merge_no_rotate_solve,
-	ps_solve_tst_merge_no_rotate_count,
+	ps_solve_txb_merge_straightforward_solve,
+	ps_solve_txb_merge_straightforward_count,
 },
 {
-	ps_solve_tst_merge_early_rotate_solve,
-	ps_solve_tst_merge_early_rotate_count,
+	ps_solve_txb_merge_twist_solve,
+	ps_solve_txb_merge_twist_count,
 },
 {
-	ps_solve_tst_merge_late_rotate_solve,
-	ps_solve_tst_merge_late_rotate_count,
+	ps_solve_txb_quick_no_rotate_solve,
+	ps_solve_txb_quick_no_rotate_count,
 },
 {
-	ps_solve_tst_quick_no_rotate_solve,
-	ps_solve_tst_quick_no_rotate_count,
-},
-{
-	ps_solve_tst_quick_early_rotate_solve,
-	ps_solve_tst_quick_early_rotate_count,
-},
-{
-	ps_solve_tst_quick_late_rotate_solve,
-	ps_solve_tst_quick_late_rotate_count,
+	ps_solve_txb_quick_rotate_solve,
+	ps_solve_txb_quick_rotate_count,
 },
 };
 
 // TODO: implement
 
-t_ps_solve_strategy	ps_solve_tst_strategy(
+t_ps_solve_strategy	ps_solve_txb_strategy(
 	const t_ps_solve_context *context,
 	size_t count
 )
@@ -61,7 +53,7 @@ t_ps_solve_strategy	ps_solve_tst_strategy(
 	return (result);
 }
 
-t_ps_solve_count_part	ps_solve_tst_count_part(
+t_ps_solve_count_part	ps_solve_txb_count_part(
 	const t_ps_solve_table *table,
 	size_t count
 )
@@ -76,7 +68,7 @@ t_ps_solve_count_part	ps_solve_tst_count_part(
 	);
 }
 
-t_err	ps_solve_tst(
+t_err	ps_solve_txb(
 	const t_ps_solve_context *context,
 	const int *arr,
 	size_t length,
@@ -84,7 +76,7 @@ t_err	ps_solve_tst(
 )
 {
 	const t_ps_solve_strategy	strategy
-		= ps_solve_tst_strategy(
+		= ps_solve_txb_strategy(
 			context,
 			length);
 
