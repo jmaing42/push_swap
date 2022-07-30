@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/29 09:31:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 09:51:23 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_ps_solve_util_const_array
 	size_t		length;
 }	t_ps_solve_util_const_array;
 
-typedef struct s_ps_solve_util_parts_collect
+typedef struct s_ps_solve_util_parts
 {
 	t_ps_solve_util_array		a;
 	t_ps_solve_util_array		b;
@@ -50,15 +50,7 @@ typedef struct s_ps_solve_util_parts_collect
 	t_ps_solve_util_const_array	y;
 	t_ps_solve_util_const_array	z;
 	int							memory[];
-}	t_ps_solve_util_parts_collect;
-
-typedef struct s_ps_solve_util_parts_divide
-{
-	t_ps_solve_util_array	a;
-	t_ps_solve_util_array	b;
-	t_ps_solve_util_array	c;
-	int						memory[];
-}	t_ps_solve_util_parts_divide;
+}	t_ps_solve_util_parts;
 
 typedef struct s_ps_solve_util_collect
 {
