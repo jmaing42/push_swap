@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:00:48 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/29 09:32:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 21:39:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,20 +30,13 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 	if (!result)
 		return (NULL);
 	ft_memcpy(result->memory, array, sizeof(int) * (length));
-	result->a.array = result->memory;
-	result->b.array = result->memory + top;
-	result->c.array = result->memory + top + middle;
-	result->a.length = top;
-	result->b.length = middle;
-	result->c.length = bottom;
-	result->x.array = array;
-	result->y.array = array + top;
-	result->z.array = array + top + middle;
-	result->x.length = top;
-	result->y.length = middle;
-	result->z.length = bottom;
-	result->original.array = array;
-	result->original.length = length;
+	result->a = ps_solve_util_array(result->memory, top);
+	result->b = ps_solve_util_array(result->memory + top, middle);
+	result->c = ps_solve_util_array(result->memory + top + middle, bottom);
+	result->x = ps_solve_util_array(array, top);
+	result->y = ps_solve_util_array(array + top, middle);
+	result->z = ps_solve_util_array(array + top + middle, bottom);
+	result->original = array;
 	ps_solve_util_array_sort(&result->a);
 	ps_solve_util_array_sort(&result->b);
 	ps_solve_util_array_sort(&result->c);
