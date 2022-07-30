@@ -16,17 +16,16 @@
 
 #include "ft_memory.h"
 
-t_ps_solve_util_parts_divide	*ps_solve_util_allocate_divide(
+t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
 	const int *array,
 	size_t small,
 	size_t medium,
 	size_t big
 )
 {
-	const size_t						length = small + medium + big;
-	t_ps_solve_util_parts_divide *const	result
-		= malloc(
-			sizeof(t_ps_solve_util_parts_divide) + sizeof(int) * (length));
+	const size_t					length = small + medium + big;
+	t_ps_solve_util_parts *const	result = malloc(
+			sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
 
 	if (!result)
 		return (NULL);
@@ -38,6 +37,14 @@ t_ps_solve_util_parts_divide	*ps_solve_util_allocate_divide(
 	result->a.length = small;
 	result->b.length = medium;
 	result->c.length = big;
+	result->x.array = array;
+	result->y.array = array + top;
+	result->z.array = array + top + middle;
+	result->x.length = top;
+	result->y.length = middle;
+	result->z.length = bottom;
+	result->original.array = array;
+	result->original.length = length;
 	ps_solve_util_array_sort_as(&result->a, array, length);
 	ps_solve_util_array_sort_as(&result->b, array, length);
 	ps_solve_util_array_sort_as(&result->c, array, length);

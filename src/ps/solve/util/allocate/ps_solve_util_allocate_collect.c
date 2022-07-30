@@ -16,17 +16,16 @@
 
 #include "ft_memory.h"
 
-t_ps_solve_util_parts_collect	*ps_solve_util_allocate_collect(
+t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 	const int *array,
 	size_t top,
 	size_t middle,
 	size_t bottom
 )
 {
-	const size_t							length = top + middle + bottom;
-	t_ps_solve_util_parts_collect *const	result
-		= malloc(
-			sizeof(t_ps_solve_util_parts_collect) + sizeof(int) * (length));
+	const size_t					length = top + middle + bottom;
+	t_ps_solve_util_parts *const	result = malloc(
+			sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
 
 	if (!result)
 		return (NULL);
@@ -43,6 +42,8 @@ t_ps_solve_util_parts_collect	*ps_solve_util_allocate_collect(
 	result->x.length = top;
 	result->y.length = middle;
 	result->z.length = bottom;
+	result->original.array = array;
+	result->original.length = length;
 	ps_solve_util_array_sort(&result->a);
 	ps_solve_util_array_sort(&result->b);
 	ps_solve_util_array_sort(&result->c);
