@@ -31,37 +31,23 @@ typedef struct s_ps_solve_count_tuple
 
 typedef struct s_ps_solve_util_array
 {
-	int		*array;
-	size_t	length;
-}	t_ps_solve_util_array;
-
-typedef struct s_ps_solve_util_const_array
-{
 	const int	*array;
 	size_t		length;
-}	t_ps_solve_util_const_array;
+}	t_ps_solve_util_array;
 
 typedef struct s_ps_solve_util_parts
 {
-	t_ps_solve_util_array		a;
-	t_ps_solve_util_array		b;
-	t_ps_solve_util_array		c;
-	t_ps_solve_util_const_array	x;
-	t_ps_solve_util_const_array	y;
-	t_ps_solve_util_const_array	z;
+	const t_ps_solve_util_array	a;
+	const t_ps_solve_util_array	b;
+	const t_ps_solve_util_array	c;
+	const t_ps_solve_util_array	x;
+	const t_ps_solve_util_array	y;
+	const t_ps_solve_util_array	z;
+	const t_ps_solve_util_array	original;
 	int							memory[];
 }	t_ps_solve_util_parts;
 
-typedef struct s_ps_solve_util_collect
-{
-	t_ps_stream					*stream;
-	const t_ps_solve_util_array	*p;
-	const t_ps_solve_util_array	*q;
-	const t_ps_solve_util_array	*r;
-	bool						from_right;
-}	t_ps_solve_util_collect;
-
-typedef struct s_ps_solve_util_divide
+typedef struct s_ps_solve_util
 {
 	t_ps_stream					*stream;
 	const t_ps_solve_util_array	*p;
@@ -69,7 +55,7 @@ typedef struct s_ps_solve_util_divide
 	const t_ps_solve_util_array	*r;
 	const int					*array;
 	bool						from_right;
-}	t_ps_solve_util_divide;
+}	t_ps_solve_util;
 
 typedef struct s_ps_solve_strategy
 {
