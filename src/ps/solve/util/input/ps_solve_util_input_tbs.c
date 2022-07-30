@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_util_collect_to_top_bts.c                 :+:      :+:    :+:   */
+/*   ps_solve_util_input_tbs.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 09:01:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 22:22:40 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/30 22:03:02 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/30 22:18:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
-t_err	ps_solve_util_collect_to_top_bts(
+t_ps_solve_util_input	ps_solve_util_input_tbs(
 	const t_ps_solve_context *context,
 	const t_ps_solve_util_parts *parts,
 	bool from_right
 )
 {
-	const t_ps_solve_util_input	input
-		= ps_solve_util_input_bts(
-			context,
-			parts,
-			from_right);
+	const t_ps_solve_util_input	result = {
+		context->stream,
+		(t_ps_solve_util_const_array *)&parts->c,
+		(t_ps_solve_util_const_array *)&parts->a,
+		(t_ps_solve_util_const_array *)&parts->b,
+		parts->original,
+		from_right,
+	};
 
-	return (ps_solve_util_collect_to_top(&input));
+	return (result);
 }

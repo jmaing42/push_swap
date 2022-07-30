@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 22:00:48 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 21:39:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 21:57:55 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 	result->a = ps_solve_util_array(result->memory, top);
 	result->b = ps_solve_util_array(result->memory + top, middle);
 	result->c = ps_solve_util_array(result->memory + top + middle, bottom);
-	result->x = ps_solve_util_array(array, top);
-	result->y = ps_solve_util_array(array + top, middle);
-	result->z = ps_solve_util_array(array + top + middle, bottom);
+	result->x = ps_solve_util_const_array(array, top);
+	result->y = ps_solve_util_const_array(array + top, middle);
+	result->z = ps_solve_util_const_array(array + top + middle, bottom);
 	result->original = array;
 	ps_solve_util_array_sort(&result->a);
 	ps_solve_util_array_sort(&result->b);

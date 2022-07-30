@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 20:19:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 21:39:49 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 21:51:57 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
 	result->a = ps_solve_util_array(result->memory, small);
 	result->b = ps_solve_util_array(result->memory + small, medium);
 	result->c = ps_solve_util_array(result->memory + small + medium, big);
-	result->x = ps_solve_util_array(array, small);
-	result->y = ps_solve_util_array(array + small, medium);
-	result->z = ps_solve_util_array(array + small + medium, big);
+	result->x = ps_solve_util_const_array(array, small);
+	result->y = ps_solve_util_const_array(array + small, medium);
+	result->z = ps_solve_util_const_array(array + small + medium, big);
 	result->original = array;
 	ps_solve_util_array_sort_as(&result->a, array, length);
 	ps_solve_util_array_sort_as(&result->b, array, length);

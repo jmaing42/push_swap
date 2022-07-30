@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_util_collect_to_top_bts.c                 :+:      :+:    :+:   */
+/*   ps_solve_util_const_array.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/24 09:01:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 22:22:40 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/07/30 21:08:39 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/07/30 21:55:04 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
-t_err	ps_solve_util_collect_to_top_bts(
-	const t_ps_solve_context *context,
-	const t_ps_solve_util_parts *parts,
-	bool from_right
+t_ps_solve_util_const_array	ps_solve_util_const_array(
+	const int *self,
+	size_t length
 )
 {
-	const t_ps_solve_util_input	input
-		= ps_solve_util_input_bts(
-			context,
-			parts,
-			from_right);
+	const t_ps_solve_util_const_array	result = {
+		self,
+		length
+	};
 
-	return (ps_solve_util_collect_to_top(&input));
+	return (result);
 }

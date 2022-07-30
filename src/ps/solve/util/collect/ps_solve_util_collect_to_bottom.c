@@ -6,14 +6,14 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:02:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:17:50 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 21:58:56 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
 static t_err	process_p(
-	const t_ps_solve_util_collect *args,
+	const t_ps_solve_util_input *args,
 	size_t *p,
 	size_t q,
 	size_t r
@@ -40,7 +40,7 @@ static t_err	process_p(
 }
 
 static t_err	process_q(
-	const t_ps_solve_util_collect *args,
+	const t_ps_solve_util_input *args,
 	size_t p,
 	size_t *q,
 	size_t r
@@ -67,7 +67,7 @@ static t_err	process_q(
 }
 
 static t_err	process_r(
-	const t_ps_solve_util_collect *args,
+	const t_ps_solve_util_input *args,
 	size_t p,
 	size_t q,
 	size_t *r
@@ -94,7 +94,7 @@ static t_err	process_r(
 }
 
 t_err	ps_solve_util_collect_to_bottom(
-	const t_ps_solve_util_collect *params
+	const t_ps_solve_util_input *params
 )
 {
 	size_t	p_out;

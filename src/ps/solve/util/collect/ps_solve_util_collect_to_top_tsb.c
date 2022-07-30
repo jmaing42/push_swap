@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:01:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 09:02:29 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/30 22:21:10 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,11 @@ t_err	ps_solve_util_collect_to_top_tsb(
 	bool from_right
 )
 {
-	const t_ps_solve_util_collect	collect = {
-		context->stream,
-		&parts->b,
-		&parts->a,
-		&parts->c,
-		from_right,
-	};
+	const t_ps_solve_util_input	input
+		= ps_solve_util_input_tsb(
+			context,
+			parts,
+			from_right);
 
-	return (ps_solve_util_collect_to_top(&collect));
+	return (ps_solve_util_collect_to_top(&input));
 }
