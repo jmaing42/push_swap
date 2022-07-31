@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:02:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 08:43:20 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 20:02:10 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,12 @@ static t_err	process_p(
 		&& (
 			input->q->length == q
 			|| input->q->array[q]
-			< input->p->array[*p]
+			> input->p->array[*p]
 		)
 		&& (
 			input->r->length == r
 			|| input->r->array[input->r->length - 1 - r]
-			< input->p->array[*p]
+			> input->p->array[*p]
 		)
 	)
 	{
@@ -51,12 +51,12 @@ static t_err	process_q(
 		&& (
 			input->p->length == p
 			|| input->p->array[p]
-			< input->q->array[*q]
+			> input->q->array[*q]
 		)
 		&& (
 			input->r->length == r
 			|| input->r->array[input->r->length - 1 - r]
-			< input->q->array[*q]
+			> input->q->array[*q]
 		)
 	)
 	{
@@ -78,12 +78,12 @@ static t_err	process_r(
 		&& (
 			input->p->length == p
 			|| input->p->array[p]
-			< input->r->array[input->r->length - 1 - *r]
+			> input->r->array[input->r->length - 1 - *r]
 		)
 		&& (
 			input->q->length == q
 			|| input->q->array[q]
-			< input->r->array[input->r->length - 1 - *r]
+			> input->r->array[input->r->length - 1 - *r]
 		)
 	)
 	{
