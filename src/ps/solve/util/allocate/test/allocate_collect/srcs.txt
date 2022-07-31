@@ -1,6 +1,7 @@
 main.c
 ../../ps_solve_util_allocate_collect.c
 ../../../ps_solve_util_sort.c
+../../../array/ps_solve_util_array.c
 ../../../array/ps_solve_util_array_sort.c
 ../../../array/ps_solve_util_array_sort_as.c
 ../../../../../../ft/primitive/ft_primitive_int.c

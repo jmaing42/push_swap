@@ -6,21 +6,23 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 09:15:31 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 09:20:46 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "ps_solve.h"
 #include "ps_solve_internal.h"
 
 #include "ft_memory.h"
 
 static t_err	test(const int *array, size_t a, size_t b, size_t c)
 {
+	const t_ps_solve_count_size		size = {a, b, c};
 	t_ps_solve_util_parts *const	arr
-		= ps_solve_util_allocate_collect(array, a, b, c);
+		= ps_solve_util_allocate_collect(array, size);
 	size_t							i;
 
 	if (!arr)
