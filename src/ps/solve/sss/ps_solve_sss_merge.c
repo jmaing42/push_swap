@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:51:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 16:59:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 17:11:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 
-t_err	ps_solve_tob_merge_rotate_solve(
+t_err	ps_solve_sss_merge_rotate_solve(
 	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
@@ -36,7 +36,7 @@ t_err	ps_solve_tob_merge_rotate_solve(
 	return (result);
 }
 
-size_t	ps_solve_tob_merge_rotate_count(
+size_t	ps_solve_sss_merge_rotate_count(
 	const t_ps_solve_context *context,
 	size_t x,
 	size_t y,
