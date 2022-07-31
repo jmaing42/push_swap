@@ -6,95 +6,95 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:02:05 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 21:58:56 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:43:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
 static t_err	process_p(
-	const t_ps_solve_util_input *args,
+	const t_ps_solve_util_input *input,
 	size_t *p,
 	size_t q,
 	size_t r
 )
 {
 	if (
-		args->p->length > *p
+		input->p->length > *p
 		&& (
-			args->q->length == q
-			|| args->q->array[q]
-			< args->p->array[*p]
+			input->q->length == q
+			|| input->q->array[q]
+			< input->p->array[*p]
 		)
 		&& (
-			args->r->length == r
-			|| args->r->array[args->r->length - 1 - r]
-			< args->p->array[*p]
+			input->r->length == r
+			|| input->r->array[input->r->length - 1 - r]
+			< input->p->array[*p]
 		)
 	)
 	{
 		(*p)++;
-		return (ps_solve_util_move_tsb(args->stream, args->from_right));
+		return (ps_solve_util_move_tsb(input->stream, input->from_right));
 	}
 	return (false);
 }
 
 static t_err	process_q(
-	const t_ps_solve_util_input *args,
+	const t_ps_solve_util_input *input,
 	size_t p,
 	size_t *q,
 	size_t r
 )
 {
 	if (
-		args->q->length > *q
+		input->q->length > *q
 		&& (
-			args->p->length == p
-			|| args->p->array[p]
-			< args->q->array[*q]
+			input->p->length == p
+			|| input->p->array[p]
+			< input->q->array[*q]
 		)
 		&& (
-			args->r->length == r
-			|| args->r->array[args->r->length - 1 - r]
-			< args->q->array[*q]
+			input->r->length == r
+			|| input->r->array[input->r->length - 1 - r]
+			< input->q->array[*q]
 		)
 	)
 	{
 		(*q)++;
-		return (ps_solve_util_move_tob(args->stream, !args->from_right));
+		return (ps_solve_util_move_tob(input->stream, !input->from_right));
 	}
 	return (false);
 }
 
 static t_err	process_r(
-	const t_ps_solve_util_input *args,
+	const t_ps_solve_util_input *input,
 	size_t p,
 	size_t q,
 	size_t *r
 )
 {
 	if (
-		args->r->length > *r
+		input->r->length > *r
 		&& (
-			args->p->length == p
-			|| args->p->array[p]
-			< args->r->array[args->r->length - 1 - *r]
+			input->p->length == p
+			|| input->p->array[p]
+			< input->r->array[input->r->length - 1 - *r]
 		)
 		&& (
-			args->q->length == q
-			|| args->q->array[q]
-			< args->r->array[args->r->length - 1 - *r]
+			input->q->length == q
+			|| input->q->array[q]
+			< input->r->array[input->r->length - 1 - *r]
 		)
 	)
 	{
 		(*r)++;
-		return (ps_solve_util_move_bob(args->stream, !args->from_right));
+		return (ps_solve_util_move_bob(input->stream, !input->from_right));
 	}
 	return (false);
 }
 
 t_err	ps_solve_util_collect_to_bottom(
-	const t_ps_solve_util_input *params
+	const t_ps_solve_util_input input
 )
 {
 	size_t	p_out;
@@ -105,15 +105,15 @@ t_err	ps_solve_util_collect_to_bottom(
 	q_out = 0;
 	r_out = 0;
 	while (
-		params->p->length != p_out
-		|| params->q->length != q_out
-		|| params->r->length != r_out
+		input.p->length != p_out
+		|| input.q->length != q_out
+		|| input.r->length != r_out
 	)
 	{
 		if (
-			process_p(params, &p_out, q_out, r_out)
-			|| process_q(params, p_out, &q_out, r_out)
-			|| process_r(params, p_out, q_out, &r_out)
+			process_p(&input, &p_out, q_out, r_out)
+			|| process_q(&input, p_out, &q_out, r_out)
+			|| process_r(&input, p_out, q_out, &r_out)
 		)
 			return (true);
 	}

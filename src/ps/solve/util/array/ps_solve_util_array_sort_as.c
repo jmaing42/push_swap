@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/20 08:48:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 20:36:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:30:50 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "ft_primitive_int.h"
 
 void	ps_solve_util_array_sort_as(
-	t_ps_solve_util_array *self,
+	t_ps_solve_util_array_mutable *self,
 	const int *order_array,
 	size_t order_length
 )

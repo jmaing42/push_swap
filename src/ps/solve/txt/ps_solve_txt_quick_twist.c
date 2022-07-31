@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/29 09:10:55 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 09:07:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_err	ps_solve_txt_quick_twist_solve(
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_divide_from_top_stb(context, p, arr, right)
-			|| ps_solve_util_solve_bot(context, &p->c, !right, false)
-			|| ps_solve_util_solve_sot(context, &p->b, !right, false)
-			|| ps_solve_util_solve_bxt(context, &p->a, right, false)
+			|| ps_solve_util_divide_from_top_stb(context, p, right)
+			|| ps_solve_util_solve_bot(context, &p->z, !right, false)
+			|| ps_solve_util_solve_sot(context, &p->y, !right, false)
+			|| ps_solve_util_solve_bxt(context, &p->x, right, false)
 			);
 
 	free(p);

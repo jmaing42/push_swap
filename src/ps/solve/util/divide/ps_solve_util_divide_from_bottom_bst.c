@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 09:01:52 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 09:26:59 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:37:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,16 @@
 t_err	ps_solve_util_divide_from_bottom_bst(
 	const t_ps_solve_context *context,
 	const t_ps_solve_util_parts *parts,
-	const int *array,
 	bool from_right
 )
 {
-	const t_ps_solve_util_divide	divide = {
-		context->stream,
-		&parts->b,
-		&parts->c,
-		&parts->a,
-		array,
-		from_right,
-	};
-
-	return (ps_solve_util_divide_from_bottom(&divide));
+	return (
+		ps_solve_util_divide_from_bottom(
+			ps_solve_util_input_bst(
+				context,
+				parts,
+				from_right
+			)
+		)
+	);
 }

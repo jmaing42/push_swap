@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/30 22:03:02 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/30 22:18:18 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:48:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ t_ps_solve_util_input	ps_solve_util_input_stb(
 {
 	const t_ps_solve_util_input	result = {
 		context->stream,
-		(t_ps_solve_util_const_array *)&parts->a,
-		(t_ps_solve_util_const_array *)&parts->b,
-		(t_ps_solve_util_const_array *)&parts->c,
+		(t_ps_solve_util_array *)&parts->a,
+		(t_ps_solve_util_array *)&parts->b,
+		(t_ps_solve_util_array *)&parts->c,
 		parts->original,
 		from_right,
 	};

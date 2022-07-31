@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:17:02 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:46:54 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,20 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 		= ps_solve_util_allocate_collect(array, a, b, c);
 	size_t							i;
 	t_ps_stream *const				stream = new_ps_stream(a, b + c);
-	const t_ps_solve_util_collect	collect = {
+	const t_ps_solve_util_input		input = {
 		stream,
 		&arr->a,
 		&arr->b,
 		&arr->c,
+		array,
 		false
 	};
 
 	if (!arr || !stream)
 		return (true);
-	ps_solve_util_array_reverse(&arr->a);
-	ps_solve_util_array_reverse(&arr->b);
-	if (ps_solve_util_collect_to_bottom(&collect) || ps_stream_print(stream, 1))
+	ps_solve_util_array_reverse((t_ps_solve_util_array_mutable *)&arr->a);
+	ps_solve_util_array_reverse((t_ps_solve_util_array_mutable *)&arr->b);
+	if (ps_solve_util_collect_to_bottom(input) || ps_stream_print(stream, 1))
 		return (true);
 	i = -1;
 	while (++i < a + b + c)

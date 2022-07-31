@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 19:49:06 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/23 11:20:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:40:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 		= ps_solve_util_allocate_divide(array, a, b, c);
 	size_t							i;
 	t_ps_stream *const				stream = new_ps_stream(a + b + c, 0);
-	const t_ps_solve_util_divide	divide = {
+	const t_ps_solve_util_input		input = {
 		stream,
 		&arr->a,
 		&arr->b,
@@ -34,9 +34,9 @@ static t_err	test(const int *array, size_t a, size_t b, size_t c)
 
 	if (!arr || !stream)
 		return (true);
-	if (ps_solve_util_divide_from_bottom(&divide) || ps_stream_print(stream, 1))
+	if (ps_solve_util_divide_from_bottom(input) || ps_stream_print(stream, 1))
 		return (true);
-	ps_solve_util_array_reverse(&arr->c);
+	ps_solve_util_array_reverse((t_ps_solve_util_array_mutable *)&arr->c);
 	i = -1;
 	while (++i < a + b + c)
 		printf(&"%d\0 %d"[!!i * 3], arr->memory[i]);

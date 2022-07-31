@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 06:43:07 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 06:49:21 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 08:51:39 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ t_err	ps_solve_util_solve_tot(
 	t_err	result;
 
 	if (reverse)
-		ps_solve_util_array_inverse(array);
+		ps_solve_util_array_inverse((t_ps_solve_util_array_mutable *)array);
 	result = ps_solve_tot(context, array->array, array->length, from_right);
 	if (reverse)
-		ps_solve_util_array_inverse(array);
+		ps_solve_util_array_inverse((t_ps_solve_util_array_mutable *)array);
 	return (result);
 }
