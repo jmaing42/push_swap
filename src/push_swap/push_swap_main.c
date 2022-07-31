@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 15:32:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/01 08:27:02 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ static void	init(
 	const char **args
 )
 {
-	int *const						numbers = (int *)
+	int *const	numbers = (int *)
 		ft_malloc(sizeof(int) * count);
-	size_t							i;
-	size_t							j;
+	size_t		i;
+	size_t		j;
 
 	i = -1;
 	while (++i < count)
