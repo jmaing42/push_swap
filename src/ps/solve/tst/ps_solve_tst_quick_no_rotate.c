@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 09:14:07 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 14:56:51 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ size_t	ps_solve_tst_quick_no_rotate_count(
 )
 {
 	return (
-		+ x + 2 * y + z
+		+ ps_solve_util_move_count_top_tbs(x, y, z)
 		+ context->table[z].bst.item.count
 		+ context->table[y].bot.item.count
 		+ context->table[x].tot.item.count
