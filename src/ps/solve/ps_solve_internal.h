@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 08:54:06 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 09:11:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,14 +137,10 @@ t_err					ps_solve_util_rotate_down(
 
 t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 							const int *array,
-							size_t top,
-							size_t middle,
-							size_t bottom);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 
 t_err					ps_solve_util_solve_tst(
 							const t_ps_solve_context *context,
@@ -365,34 +361,22 @@ t_err					ps_solve_util_divide_from_bottom_bts(
 
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_stb(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_sbt(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_tsb(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_tbs(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bst(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bts(
 							const int *array,
-							size_t big,
-							size_t medium,
-							size_t small);
+							t_ps_solve_count_size size);
 
 // TODO: move declarations below to each header
 

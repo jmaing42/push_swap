@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 04:44:35 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 08:57:39 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 09:14:07 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_err	ps_solve_tst_merge_early_rotate_solve(
 )
 {
 	t_ps_solve_util_parts *const	p
-		= ps_solve_util_allocate_collect(arr, size.x, size.y, size.z);
+		= ps_solve_util_allocate_collect(arr, size);
 	const t_err						result
 		= (
 			!p

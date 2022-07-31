@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 09:06:51 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 09:14:07 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_err	ps_solve_txt_quick_straightforward_solve(
 )
 {
 	t_ps_solve_util_parts *const	p
-		= ps_solve_util_allocate_divide_sbt(arr, size.x, size.y, size.z);
+		= ps_solve_util_allocate_divide_sbt(arr, size);
 	const t_err						result
 		= (
 			!p
