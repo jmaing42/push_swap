@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 16:50:12 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 16:58:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -427,28 +427,6 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bts(
 							t_ps_solve_count_size size);
 
 // TODO: move declarations below to each header
-
-t_err					ps_solve_sss_merge_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_sss_merge_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_sss_quick_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_sss_quick_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
 
 t_err					ps_solve_sxs_merge_no_twist_solve(
 							t_ps_solve_context *context,
