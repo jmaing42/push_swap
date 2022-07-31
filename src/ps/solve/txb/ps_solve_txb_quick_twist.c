@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_txb_quick_no_rotate.c                     :+:      :+:    :+:   */
+/*   ps_solve_txb_quick_twist.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 14:31:54 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 14:37:30 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 
-t_err	ps_solve_txb_quick_no_rotate_solve(
+t_err	ps_solve_txb_quick_twist_solve(
 	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
@@ -29,14 +29,14 @@ t_err	ps_solve_txb_quick_no_rotate_solve(
 			|| ps_solve_util_divide_from_top_sbt(context, p, right)
 			|| ps_solve_util_solve_bsb(context, &p->x, right, false)
 			|| ps_solve_util_solve_bob(context, &p->y, !right, false)
-			|| ps_solve_util_solve_tob(context, &p->z, !right, false)
+			|| ps_solve_util_solve_sob(context, &p->z, !right, false)
 			);
 
 	free(p);
 	return (result);
 }
 
-size_t	ps_solve_txb_quick_no_rotate_count(
+size_t	ps_solve_txb_quick_twist_count(
 	const t_ps_solve_context *context,
 	size_t x,
 	size_t y,
@@ -44,9 +44,9 @@ size_t	ps_solve_txb_quick_no_rotate_count(
 )
 {
 	return (
-		+ x + y + 2 * z
+		+ x + 2 * y + z
 		+ context->table[x].bsb.item.count
 		+ context->table[y].bob.item.count
-		+ context->table[z].tob.item.count
+		+ context->table[z].sob.item.count
 	);
 }

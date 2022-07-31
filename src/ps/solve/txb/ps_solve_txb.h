@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/29 09:19:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/29 09:20:13 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 14:33:57 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,23 +44,23 @@ size_t					ps_solve_txb_merge_twist_count(
 							size_t y,
 							size_t z);
 
-t_err					ps_solve_txb_quick_no_rotate_solve(
+t_err					ps_solve_txb_quick_straightforward_solve(
 							const t_ps_solve_context *context,
 							const int *arr,
 							t_ps_solve_count_size size,
 							bool from_right);
-size_t					ps_solve_txb_quick_no_rotate_count(
+size_t					ps_solve_txb_quick_straightforward_count(
 							const t_ps_solve_table *table,
 							size_t x,
 							size_t y,
 							size_t z);
 
-t_err					ps_solve_txb_quick_rotate_solve(
+t_err					ps_solve_txb_quick_twist_solve(
 							const t_ps_solve_context *context,
 							const int *arr,
 							t_ps_solve_count_size size,
 							bool from_right);
-size_t					ps_solve_txb_quick_rotate_count(
+size_t					ps_solve_txb_quick_twist_count(
 							const t_ps_solve_table *table,
 							size_t x,
 							size_t y,
