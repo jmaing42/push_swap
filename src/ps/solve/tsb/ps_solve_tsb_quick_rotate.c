@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 09:14:07 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 14:51:12 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@ t_err	ps_solve_tsb_quick_rotate_solve(
 )
 {
 	t_ps_solve_util_parts *const	p
-		= ps_solve_util_allocate_divide_bst(arr, size);
+		= ps_solve_util_allocate_divide_sbt(arr, size);
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_divide_from_top_bst(context, p, right)
+			|| ps_solve_util_divide_from_top_sbt(context, p, right)
 			|| ps_solve_util_rotate_down(context, &p->x, &p->y, right)
 			|| ps_solve_util_solve_tsb(context, &p->x, right, false)
 			|| ps_solve_util_solve_tob(context, &p->y, !right, false)
@@ -47,7 +47,7 @@ size_t	ps_solve_tsb_quick_rotate_count(
 )
 {
 	return (
-		+ x + 2 * y + z
+		+ ps_solve_util_move_count_top_sbt(x, y, z)
 		+ ft_primitive_size_t_max(x, y)
 		+ context->table[x].tsb.item.count
 		+ context->table[y].tob.item.count

@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 09:11:27 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/07/31 14:41:33 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,54 @@ t_err					ps_solve_util_solve_bob(
 							bool from_right,
 							bool reverse);
 
+size_t					ps_solve_util_move_count_top_stb(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_top_sbt(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_top_tsb(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_top_tbs(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_top_bst(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_top_bts(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_stb(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_sbt(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_tsb(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_tbs(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_bst(
+							size_t x,
+							size_t y,
+							size_t z);
+size_t					ps_solve_util_move_count_bottom_bts(
+							size_t x,
+							size_t y,
+							size_t z);
 t_ps_solve_util_input	ps_solve_util_input_stb(
 							const t_ps_solve_context *context,
 							const t_ps_solve_util_parts *parts,
