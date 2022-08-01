@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:51:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/01 09:21:46 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/01 22:39:43 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,11 +28,11 @@ t_err	ps_solve_bst_merge_rotate_solve(
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_solve_bst(context, &p->x, right, true)
+			|| ps_solve_util_solve_bst(context, &p->z, right, true)
 			|| ps_solve_util_solve_bot(context, &p->y, right, false)
-			|| ps_solve_util_solve_bst(context, &p->z, right, false)
-			|| ps_solve_util_rotate_up(context, &p->z, &p->y, right)
-			|| ps_solve_util_collect_to_top_tsb(context, p, !right)
+			|| ps_solve_util_solve_bst(context, &p->x, right, false)
+			|| ps_solve_util_rotate_up(context, &p->x, &p->y, right)
+			|| ps_solve_util_collect_to_top_bst(context, p, right)
 			);
 
 	free(p);
@@ -47,10 +47,10 @@ size_t	ps_solve_bst_merge_rotate_count(
 )
 {
 	return (
-		+ context->table[x].bst.item.count
-		+ context->table[y].bot.item.count
 		+ context->table[z].bst.item.count
-		+ ft_primitive_size_t_max(z, y)
-		+ ps_solve_util_move_count_top_tsb(x, y, z)
+		+ context->table[y].bot.item.count
+		+ context->table[x].bst.item.count
+		+ ft_primitive_size_t_max(x, y)
+		+ ps_solve_util_move_count_top_bst(x, y, z)
 	);
 }
