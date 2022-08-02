@@ -1,3 +1,4 @@
 /ps/solve
 /ft/types
 /ps/stream
+/fto/stream

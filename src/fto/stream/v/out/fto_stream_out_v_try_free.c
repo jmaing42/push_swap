@@ -12,7 +12,7 @@
 
 #include "fto_stream_out_v.h"
 
-t_err	fto_stream_out_v_flush(t_fto_stream_out *self)
+t_err	fto_stream_out_v_try_free(t_fto_stream_out *self)
 {
 	if (self->v->flush(self))
 		return (true);

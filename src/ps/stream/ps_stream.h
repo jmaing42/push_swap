@@ -16,6 +16,7 @@
 # include <stddef.h>
 
 # include "ft_types.h"
+# include "fto_stream_out.h"
 
 typedef enum e_ps_stream_node_type
 {
@@ -88,6 +89,9 @@ void		ps_stream_free(
 t_err		ps_stream_print(
 				t_ps_stream *self,
 				int fd);
+t_err		ps_stream_flush(
+				t_ps_stream *self,
+				t_fto_stream_out *stream_to);
 
 t_err		ps_stream_append_pa(t_ps_stream *self, size_t count, bool reverse);
 t_err		ps_stream_append_pb(t_ps_stream *self, size_t count, bool reverse);

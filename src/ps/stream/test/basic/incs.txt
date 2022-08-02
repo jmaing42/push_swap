@@ -6,3 +6,8 @@
 /ft/io
 /ft/cstring
 /ft/byte_map
+/fto/stream
+/fto/stream/v/out
+/fto/stream/fd
+/fto/stream/fd/out
+/fto/stream/fd/out/v

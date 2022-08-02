@@ -16,6 +16,7 @@
 #include <unistd.h>
 
 #include "ps_stream.h"
+#include "fto_stream_fd_out.h"
 
 static t_err	append_swap(
 	t_ps_stream *stream,
@@ -72,11 +73,13 @@ static t_err	append(t_ps_stream *stream, const char *operation, size_t count)
 
 t_err	test(size_t a, size_t b)
 {
+	t_fto_stream_out *const	stdout
+		= (t_fto_stream_out *)new_fto_stream_fd_out(STDOUT_FILENO, true);
 	t_ps_stream *const		stream = new_ps_stream(a, b);
 	size_t					count;
 	char					buffer[4];
 
-	if (!stream)
+	if (!stdout || !stream)
 		return (true);
 	while (!feof(stdin) && scanf("%3s %zu", buffer, &count) == 2)
 	{
@@ -91,7 +94,7 @@ t_err	test(size_t a, size_t b)
 		ps_stream_free(stream);
 		return (true);
 	}
-	ps_stream_print(stream, STDOUT_FILENO);
+	ps_stream_flush(stream, stdout);
 	ps_stream_free(stream);
 	return (false);
 }

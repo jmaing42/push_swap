@@ -3,3 +3,4 @@
 /ft/types
 /ft/primitive
 /ft/memory
+/fto/stream
