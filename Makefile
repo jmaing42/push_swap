@@ -1,4 +1,4 @@
-Q := $(if $(filter 1 2 3,$(V) $(VERBOSE)),,@)
+Q := $(if $(filter 2 3,$(V) $(VERBOSE)),,@)
 MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh src/build/script/nproc.sh) NO_ADDITIONAL_J=1)
 
 export V
@@ -31,6 +31,7 @@ endif
 	$Qmkdir tmp
 	$Qsh src/build/script/copy_src_to_tmp_flatten.sh
 	$Qcd tmp && sh ../template/template.sh > Makefile
+	$Qmake -C test
 	$Q(cd tmp && git init && git add . && git commit -m "Initial commit" && git push "$(GIT_REMOTE_URL)" HEAD:master) || (echo "Failed to publish" && false)
 	$Qrm -rf tmp
 	$Qgit push "$(GIT_REMOTE_URL)" HEAD:source || echo "Failed to push HEAD to source"

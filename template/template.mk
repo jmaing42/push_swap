@@ -1,3 +1,4 @@
+
 NAME_PUSH_SWAP = push_swap
 NAME_CHECKER = checker
 NAME_LIBFT = libft.a
@@ -12,21 +13,37 @@ OTHER_USEFUL_FILES = .editorconfig .gitignore
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(EXECUTABLE_TARGETS) $(OTHER_USEFUL_FILES)
-bonus: all
+
+default: all
+.PHONY: default
+
+
+.PHONY: all
+all: $(NAME_PUSH_SWAP) $(OTHER_USEFUL_FILES)
+
+.PHONY: bonus
+bonus: $(NAME_CHECKER) $(OTHER_USEFUL_FILES)
+
+.PHONY: clean
 clean:
 	rm -f $(OBJS) $(LIBRARY_TARGETS) $(OTHER_USEFUL_FILES)
+
+.PHONY: fclean
 fclean: clean
 	rm -f $(EXECUTABLE_TARGETS)
+
+.PHONY: re
 re:
 	$(MAKE) fclean
 	$(MAKE) all
-.PHONY: all bonus clean fclean re
+
 
 .editorconfig:
 	printf "root = true\n\n[*]\ncharset = utf-8\nend_of_line = lf\nindent_size = 4\nindent_style = tab\ninsert_final_newline = true\ntrim_trailing_whitespace = true\n" > .editorconfig
+
 .gitignore:
 	(printf ".*\n*.o\n\n" && echo "$(EXECUTABLE_TARGETS) $(LIBRARY_TARGETS)" | xargs -n 1 echo) > $@
+
 
 $(EXECUTABLE_TARGETS):
 	$(CC) $(LDFLAGS) -o $@ $^
@@ -38,3 +55,4 @@ $(NAME_CHECKER): $(OBJS_CHECKER) $(LIBRARY_TARGETS)
 $(NAME_LIBFT): $(OBJS_LIBFT)
 $(NAME_LIBFTO): $(OBJS_LIBFTO)
 $(NAME_LIBPS): $(OBJS_LIBPS)
+
