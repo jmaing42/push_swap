@@ -11,8 +11,8 @@ OTHER_USEFUL_FILES = .editorconfig .gitignore
 
 CFLAGS = -Wall -Wextra -Werror
 
-all: $(EXECUTABLE_TARGETS) $(OTHER_USEFUL_FILES)
-bonus: all
+all: push_swap $(OTHER_USEFUL_FILES)
+bonus: checker $(OTHER_USEFUL_FILES)
 clean:
 	rm -f $(OBJS) $(LIBS) $(OTHER_USEFUL_FILES)
 fclean: clean
