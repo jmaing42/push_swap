@@ -1,5 +1,5 @@
-Q := $(if $(filter 1,$(V) $(VERBOSE)),,@)
-MAKE := $(MAKE) $(if $(filter 1,$(V) $(VERBOSE)),,--no-print-directory)
+Q := $(if $(filter 2 3,$(V) $(VERBOSE)),,@)
+MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory)
 
 CC := clang
 CCLD := clang

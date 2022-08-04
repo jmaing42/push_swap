@@ -3,7 +3,7 @@
 set -e
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "0. prepare"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "Testing Makefile"
 
 # initial
 make -C push_swap -q all && exit 1 || :
@@ -14,7 +14,7 @@ make -C push_swap -q && exit 1 || :
 find push_swap | sort > tmp_initial.txt
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "1. testing all"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "1. testing all"
 
 # make all
 find push_swap | sort | cmp -s tmp_initial.txt
@@ -33,7 +33,7 @@ make -C push_swap fclean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_initial.txt
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "2. testing bonus"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "2. testing bonus"
 
 # make bonus
 make -C push_swap bonus > /dev/null 2> /dev/null
@@ -50,7 +50,7 @@ make -C push_swap fclean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_initial.txt
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "3. testing default"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "3. testing default"
 
 # make default
 make -C push_swap > /dev/null 2> /dev/null
@@ -68,7 +68,7 @@ make -C push_swap fclean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_initial.txt
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "4. testing push_swap"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "4. testing push_swap"
 
 # make push_swap
 find push_swap | sort | cmp -s tmp_initial.txt
@@ -85,7 +85,7 @@ make -C push_swap fclean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_initial.txt
 
 
-[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] || echo "5. testing checker"
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "5. testing checker"
 
 # make checker
 make -C push_swap checker > /dev/null 2> /dev/null
@@ -99,3 +99,16 @@ cat tmp_initial.txt template_bonus.txt | sort | uniq | cmp -s tmp_bonus_clean.tx
 # make fclean
 make -C push_swap fclean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_initial.txt
+
+
+[ "$V" != "1" ] && [ "$V" != "2" ] && [ "$V" != "3" ] && [ "$VERBOSE" != "1" ] && [ "$VERBOSE" != "2" ] && [ "$VERBOSE" != "3" ] || echo "6. testing re"
+
+# make re
+make -C push_swap re > /dev/null 2> /dev/null
+find push_swap | sort > tmp_all.txt
+# make rere
+make -C push_swap re > /dev/null 2> /dev/null
+find push_swap | sort > tmp_all.txt
+# make rere with -j 4
+make -C push_swap re -j 4 > /dev/null 2> /dev/null
+find push_swap | sort > tmp_all.txt
