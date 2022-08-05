@@ -74,11 +74,11 @@ find push_swap | sort | cmp -s tmp_initial.txt
 find push_swap | sort | cmp -s tmp_initial.txt
 make -C push_swap push_swap > /dev/null 2> /dev/null
 make -C push_swap -q push_swap
-find push_swap | sort > tmp_all.txt
+find push_swap | sort > tmp_push_swap.txt
 # make push_swap clean
 make -C push_swap clean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_all_clean.txt
-cat tmp_all.txt tmp_all_clean.txt | sort | uniq | cmp -s tmp_all.txt
+cat tmp_push_swap.txt tmp_all_clean.txt | sort | uniq | cmp -s tmp_push_swap.txt
 cat tmp_initial.txt template_all.txt | sort | uniq | cmp -s tmp_all_clean.txt
 # make fclean
 make -C push_swap fclean > /dev/null 2> /dev/null
@@ -90,11 +90,11 @@ find push_swap | sort | cmp -s tmp_initial.txt
 # make checker
 make -C push_swap checker > /dev/null 2> /dev/null
 make -C push_swap -q checker
-find push_swap | sort > tmp_bonus.txt
+find push_swap | sort > tmp_checker.txt
 # make bonus clean
 make -C push_swap clean > /dev/null 2> /dev/null
 find push_swap | sort | cmp -s tmp_bonus_clean.txt
-cat tmp_bonus.txt tmp_bonus_clean.txt | sort | uniq | cmp -s tmp_bonus.txt
+cat tmp_checker.txt tmp_bonus_clean.txt | sort | uniq | cmp -s tmp_checker.txt
 cat tmp_initial.txt template_bonus.txt | sort | uniq | cmp -s tmp_bonus_clean.txt
 # make fclean
 make -C push_swap fclean > /dev/null 2> /dev/null
