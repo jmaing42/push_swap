@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:51:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/01 22:39:40 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 22:02:05 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ t_err	ps_solve_bst_merge_no_rotate_solve(
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_solve_bst(context, &p->z, right, true)
+			|| ps_solve_util_solve_bot(context, &p->z, right, true)
 			|| ps_solve_util_solve_bob(context, &p->y, right, false)
 			|| ps_solve_util_solve_bsb(context, &p->x, right, false)
-			|| ps_solve_util_collect_to_top_bst(context, p, right)
+			|| ps_solve_util_collect_to_top_sbt(context, p, right)
 			);
 
 	free(p);
@@ -44,9 +44,9 @@ size_t	ps_solve_bst_merge_no_rotate_count(
 )
 {
 	return (
-		+ context->table[z].bst.item.count
+		+ context->table[z].bot.item.count
 		+ context->table[y].bob.item.count
 		+ context->table[x].bsb.item.count
-		+ ps_solve_util_move_count_top_bst(x, y, z)
+		+ ps_solve_util_move_count_top_sbt(x, y, z)
 	);
 }
