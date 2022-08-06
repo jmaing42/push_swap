@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 23:04:01 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/01 23:13:37 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 22:26:32 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ size_t	ps_solve_bxt_merge_straightforward_count(
 )
 {
 	return (
-		+ context->table[z].bos.item.count
-		+ context->table[y].bot.item.count
-		+ context->table[x].bsb.item.count
+		+ ps_solve_util_count_bos(context, z)
+		+ ps_solve_util_count_bot(context, y)
+		+ ps_solve_util_count_bsb(context, x)
 		+ ps_solve_util_move_count_top_stb(x, y, z)
 	);
 }

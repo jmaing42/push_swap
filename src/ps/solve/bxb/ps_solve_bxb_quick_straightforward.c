@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ps_solve_bxt_quick_straightforward.c               :+:      :+:    :+:   */
+/*   ps_solve_bxb_quick_straightforward.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 21:23:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 21:45:04 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 22:27:48 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ size_t	ps_solve_bxb_quick_straightforward_count(
 {
 	return (
 		+ ps_solve_util_move_count_bottom_tbs(x, y, z)
-		+ context->table[x].tob.item.count
-		+ context->table[y].sob.item.count
-		+ context->table[z].txb.item.count
+		+ ps_solve_util_count_tob(context, x)
+		+ ps_solve_util_count_sob(context, y)
+		+ ps_solve_util_count_txb(context, z)
 	);
 }

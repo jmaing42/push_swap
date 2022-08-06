@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:17:10 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 22:26:39 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ size_t	ps_solve_tob_quick_no_rotate_count(
 {
 	return (
 		+ ps_solve_util_move_count_top_bts(x, y, z)
-		+ context->table[x].bsb.item.count
-		+ context->table[y].tsb.item.count
-		+ context->table[z].bob.item.count
+		+ ps_solve_util_count_bsb(context, x)
+		+ ps_solve_util_count_tsb(context, y)
+		+ ps_solve_util_count_bob(context, z)
 	);
 }
