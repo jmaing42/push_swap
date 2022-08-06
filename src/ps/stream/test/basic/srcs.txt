@@ -38,8 +38,8 @@ main.c
 ../../internal/make_last/ps_stream_internal_make_last_parallel_node_reverse_rotate.c
 ../../internal/make_last/ps_stream_internal_make_last_parallel_node_rotate.c
 ../../internal/make_last/ps_stream_internal_make_last_parallel_node_swap.c
-../../../../ft/primitive/ft_primitive_size_t.c
-../../../../ft/primitive/ft_primitive_const_pointer.c
+../../../../ft/types/primitive/ft_types_primitive_size_t.c
+../../../../ft/types/primitive/ft_types_primitive_const_pointer.c
 ../../../../ft/io/ft_io_basic.c
 ../../../../ft/cstring/ft_cstring_strlen.c
 ../../../../ft/byte_map/ft_byte_map.c

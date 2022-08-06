@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 #include "ft_io.h"
-#include "ft_primitive_const_pointer.h"
+#include "ft_types_primitive_const_pointer.h"
 
 static t_err	ps_stream_flush_separator(
 	t_ps_stream_node_separator *node,
@@ -38,17 +38,17 @@ static t_err	ps_stream_flush_parallel_list(
 		i = -1;
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_SWAP)
 			while (++i < current->count)
-				if (to->v->write(to, ft_primitive_const_pointer_if(
+				if (to->v->write(to, ft_types_primitive_const_pointer_if(
 							b, "sb\n", "sa\n"), 3, NULL))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)
 			while (++i < current->count)
-				if (to->v->write(to, ft_primitive_const_pointer_if(
+				if (to->v->write(to, ft_types_primitive_const_pointer_if(
 							b, "rb\n", "ra\n"), 3, NULL))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)
 			while (++i < current->count)
-				if (to->v->write(to, ft_primitive_const_pointer_if(
+				if (to->v->write(to, ft_types_primitive_const_pointer_if(
 							b, "rrb\n", "rra\n"), 4, NULL))
 					return (true);
 		current = current->next;

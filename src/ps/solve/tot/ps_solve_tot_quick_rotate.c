@@ -6,11 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:27:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_primitive_size_t.h"
+#include "ft_types_primitive_size_t.h"
 #include "ps_solve_internal.h"
 
 #include <stdlib.h>
@@ -48,7 +48,7 @@ size_t	ps_solve_tot_quick_rotate_count(
 	return (
 		+ ps_solve_util_move_count_top_sbt(x, y, z)
 		+ ps_solve_util_count_tst(context, z)
-		+ ft_primitive_size_t_max(x, y)
+		+ ft_types_primitive_size_t_max(x, y)
 		+ ps_solve_util_count_tst(context, y)
 		+ ps_solve_util_count_tot(context, x)
 	);

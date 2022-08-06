@@ -6,13 +6,13 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:09:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/24 07:15:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
-#include "ft_primitive_size_t.h"
+#include "ft_types_primitive_size_t.h"
 #include "ps_stream.h"
 
 t_err	ps_solve_util_rotate_up(
@@ -22,7 +22,7 @@ t_err	ps_solve_util_rotate_up(
 	bool from_right
 )
 {
-	const size_t	rr = ft_primitive_size_t_min(left->length, right->length);
+	const size_t	rr = ft_types_primitive_size_t_min(left->length, right->length);
 	const size_t	ra = left->length - rr;
 	const size_t	rb = right->length - rr;
 	size_t			i;

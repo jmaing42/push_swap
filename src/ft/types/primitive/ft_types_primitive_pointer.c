@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_primitive_int.h                                 :+:      :+:    :+:   */
+/*   ft_types_primitive_pointer.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/23 21:58:38 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 15:32:52 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/06/25 19:44:45 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRIMITIVE_INT_H
-# define FT_PRIMITIVE_INT_H
+#include "ft_types_primitive_pointer.h"
 
-# include <stddef.h>
-# include <stdbool.h>
+void	ft_types_primitive_pointer_swap(void **a, void **b)
+{
+	void	*tmp;
 
-void	ft_primitive_int_swap(int *a, int *b);
-int		ft_primitive_int_min(int a, int b);
-int		ft_primitive_int_max(int a, int b);
-int		ft_primitive_int_if(
-			bool condition,
-			int value_if_true,
-			int value_if_false);
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
+}
 
-#endif
+void	*ft_types_primitive_pointer_if(
+	bool condition,
+	void *value_if_true,
+	void *value_if_false
+)
+{
+	if (condition)
+		return (value_if_true);
+	return (value_if_false);
+}

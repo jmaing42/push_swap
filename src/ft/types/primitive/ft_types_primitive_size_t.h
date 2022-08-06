@@ -1,24 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_primitive_pointer.h                             :+:      :+:    :+:   */
+/*   ft_types_primitive_size_t.h                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/25 19:44:45 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 20:31:33 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 2022/05/23 21:58:38 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2022/08/06 23:03:44 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRIMITIVE_POINTER_H
-# define FT_PRIMITIVE_POINTER_H
+#ifndef FT_TYPES_PRIMITIVE_SIZE_T_H
+# define FT_TYPES_PRIMITIVE_SIZE_T_H
 
+# include <stddef.h>
 # include <stdbool.h>
 
-void	ft_primitive_pointer_swap(void **a, void **b);
-void	*ft_primitive_pointer_if(
+void	ft_types_primitive_size_t_swap(size_t *a, size_t *b);
+size_t	ft_types_primitive_size_t_min(size_t a, size_t b);
+size_t	ft_types_primitive_size_t_max(size_t a, size_t b);
+size_t	ft_types_primitive_size_t_if(
 			bool condition,
-			void *value_if_true,
-			void *value_if_false);
+			size_t value_if_true,
+			size_t value_if_false);
 
 #endif

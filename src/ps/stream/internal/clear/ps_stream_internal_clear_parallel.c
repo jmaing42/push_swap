@@ -6,13 +6,13 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/14 23:45:29 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 20:41:33 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stream_internal.h"
 
-#include "ft_primitive_size_t.h"
+#include "ft_types_primitive_size_t.h"
 
 static void	ps_stream_internal_clear_parallel_swap(
 	t_ps_stream_node_parallel_list_node *node
@@ -27,7 +27,7 @@ static void	ps_stream_internal_clear_parallel_rr_r(
 )
 {
 	const size_t	common
-		= ft_primitive_size_t_min(second_last->count, last->count);
+		= ft_types_primitive_size_t_min(second_last->count, last->count);
 
 	second_last->count -= common;
 	last->count -= common;
@@ -39,7 +39,7 @@ static void	ps_stream_internal_clear_parallel_r_rr(
 )
 {
 	const size_t	common
-		= ft_primitive_size_t_min(second_last->count, last->count);
+		= ft_types_primitive_size_t_min(second_last->count, last->count);
 
 	second_last->count -= common;
 	last->count -= common;

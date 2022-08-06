@@ -2,7 +2,7 @@
 /ps/stream
 /ps/stream/internal
 /ft/types
-/ft/primitive
+/ft/types/primitive
 /ft/io
 /ft/memory
 /ft/cstring

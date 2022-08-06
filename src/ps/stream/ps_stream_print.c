@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/18 00:15:55 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/20 20:44:08 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <stdlib.h>
 
 #include "ft_io.h"
-#include "ft_primitive_const_pointer.h"
+#include "ft_types_primitive_const_pointer.h"
 
 static t_err	ps_stream_print_separator(
 	t_ps_stream_node_separator *node,
@@ -51,17 +51,17 @@ static t_err	ps_stream_print_parallel_list(
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_SWAP)
 			while (++i < current->count)
 				if (ft_puts(fd,
-						ft_primitive_const_pointer_if(b, "sb\n", "sa\n")))
+						ft_types_primitive_const_pointer_if(b, "sb\n", "sa\n")))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_ROTATE)
 			while (++i < current->count)
 				if (ft_puts(fd,
-						ft_primitive_const_pointer_if(b, "rb\n", "ra\n")))
+						ft_types_primitive_const_pointer_if(b, "rb\n", "ra\n")))
 					return (true);
 		if (current->type == PS_STREAM_NODE_PARALLEL_OPERATION_REVERSE_ROTATE)
 			while (++i < current->count)
 				if (ft_puts(fd,
-						ft_primitive_const_pointer_if(b, "rrb\n", "rra\n")))
+						ft_types_primitive_const_pointer_if(b, "rrb\n", "rra\n")))
 					return (true);
 		current = current->next;
 	}

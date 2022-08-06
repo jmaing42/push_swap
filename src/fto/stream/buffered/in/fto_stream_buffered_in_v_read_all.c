@@ -6,14 +6,14 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/27 22:59:07 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/27 23:17:57 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fto_stream_buffered_in_v.h"
 
 #include "ft_memory.h"
-#include "ft_primitive_size_t.h"
+#include "ft_types_primitive_size_t.h"
 
 static t_err	fill_buffer(
 	t_fto_stream_buffered_in *self
@@ -37,7 +37,7 @@ static size_t	feed(
 )
 {
 	const size_t	remain = self->buffer_size - self->buffer_offset;
-	const size_t	to_feed = ft_primitive_size_t_max(remain, limit);
+	const size_t	to_feed = ft_types_primitive_size_t_max(remain, limit);
 
 	ft_memcpy(buffer, self->buffer + self->buffer_offset, to_feed);
 	self->buffer_offset += to_feed;
