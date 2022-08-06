@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 23:16:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/01 23:19:53 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 21:39:15 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <stdlib.h>
 
-t_err	ps_solve_sxs_quick_twist_solve(
+t_err	ps_solve_bxt_quick_twist_solve(
 	const t_ps_solve_context *context,
 	int *arr,
 	t_ps_solve_count_size size,
