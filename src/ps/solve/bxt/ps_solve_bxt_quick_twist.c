@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 23:16:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 21:39:15 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 21:50:53 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,14 @@ t_err	ps_solve_bxt_quick_twist_solve(
 )
 {
 	t_ps_solve_util_parts *const	p
-		= ps_solve_util_allocate_divide_bts(arr, size);
+		= ps_solve_util_allocate_divide_tbs(arr, size);
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_divide_from_bottom_bts(context, p, right)
-			|| ps_solve_util_solve_bob(context, &p->x, !right, false)
-			|| ps_solve_util_solve_sob(context, &p->y, !right, false)
-			|| ps_solve_util_solve_txb(context, &p->z, right, false)
+			|| ps_solve_util_divide_from_bottom_tbs(context, p, right)
+			|| ps_solve_util_solve_tst(context, &p->z, right, false)
+			|| ps_solve_util_solve_bot(context, &p->y, !right, false)
+			|| ps_solve_util_solve_sot(context, &p->x, !right, false)
 			);
 
 	free(p);
@@ -44,9 +44,9 @@ size_t	ps_solve_sxs_quick_twist_count(
 )
 {
 	return (
-		+ ps_solve_util_move_count_bottom_bts(x, y, z)
-		+ context->table[x].bob.item.count
-		+ context->table[y].sob.item.count
-		+ context->table[z].txb.item.count
+		+ ps_solve_util_move_count_bottom_tbs(x, y, z)
+		+ context->table[z].tst.item.count
+		+ context->table[y].bot.item.count
+		+ context->table[x].sot.item.count
 	);
 }
