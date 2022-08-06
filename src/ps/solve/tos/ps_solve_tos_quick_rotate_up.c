@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 16:39:30 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/06 22:17:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_err	ps_solve_tos_quick_rotate_up_solve(
 	const t_err						result
 		= (
 			!p
-			|| ps_solve_util_divide_from_top_stb(context, p, right)
+			|| ps_solve_util_divide_from_top_stb(context, p, !right)
 			|| ps_solve_util_solve_bst(context, &p->z, !right, false)
 			|| ps_solve_util_solve_bst(context, &p->y, !right, false)
 			|| ps_solve_util_solve_bot(context, &p->x, right, false)
