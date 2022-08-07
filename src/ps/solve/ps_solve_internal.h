@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/15 23:31:49 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:29:35 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 15:05:36 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -480,73 +480,5 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bst(
 t_ps_solve_util_parts	*ps_solve_util_allocate_divide_bts(
 							const int *array,
 							t_ps_solve_count_size size);
-
-// TODO: move declarations below to each header
-
-t_err					ps_solve_bos_merge_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_merge_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_bos_quick_twist_up_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_quick_twist_up_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_bos_quick_twist_down_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_quick_twist_down_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_bos_quick_rotate_up_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_quick_rotate_up_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_bos_quick_rotate_down_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_quick_rotate_down_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
-
-t_err					ps_solve_bos_quick_no_rotate_solve(
-							t_ps_solve_context *context,
-							int *arr,
-							size_t length,
-							bool from_right);
-size_t					ps_solve_bos_quick_no_rotate_count(
-							t_ps_solve_context *context,
-							size_t x,
-							size_t y,
-							size_t z);
 
 #endif
