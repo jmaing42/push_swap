@@ -10,14 +10,14 @@ clean:
 	$(Q2)$(MAKE) -C src fclean
 	$(Q2)find src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$(Q2)find src -type d -empty -delete
-	$(Q2)find src -type d -name test | xargs -L1 -I {} make -C {} clean
+	$(Q2)find src -type d -name test | xargs -L1 -I {} $(MAKE) -C {} clean
 	@printf "\033[0m"
 fclean:
 	$(Q2)rm -rf tmp compile_commands.json .vscode/launch.json .vscode/tasks.json
 	$(Q2)$(MAKE) -C src fclean
 	$(Q2)find src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$(Q2)find src -type d -empty -delete
-	$(Q2)find src -type d -name test | xargs -L1 -I {} make -C {} fclean
+	$(Q2)find src -type d -name test | xargs -L1 -I {} $(MAKE) -C {} fclean
 	@printf "\033[0m"
 re:
 	$(Q3)$(MAKE) fclean
@@ -33,7 +33,7 @@ endif
 	$(Q2)mkdir tmp
 	$(Q2)sh src/build/script/copy_src_to_tmp_flatten.sh
 	$(Q2)cd tmp && sh ../template/template.sh > Makefile
-	$(Q1)make -C test
+	$(Q1)$(MAKE) -C test
 	$(Q2)(cd tmp && git init && git add . && git commit -m "Initial commit" && git push "$(GIT_REMOTE_URL)" HEAD:master) || (echo "Failed to publish" && false)
 	$(Q2)rm -rf tmp
 	$(Q2)git push "$(GIT_REMOTE_URL)" HEAD:source || echo "Failed to push HEAD to source"
@@ -44,7 +44,7 @@ publish:
 
 .PHONY: pre_dev
 pre_dev:
-	$(Q2)find src -type d -name test | xargs -L1 -I {} make -C {} dev
+	$(Q2)find src -type d -name test | xargs -L1 -I {} $(MAKE) -C {} dev
 .PHONY: compile_commands.json
 compile_commands.json: pre_dev
 	$(Q2)$(MAKE) -C src -k PROFILE=debug TARGET=development all bonus ; (printf "[" && find src/.cache -name "*.development.debug.o.compile_commands.part.json" | xargs cat && printf "]") > $@

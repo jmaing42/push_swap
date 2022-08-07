@@ -1,5 +1,5 @@
 Q := $(if $(filter 2 3,$(V) $(VERBOSE)),,@)
-MAKE := make $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory)
+MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory)
 
 default: all
 .PHONY: default
@@ -38,4 +38,4 @@ refresh:
 
 .PHONY: test
 test: refresh
-	$Qsh test.sh
+	$QMAKE="$(MAKE)" sh test.sh
