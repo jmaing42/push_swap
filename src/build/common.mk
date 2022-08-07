@@ -10,5 +10,5 @@ default: all
 .PHONY: default all test clean fclean re build dev
 
 re:
-	$(Q2)$(MAKE) fclean
-	$(Q2)$(MAKE) all
+	$(Q3)$(MAKE) fclean
+	$(Q3)$(MAKE) all

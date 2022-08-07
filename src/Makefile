@@ -1,9 +1,11 @@
-Q := $(if $(filter 1 2 3,$(V) $(VERBOSE)),,@)
+Q3 := $(if $(filter 3,$(V) $(VERBOSE)),,@)
+Q2 := $(if $(filter 2 3,$(V) $(VERBOSE)),,@)
+Q1 := $(if $(filter 1 2 3,$(V) $(VERBOSE)),,@)
 MAKE := $(MAKE) $(if $(filter 3,$(V) $(VERBOSE)),,--no-print-directory) $(if $(filter 1,$(NO_ADDITIONAL_J)),,-j $(shell sh build/script/nproc.sh) NO_ADDITIONAL_J=1)
 
 CC := clang
 AR := ar
-ARFLAGS := cr$(if $(filter 1,$(V) $(VERBOSE)),v,)
+ARFLAGS := cr$(if $(filter 3,$(V) $(VERBOSE)),v,)
 CPPFLAGS := $(shell find . -type d -mindepth 1 | grep -v /test/ | sed "s/^/-I /" | xargs)
 CFLAGS := -Wall -Wextra -Werror -std=c99 -pedantic $(CPPFLAGS)
 
@@ -23,15 +25,15 @@ EXECUTABLE_TARGETS := $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 all: $(NAME_PUSH_SWAP) $(NAME_CHECKER)
 bonus: all
 clean:
-	$Qrm -rf $(OBJ_DIR)
+	$(Q1)rm -rf $(OBJ_DIR)
 fclean:
-	$Q$(MAKE) clean
-	$Qrm -f $(EXECUTABLE_TARGETS:=.exe)
+	$(Q3)$(MAKE) clean
+	$(Q1)rm -f $(EXECUTABLE_TARGETS:=.exe)
 re:
-	$Q$(MAKE) NO_ADDITIONAL_J=1 fclean
-	$Q$(MAKE) NO_ADDITIONAL_J=1 all
+	$(Q3)$(MAKE) NO_ADDITIONAL_J=1 fclean
+	$(Q3)$(MAKE) NO_ADDITIONAL_J=1 all
 test:
-	$Qfind . -type d -mindepth 1 -name "test" | xargs -L1 -I {} make -C {} test
+	$(Q1)find . -type d -mindepth 1 -name "test" | xargs -L1 -I {} make -C {} test
 .PHONY: all bonus clean fclean re test
 
 PROFILE ?= release
@@ -57,14 +59,14 @@ CFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 LDFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 
 $(OBJ_DIR)/%.a:
-	$Qmkdir -p $(@D)
-	$Q$(AR) $(ARFLAGS) $@ $^
+	$(Q3)mkdir -p $(@D)
+	$(Q2)$(AR) $(ARFLAGS) $@ $^
 $(OBJ_DIR)/%.exe:
-	$Qmkdir -p $(@D)
-	$Q$(CC) $(LDFLAGS) -o $@ $^
+	$(Q3)mkdir -p $(@D)
+	$(Q2)$(CC) $(LDFLAGS) -o $@ $^
 $(OBJ_DIR)/%$(SUFFIX).o: %.c
-	$Qmkdir -p $(@D)
-	$Q$(CC) $(CFLAGS) -MJ $@.compile_commands.part.json -MMD -o $@ -c $<
+	$(Q3)mkdir -p $(@D)
+	$(Q2)$(CC) $(CFLAGS) -MJ $@.compile_commands.part.json -MMD -o $@ -c $<
 
 $(OBJ_DIR)/libft$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFT))
 $(OBJ_DIR)/libfto$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIBFTO))
@@ -72,7 +74,7 @@ $(OBJ_DIR)/libps$(SUFFIX).a: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_LIB
 $(OBJ_DIR)/$(NAME_PUSH_SWAP)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_PUSH_SWAP)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libfto$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
 $(OBJ_DIR)/$(NAME_CHECKER)$(SUFFIX).exe: $(patsubst ./%.c,$(OBJ_DIR)/%$(SUFFIX).o,$(SRCS_CHECKER)) $(OBJ_DIR)/libft$(SUFFIX).a $(OBJ_DIR)/libfto$(SUFFIX).a $(OBJ_DIR)/libps$(SUFFIX).a
 $(EXECUTABLE_TARGETS): %: $(OBJ_DIR)/%$(SUFFIX).exe
-	$Qcp $< $@.exe
+	$(Q1)cp $< $@.exe
 .PHONY: $(EXECUTABLE_TARGETS)
 
 # dependencies
