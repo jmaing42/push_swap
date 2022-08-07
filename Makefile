@@ -7,13 +7,14 @@ export V
 
 all: test
 clean:
+	$(Q2)rm -rf tmp
 	$(Q2)$(MAKE) -C src fclean
 	$(Q2)find src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$(Q2)find src -type d -empty -delete
 	$(Q2)find src -type d -name test | xargs -L1 -I {} $(MAKE) -C {} clean
 	@printf "\033[0m"
 fclean:
-	$(Q2)rm -rf tmp compile_commands.json .vscode/launch.json .vscode/tasks.json
+	$(Q2)rm -f compile_commands.json .vscode/launch.json .vscode/tasks.json
 	$(Q2)$(MAKE) -C src fclean
 	$(Q2)find src \( -type f \( -name compile_commands.json -o -name "*.part.json" -o -name "*.exe" \) -o -type d -name .cache \) -delete
 	$(Q2)find src -type d -empty -delete
