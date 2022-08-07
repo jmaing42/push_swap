@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/07 16:58:06 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:46:19 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 #include "ps_solve_bos.h"
 #include "ps_solve_bob.h"
 
-#define COUNT 1000
+#define COUNT 2222
 
 static t_ps_solve_table	g_table[COUNT + 1];
 

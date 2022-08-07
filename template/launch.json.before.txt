@@ -4,14 +4,6 @@
     {
       "type": "lldb",
       "request": "launch",
-      "name": "Debug dev (debug/address)",
-      "program": "${workspaceFolder}/dev/main.exe",
-      "cwd": "${workspaceFolder}/dev",
-      "preLaunchTask": "build dev (debug/address)",
-    },
-    {
-      "type": "lldb",
-      "request": "launch",
       "name": "Debug push_swap",
       "program": "${workspaceFolder}/src/.cache/push_swap.production.debug.address.exe",
       "args": ["1", "2", "3"],
