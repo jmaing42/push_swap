@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/07 17:46:19 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 21:18:40 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,261 @@
 #include "ps_solve_bos.h"
 #include "ps_solve_bob.h"
 
-#define COUNT 2222
+#define COUNT 2500
 
 static t_ps_solve_table	g_table[COUNT + 1];
+
+const char	*name_of_strategy_tst(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_tst_merge_no_rotate_solve)
+		return ("ps_solve_tst_merge_no_rotate_solve");
+	if (strategy == ps_solve_tst_merge_early_rotate_solve)
+		return ("ps_solve_tst_merge_early_rotate_solve");
+	if (strategy == ps_solve_tst_merge_late_rotate_solve)
+		return ("ps_solve_tst_merge_late_rotate_solve");
+	if (strategy == ps_solve_tst_quick_no_rotate_solve)
+		return ("ps_solve_tst_quick_no_rotate_solve");
+	if (strategy == ps_solve_tst_quick_early_rotate_solve)
+		return ("ps_solve_tst_quick_early_rotate_solve");
+	if (strategy == ps_solve_tst_quick_late_rotate_solve)
+		return ("ps_solve_tst_quick_late_rotate_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_tsb(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_tsb_merge_solve)
+		return ("ps_solve_tsb_merge_solve");
+	if (strategy == ps_solve_tsb_quick_no_rotate_solve)
+		return ("ps_solve_tsb_quick_no_rotate_solve");
+	if (strategy == ps_solve_tsb_quick_rotate_solve)
+		return ("ps_solve_tsb_quick_rotate_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_txt(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_txt_merge_straightforward_solve)
+		return ("ps_solve_txt_merge_straightforward_solve");
+	if (strategy == ps_solve_txt_merge_twist_solve)
+		return ("ps_solve_txt_merge_twist_solve");
+	if (strategy == ps_solve_txt_quick_straightforward_solve)
+		return ("ps_solve_txt_quick_straightforward_solve");
+	if (strategy == ps_solve_txt_quick_twist_solve)
+		return ("ps_solve_txt_quick_twist_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_txb(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_txb_merge_straightforward_solve)
+		return ("ps_solve_txb_merge_straightforward_solve");
+	if (strategy == ps_solve_txb_merge_twist_solve)
+		return ("ps_solve_txb_merge_twist_solve");
+	if (strategy == ps_solve_txb_quick_straightforward_solve)
+		return ("ps_solve_txb_quick_straightforward_solve");
+	if (strategy == ps_solve_txb_quick_twist_solve)
+		return ("ps_solve_txb_quick_twist_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_tot(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_tot_merge_no_rotate_solve)
+		return ("ps_solve_tot_merge_no_rotate_solve");
+	if (strategy == ps_solve_tot_merge_rotate_solve)
+		return ("ps_solve_tot_merge_rotate_solve");
+	if (strategy == ps_solve_tot_quick_no_rotate_solve)
+		return ("ps_solve_tot_quick_no_rotate_solve");
+	if (strategy == ps_solve_tot_quick_rotate_solve)
+		return ("ps_solve_tot_quick_rotate_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_tos(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_tos_merge_solve)
+		return ("ps_solve_tos_merge_solve");
+	if (strategy == ps_solve_tos_quick_straightforward_solve)
+		return ("ps_solve_tos_quick_straightforward_solve");
+	if (strategy == ps_solve_tos_quick_rotate_up_solve)
+		return ("ps_solve_tos_quick_rotate_up_solve");
+	if (strategy == ps_solve_tos_quick_rotate_down_solve)
+		return ("ps_solve_tos_quick_rotate_down_solve");
+	if (strategy == ps_solve_tos_quick_twist_up_solve)
+		return ("ps_solve_tos_quick_twist_up_solve");
+	if (strategy == ps_solve_tos_quick_twist_down_solve)
+		return ("ps_solve_tos_quick_twist_down_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_tob(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_tob_merge_solve)
+		return ("ps_solve_tob_merge_solve");
+	if (strategy == ps_solve_tob_quick_no_rotate_solve)
+		return ("ps_solve_tob_quick_no_rotate_solve");
+	if (strategy == ps_solve_tob_quick_rotate_solve)
+		return ("ps_solve_tob_quick_rotate_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_sss(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_sss_merge_solve)
+		return ("ps_solve_sss_merge_solve");
+	if (strategy == ps_solve_sss_quick_solve)
+		return ("ps_solve_sss_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_sxs(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_sxs_merge_straightforward_solve)
+		return ("ps_solve_sxs_merge_straightforward_solve");
+	if (strategy == ps_solve_sxs_merge_twist_solve)
+		return ("ps_solve_sxs_merge_twist_solve");
+	if (strategy == ps_solve_sxs_quick_straightforward_solve)
+		return ("ps_solve_sxs_quick_straightforward_solve");
+	if (strategy == ps_solve_sxs_quick_twist_solve)
+		return ("ps_solve_sxs_quick_twist_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_sot(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_sot_merge_straightforward_solve)
+		return ("ps_solve_sot_merge_straightforward_solve");
+	if (strategy == ps_solve_sot_merge_rotate_up_solve)
+		return ("ps_solve_sot_merge_rotate_up_solve");
+	if (strategy == ps_solve_sot_merge_rotate_down_solve)
+		return ("ps_solve_sot_merge_rotate_down_solve");
+	if (strategy == ps_solve_sot_merge_twist_up_solve)
+		return ("ps_solve_sot_merge_twist_up_solve");
+	if (strategy == ps_solve_sot_merge_twist_down_solve)
+		return ("ps_solve_sot_merge_twist_down_solve");
+	if (strategy == ps_solve_sot_quick_solve)
+		return ("ps_solve_sot_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_sob(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_sob_merge_straightforward_solve)
+		return ("ps_solve_sob_merge_straightforward_solve");
+	if (strategy == ps_solve_sob_merge_rotate_up_solve)
+		return ("ps_solve_sob_merge_rotate_up_solve");
+	if (strategy == ps_solve_sob_merge_rotate_down_solve)
+		return ("ps_solve_sob_merge_rotate_down_solve");
+	if (strategy == ps_solve_sob_merge_twist_up_solve)
+		return ("ps_solve_sob_merge_twist_up_solve");
+	if (strategy == ps_solve_sob_merge_twist_down_solve)
+		return ("ps_solve_sob_merge_twist_down_solve");
+	if (strategy == ps_solve_sob_quick_solve)
+		return ("ps_solve_sob_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bst(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bst_merge_no_rotate_solve)
+		return ("ps_solve_bst_merge_no_rotate_solve");
+	if (strategy == ps_solve_bst_merge_rotate_solve)
+		return ("ps_solve_bst_merge_rotate_solve");
+	if (strategy == ps_solve_bst_quick_solve)
+		return ("ps_solve_bst_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bsb(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bsb_merge_solve)
+		return ("ps_solve_bsb_merge_solve");
+	if (strategy == ps_solve_bsb_quick_solve)
+		return ("ps_solve_bsb_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bxt(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bxt_merge_straightforward_solve)
+		return ("ps_solve_bxt_merge_straightforward_solve");
+	if (strategy == ps_solve_bxt_merge_twist_solve)
+		return ("ps_solve_bxt_merge_twist_solve");
+	if (strategy == ps_solve_bxt_quick_straightforward_solve)
+		return ("ps_solve_bxt_quick_straightforward_solve");
+	if (strategy == ps_solve_bxt_quick_twist_solve)
+		return ("ps_solve_bxt_quick_twist_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bxb(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bxb_merge_straightforward_solve)
+		return ("ps_solve_bxb_merge_straightforward_solve");
+	if (strategy == ps_solve_bxb_merge_twist_solve)
+		return ("ps_solve_bxb_merge_twist_solve");
+	if (strategy == ps_solve_bxb_quick_straightforward_solve)
+		return ("ps_solve_bxb_quick_straightforward_solve");
+	if (strategy == ps_solve_bxb_quick_twist_solve)
+		return ("ps_solve_bxb_quick_twist_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bot(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bot_merge_no_rotate_solve)
+		return ("ps_solve_bot_merge_no_rotate_solve");
+	if (strategy == ps_solve_bot_merge_rotate_solve)
+		return ("ps_solve_bot_merge_rotate_solve");
+	if (strategy == ps_solve_bot_quick_solve)
+		return ("ps_solve_bot_quick_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bos(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bos_merge_solve)
+		return ("ps_solve_bos_merge_solve");
+	if (strategy == ps_solve_bos_quick_straightforward_solve)
+		return ("ps_solve_bos_quick_straightforward_solve");
+	if (strategy == ps_solve_bos_quick_rotate_up_solve)
+		return ("ps_solve_bos_quick_rotate_up_solve");
+	if (strategy == ps_solve_bos_quick_rotate_down_solve)
+		return ("ps_solve_bos_quick_rotate_down_solve");
+	if (strategy == ps_solve_bos_quick_twist_up_solve)
+		return ("ps_solve_bos_quick_twist_up_solve");
+	if (strategy == ps_solve_bos_quick_twist_down_solve)
+		return ("ps_solve_bos_quick_twist_down_solve");
+	else
+		return (NULL);
+}
+
+const char	*name_of_strategy_bob(t_ps_solve strategy)
+{
+	if (strategy == ps_solve_bob_merge_solve)
+		return ("ps_solve_bob_merge_solve");
+	if (strategy == ps_solve_bob_quick_solve)
+		return ("ps_solve_bob_quick_solve");
+	else
+		return (NULL);
+}
 
 int	main(void)
 {
@@ -203,42 +455,24 @@ int	main(void)
 	for (size_t i = 9; i <= COUNT; i++)
 	{
 		printf("%4zu: ", i);
-		g_table[i].tst = ps_solve_tst_count_part(g_table, i);
-		printf("%6zu", g_table[i].tst.item.count);
-		g_table[i].txt = ps_solve_txt_count_part(g_table, i);
-		printf("%6zu", g_table[i].txt.item.count);
-		g_table[i].tsb = ps_solve_tsb_count_part(g_table, i);
-		printf("%6zu", g_table[i].tsb.item.count);
-		g_table[i].txb = ps_solve_txb_count_part(g_table, i);
-		printf("%6zu", g_table[i].txb.item.count);
-		g_table[i].tot = ps_solve_tot_count_part(g_table, i);
-		printf("%6zu", g_table[i].tot.item.count);
-		g_table[i].tos = ps_solve_tos_count_part(g_table, i);
-		printf("%6zu", g_table[i].tos.item.count);
-		g_table[i].tob = ps_solve_tob_count_part(g_table, i);
-		printf("%6zu", g_table[i].tob.item.count);
-		g_table[i].bst = ps_solve_bst_count_part(g_table, i);
-		printf("%6zu", g_table[i].bst.item.count);
-		g_table[i].bxt = ps_solve_bxt_count_part(g_table, i);
-		printf("%6zu", g_table[i].bxt.item.count);
-		g_table[i].bsb = ps_solve_bsb_count_part(g_table, i);
-		printf("%6zu", g_table[i].bsb.item.count);
-		g_table[i].bxb = ps_solve_bxb_count_part(g_table, i);
-		printf("%6zu", g_table[i].bxb.item.count);
-		g_table[i].bot = ps_solve_bot_count_part(g_table, i);
-		printf("%6zu", g_table[i].bot.item.count);
-		g_table[i].bos = ps_solve_bos_count_part(g_table, i);
-		printf("%6zu", g_table[i].bos.item.count);
-		g_table[i].bob = ps_solve_bob_count_part(g_table, i);
-		printf("%6zu", g_table[i].bob.item.count);
-		g_table[i].sss = ps_solve_sss_count_part(g_table, i);
-		printf("%6zu", g_table[i].sss.item.count);
-		g_table[i].sxs = ps_solve_sxs_count_part(g_table, i);
-		printf("%6zu", g_table[i].sxs.item.count);
-		g_table[i].sot = ps_solve_sot_count_part(g_table, i);
-		printf("%6zu", g_table[i].sot.item.count);
-		g_table[i].sob = ps_solve_sob_count_part(g_table, i);
-		printf("%6zu", g_table[i].sob.item.count);
+		g_table[i].tst = ps_solve_tst_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tst.item.count, name_of_strategy_tst(g_table[i].tst.solve), g_table[i].tst.item.size.x, g_table[i].tst.item.size.y, g_table[i].tst.item.size.z);
+		g_table[i].txt = ps_solve_txt_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].txt.item.count, name_of_strategy_txt(g_table[i].txt.solve), g_table[i].txt.item.size.x, g_table[i].txt.item.size.y, g_table[i].txt.item.size.z);
+		g_table[i].tsb = ps_solve_tsb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tsb.item.count, name_of_strategy_tsb(g_table[i].tsb.solve), g_table[i].tsb.item.size.x, g_table[i].tsb.item.size.y, g_table[i].tsb.item.size.z);
+		g_table[i].txb = ps_solve_txb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].txb.item.count, name_of_strategy_txb(g_table[i].txb.solve), g_table[i].txb.item.size.x, g_table[i].txb.item.size.y, g_table[i].txb.item.size.z);
+		g_table[i].tot = ps_solve_tot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tot.item.count, name_of_strategy_tot(g_table[i].tot.solve), g_table[i].tot.item.size.x, g_table[i].tot.item.size.y, g_table[i].tot.item.size.z);
+		g_table[i].tos = ps_solve_tos_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tos.item.count, name_of_strategy_tos(g_table[i].tos.solve), g_table[i].tos.item.size.x, g_table[i].tos.item.size.y, g_table[i].tos.item.size.z);
+		g_table[i].tob = ps_solve_tob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tob.item.count, name_of_strategy_tob(g_table[i].tob.solve), g_table[i].tob.item.size.x, g_table[i].tob.item.size.y, g_table[i].tob.item.size.z);
+		g_table[i].sss = ps_solve_sss_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sss.item.count, name_of_strategy_sss(g_table[i].sss.solve), g_table[i].sss.item.size.x, g_table[i].sss.item.size.y, g_table[i].sss.item.size.z);
+		g_table[i].sxs = ps_solve_sxs_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sxs.item.count, name_of_strategy_sxs(g_table[i].sxs.solve), g_table[i].sxs.item.size.x, g_table[i].sxs.item.size.y, g_table[i].sxs.item.size.z);
+		g_table[i].sot = ps_solve_sot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sot.item.count, name_of_strategy_sot(g_table[i].sot.solve), g_table[i].sot.item.size.x, g_table[i].sot.item.size.y, g_table[i].sot.item.size.z);
+		g_table[i].sob = ps_solve_sob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sob.item.count, name_of_strategy_sob(g_table[i].sob.solve), g_table[i].sob.item.size.x, g_table[i].sob.item.size.y, g_table[i].sob.item.size.z);
+		g_table[i].bst = ps_solve_bst_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bst.item.count, name_of_strategy_bst(g_table[i].bst.solve), g_table[i].bst.item.size.x, g_table[i].bst.item.size.y, g_table[i].bst.item.size.z);
+		g_table[i].bxt = ps_solve_bxt_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bxt.item.count, name_of_strategy_bxt(g_table[i].bxt.solve), g_table[i].bxt.item.size.x, g_table[i].bxt.item.size.y, g_table[i].bxt.item.size.z);
+		g_table[i].bsb = ps_solve_bsb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bsb.item.count, name_of_strategy_bsb(g_table[i].bsb.solve), g_table[i].bsb.item.size.x, g_table[i].bsb.item.size.y, g_table[i].bsb.item.size.z);
+		g_table[i].bxb = ps_solve_bxb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bxb.item.count, name_of_strategy_bxb(g_table[i].bxb.solve), g_table[i].bxb.item.size.x, g_table[i].bxb.item.size.y, g_table[i].bxb.item.size.z);
+		g_table[i].bot = ps_solve_bot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bot.item.count, name_of_strategy_bot(g_table[i].bot.solve), g_table[i].bot.item.size.x, g_table[i].bot.item.size.y, g_table[i].bot.item.size.z);
+		g_table[i].bos = ps_solve_bos_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bos.item.count, name_of_strategy_bos(g_table[i].bos.solve), g_table[i].bos.item.size.x, g_table[i].bos.item.size.y, g_table[i].bos.item.size.z);
+		g_table[i].bob = ps_solve_bob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bob.item.count, name_of_strategy_bob(g_table[i].bob.solve), g_table[i].bob.item.size.x, g_table[i].bob.item.size.y, g_table[i].bob.item.size.z);
 		printf("\n");
 	}
 	printf("solution: %zu\n", g_table[COUNT].sxs.item.count);
