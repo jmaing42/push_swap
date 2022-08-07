@@ -57,7 +57,7 @@ t_ps_solve_strategy	ps_solve_tos_strategy(
 	result.size.x = count / 3;
 	result.size.y = (count - result.size.x) / 2;
 	result.size.x = count - result.size.x - result.size.y;
-	result.solve = NULL;
+	result.solve = ps_solve_tos_merge_solve;
 	return (result);
 }
 
