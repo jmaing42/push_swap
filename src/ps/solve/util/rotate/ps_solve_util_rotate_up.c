@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/21 00:09:11 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 16:19:43 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ t_err	ps_solve_util_rotate_up(
 	bool from_right
 )
 {
-	const size_t	rr = ft_types_primitive_size_t_min(left->length, right->length);
+	const size_t	rr
+		= ft_types_primitive_size_t_min(left->length, right->length);
 	const size_t	ra = left->length - rr;
 	const size_t	rb = right->length - rr;
 	size_t			i;
