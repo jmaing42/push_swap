@@ -6,16 +6,16 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/06 22:43:59 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:46:28 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:25:49 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_solve_internal.h"
 
 size_t	ps_solve_util_count_txb(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t index
 )
 {
-	return (context->table[index].txb.item.count);
+	return (table[index].txb.item.count);
 }

@@ -6,17 +6,17 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/24 18:50:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:27:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:28:01 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ps_solve_txt.h"
 
 #include <stdlib.h>
 
 t_err	ps_solve_txt_quick_twist_solve(
 	const t_ps_solve_context *context,
-	int *arr,
+	const int *arr,
 	t_ps_solve_count_size size,
 	bool right
 )
@@ -37,7 +37,7 @@ t_err	ps_solve_txt_quick_twist_solve(
 }
 
 size_t	ps_solve_txt_quick_twist_count(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t x,
 	size_t y,
 	size_t z
@@ -45,8 +45,8 @@ size_t	ps_solve_txt_quick_twist_count(
 {
 	return (
 		+ ps_solve_util_move_count_top_stb(x, y, z)
-		+ ps_solve_util_count_bot(context, z)
-		+ ps_solve_util_count_sot(context, y)
-		+ ps_solve_util_count_bxt(context, x)
+		+ ps_solve_util_count_bot(table, z)
+		+ ps_solve_util_count_sot(table, y)
+		+ ps_solve_util_count_bxt(table, x)
 	);
 }

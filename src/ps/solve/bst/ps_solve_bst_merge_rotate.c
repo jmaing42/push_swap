@@ -6,11 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:51:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 23:03:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:38:16 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ps_solve_bst.h"
 
 #include <stdlib.h>
 
@@ -18,7 +18,7 @@
 
 t_err	ps_solve_bst_merge_rotate_solve(
 	const t_ps_solve_context *context,
-	int *arr,
+	const int *arr,
 	t_ps_solve_count_size size,
 	bool right
 )
@@ -40,16 +40,16 @@ t_err	ps_solve_bst_merge_rotate_solve(
 }
 
 size_t	ps_solve_bst_merge_rotate_count(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
 	return (
-		+ ps_solve_util_count_bst(context, z)
-		+ ps_solve_util_count_bot(context, y)
-		+ ps_solve_util_count_bst(context, x)
+		+ ps_solve_util_count_bst(table, z)
+		+ ps_solve_util_count_bot(table, y)
+		+ ps_solve_util_count_bst(table, x)
 		+ ft_types_primitive_size_t_max(x, y)
 		+ ps_solve_util_move_count_top_sbt(x, y, z)
 	);

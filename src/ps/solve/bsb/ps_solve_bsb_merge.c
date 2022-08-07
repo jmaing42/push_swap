@@ -6,17 +6,17 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:37:58 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:26:39 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:38:34 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ps_solve_bsb.h"
 
 #include <stdlib.h>
 
 t_err	ps_solve_bsb_merge_solve(
 	const t_ps_solve_context *context,
-	int *arr,
+	const int *arr,
 	t_ps_solve_count_size size,
 	bool right
 )
@@ -37,16 +37,16 @@ t_err	ps_solve_bsb_merge_solve(
 }
 
 size_t	ps_solve_bsb_merge_count(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
 	return (
-		+ ps_solve_util_count_bob(context, z)
-		+ ps_solve_util_count_bot(context, y)
-		+ ps_solve_util_count_bst(context, x)
+		+ ps_solve_util_count_bob(table, z)
+		+ ps_solve_util_count_bot(table, y)
+		+ ps_solve_util_count_bst(table, x)
 		+ ps_solve_util_move_count_bottom_stb(x, y, z)
 	);
 }

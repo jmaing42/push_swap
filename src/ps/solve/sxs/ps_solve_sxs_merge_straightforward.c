@@ -6,17 +6,17 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:51:44 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:27:48 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:34:11 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ps_solve_sxs.h"
 
 #include <stdlib.h>
 
 t_err	ps_solve_sxs_merge_straightforward_solve(
 	const t_ps_solve_context *context,
-	int *arr,
+	const int *arr,
 	t_ps_solve_count_size size,
 	bool right
 )
@@ -37,16 +37,16 @@ t_err	ps_solve_sxs_merge_straightforward_solve(
 }
 
 size_t	ps_solve_sxs_merge_straightforward_count(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t x,
 	size_t y,
 	size_t z
 )
 {
 	return (
-		+ ps_solve_util_count_tos(context, x)
-		+ ps_solve_util_count_tob(context, y)
-		+ ps_solve_util_count_sss(context, z)
+		+ ps_solve_util_count_tos(table, x)
+		+ ps_solve_util_count_tob(table, y)
+		+ ps_solve_util_count_sss(table, z)
 		+ ps_solve_util_move_count_top_tbs(x, y, z)
 	);
 }

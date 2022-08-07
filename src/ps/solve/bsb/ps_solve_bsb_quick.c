@@ -6,17 +6,17 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/01 22:30:47 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/06 22:26:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/07 17:38:28 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_solve_internal.h"
+#include "ps_solve_bsb.h"
 
 #include <stdlib.h>
 
 t_err	ps_solve_bsb_quick_solve(
 	const t_ps_solve_context *context,
-	int *arr,
+	const int *arr,
 	t_ps_solve_count_size size,
 	bool right
 )
@@ -37,7 +37,7 @@ t_err	ps_solve_bsb_quick_solve(
 }
 
 size_t	ps_solve_bsb_quick_count(
-	const t_ps_solve_context *context,
+	const t_ps_solve_table *table,
 	size_t x,
 	size_t y,
 	size_t z
@@ -45,8 +45,8 @@ size_t	ps_solve_bsb_quick_count(
 {
 	return (
 		+ ps_solve_util_move_count_bottom_stb(x, y, z)
-		+ ps_solve_util_count_tsb(context, x)
-		+ ps_solve_util_count_tob(context, y)
-		+ ps_solve_util_count_bob(context, z)
+		+ ps_solve_util_count_tsb(table, x)
+		+ ps_solve_util_count_tob(table, y)
+		+ ps_solve_util_count_bob(table, z)
 	);
 }
