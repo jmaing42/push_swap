@@ -12,7 +12,7 @@ LDFLAGS := $(COMMON_FLAGS)
 endif
 
 %.o:
-	$(Q2)$(CC) -MMD -MJ $@.compile_commands.part.json $(CFLAGS) -o $@ -c $<
+	$(Q2)$(CC) -MMD -MJ $@.compile_commands.part.json $(CFLAGS) -o $@ -x c -c $<
 %.a:
 	$(Q2)$(AR) $(ARFLAGS) $@ $^
 %.exe:
