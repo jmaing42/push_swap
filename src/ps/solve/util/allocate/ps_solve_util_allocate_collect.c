@@ -23,11 +23,11 @@ t_ps_solve_util_parts	*ps_solve_util_allocate_collect(
 {
 	const size_t					length = size.x + size.y + size.z;
 	t_ps_solve_util_parts *const	result = malloc(
-			sizeof(t_ps_solve_util_parts) + sizeof(int) * (length));
+			sizeof(t_ps_solve_util_parts) + sizeof(int) * length);
 
 	if (!result)
 		return (NULL);
-	ft_memcpy(result->memory, array, sizeof(int) * (length));
+	ft_memcpy(result->memory, array, sizeof(int) * length);
 	result->a = ps_solve_util_array(result->memory, size.x);
 	result->b = ps_solve_util_array(result->memory + size.x, size.y);
 	result->c = ps_solve_util_array(result->memory + size.x + size.y, size.z);

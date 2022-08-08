@@ -48,7 +48,7 @@ t_ps_solve_strategy	ps_solve_tot_strategy(
 	}
 	result.size.x = count / 3;
 	result.size.y = (count - result.size.x) / 2;
-	result.size.x = count - result.size.x - result.size.y;
+	result.size.z = count - result.size.x - result.size.y;
 	result.solve = ps_solve_tot_merge_no_rotate_solve;
 	return (result);
 }
