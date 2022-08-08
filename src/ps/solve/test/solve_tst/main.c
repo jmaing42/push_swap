@@ -18,19 +18,20 @@
 
 int	main(int argc, char **argv)
 {
-	t_ps_stream *const	stream = new_ps_stream(argc - 1, 0);
-	int *const			arr = malloc(sizeof(int) * (argc - 1));
+	const size_t		length = argc - 1;
+	t_ps_stream *const	stream = new_ps_stream(length, 0);
+	int *const			arr = malloc(sizeof(int) * length);
 	t_ps_solve_context	context;
 	size_t				i;
 
 	i = -1;
-	while (++i < (unsigned int)argc - 1)
+	while (++i < length)
 		if (ft_strict_atoi(argv[i + 1], &arr[i]))
 			return (EXIT_FAILURE);
 	context.table = NULL;
 	context.table_size = 0;
 	context.stream = stream;
-	if (ps_solve_tst(&context, arr, argc - 1, false))
+	if (ps_solve_tst(&context, arr, length, false))
 		return (EXIT_FAILURE);
 	return (EXIT_SUCCESS);
 }
