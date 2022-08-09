@@ -32,7 +32,7 @@
 #include "ps_solve_bos.h"
 #include "ps_solve_bob.h"
 
-#define COUNT 1000
+#define COUNT 7500
 
 static t_ps_solve_table	g_table[COUNT + 1];
 
