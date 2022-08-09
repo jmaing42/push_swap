@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/07 21:18:40 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/09 09:51:00 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 #include "ps_solve_bos.h"
 #include "ps_solve_bob.h"
 
-#define COUNT 2500
+#define COUNT 1000
 
 static t_ps_solve_table	g_table[COUNT + 1];
 
@@ -452,29 +452,116 @@ int	main(void)
 	g_table[6].txt.item.count = 14;
 	g_table[7].txt.item.count = 17;
 	g_table[8].txt.item.count = 20;
+	puts("/* ************************************************************************** */");
+	puts("/*                                                                            */");
+	puts("/*                                                        :::      ::::::::   */");
+	puts("/*   push_swap_get_table.c                              :+:      :+:    :+:   */");
+	puts("/*                                                    +:+ +:+         +:+     */");
+	puts("/*   By: push_swap/dev/main.exe <compiled@main.c>   +#+  +:+       +#+        */");
+	puts("/*                                                +#+#+#+#+#+   +#+           */");
+	puts("/*   Created: 0000/00/00 00:00:00 by program           #+#    #+#             */");
+	puts("/*   Updated: 0000/00/00 00:00:00 by nobody           ###   ########.fr       */");
+	puts("/*                                                                            */");
+	puts("/* ************************************************************************** */");
+	puts("");
+	puts("#include \"ps_solve_tst.h\"");
+	puts("#include \"ps_solve_txt.h\"");
+	puts("#include \"ps_solve_tsb.h\"");
+	puts("#include \"ps_solve_txb.h\"");
+	puts("#include \"ps_solve_tot.h\"");
+	puts("#include \"ps_solve_tos.h\"");
+	puts("#include \"ps_solve_tob.h\"");
+	puts("#include \"ps_solve_sss.h\"");
+	puts("#include \"ps_solve_sxs.h\"");
+	puts("#include \"ps_solve_sot.h\"");
+	puts("#include \"ps_solve_sob.h\"");
+	puts("#include \"ps_solve_bst.h\"");
+	puts("#include \"ps_solve_bxt.h\"");
+	puts("#include \"ps_solve_bsb.h\"");
+	puts("#include \"ps_solve_bxb.h\"");
+	puts("#include \"ps_solve_bot.h\"");
+	puts("#include \"ps_solve_bos.h\"");
+	puts("#include \"ps_solve_bob.h\"");
+	puts("");
+	puts("static const t_ps_solve_table	*g_push_swap_table_pointer;");
+	puts("");
+	puts("const t_ps_solve_table	*push_swap_get_table(void)");
+	puts("{");
+	puts("	return (g_push_swap_table_pointer);");
+	puts("}");
+	puts("");
+	puts("static const t_ps_solve_table	g_push_swap_table[] = {");
+	puts("{");
+	puts("	// 0");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("{{{0, 0, 0}, 0}, NULL},");
+	puts("},");
+	for (size_t i = 1; i <= 8; i++)
+	{
+		printf("{\n");
+		printf("	// %zu\n", i);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].tst.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].txt.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].tsb.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].txb.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].tot.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].tos.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].tob.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].sss.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].sxs.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].sot.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].sob.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bst.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bxt.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bsb.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bxb.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bot.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bos.item.count);
+		printf("{{{0, 0, 0}, %zu}, NULL},\n", g_table[i].bob.item.count);
+		printf("},\n");
+	}
 	for (size_t i = 9; i <= COUNT; i++)
 	{
-		printf("%4zu: ", i);
-		g_table[i].tst = ps_solve_tst_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tst.item.count, name_of_strategy_tst(g_table[i].tst.solve), g_table[i].tst.item.size.x, g_table[i].tst.item.size.y, g_table[i].tst.item.size.z);
-		g_table[i].txt = ps_solve_txt_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].txt.item.count, name_of_strategy_txt(g_table[i].txt.solve), g_table[i].txt.item.size.x, g_table[i].txt.item.size.y, g_table[i].txt.item.size.z);
-		g_table[i].tsb = ps_solve_tsb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tsb.item.count, name_of_strategy_tsb(g_table[i].tsb.solve), g_table[i].tsb.item.size.x, g_table[i].tsb.item.size.y, g_table[i].tsb.item.size.z);
-		g_table[i].txb = ps_solve_txb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].txb.item.count, name_of_strategy_txb(g_table[i].txb.solve), g_table[i].txb.item.size.x, g_table[i].txb.item.size.y, g_table[i].txb.item.size.z);
-		g_table[i].tot = ps_solve_tot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tot.item.count, name_of_strategy_tot(g_table[i].tot.solve), g_table[i].tot.item.size.x, g_table[i].tot.item.size.y, g_table[i].tot.item.size.z);
-		g_table[i].tos = ps_solve_tos_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tos.item.count, name_of_strategy_tos(g_table[i].tos.solve), g_table[i].tos.item.size.x, g_table[i].tos.item.size.y, g_table[i].tos.item.size.z);
-		g_table[i].tob = ps_solve_tob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].tob.item.count, name_of_strategy_tob(g_table[i].tob.solve), g_table[i].tob.item.size.x, g_table[i].tob.item.size.y, g_table[i].tob.item.size.z);
-		g_table[i].sss = ps_solve_sss_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sss.item.count, name_of_strategy_sss(g_table[i].sss.solve), g_table[i].sss.item.size.x, g_table[i].sss.item.size.y, g_table[i].sss.item.size.z);
-		g_table[i].sxs = ps_solve_sxs_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sxs.item.count, name_of_strategy_sxs(g_table[i].sxs.solve), g_table[i].sxs.item.size.x, g_table[i].sxs.item.size.y, g_table[i].sxs.item.size.z);
-		g_table[i].sot = ps_solve_sot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sot.item.count, name_of_strategy_sot(g_table[i].sot.solve), g_table[i].sot.item.size.x, g_table[i].sot.item.size.y, g_table[i].sot.item.size.z);
-		g_table[i].sob = ps_solve_sob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].sob.item.count, name_of_strategy_sob(g_table[i].sob.solve), g_table[i].sob.item.size.x, g_table[i].sob.item.size.y, g_table[i].sob.item.size.z);
-		g_table[i].bst = ps_solve_bst_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bst.item.count, name_of_strategy_bst(g_table[i].bst.solve), g_table[i].bst.item.size.x, g_table[i].bst.item.size.y, g_table[i].bst.item.size.z);
-		g_table[i].bxt = ps_solve_bxt_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bxt.item.count, name_of_strategy_bxt(g_table[i].bxt.solve), g_table[i].bxt.item.size.x, g_table[i].bxt.item.size.y, g_table[i].bxt.item.size.z);
-		g_table[i].bsb = ps_solve_bsb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bsb.item.count, name_of_strategy_bsb(g_table[i].bsb.solve), g_table[i].bsb.item.size.x, g_table[i].bsb.item.size.y, g_table[i].bsb.item.size.z);
-		g_table[i].bxb = ps_solve_bxb_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bxb.item.count, name_of_strategy_bxb(g_table[i].bxb.solve), g_table[i].bxb.item.size.x, g_table[i].bxb.item.size.y, g_table[i].bxb.item.size.z);
-		g_table[i].bot = ps_solve_bot_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bot.item.count, name_of_strategy_bot(g_table[i].bot.solve), g_table[i].bot.item.size.x, g_table[i].bot.item.size.y, g_table[i].bot.item.size.z);
-		g_table[i].bos = ps_solve_bos_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bos.item.count, name_of_strategy_bos(g_table[i].bos.solve), g_table[i].bos.item.size.x, g_table[i].bos.item.size.y, g_table[i].bos.item.size.z);
-		g_table[i].bob = ps_solve_bob_count_part(g_table, i); printf("\t%6zu\t= %-40s (\t%4zu,\t%4zu,\t%4zu\t)", g_table[i].bob.item.count, name_of_strategy_bob(g_table[i].bob.solve), g_table[i].bob.item.size.x, g_table[i].bob.item.size.y, g_table[i].bob.item.size.z);
-		printf("\n");
+		printf("{\n");
+		printf("	// %zu\n", i);
+		g_table[i].tst = ps_solve_tst_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].tst.item.size.x, g_table[i].tst.item.size.y, g_table[i].tst.item.size.z, g_table[i].tst.item.count, name_of_strategy_tst(g_table[i].tst.solve));
+		g_table[i].txt = ps_solve_txt_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].txt.item.size.x, g_table[i].txt.item.size.y, g_table[i].txt.item.size.z, g_table[i].txt.item.count, name_of_strategy_txt(g_table[i].txt.solve));
+		g_table[i].tsb = ps_solve_tsb_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].tsb.item.size.x, g_table[i].tsb.item.size.y, g_table[i].tsb.item.size.z, g_table[i].tsb.item.count, name_of_strategy_tsb(g_table[i].tsb.solve));
+		g_table[i].txb = ps_solve_txb_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].txb.item.size.x, g_table[i].txb.item.size.y, g_table[i].txb.item.size.z, g_table[i].txb.item.count, name_of_strategy_txb(g_table[i].txb.solve));
+		g_table[i].tot = ps_solve_tot_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].tot.item.size.x, g_table[i].tot.item.size.y, g_table[i].tot.item.size.z, g_table[i].tot.item.count, name_of_strategy_tot(g_table[i].tot.solve));
+		g_table[i].tos = ps_solve_tos_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].tos.item.size.x, g_table[i].tos.item.size.y, g_table[i].tos.item.size.z, g_table[i].tos.item.count, name_of_strategy_tos(g_table[i].tos.solve));
+		g_table[i].tob = ps_solve_tob_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].tob.item.size.x, g_table[i].tob.item.size.y, g_table[i].tob.item.size.z, g_table[i].tob.item.count, name_of_strategy_tob(g_table[i].tob.solve));
+		g_table[i].sss = ps_solve_sss_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].sss.item.size.x, g_table[i].sss.item.size.y, g_table[i].sss.item.size.z, g_table[i].sss.item.count, name_of_strategy_sss(g_table[i].sss.solve));
+		g_table[i].sxs = ps_solve_sxs_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].sxs.item.size.x, g_table[i].sxs.item.size.y, g_table[i].sxs.item.size.z, g_table[i].sxs.item.count, name_of_strategy_sxs(g_table[i].sxs.solve));
+		g_table[i].sot = ps_solve_sot_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].sot.item.size.x, g_table[i].sot.item.size.y, g_table[i].sot.item.size.z, g_table[i].sot.item.count, name_of_strategy_sot(g_table[i].sot.solve));
+		g_table[i].sob = ps_solve_sob_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].sob.item.size.x, g_table[i].sob.item.size.y, g_table[i].sob.item.size.z, g_table[i].sob.item.count, name_of_strategy_sob(g_table[i].sob.solve));
+		g_table[i].bst = ps_solve_bst_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bst.item.size.x, g_table[i].bst.item.size.y, g_table[i].bst.item.size.z, g_table[i].bst.item.count, name_of_strategy_bst(g_table[i].bst.solve));
+		g_table[i].bxt = ps_solve_bxt_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bxt.item.size.x, g_table[i].bxt.item.size.y, g_table[i].bxt.item.size.z, g_table[i].bxt.item.count, name_of_strategy_bxt(g_table[i].bxt.solve));
+		g_table[i].bsb = ps_solve_bsb_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bsb.item.size.x, g_table[i].bsb.item.size.y, g_table[i].bsb.item.size.z, g_table[i].bsb.item.count, name_of_strategy_bsb(g_table[i].bsb.solve));
+		g_table[i].bxb = ps_solve_bxb_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bxb.item.size.x, g_table[i].bxb.item.size.y, g_table[i].bxb.item.size.z, g_table[i].bxb.item.count, name_of_strategy_bxb(g_table[i].bxb.solve));
+		g_table[i].bot = ps_solve_bot_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bot.item.size.x, g_table[i].bot.item.size.y, g_table[i].bot.item.size.z, g_table[i].bot.item.count, name_of_strategy_bot(g_table[i].bot.solve));
+		g_table[i].bos = ps_solve_bos_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bos.item.size.x, g_table[i].bos.item.size.y, g_table[i].bos.item.size.z, g_table[i].bos.item.count, name_of_strategy_bos(g_table[i].bos.solve));
+		g_table[i].bob = ps_solve_bob_count_part(g_table, i); printf("{{{%zu, %zu, %zu}, %zu}, %s},\n", g_table[i].bob.item.size.x, g_table[i].bob.item.size.y, g_table[i].bob.item.size.z, g_table[i].bob.item.count, name_of_strategy_bob(g_table[i].bob.solve));
+		printf("},\n");
 	}
-	printf("solution: %zu\n", g_table[COUNT].sxs.item.count);
+	puts("};");
+	puts("");
+	puts("static const t_ps_solve_table	*g_push_swap_table_pointer = g_push_swap_table;");
 	return (0);
 }
