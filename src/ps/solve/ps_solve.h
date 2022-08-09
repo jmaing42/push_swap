@@ -18,9 +18,9 @@
 
 typedef struct s_ps_solve_context
 {
-	t_ps_stream				*stream;
-	struct s_ps_solve_table	*table;
-	size_t					table_size;
+	t_ps_stream						*stream;
+	const struct s_ps_solve_table	*table;
+	size_t							table_size;
 }	t_ps_solve_context;
 
 typedef struct s_ps_solve_count_size
