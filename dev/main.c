@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/03 20:07:50 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/08/09 09:51:00 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/09 10:01:27 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -563,5 +563,10 @@ int	main(void)
 	puts("};");
 	puts("");
 	puts("static const t_ps_solve_table	*g_push_swap_table_pointer = g_push_swap_table;");
+	puts("");
+	puts("size_t	push_swap_get_table_size(void)");
+	puts("{");
+	printf("	return (%d);\n", COUNT);
+	puts("}");
 	return (0);
 }

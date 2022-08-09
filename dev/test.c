@@ -21061,3 +21061,8 @@ static const t_ps_solve_table	g_push_swap_table[] = {
 };
 
 static const t_ps_solve_table	*g_push_swap_table_pointer = g_push_swap_table;
+
+size_t	push_swap_get_table_size(void)
+{
+	return (1000);
+}
