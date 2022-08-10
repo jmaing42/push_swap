@@ -1,7 +1,7 @@
 {
   "recommendations": [
     "editorconfig.editorconfig",
-    "ms-vscode.cpptools",
+    "llvm-vs-code-extensions.vscode-clangd",
     "vadimcn.vscode-lldb",
     "sonarsource.sonarlint-vscode",
     "jbenden.c-cpp-flylint",
