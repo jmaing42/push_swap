@@ -32,7 +32,7 @@ t_err	ps_solve_tst_merge_early_rotate_solve(
 			|| ps_solve_util_solve_tot(context, &p->y, right, false)
 			|| ps_solve_util_solve_tst(context, &p->z, right, false)
 			|| ps_solve_util_rotate_up(context, &p->z, &p->y, right)
-			|| ps_solve_util_collect_to_top_bts(context, p, right)
+			|| ps_solve_util_collect_to_top_tbs(context, p, right)
 			);
 
 	free(p);
@@ -51,6 +51,6 @@ size_t	ps_solve_tst_merge_early_rotate_count(
 		+ ps_solve_util_count_tot(table, y)
 		+ ps_solve_util_count_tst(table, z)
 		+ ft_types_primitive_size_t_max(z, y)
-		+ ps_solve_util_move_count_top_bts(x, y, z)
+		+ ps_solve_util_move_count_top_tbs(x, y, z)
 	);
 }
