@@ -245,6 +245,7 @@ main.c
 ../../../../ps/stream/ps_stream_free.c
 ../../../../ps/stream/ps_stream_new.c
 ../../../../ps/stream/ps_stream_print.c
+../../../../ps/hardcoded/ps_hardcoded_find_index.c
 ../../../../../bake/generated/ps_hardcoded_bob_1.c.txt
 ../../../../../bake/generated/ps_hardcoded_bob_2.c.txt
 ../../../../../bake/generated/ps_hardcoded_bob_3.c.txt
@@ -389,3 +390,4 @@ main.c
 ../../../../../bake/generated/ps_hardcoded_txt_6.c.txt
 ../../../../../bake/generated/ps_hardcoded_txt_7.c.txt
 ../../../../../bake/generated/ps_hardcoded_txt_8.c.txt
+../../../../../dev/test.c.txt

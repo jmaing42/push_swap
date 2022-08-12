@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ps_solve_txt.h"
+#include "ps_hardcoded.h"
 
 static const t_ps_solve_count_tuple	g_strategies[] = {
 {
@@ -80,6 +81,17 @@ t_err	ps_solve_txt(
 			context,
 			length);
 
+	if (!length)
+		return (false);
+	if (length <= PS_HARDCODED_COUNT_TXT)
+		return (
+			ps_hardcoded_execute(
+				context->stream,
+				ps_hardcoded_find_index(arr, length),
+				from_right,
+				ps_hardcoded_txt_table(length)
+			)
+		);
 	return (
 		strategy.solve(
 			context,
