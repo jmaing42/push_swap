@@ -6,10 +6,11 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 21:41:01 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 15:32:52 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/14 00:56:20 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <unistd.h>
 
 #include "checker.h"
@@ -69,6 +70,8 @@ int	main(int argc, char **argv)
 	char				*line;
 	size_t				nop;
 
+	if (argc == 1)
+		return (EXIT_SUCCESS);
 	context.buffer_size = BUFFER_SIZE;
 	ft_set_exit_handler(print_error_message);
 	ft_bzero(&context, sizeof(context));

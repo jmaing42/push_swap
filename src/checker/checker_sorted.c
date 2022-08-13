@@ -6,7 +6,7 @@
 /*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/14 00:01:12 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/06/30 00:15:47 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 2022/08/14 00:57:08 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	checker_sorted(t_ps_stack *self)
 {
 	size_t	i;
 
-	if (self->a.size != self->a.capacity)
+	if (self->b.size != 0)
 		return (false);
 	i = 0;
 	while (++i < self->a.size)

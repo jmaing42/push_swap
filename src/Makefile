@@ -58,6 +58,8 @@ SUFFIX := .$(TARGET).$(PROFILE)$(if $(SANITIZER),.$(SANITIZER))
 CFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 LDFLAGS += $(if $(SANITIZER),-fsanitize=$(SANITIZER),)
 
+endif
+
 $(OBJ_DIR)/%.a:
 	$(Q3)mkdir -p $(@D)
 	$(Q2)$(AR) $(ARFLAGS) $@ $^
