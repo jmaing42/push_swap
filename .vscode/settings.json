@@ -8,18 +8,9 @@
   },
   "files.associations": {
     "*.h": "c",
-    ".clangd": "yaml"
   },
-  "C_Cpp.default.includePath": [
-    "${workspaceFolder}/src/**"
-  ],
-  "C_Cpp.default.cStandard": "c99",
-  "c-cpp-flylint.standard": [
-    "c99",
-    "c++98"
-  ],
-  "c-cpp-flylint.clang.extraArgs": [
-    "--enable-config"
-  ],
-  "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json"
+  "clangd.detectExtensionConflicts": false,
+  "C_Cpp.autocomplete": "Disabled",
+  "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json",
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
 }
