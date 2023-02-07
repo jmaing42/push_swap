@@ -1,2 +1,0 @@
-main.c
-../../ps_hardcoded_find_index.c

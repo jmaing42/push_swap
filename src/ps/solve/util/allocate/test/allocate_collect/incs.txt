@@ -1,6 +1,0 @@
-/ps/solve
-/ps/stream
-/ft/types
-/ft/types/primitive
-/ft/memory
-/fto/stream
