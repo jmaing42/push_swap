@@ -1,0 +1,6 @@
+h.wrap
+f.wrap_malloc
+f.wrap_free
+f.wrap_read
+f.wrap_write
+f.wrap_exit
