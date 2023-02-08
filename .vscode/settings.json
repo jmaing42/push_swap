@@ -6,4 +6,12 @@
   "C_Cpp.autocomplete": "Disabled",
   "C_Cpp.default.compileCommands": "${workspaceFolder}/compile_commands.json",
   "sonarlint.pathToCompileCommands": "${workspaceFolder}/compile_commands.json",
+  "vsicons.associations.folders": [
+    { "icon": "module", "extensions": ["module"], "format": "svg" },
+    { "icon": "temp", "extensions": [".cache"], "format": "svg" },
+    { "icon": "certificate", "extensions": [".ft"], "format": "svg" },
+  ],
+  "vsicons.associations.files": [
+    { "icon": "dependencies", "extensions": ["ft_dependencies.ft", "ft_peer_dependencies.ft"], "filename": true, "format": "svg" },
+  ],
 }
