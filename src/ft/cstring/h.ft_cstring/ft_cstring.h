@@ -27,23 +27,23 @@
  */
 size_t		ft_cstring_length(
 				const char *str);
-size_t		ft_string_length_for(
+size_t		ft_cstring_length_for(
 				const char *str,
 				size_t max_len);
 
-size_t		ft_strlen_until_set(
+size_t		ft_cstring_length_until_set(
 				const char *str,
 				const char *set,
 				bool include_null);
-size_t		ft_strlen_until_map(
+size_t		ft_cstring_length_until_map(
 				const char *str,
 				const t_byte *map);
-size_t		ft_strnlen_until_set(
+size_t		ft_cstring_length_until_set_for(
 				const char *str,
 				size_t max_len,
 				const char *set,
 				bool include_null);
-size_t		ft_strnlen_until_map(
+size_t		ft_cstring_length_until_map_for(
 				const char *str,
 				size_t max_len,
 				const t_byte *map);
