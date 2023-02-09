@@ -10,16 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_PARSE_ARGS_H
-# define PS_PARSE_ARGS_H
+#ifndef PS_H
+# define PS_H
 
-# include "ps.h"
+# include <stddef.h>
 
-# include <stdlib.h>
-
-# include "ft_types.h"
-
-t_err	ps_parse_args(size_t argc, const char *const *argv, t_ps_ints *out);
-t_err	ps_parse_args_atoi(const char *str, int *out);
+typedef struct s_ps_ints
+{
+	size_t	count;
+	int		*ints;
+}	t_ps_ints;
 
 #endif
