@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BYTE_MAP_H
-# define FT_BYTE_MAP_H
+#ifndef FT_UTIL_BYTE_MAP_H
+# define FT_UTIL_BYTE_MAP_H
 
 # include "ft_types.h"
 
@@ -22,6 +22,6 @@
  * @param include_null indicate whether include NULL
  * @param set input
  */
-void	ft_byte_map(t_byte *map, bool include_null, const t_byte *set);
+void	ft_util_byte_map(t_byte *map, bool include_null, const t_byte *set);
 
 #endif

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_byte_map.c                                      :+:      :+:    :+:   */
+/*   fake_file_name (file name is useless too)          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*   By: 42header-remover <whatever@example.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/02 14:54:01 by Juyeong Maing     #+#    #+#             */
-/*   Updated: 2022/07/31 15:32:52 by Juyeong Maing    ###   ########.fr       */
+/*   Created: 1970/01/01 00:00:00 by VCS handles       #+#    #+#             */
+/*   Updated: 1970/01/01 00:00:00 by file history     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_byte_map.h"
+#include "ft_util_byte_map.h"
 
 #include <stddef.h>
 #include <limits.h>
@@ -26,14 +26,14 @@
 # include "ft_io.h"
 # include "ft_exit.h"
 
-void	ft_byte_map(t_byte *out, bool include_null, const t_byte *set)
+void	ft_util_byte_map(t_byte *out, bool include_null, const t_byte *set)
 {
 	size_t			i;
 	const t_byte	*tmp;
 
 	if (!out || !set)
 	{
-		ft_puts(STDERR_FILENO, "ft_byte_map(): wrong parameter given\n");
+		ft_puts(STDERR_FILENO, "ft_util_byte_map(): wrong parameter given\n");
 		ft_exit(EXIT_FAILURE);
 	}
 	i = 0;
@@ -50,7 +50,7 @@ void	ft_byte_map(t_byte *out, bool include_null, const t_byte *set)
 
 #else
 
-void	ft_byte_map(t_byte *out, bool include_null, const t_byte *set)
+void	ft_util_byte_map(t_byte *out, bool include_null, const t_byte *set)
 {
 	size_t			i;
 	const t_byte	*tmp;
