@@ -23,7 +23,7 @@ bool	ps_parse_args_is_uniq(const int *ints, size_t count)
 	while (++i < count)
 	{
 		j = -1;
-		while (++j < count)
+		while (++j < i)
 		{
 			if (ints[i] == ints[j])
 				return (false);
