@@ -2,3 +2,4 @@ h.ps_parse_args
 h.ft_types
 h.c
 f.ps_parse_args_atoi
+f.ps_parse_args_is_uniq

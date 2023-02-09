@@ -10,18 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_PARSE_ARGS_H
-# define PS_PARSE_ARGS_H
+#include "ps_parse_args.h"
 
-# include "ps.h"
+#include <stdbool.h>
 
-# include <stdlib.h>
-# include <stdbool.h>
+bool	ps_parse_args_is_uniq(const int *ints, size_t count)
+{
+	size_t	i;
+	size_t	j;
 
-# include "ft_types.h"
+	i = -1;
+	while (++i < count)
+	{
+		j = -1;
+		while (++j < count)
+		{
+			if (ints[i] == ints[j])
+				return (false);
+		}
+	}
+	return (true);
+}
 
-t_err	ps_parse_args(size_t argc, const char *const *argv, t_ps_ints *out);
-t_err	ps_parse_args_atoi(const char *str, int *out);
-bool	ps_parse_args_is_uniq(const int *ints, size_t count);
-
-#endif

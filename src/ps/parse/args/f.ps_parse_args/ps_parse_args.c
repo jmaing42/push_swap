@@ -29,24 +29,6 @@ static t_err	fill(int *dest, size_t count, const char *const *data)
 	return (false);
 }
 
-static bool	is_unique(const int *ints, size_t count)
-{
-	size_t	i;
-	size_t	j;
-
-	i = -1;
-	while (++i < count)
-	{
-		j = -1;
-		while (++j < count)
-		{
-			if (ints[i] == ints[j])
-				return (false);
-		}
-	}
-	return (true);
-}
-
 t_err	ps_parse_args(size_t argc, const char *const *argv, t_ps_ints *out)
 {
 	const size_t				count = argc - 1;
@@ -54,7 +36,7 @@ t_err	ps_parse_args(size_t argc, const char *const *argv, t_ps_ints *out)
 	int *const					ints = c_malloc(sizeof(int) * argc - 1);
 	const t_ps_ints				result = {count, ints};
 
-	if (!ints || fill(ints, count, data) || !is_unique(ints, count))
+	if (!ints || fill(ints, count, data) || !ps_parse_args_is_uniq(ints, count))
 	{
 		c_free(ints);
 		return (true);
