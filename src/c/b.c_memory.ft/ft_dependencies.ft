@@ -2,7 +2,7 @@ h.c
 f.c_malloc.ft
 f.c_calloc.ft
 f.c_realloc.ft
-f.c.free.ft
-f.c.memcpy.ft
-f.c.memset.ft
-f.c.bzero.ft
+f.c_free.ft
+f.c_memcpy.ft
+f.c_memset.ft
+f.c_bzero.ft

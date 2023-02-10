@@ -12,35 +12,23 @@
 
 #include "ps_parse_args.h"
 
-#include <stddef.h>
-#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 #include "c.h"
-#include "ft_types.h"
 
-static t_err	fill(int *dest, size_t count, const char *const *data)
+int	main(int argc, char **argv)
 {
-	size_t	i;
+	t_ps_ints	result;
+	char *const	*test = argv;
 
-	i = -1;
-	while (++i < count)
-		if (ps_parse_args_atoi(data[i], &dest[i]))
-			return (true);
-	return (false);
-}
-
-t_err	ps_parse_args(size_t argc, const char *const *argv, t_ps_ints *out)
-{
-	const size_t				count = argc - 1;
-	const char *const *const	data = argv + 1;
-	int *const					ints = c_malloc(sizeof(int) * argc - 1);
-	const t_ps_ints				result = {count, ints};
-
-	if (!ints || fill(ints, count, data) || !ps_parse_args_is_uniq(ints, count))
+	if (ps_parse_args(argc, (const char *const *)test, &result))
 	{
-		c_free(ints);
-		return (true);
+		puts("KO");
 	}
-	*out = result;
-	return (false);
+	else
+	{
+		puts("OK");
+		c_free(result.ints);
+	}
 }
