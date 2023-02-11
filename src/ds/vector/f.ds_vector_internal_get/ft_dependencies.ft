@@ -1,4 +1,3 @@
 h.ds_vector_internal
 h.ds_vector
 h.c
-f.ds_vector_internal_get

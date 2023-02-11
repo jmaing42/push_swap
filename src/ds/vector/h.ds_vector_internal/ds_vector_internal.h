@@ -26,11 +26,28 @@ typedef struct s_ds_vector_internal
 	const t_ds_vector_free_item	free;
 }	t_ds_vector_internal;
 
-void	ds_vector_internal_dispose(void *self);
-size_t	ds_vector_internal_capacity(t_ds_vector *self);
-size_t	ds_vector_internal_length(t_ds_vector *self);
-t_err	ds_vector_internal_push(t_ds_vector *self, const void *data);
-bool	ds_vector_internal_pop(t_ds_vector *self, void *out_data);
-bool	ds_vector_internal_peek(t_ds_vector *self, void *out_data);
+void	ds_vector_internal_dispose(
+			void *self);
+size_t	ds_vector_internal_capacity(
+			t_ds_vector *self);
+size_t	ds_vector_internal_length(
+			t_ds_vector *self);
+t_err	ds_vector_internal_push(
+			t_ds_vector *self,
+			const void *data);
+bool	ds_vector_internal_pop(
+			t_ds_vector *self,
+			void *out_data);
+bool	ds_vector_internal_peek(
+			t_ds_vector *self,
+			void *out_data);
+t_err	ds_vector_internal_set(
+			t_ds_vector *self,
+			size_t index,
+			const void *data);
+bool	ds_vector_internal_get(
+			t_ds_vector *self,
+			size_t index,
+			void *out_data);
 
 #endif

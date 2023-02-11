@@ -10,26 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ds_vector.h"
-
 #include "ds_vector_internal.h"
+
+#include <stdbool.h>
+
+#include "ds_vector.h"
 #include "c.h"
 
-static const t_ds_vector_vtable	g_vtable = {
-	&ds_vector_internal_dispose,
-	&ds_vector_internal_capacity,
-	&ds_vector_internal_length,
-	&ds_vector_internal_push,
-	&ds_vector_internal_pop,
-	&ds_vector_internal_peek,
-	&ds_vector_internal_get,
-	&ds_vector_internal_set,
-};
-
-t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free)
+bool	ds_vector_internal_get(t_ds_vector *self, size_t index, void *out_data)
 {
-	const t_ds_vector			expose = {&g_vtable, item_size};
-	const t_ds_vector_internal	result = {expose, NULL, 0, 0, free};
+	t_ds_vector_internal *const	original = (t_ds_vector_internal *)self;
 
-	return ((t_ds_vector *)c_memdup(&result, sizeof(result)));
+	if (original->length <= index)
+		return (false);
+	c_memcpy(
+		out_data,
+		&((char *)original->data)[index * self->item_size],
+		self->item_size);
+	return (true);
 }

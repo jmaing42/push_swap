@@ -1,27 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fake_file_name (file name is useless too)          :+:      :+:    :+:   */
+/*   ds_vector_internal_set.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 42header-remover <whatever@example.com>    +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 1970/01/01 00:00:00 by VCS handles       #+#    #+#             */
-/*   Updated: 1970/01/01 00:00:00 by file history     ###   ########.fr       */
+/*   Created: 2023/02/12 03:00:26 by Juyeong Maing     #+#    #+#             */
+/*   Updated: 2023/02/12 03:35:17 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ds_vector_internal.h"
 
-#include <stdbool.h>
+#include <stddef.h>
 
 #include "ds_vector.h"
+#include "ft_types.h"
 #include "c.h"
 
-bool	ds_vector_internal_peek(t_ds_vector *self, void *out_data)
+t_err	ds_vector_internal_set(
+	t_ds_vector *self,
+	size_t index,
+	const void *data
+)
 {
 	t_ds_vector_internal *const	original = (t_ds_vector_internal *)self;
 
-	if (!original->length)
-		return (false);
-	return (ds_vector_internal_get(self, original->length - 1, out_data));
+	if (index == original->length)
+		return (ds_vector_internal_push(self, data));
+	if (index > original->length)
+		return (true);
+	c_memcpy(
+		&((char *)original->data)[index * self->item_size],
+		data,
+		self->item_size);
+	return (false);
 }

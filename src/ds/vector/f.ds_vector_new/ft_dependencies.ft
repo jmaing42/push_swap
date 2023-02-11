@@ -7,4 +7,6 @@ f.ds_vector_internal_length
 f.ds_vector_internal_push
 f.ds_vector_internal_pop
 f.ds_vector_internal_peek
+f.ds_vector_internal_get
+f.ds_vector_internal_set
 f.c_memdup

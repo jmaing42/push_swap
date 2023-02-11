@@ -1,4 +1,5 @@
 h.ds_vector_internal
 h.ds_vector
+h.ft_types
 h.c
-f.ds_vector_internal_get
+f.ds_vector_internal_push

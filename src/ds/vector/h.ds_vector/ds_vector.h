@@ -29,11 +29,27 @@ typedef struct s_ds_vector
 
 t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free);
 
-typedef size_t	(*t_ds_vector_capacity)(t_ds_vector *self);
-typedef size_t	(*t_ds_vector_length)(t_ds_vector *self);
-typedef t_err	(*t_ds_vector_push)(t_ds_vector *self, const void *data);
-typedef bool	(*t_ds_vector_pop)(t_ds_vector *self, void *out_data);
-typedef bool	(*t_ds_vector_peek)(t_ds_vector *self, void *out_data);
+typedef size_t	(*t_ds_vector_capacity)(
+					t_ds_vector *self);
+typedef size_t	(*t_ds_vector_length)(
+					t_ds_vector *self);
+typedef t_err	(*t_ds_vector_push)(
+					t_ds_vector *self,
+					const void *data);
+typedef bool	(*t_ds_vector_pop)(
+					t_ds_vector *self,
+					void *out_data);
+typedef bool	(*t_ds_vector_peek)(
+					t_ds_vector *self,
+					void *out_data);
+typedef t_err	(*t_ds_vector_set)(
+					t_ds_vector *self,
+					size_t index,
+					const void *data);
+typedef bool	(*t_ds_vector_get)(
+					t_ds_vector *self,
+					size_t index,
+					void *out_data);
 
 typedef struct s_ds_vector_vtable
 {
@@ -43,6 +59,8 @@ typedef struct s_ds_vector_vtable
 	const t_ds_vector_push			push;
 	const t_ds_vector_pop			pop;
 	const t_ds_vector_peek			peek;
+	const t_ds_vector_get			get;
+	const t_ds_vector_set			set;
 }	t_ds_vector_vtable;
 
 #endif
