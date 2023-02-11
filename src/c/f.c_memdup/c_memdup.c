@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "c.h"
 
-# include "ft_types.h"
+void	*c_memdup(const void *ptr, size_t size)
+{
+	void *const	result = c_malloc(size);
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+	if (!result)
+		return (NULL);
+	return (c_memcpy(result, ptr, size));
+}

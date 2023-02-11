@@ -1,0 +1,6 @@
+malloc
+malloc
+should not be freed yet
+free
+free
+should be freed

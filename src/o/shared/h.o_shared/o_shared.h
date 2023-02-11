@@ -10,15 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#ifndef O_SHARED_H
+# define O_SHARED_H
 
-# include "ft_types.h"
+# include "o_disposable.h"
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
+typedef struct s_o_shared
+{
+	const struct s_o_shared_vtable	*v;
+	void *const						p;
+}	t_o_shared;
+
+t_o_shared	*o_shared_as_shared(t_o_disposable *disposable);
+t_o_shared	*o_shared_make_shared(t_o_disposable *always_consume_disposable);
+
+typedef t_o_shared	*(*t_o_shared_copy)(t_o_shared *self);
+
+typedef struct s_o_shared_vtable
+{
+	const t_o_disposable_dispose	dispose;
+	const t_o_shared_copy			copy;
+}	t_o_shared_vtable;
 
 #endif

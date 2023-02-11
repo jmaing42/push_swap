@@ -10,15 +10,21 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "wrap.h"
 
-# include "ft_types.h"
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <assert.h>
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
+void	wrap_free(void *memory)
+{
+	bool	error;
 
-#endif
+	if (memory)
+	{
+		error = (puts("free") == EOF);
+		assert(!error);
+	}
+	free(memory);
+}

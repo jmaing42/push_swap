@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "o_shared_internal.h"
 
-# include "ft_types.h"
+void	o_shared_internal_dispose(void *self)
+{
+	t_o_shared_internal *const	original = (t_o_shared_internal *)self;
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+	original->reference_count--;
+	if (!original->reference_count)
+		original->expose.v->dispose(self);
+}

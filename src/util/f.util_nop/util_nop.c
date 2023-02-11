@@ -10,15 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "util.h"
 
-# include "ft_types.h"
-
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+void	util_nop(void)
+{
+}

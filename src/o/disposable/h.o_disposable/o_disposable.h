@@ -20,13 +20,13 @@ typedef struct s_o_disposable
 	const struct s_o_disposable_vtable	*v;
 }	t_o_disposable;
 
+void			o_disposable_dispose(t_o_disposable *disposable);
+
 typedef void	(*t_o_disposable_dispose)(void *disposable);
 
 typedef struct s_o_disposable_vtable
 {
 	const t_o_disposable_dispose	dispose;
 }	t_o_disposable_vtable;
-
-void	o_disposable_dispose(t_o_disposable *disposable);
 
 #endif

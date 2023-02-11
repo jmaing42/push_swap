@@ -1,0 +1,9 @@
+h.o_shared
+h.c
+h.o_disposable
+h.util
+f.util_noop
+f.c_memdup
+f.o_shared_as_shared
+b.c_memory_allocation.ft
+b.wrap.puts

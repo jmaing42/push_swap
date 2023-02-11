@@ -1,0 +1,6 @@
+h.o_shared
+h.o_shared_internal
+h.o_disposable
+h.c
+f.o_shared_internal_vtable
+f.c_memdup

@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "o_shared.h"
 
-# include "ft_types.h"
+t_o_shared	*o_shared_make_shared(t_o_disposable *always_consume_disposable)
+{
+	t_o_shared *const	result = o_shared_as_shared(always_consume_disposable);
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+	if (!result)
+		always_consume_disposable->v->dispose(always_consume_disposable);
+	return (result);
+}

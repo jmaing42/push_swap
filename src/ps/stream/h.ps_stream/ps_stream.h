@@ -10,15 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#ifndef PS_STREAM_H
+# define PS_STREAM_H
 
-# include "ft_types.h"
+# include "ps.h"
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
+# include "ds_vector.h"
 
 #endif

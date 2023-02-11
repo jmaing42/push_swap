@@ -10,15 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "o_shared.h"
 
-# include "ft_types.h"
+#include "o_shared_internal.h"
+#include "o_disposable.h"
+#include "c.h"
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
+t_o_shared	*o_shared_as_shared(t_o_disposable *disposable)
+{
+	const t_o_shared			expose
+		= {o_shared_internal_vtable(), disposable};
+	const t_o_shared_internal	result = {expose, 1};
 
-#endif
+	return (c_memdup(&result, sizeof(result)));
+}

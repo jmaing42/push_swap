@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "o_shared_internal.h"
 
-# include "ft_types.h"
+static const t_o_shared_vtable	g_vtable = {
+	o_shared_internal_dispose,
+	o_shared_internal_copy,
+};
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+const t_o_shared_vtable	*o_shared_internal_vtable(void)
+{
+	return (&g_vtable);
+}

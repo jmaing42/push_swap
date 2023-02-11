@@ -10,15 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef UTIL_H
-# define UTIL_H
+#include "util.h"
 
-# include "ft_types.h"
+#include <stddef.h>
+#include <assert.h>
 
-t_err	util_nonnull(void *value, void **out);
-void	util_nop(void);
-void	util_noop(void *unused);
-void	*util_nul(void);
-void	*util_null(void *unused);
-
-#endif
+int	main(void)
+{
+	assert(util_null((void *)&main) == NULL);
+	assert(util_null(NULL) == NULL);
+}
