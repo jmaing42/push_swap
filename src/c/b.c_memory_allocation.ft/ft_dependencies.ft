@@ -3,6 +3,6 @@ f.c_malloc.ft
 f.c_calloc.ft
 f.c_realloc.ft
 f.c_free.ft
+f.c_bzero.ft
 f.c_memcpy.ft
 f.c_memset.ft
-f.c_bzero.ft
