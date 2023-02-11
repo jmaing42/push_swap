@@ -15,7 +15,6 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "wrap.h"
 #include "c_internal.h"
 
 void	*c_realloc(void *ptr, size_t size)

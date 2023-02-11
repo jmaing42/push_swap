@@ -12,8 +12,6 @@
 
 #include "c.h"
 
-#include "wrap.h"
-
 void	*c_calloc(size_t count, size_t size)
 {
 	const size_t	total_size = count * size;
