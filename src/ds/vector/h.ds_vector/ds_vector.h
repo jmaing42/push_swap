@@ -25,13 +25,9 @@ typedef struct s_ds_vector
 {
 	const struct s_ds_vector_vtable	*vtable;
 	const size_t					item_size;
-	const void						*data;
-	const t_ds_vector_free_item		free;
 }	t_ds_vector;
 
-t_ds_vector	*ds_vector_new(
-				size_t item_size,
-				t_ds_vector_free_item free);
+t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free);
 
 typedef size_t	(*t_ds_vector_capacity)(t_ds_vector *self);
 typedef size_t	(*t_ds_vector_length)(t_ds_vector *self);
@@ -44,6 +40,9 @@ typedef struct s_ds_vector_vtable
 	const t_o_disposable_dispose	dispose;
 	const t_ds_vector_capacity		capacity;
 	const t_ds_vector_length		length;
+	const t_ds_vector_push			push;
+	const t_ds_vector_pop			pop;
+	const t_ds_vector_peek			peek;
 }	t_ds_vector_vtable;
 
 #endif

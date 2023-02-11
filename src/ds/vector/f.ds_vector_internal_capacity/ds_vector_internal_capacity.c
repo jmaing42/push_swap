@@ -10,27 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DS_VECTOR_INTERNAL_H
-# define DS_VECTOR_INTERNAL_H
+#include "ds_vector_internal.h"
 
-# include "ds_vector.h"
+#include "ds_vector.h"
 
-# include "ft_types.h"
-
-typedef struct s_ds_vector_internal
+size_t	ds_vector_internal_capacity(t_ds_vector *self)
 {
-	t_ds_vector					expose;
-	void						*data;
-	size_t						capacity;
-	size_t						length;
-	const t_ds_vector_free_item	free;
-}	t_ds_vector_internal;
+	t_ds_vector_internal *const	original = (t_ds_vector_internal *)self;
 
-void	ds_vector_internal_dispose(void *self);
-size_t	ds_vector_internal_capacity(t_ds_vector *self);
-size_t	ds_vector_internal_length(t_ds_vector *self);
-t_err	ds_vector_internal_push(t_ds_vector *self, const void *data);
-bool	ds_vector_internal_pop(t_ds_vector *self, void *out_data);
-bool	ds_vector_internal_peek(t_ds_vector *self, void *out_data);
-
-#endif
+	return (original->capacity);
+}

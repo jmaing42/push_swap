@@ -10,27 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DS_VECTOR_INTERNAL_H
-# define DS_VECTOR_INTERNAL_H
+#include "ds_vector.h"
 
-# include "ds_vector.h"
+#include "ds_vector_internal.h"
+#include "c.h"
 
-# include "ft_types.h"
+static const t_ds_vector_vtable	g_vtable = {
+	&ds_vector_internal_dispose,
+	&ds_vector_internal_capacity,
+	&ds_vector_internal_length,
+	&ds_vector_internal_push,
+	&ds_vector_internal_pop,
+	&ds_vector_internal_peek,
+};
 
-typedef struct s_ds_vector_internal
+t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free)
 {
-	t_ds_vector					expose;
-	void						*data;
-	size_t						capacity;
-	size_t						length;
-	const t_ds_vector_free_item	free;
-}	t_ds_vector_internal;
+	const t_ds_vector			expose = {&g_vtable, item_size};
+	const t_ds_vector_internal	result = {expose, NULL, 0, 0, free};
 
-void	ds_vector_internal_dispose(void *self);
-size_t	ds_vector_internal_capacity(t_ds_vector *self);
-size_t	ds_vector_internal_length(t_ds_vector *self);
-t_err	ds_vector_internal_push(t_ds_vector *self, const void *data);
-bool	ds_vector_internal_pop(t_ds_vector *self, void *out_data);
-bool	ds_vector_internal_peek(t_ds_vector *self, void *out_data);
-
-#endif
+	return ((t_ds_vector *)c_memdup(&result, sizeof(result)));
+}

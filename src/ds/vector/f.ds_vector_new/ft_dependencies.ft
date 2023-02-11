@@ -1,0 +1,10 @@
+h.ds_vector
+h.ds_vector_internal
+h.c
+f.ds_vector_internal_dispose
+f.ds_vector_internal_capacity
+f.ds_vector_internal_length
+f.ds_vector_internal_push
+f.ds_vector_internal_pop
+f.ds_vector_internal_peek
+f.c_memdup
