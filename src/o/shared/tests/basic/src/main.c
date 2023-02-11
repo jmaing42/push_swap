@@ -17,9 +17,8 @@
 
 #include "c.h"
 #include "o_disposable.h"
-#include "util.h"
 
-static const t_o_disposable_vtable	g_vtable = {&util_noop};
+static const t_o_disposable_vtable	g_vtable = {&c_free};
 
 static t_o_disposable	*create_dumb_disposable(void)
 {
@@ -47,5 +46,5 @@ int	main(void)
 	assert(puts("should not be freed yet") != EOF);
 	assert(e->p == a);
 	e->v->dispose(e);
-	assert(puts("should be free") != EOF);
+	assert(puts("should be freed") != EOF);
 }

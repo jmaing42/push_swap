@@ -12,11 +12,17 @@
 
 #include "o_shared_internal.h"
 
+#include "c.h"
+
 void	o_shared_internal_dispose(void *self)
 {
 	t_o_shared_internal *const	original = (t_o_shared_internal *)self;
 
 	original->reference_count--;
 	if (!original->reference_count)
-		original->expose.v->dispose(self);
+	{
+		((t_o_shared *)original->expose.p)->v->dispose(
+			(t_o_shared *)original->expose.p);
+		c_free(self);
+	}
 }
