@@ -1,2 +1,4 @@
 h.ds_vector_internal
+h.ds_vector
+h.ft_types
 h.c

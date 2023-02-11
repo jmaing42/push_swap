@@ -1,2 +1,3 @@
 h.ds_vector_internal
+h.ds_vector
 h.c
