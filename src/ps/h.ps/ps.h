@@ -21,4 +21,20 @@ typedef struct s_ps_ints
 	int		*ints;
 }	t_ps_ints;
 
+typedef enum e_ps_command
+{
+	PS_NOP,
+	PS_PA,
+	PS_PB,
+	PS_SA,
+	PS_SB,
+	PS_SS,
+	PS_RA,
+	PS_RB,
+	PS_RR,
+	PS_RRA,
+	PS_RRB,
+	PS_RRR,
+}	t_ps_command;
+
 #endif
