@@ -31,6 +31,22 @@ static int	get(t_ds_vector *v, size_t index)
 	return (result);
 }
 
+static int	peek(t_ds_vector *v)
+{
+	int	result;
+
+	assert(v->v->peek(v, &result));
+	return (result);
+}
+
+static int	pop(t_ds_vector *v)
+{
+	int	result;
+
+	assert(v->v->pop(v, &result));
+	return (result);
+}
+
 int	main(void)
 {
 	t_ds_vector *const	v = ds_vector_new(sizeof(int), NULL);
@@ -42,4 +58,13 @@ int	main(void)
 	assert(get(v, 0) == 42);
 	assert(get(v, 1) == 4);
 	assert(!v->v->get(v, 2, addressof(0)));
+	assert(peek(v) == 4);
+	assert(pop(v) == 4);
+	assert(get(v, 0) == 42);
+	assert(!v->v->get(v, 1, addressof(0)));
+	assert(peek(v) == 42);
+	assert(pop(v) == 42);
+	assert(!v->v->get(v, 0, addressof(0)));
+	assert(!v->v->peek(v, addressof(0)));
+	assert(!v->v->pop(v, addressof(0)));
 }
