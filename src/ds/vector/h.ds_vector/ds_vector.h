@@ -23,7 +23,7 @@ typedef void	(*t_ds_vector_free_item)(void *item);
 
 typedef struct s_ds_vector
 {
-	const struct s_ds_vector_vtable	*vtable;
+	const struct s_ds_vector_vtable	*v;
 	const size_t					item_size;
 }	t_ds_vector;
 
