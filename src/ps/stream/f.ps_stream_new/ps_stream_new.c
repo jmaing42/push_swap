@@ -10,23 +10,26 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PS_STREAM_H
-# define PS_STREAM_H
+#include "ps_stream.h"
 
-# include "ps.h"
+#include <stddef.h>
 
-# include <stddef.h>
+#include "ps_stream_internal.h"
+#include "ds_vector.h"
+#include "c.h"
 
-# include "ft_types.h"
-# include "ds_vector.h"
-
-typedef struct s_ps_stream
+t_ps_stream	*ps_stream_new(size_t a, size_t b)
 {
-	t_ds_vector *const	vec;
-}	t_ps_stream;
+	const t_ps_stream			expose = {
+		ds_vector_new(sizeof(t_ps_stream_internal), &ps_stream_internal_free)};
+	const t_ps_stream_internal	object = {expose, a, b};
+	t_ps_stream_internal		*result;
 
-t_ps_stream	*ps_stream_new(size_t a, size_t b);
-t_ds_vector	*ps_stream_to_vector(t_ps_stream *self);
-t_err		ps_stream_push(t_ps_stream *self, t_ps_command command);
-
-#endif
+	if (!expose.vec)
+		return (NULL);
+	result = c_memdup(&object, sizeof(object));
+	if (result)
+		return ((t_ps_stream *)result);
+	expose.vec->v->dispose(expose.vec);
+	return (NULL);
+}

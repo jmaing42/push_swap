@@ -1,0 +1,6 @@
+h.ps_stream
+h.ps_stream_internal
+h.ds_vector
+h.c
+f.ds_vector_new
+f.c_memdup
