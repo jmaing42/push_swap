@@ -10,24 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef O_DISPOSABLE_H
-# define O_DISPOSABLE_H
+#include "o_disposable.h"
 
-# include "ft_types.h"
+#include <stddef.h>
 
-typedef struct s_o_disposable
+void	o_disposable_dispose_p(t_o_disposable **p)
 {
-	const struct s_o_disposable_vtable	*v;
-}	t_o_disposable;
-
-void			o_disposable_dispose(t_o_disposable *disposable);
-void			o_disposable_dispose_p(t_o_disposable **p);
-
-typedef void	(*t_o_disposable_dispose)(void *disposable);
-
-typedef struct s_o_disposable_vtable
-{
-	const t_o_disposable_dispose	dispose;
-}	t_o_disposable_vtable;
-
-#endif
+	o_disposable_dispose(*p);
+	*p = NULL;
+}

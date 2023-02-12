@@ -19,6 +19,7 @@
 # include <stdbool.h>
 
 # include "ft_types.h"
+# include "ds_vector.h"
 
 typedef struct s_ps_stream_internal
 {
@@ -66,13 +67,46 @@ t_err	ps_stream_internal_append(t_ps_stream *self);
 t_err	ps_stream_internal_make_last(t_ps_stream *self);
 t_err	ps_stream_internal_make_last_p(t_ps_stream *self);
 
-t_err	ps_stream_internal_node_push_s(
+t_err	ps_stream_internal_node_create_a(
+			t_ps_stream_internal_node *self);
+t_err	ps_stream_internal_node_create_b(
+			t_ps_stream_internal_node *self);
+t_err	ps_stream_internal_node_vec_append(
+			t_ds_vector *self);
+t_err	ps_stream_internal_node_vec_push_s(
+			t_ds_vector *self,
+			size_t *mut_count);
+t_err	ps_stream_internal_node_vec_push_r(
+			t_ds_vector *self,
+			size_t *mut_count);
+t_err	ps_stream_internal_node_vec_push_rr(
+			t_ds_vector *self,
+			size_t *mut_count);
+t_err	ps_stream_internal_node_push_sa(
 			t_ps_stream_internal_node *self,
 			bool *out_remove);
-t_err	ps_stream_internal_node_push_r(
+t_err	ps_stream_internal_node_push_sb(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_ss(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_ra(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_rb(
 			t_ps_stream_internal_node *self,
 			bool *out_remove);
 t_err	ps_stream_internal_node_push_rr(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_rra(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_rrb(
+			t_ps_stream_internal_node *self,
+			bool *out_remove);
+t_err	ps_stream_internal_node_push_rrr(
 			t_ps_stream_internal_node *self,
 			bool *out_remove);
 

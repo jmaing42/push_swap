@@ -10,24 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef O_DISPOSABLE_H
-# define O_DISPOSABLE_H
+#include "ps_stream_internal.h"
 
-# include "ft_types.h"
+#include <stdbool.h>
 
-typedef struct s_o_disposable
+#include "ft_types.h"
+#include "o_disposable.h"
+
+t_err	ps_stream_internal_node_push_sa(
+	t_ps_stream_internal_node *self,
+	bool *out_remove
+)
 {
-	const struct s_o_disposable_vtable	*v;
-}	t_o_disposable;
-
-void			o_disposable_dispose(t_o_disposable *disposable);
-void			o_disposable_dispose_p(t_o_disposable **p);
-
-typedef void	(*t_o_disposable_dispose)(void *disposable);
-
-typedef struct s_o_disposable_vtable
-{
-	const t_o_disposable_dispose	dispose;
-}	t_o_disposable_vtable;
-
-#endif
+	if (ps_stream_internal_node_create_a(self))
+		return (true);
+	if (ps_stream_internal_node_vec_push_s(self->a, &self->ac))
+		return (true);
+	if (!self->ac)
+		o_disposable_dispose_p((t_o_disposable **)&self->a);
+	*out_remove = (!self->pa && !self->pb && !self->a && !self->b);
+	return (false);
+}

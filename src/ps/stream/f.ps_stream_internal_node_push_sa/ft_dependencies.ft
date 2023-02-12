@@ -1,0 +1,6 @@
+h.ps_stream_internal
+h.ft_types
+h.o_disposable
+f.ps_stream_internal_node_create_a
+f.ps_stream_internal_node_vec_push_s
+f.o_disposable_dispose_p
