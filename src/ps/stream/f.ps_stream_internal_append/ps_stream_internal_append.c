@@ -10,29 +10,36 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_stream.h"
-
-#include <stddef.h>
-
 #include "ps_stream_internal.h"
-#include "ds_vector.h"
+
+#include "ft_types.h"
 #include "c.h"
 
-t_ps_stream	*ps_stream_new(size_t a, size_t b)
+static t_ps_stream_internal_node	*new_node(void)
 {
-	const t_ps_stream			expose = {
-		ds_vector_new(
-			sizeof(t_ps_stream_internal_node *),
-			&ps_stream_internal_free),
-	};
-	const t_ps_stream_internal	object = {expose, a, b};
-	t_ps_stream_internal		*result;
+	t_ps_stream_internal_node *const	result
+		= c_malloc(sizeof(t_ps_stream_internal_node));
 
-	if (!expose.vec)
+	if (!result)
 		return (NULL);
-	result = c_memdup(&object, sizeof(object));
+	result->pa = 0;
+	result->pb = 0;
+	result->a = NULL;
+	result->ac = 0;
+	result->b = NULL;
+	result->bc = 0;
+	return (result);
+}
+
+t_err	ps_stream_internal_append(t_ps_stream *self)
+{
+	t_ps_stream_internal_node *const	node = new_node();
+	t_err								result;
+
+	if (!node)
+		return (true);
+	result = self->vec->v->push(self->vec, &node);
 	if (result)
-		return ((t_ps_stream *)result);
-	expose.vec->v->dispose(expose.vec);
-	return (NULL);
+		c_free(node);
+	return (result);
 }

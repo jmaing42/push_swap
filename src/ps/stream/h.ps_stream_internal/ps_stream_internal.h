@@ -62,6 +62,10 @@ t_err	ps_stream_internal_push_rra(t_ps_stream *self);
 t_err	ps_stream_internal_push_rrb(t_ps_stream *self);
 t_err	ps_stream_internal_push_rrr(t_ps_stream *self);
 
+t_err	ps_stream_internal_append(t_ps_stream *self);
+t_err	ps_stream_internal_make_last(t_ps_stream *self);
+t_err	ps_stream_internal_make_last_p(t_ps_stream *self);
+
 t_err	ps_stream_internal_node_push_s(
 			t_ps_stream_internal_node *self,
 			bool *out_remove);

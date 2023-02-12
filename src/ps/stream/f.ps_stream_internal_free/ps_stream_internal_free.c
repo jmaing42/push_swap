@@ -16,7 +16,8 @@
 
 void	ps_stream_internal_free(void *self)
 {
-	t_ps_stream_internal_node *const	node = self;
+	t_ps_stream_internal_node *const	node
+		= *((t_ps_stream_internal_node **)self);
 
 	node->a->v->dispose(node->a);
 	node->b->v->dispose(node->b);
