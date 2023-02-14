@@ -16,22 +16,10 @@
 
 #include "ft_types.h"
 
-t_err	ps_stream_internal_push_pa(t_ps_stream *self, bool *out_remove)
+t_err	ps_stream_internal_push_ss(t_ps_stream *self, bool *out_remove)
 {
-	t_ps_stream_internal *const	original = (t_ps_stream_internal *)self;
-	t_ps_stream_internal_node	*node;
-
-	if (!original->b)
-		return (false);
-	if (ps_stream_internal_make_last_p(self))
-		return (true);
-	self->vec->v->peek(self->vec, &node);
-	if (node->pb)
-		node->pb--;
-	else
-		node->pa++;
-	original->b--;
-	original->a++;
-	*out_remove = (!node->pa && !node->pb);
-	return (false);
+	return (
+		ps_stream_internal_push_sa(self, out_remove)
+		|| ps_stream_internal_push_sb(self, out_remove)
+	);
 }

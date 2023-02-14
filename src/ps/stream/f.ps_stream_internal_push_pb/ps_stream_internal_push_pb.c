@@ -12,9 +12,11 @@
 
 #include "ps_stream_internal.h"
 
+#include <stdbool.h>
+
 #include "ft_types.h"
 
-t_err	ps_stream_internal_push_pb(t_ps_stream *self)
+t_err	ps_stream_internal_push_pb(t_ps_stream *self, bool *out_remove)
 {
 	t_ps_stream_internal *const	original = (t_ps_stream_internal *)self;
 	t_ps_stream_internal_node	*node;
@@ -30,5 +32,6 @@ t_err	ps_stream_internal_push_pb(t_ps_stream *self)
 		node->pb++;
 	original->a--;
 	original->b++;
+	*out_remove = (!node->pa && !node->pb);
 	return (false);
 }
