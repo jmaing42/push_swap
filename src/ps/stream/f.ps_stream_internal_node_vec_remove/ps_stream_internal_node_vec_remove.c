@@ -14,20 +14,24 @@
 
 #include <stdbool.h>
 
-#include "ft_types.h"
-#include "o_disposable.h"
+#include "ds_vector.h"
 
-t_err	ps_stream_internal_node_push_sa(
-	t_ps_stream_internal_node *self,
-	bool *out_remove
+bool	ps_stream_internal_node_vec_remove(
+	t_ds_vector *self,
+	t_ps_stream_internal_command command
 )
 {
-	if (ps_stream_internal_node_create_a(self))
-		return (true);
-	if (ps_stream_internal_node_vec_push_s(self->a, &self->ac))
-		return (true);
-	if (!self->ac)
-		o_disposable_dispose_p((t_o_disposable **)&self->a);
-	*out_remove = (!self->pa && !self->pb && !self->a && !self->b);
+	t_ps_stream_internal_command_node	node;
+
+	if (!self->v->peek(self, &node)
+		|| node.command != command)
+		return (false);
+	if (node.count == 1)
+	{
+		self->v->pop(self, &node);
+		return (false);
+	}
+	node.count--;
+	self->v->set(self, self->v->length(self) - 1, &node);
 	return (false);
 }

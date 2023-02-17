@@ -12,33 +12,52 @@
 
 #include "ps_stream.h"
 
+#include <stdbool.h>
+
 #include "ps_stream_internal.h"
 #include "ps.h"
 #include "ft_types.h"
 
-t_err	ps_stream_push(t_ps_stream *self, t_ps_command command)
+typedef t_err	(*t_f)(t_ps_stream *self, bool *out_remove);
+
+static t_f	func(t_ps_command command)
 {
 	if (command == PS_PA)
-		return (ps_stream_internal_push_pa(self));
+		return (&ps_stream_internal_push_pa);
 	if (command == PS_PB)
-		return (ps_stream_internal_push_pb(self));
+		return (&ps_stream_internal_push_pb);
 	if (command == PS_SA)
-		return (ps_stream_internal_push_sa(self));
+		return (&ps_stream_internal_push_sa);
 	if (command == PS_SB)
-		return (ps_stream_internal_push_sb(self));
+		return (&ps_stream_internal_push_sb);
 	if (command == PS_SS)
-		return (ps_stream_internal_push_ss(self));
+		return (&ps_stream_internal_push_ss);
 	if (command == PS_RA)
-		return (ps_stream_internal_push_ra(self));
+		return (&ps_stream_internal_push_ra);
 	if (command == PS_RB)
-		return (ps_stream_internal_push_rb(self));
+		return (&ps_stream_internal_push_rb);
 	if (command == PS_RR)
-		return (ps_stream_internal_push_rr(self));
+		return (&ps_stream_internal_push_rr);
 	if (command == PS_RRA)
-		return (ps_stream_internal_push_rra(self));
+		return (&ps_stream_internal_push_rra);
 	if (command == PS_RRB)
-		return (ps_stream_internal_push_rrb(self));
+		return (&ps_stream_internal_push_rrb);
 	if (command == PS_RRR)
-		return (ps_stream_internal_push_rrr(self));
-	return (true);
+		return (&ps_stream_internal_push_rrr);
+	return (NULL);
+}
+
+t_err	ps_stream_push(t_ps_stream *self, t_ps_command command)
+{
+	const t_f					f = func(command);
+	bool						removed;
+	t_ps_stream_internal_node	node;
+
+	if (!f)
+		return (true);
+	if (f(self, &removed))
+		return (true);
+	if (removed)
+		self->vec->v->pop(self->vec, &node);
+	return (false);
 }

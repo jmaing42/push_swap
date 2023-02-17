@@ -70,7 +70,11 @@ t_err	ps_stream_internal_make_last_p(t_ps_stream *self);
 t_err	ps_stream_internal_node_init_vector(
 			t_ds_vector **out);
 t_err	ps_stream_internal_node_vec_append(
-			t_ds_vector *self);
+			t_ds_vector *self,
+			t_ps_stream_internal_command command);
+bool	ps_stream_internal_node_vec_remove(
+			t_ds_vector *self,
+			t_ps_stream_internal_command command);
 t_err	ps_stream_internal_node_vec_push_s(
 			t_ds_vector *self,
 			size_t *mut_count);

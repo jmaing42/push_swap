@@ -1,33 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fake_file_name (file name is useless too)          :+:      :+:    :+:   */
+/*   ps_stream_internal_node_vec_append.c               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: 42header-remover <whatever@example.com>    +#+  +:+       +#+        */
+/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 00:00:00 by VCS handles       #+#    #+#             */
-/*   Updated: 1970/01/01 00:00:00 by file history     ###   ########.fr       */
+/*   Updated: 2023/02/18 00:40:45 by Juyeong Maing    ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ps_stream_internal.h"
 
-#include <stdbool.h>
-
 #include "ft_types.h"
-#include "o_disposable.h"
+#include "ds_vector.h"
 
-t_err	ps_stream_internal_node_push_sb(
-	t_ps_stream_internal_node *self,
-	bool *out_remove
+t_err	ps_stream_internal_node_vec_append(
+	t_ds_vector *self,
+	t_ps_stream_internal_command command
 )
 {
-	if (ps_stream_internal_node_create_b(self))
+	t_ps_stream_internal_command_node	node;
+
+	if (self->v->peek(self, &node) && node.command == command)
+	{
+		node.count++;
+		self->v->set(self, self->v->length(self) - 1, &node);
+		return (false);
+	}
+	node.command = command;
+	node.count = 1;
+	if (self->v->push(self, &node))
 		return (true);
-	if (ps_stream_internal_node_vec_push_s(self->b, &self->bc))
-		return (true);
-	if (!self->bc)
-		o_disposable_dispose_p((t_o_disposable **)&self->b);
-	*out_remove = (!self->pa && !self->pb && !self->a && !self->b);
 	return (false);
 }
