@@ -87,4 +87,15 @@ t_err	ps_stream_internal_node_vec_push_rr(
 
 void	ps_stream_internal_free(void *self);
 
+t_err	ps_stream_internal_push(t_ds_vector *self, t_ps_command command);
+
+t_err	ps_stream_internal_build_score_matrix(
+			t_ps_stream_internal_node *node,
+			size_t ***out,
+			size_t *out_height,
+			size_t *out_width);
+t_err	ps_stream_internal_push_s_r_rr(
+			t_ps_stream_internal_node *node,
+			t_ds_vector **out);
+
 #endif

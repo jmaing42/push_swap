@@ -49,5 +49,10 @@ bool	ds_vector_internal_get(
 			t_ds_vector *self,
 			size_t index,
 			void *out_data);
+void	ds_vector_internal_reverse(
+			t_ds_vector *self);
+t_err	ds_vector_internal_append(
+			t_ds_vector *self,
+			t_ds_vector *source);
 
 #endif

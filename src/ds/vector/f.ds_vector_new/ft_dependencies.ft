@@ -9,4 +9,6 @@ f.ds_vector_internal_pop
 f.ds_vector_internal_peek
 f.ds_vector_internal_get
 f.ds_vector_internal_set
+f.ds_vector_internal_reverse
+f.ds_vector_internal_append
 f.c_memdup

@@ -10,28 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ds_vector.h"
-
 #include "ds_vector_internal.h"
+
+#include "ds_vector.h"
 #include "c.h"
 
-static const t_ds_vector_vtable	g_vtable = {
-	&ds_vector_internal_dispose,
-	&ds_vector_internal_capacity,
-	&ds_vector_internal_length,
-	&ds_vector_internal_push,
-	&ds_vector_internal_pop,
-	&ds_vector_internal_peek,
-	&ds_vector_internal_get,
-	&ds_vector_internal_set,
-	&ds_vector_internal_reverse,
-	&ds_vector_internal_append,
-};
-
-t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free)
+t_err	ds_vector_internal_append(t_ds_vector *self, t_ds_vector *source)
 {
-	const t_ds_vector			expose = {&g_vtable, item_size};
-	const t_ds_vector_internal	result = {expose, NULL, 0, 0, free};
+	t_byte *const	tmp = c_malloc(self->item_size);
+	size_t			i;
 
-	return ((t_ds_vector *)c_memdup(&result, sizeof(result)));
+	if (!tmp)
+		return (true);
+	i = -1;
+	while (++i < source->v->length(source))
+	{
+		source->v->get(source, i, tmp);
+		if (self->v->push(self, tmp))
+		{
+			c_free(tmp);
+			return (true);
+		}
+	}
+	c_free(tmp);
+	return (false);
 }

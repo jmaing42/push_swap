@@ -50,6 +50,11 @@ typedef bool	(*t_ds_vector_get)(
 					t_ds_vector *self,
 					size_t index,
 					void *out_data);
+typedef void	(*t_ds_vector_reverse)(
+					t_ds_vector *self);
+typedef t_err	(*t_ds_vector_append)(
+					t_ds_vector *self,
+					t_ds_vector *source);
 
 typedef struct s_ds_vector_vtable
 {
@@ -61,6 +66,8 @@ typedef struct s_ds_vector_vtable
 	const t_ds_vector_peek			peek;
 	const t_ds_vector_get			get;
 	const t_ds_vector_set			set;
+	const t_ds_vector_reverse		reverse;
+	const t_ds_vector_append		append;
 }	t_ds_vector_vtable;
 
 #endif

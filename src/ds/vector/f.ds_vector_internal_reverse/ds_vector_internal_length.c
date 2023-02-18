@@ -10,28 +10,37 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ds_vector_internal.h"
+
+#include "ft_types.h"
 #include "ds_vector.h"
 
-#include "ds_vector_internal.h"
-#include "c.h"
-
-static const t_ds_vector_vtable	g_vtable = {
-	&ds_vector_internal_dispose,
-	&ds_vector_internal_capacity,
-	&ds_vector_internal_length,
-	&ds_vector_internal_push,
-	&ds_vector_internal_pop,
-	&ds_vector_internal_peek,
-	&ds_vector_internal_get,
-	&ds_vector_internal_set,
-	&ds_vector_internal_reverse,
-	&ds_vector_internal_append,
-};
-
-t_ds_vector	*ds_vector_new(size_t item_size, t_ds_vector_free_item free)
+static void	swap(t_byte *a, t_byte *b, size_t size)
 {
-	const t_ds_vector			expose = {&g_vtable, item_size};
-	const t_ds_vector_internal	result = {expose, NULL, 0, 0, free};
+	t_byte	tmp;
+	size_t	i;
 
-	return ((t_ds_vector *)c_memdup(&result, sizeof(result)));
+	i = -1;
+	while (++i < size)
+	{
+		tmp = a[i];
+		a[i] = b[i];
+		b[i] = tmp;
+	}
+}
+
+void	ds_vector_internal_reverse(t_ds_vector *self)
+{
+	t_ds_vector_internal *const	original = (t_ds_vector_internal *)self;
+	const size_t				s = self->item_size;
+	size_t						i;
+
+	i = original->length / 2 + 1;
+	while (i--)
+	{
+		swap(
+			(t_byte *)original->data + s * i,
+			(t_byte *)original->data + s * (original->length - 1 - i),
+			s);
+	}
 }
