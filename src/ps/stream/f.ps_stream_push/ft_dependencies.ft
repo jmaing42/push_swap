@@ -1,6 +1,7 @@
 h.ps
 h.ps_stream
 h.ps_stream_internal
+h.c
 h.ft_types
 f.ps_stream_internal_push_pa
 f.ps_stream_internal_push_pb
@@ -13,3 +14,4 @@ f.ps_stream_internal_push_rr
 f.ps_stream_internal_push_rra
 f.ps_stream_internal_push_rrb
 f.ps_stream_internal_push_rrr
+f.c_free

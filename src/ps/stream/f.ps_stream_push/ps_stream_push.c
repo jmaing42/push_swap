@@ -16,6 +16,7 @@
 
 #include "ps_stream_internal.h"
 #include "ps.h"
+#include "c.h"
 #include "ft_types.h"
 
 typedef t_err	(*t_f)(t_ps_stream *self, bool *out_remove);
@@ -51,13 +52,16 @@ t_err	ps_stream_push(t_ps_stream *self, t_ps_command command)
 {
 	const t_f					f = func(command);
 	bool						removed;
-	t_ps_stream_internal_node	node;
+	t_ps_stream_internal_node	*node;
 
 	if (!f)
 		return (true);
 	if (f(self, &removed))
 		return (true);
 	if (removed)
+	{
 		self->vec->v->pop(self->vec, &node);
+		c_free(node);
+	}
 	return (false);
 }

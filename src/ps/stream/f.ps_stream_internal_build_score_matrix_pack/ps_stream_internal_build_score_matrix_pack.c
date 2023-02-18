@@ -117,9 +117,9 @@ t_err	ps_stream_internal_build_score_matrix_pack(
 		node->ac + 1,
 		node->bc + 1,
 		flat(node->a, node->ac),
-		out->ac,
+		node->ac,
 		flat(node->b, node->bc),
-		out->bc,
+		node->bc,
 	};
 
 	if (!result.matrix || !result.a || !result.b)

@@ -48,7 +48,7 @@ t_ds_vector	*ps_stream_to_vector(t_ps_stream *self)
 {
 	t_ds_vector *const			result
 		= ds_vector_new(sizeof(t_ps_command), NULL);
-	t_ps_stream_internal_node	node;
+	t_ps_stream_internal_node	*node;
 	size_t						i;
 
 	if (!result)
@@ -57,7 +57,7 @@ t_ds_vector	*ps_stream_to_vector(t_ps_stream *self)
 	while (++i < self->vec->v->length(self->vec))
 	{
 		self->vec->v->get(self->vec, i, &node);
-		if (serialize_node(result, &node))
+		if (serialize_node(result, node))
 		{
 			o_disposable_dispose((t_o_disposable *)result);
 			return (NULL);
