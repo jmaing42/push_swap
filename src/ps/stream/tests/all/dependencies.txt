@@ -1,5 +1,6 @@
 h.ps_stream
 h.ps
+h.ft_types
 h.ds_vector
 h.o_disposable
 f.ps_stream_push
