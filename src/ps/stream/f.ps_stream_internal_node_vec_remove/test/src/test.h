@@ -10,28 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ps_stream_internal.h"
+#ifndef TEST_H
+# define TEST_H
 
-#include <stdbool.h>
+void	test1(void);
 
-#include "ds_vector.h"
-
-bool	ps_stream_internal_node_vec_remove(
-	t_ds_vector *self,
-	t_ps_stream_internal_command command
-)
-{
-	t_ps_stream_internal_command_node	node;
-
-	if (!self->v->peek(self, &node)
-		|| node.command != command)
-		return (false);
-	if (node.count == 1)
-	{
-		self->v->pop(self, &node);
-		return (true);
-	}
-	node.count--;
-	self->v->set(self, self->v->length(self) - 1, &node);
-	return (true);
-}
+#endif
