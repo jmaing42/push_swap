@@ -4,3 +4,4 @@ h.ds_vector
 h.c
 f.ds_vector_new
 f.c_memdup
+f.ps_stream_internal_free

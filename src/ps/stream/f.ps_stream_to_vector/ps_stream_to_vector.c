@@ -36,7 +36,7 @@ static t_err	serialize_node(
 	while (++i < node->pb)
 		if (ps_stream_internal_push(self, PS_PB))
 			return (true);
-	if (ps_stream_internal_push_s_r_rr(node, &tmp))
+	if (ps_stream_internal_s_r_rr(node, &tmp))
 		return (true);
 	tmp->v->reverse(tmp);
 	result = self->v->append(self, tmp);

@@ -2,4 +2,4 @@ h.ps_stream_internal
 h.ds_vector
 h.util
 f.ds_vector_new
-f.util_noop
+f.util_nonnull

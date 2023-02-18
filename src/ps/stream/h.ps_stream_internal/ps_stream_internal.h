@@ -30,9 +30,9 @@ typedef struct s_ps_stream_internal
 
 typedef enum e_ps_stream_internal_command
 {
-	PS_STREAM_INTERNAL_COMMAND_S,
-	PS_STREAM_INTERNAL_COMMAND_R,
-	PS_STREAM_INTERNAL_COMMAND_RR,
+	PS_STREAM_INTERNAL_COMMAND_S = 0,
+	PS_STREAM_INTERNAL_COMMAND_R = 1,
+	PS_STREAM_INTERNAL_COMMAND_RR = 2,
 }	t_ps_stream_internal_command;
 
 typedef struct s_ps_stream_internal_command_node
@@ -50,6 +50,17 @@ typedef struct s_ps_stream_internal_node
 	t_ds_vector	*b;
 	size_t		bc;
 }	t_ps_stream_internal_node;
+
+typedef struct s_ps_stream_internal_score_matrix_pack
+{
+	size_t							**matrix;
+	size_t							height;
+	size_t							width;
+	t_ps_stream_internal_command	*a;
+	size_t							ac;
+	t_ps_stream_internal_command	*b;
+	size_t							bc;
+}	t_ps_stream_internal_score_matrix_pack;
 
 t_err	ps_stream_internal_push_pa(t_ps_stream *self, bool *out_remove);
 t_err	ps_stream_internal_push_pb(t_ps_stream *self, bool *out_remove);
@@ -89,13 +100,19 @@ void	ps_stream_internal_free(void *self);
 
 t_err	ps_stream_internal_push(t_ds_vector *self, t_ps_command command);
 
-t_err	ps_stream_internal_build_score_matrix(
+t_err	ps_stream_internal_build_score_matrix_pack(
 			t_ps_stream_internal_node *node,
-			size_t ***out,
-			size_t *out_height,
-			size_t *out_width);
-t_err	ps_stream_internal_push_s_r_rr(
+			t_ps_stream_internal_score_matrix_pack *out);
+void	ps_stream_internal_free_score_matrix(
+			size_t **matrix,
+			size_t height);
+void	ps_stream_internal_free_score_matrix_pack(
+			t_ps_stream_internal_score_matrix_pack pack);
+t_err	ps_stream_internal_s_r_rr(
 			t_ps_stream_internal_node *node,
 			t_ds_vector **out);
+t_err	ps_stream_internal_flat(
+			t_ds_vector *vector,
+			size_t **out);
 
 #endif

@@ -1,0 +1,6 @@
+h.ps_stream_internal
+h.ds_vector
+h.ps
+f.ps_stream_internal_push
+f.ps_stream_internal_build_score_matrix_pack
+f.ps_stream_internal_free_score_matrix_pack
