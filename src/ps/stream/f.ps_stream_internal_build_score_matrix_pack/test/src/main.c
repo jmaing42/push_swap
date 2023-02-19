@@ -52,21 +52,24 @@ static void	print(t_ps_stream_internal_score_matrix_pack pack)
 	}
 }
 
+static const size_t	g_size = sizeof(t_ps_stream_internal_command_node);
+
 int	main(void)
 {
 	char									buffer[3];
 	t_ps_stream_internal_node				node;
 	t_ps_stream_internal_score_matrix_pack	pack;
 
-	assert(node.a = ds_vector_new(sizeof(t_ps_stream_internal_command), NULL));
-	assert(node.b = ds_vector_new(sizeof(t_ps_stream_internal_command), NULL));
+	assert(node.a = ds_vector_new(g_size, NULL));
+	assert(node.b = ds_vector_new(g_size, NULL));
 	node.ac = 0;
 	node.bc = 0;
 	while (!feof(stdin) && !ferror(stdin))
 		assert(
-			(scanf("%3s", buffer) == 1 || feof(stdin))
-			&& !ferror(stdin)
-			&& !push(&node, buffer));
+			(
+				(scanf("%3s", buffer) == 1 && !push(&node, buffer))
+				|| feof(stdin))
+			&& !ferror(stdin));
 	assert(!ps_stream_internal_build_score_matrix_pack(&node, &pack));
 	print(pack);
 }

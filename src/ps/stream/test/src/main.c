@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fake_file_name (file name is useless too)          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Juyeong Maing <jmaing@student.42seoul.kr>  +#+  +:+       +#+        */
+/*   By: 42header-remover <whatever@example.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 1970/01/01 00:00:00 by VCS handles       #+#    #+#             */
-/*   Updated: 2023/02/19 07:44:44 by Juyeong Maing    ###   ########.fr       */
+/*   Updated: 1970/01/01 00:00:00 by file history     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,10 @@ int	main(void)
 	assert(stream = ps_stream_new(tmp_a, tmp_b));
 	while (!feof(stdin) && !ferror(stdin))
 		assert(
-			(scanf("%3s", buffer) == 1 || feof(stdin))
-			&& !ferror(stdin)
-			&& !push(stream, buffer));
+			(
+				(scanf("%3s", buffer) == 1 && !push(stream, buffer))
+				|| feof(stdin))
+			&& !ferror(stdin));
 	assert(!ferror(stdin));
 	assert(result = ps_stream_to_vector(stream));
 	tmp_a = -1;
