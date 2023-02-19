@@ -14,4 +14,3 @@ f.ps_stream_internal_push_rr
 f.ps_stream_internal_push_rra
 f.ps_stream_internal_push_rrb
 f.ps_stream_internal_push_rrr
-f.c_free
