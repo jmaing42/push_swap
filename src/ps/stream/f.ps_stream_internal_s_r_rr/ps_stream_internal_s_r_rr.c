@@ -17,8 +17,7 @@
 #include "ds_vector.h"
 #include "ps.h"
 
-static const t_ps_command	g_command[4][3] = {
-{PS_NOP, PS_NOP, PS_NOP},
+static const t_ps_command	g_command[3][3] = {
 {PS_SA, PS_RA, PS_RRA},
 {PS_SB, PS_RB, PS_RRB},
 {PS_SS, PS_RR, PS_RRR},
@@ -47,7 +46,7 @@ static t_err	add(
 	return (
 		ps_stream_internal_push(
 			mut_result,
-			g_command[(!!l.next_y) + 2 * (!!l.next_x)][type]
+			g_command[(!!l.next_y) + 2 * (!!l.next_x) - 1][type]
 	));
 }
 
